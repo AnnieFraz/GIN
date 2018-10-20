@@ -80,6 +80,13 @@
             </exclusion>
           </exclusions>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.2</version>
+        </dependency>
+
 
         <!-- test scoped dependencies -->
         <dependency>
@@ -146,6 +153,12 @@
             <version>1.2.15-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
 
@@ -193,8 +206,16 @@ Spring-DM-Version: ${pom.version}
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
 
-    <!-- alternative maven-bundle-plugin configuration -->
+            <!-- alternative maven-bundle-plugin configuration -->
     <!-- see http://felix.apache.org/site/maven-bundle-plugin-bnd.html for more info -->
 
     <!--

@@ -7,7 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="AnnaGin" />
+        <module name="gin-examples" />
+        <module name="gin-main" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="example" target="8" />
+      <module name="gin" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
