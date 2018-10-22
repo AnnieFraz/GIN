@@ -8,10 +8,6 @@ import org.hotswap.agent.config.PluginManager;
 import org.hotswap.agent.plugin.hotswapper.HotSwapper;
 import org.mdkt.compiler.*;
 
-import javax.tools.DiagnosticCollector;
-import javax.tools.JavaCompiler;
-import javax.tools.JavaFileObject;
-import javax.tools.ToolProvider;
 import java.util.*;
 
 public class AppMain {
@@ -34,9 +30,9 @@ public class AppMain {
         CompilationUnit parse = JavaParser.parse(aSource);
 
 
-
         Class<?> bClass = inMemoryJavaCompiler.compile("B", bSource);
-        System.out.println(bClass.getClassLoader());
+
+         System.out.println(bClass.getClassLoader());
 
 
         bClass.newInstance();
