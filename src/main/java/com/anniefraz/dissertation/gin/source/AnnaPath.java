@@ -16,7 +16,7 @@ public class AnnaPath {
     }
 
     public AnnaPath(String className) {
-        this(new ArrayList<>(), className);
+        this(new ArrayList<String>(), className);
     }
 
     public Path toPath() {

@@ -4,22 +4,27 @@ package com.anniefraz.dissertation.gin.source;
 import com.anniefraz.dissertation.gin.source.AnnaPath;
 import com.anniefraz.dissertation.gin.source.Source;
 import com.anniefraz.dissertation.gin.source.SourceFactory;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+//import org.junit.Assert;
+//import org.junit.Before;
+//import org.junit.Test;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class SourceFactoryTest {
 
 
     private SourceFactory sourceFactory;
 
-    @Before
+    @BeforeEach
     public void initialize(){
         String path = getClass().getResource("/testClasses/TestClass.java").getPath();
         Path folder = Paths.get(path).toAbsolutePath().getParent();
@@ -33,7 +38,7 @@ public class SourceFactoryTest {
 
         Source source = sourceFactory.getSourceFromAnnaPath(name);
 
-        Assert.assertEquals(source.getPaths().get(0), name);
+        assertEquals(source.getPaths().get(0), name);
 
     }
 
@@ -46,7 +51,7 @@ public class SourceFactoryTest {
         List<AnnaPath> paths = Arrays.asList(name, name2);
         Source source = sourceFactory.getSourceFromAnnaPaths(paths);
 
-        Assert.assertTrue(source.getPaths().containsAll(paths));
+        assertTrue(source.getPaths().containsAll(paths));
     }
 
 

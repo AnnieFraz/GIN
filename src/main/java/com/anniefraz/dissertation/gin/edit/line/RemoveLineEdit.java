@@ -19,4 +19,11 @@ public class RemoveLineEdit extends SingleClassEdit {
         List<String> lines = annaClass.getLines();
         lines.remove(lineNumber);
     }
+
+    @Override
+    public String toString() {
+        return "RemoveLineEdit{" +
+                "lineNumber=" + lineNumber +
+                '}';
+    }
 }

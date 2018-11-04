@@ -3,7 +3,7 @@ package com.anniefraz.dissertation.gin.edit.line;
 import com.anniefraz.dissertation.gin.edit.SingleClassEdit;
 import com.anniefraz.dissertation.gin.source.AnnaClass;
 import com.anniefraz.dissertation.gin.source.AnnaPath;
-import org.apache.commons.collections4.ListUtils;
+//import org.apache.commons.collections4.ListUtils;
 
 import java.util.Collections;
 import java.util.List;
@@ -18,14 +18,21 @@ public class MoveLineEdit extends SingleClassEdit {
         this.destinationLineIndex = destinationLineIndex;
     }
 
-
-
     @Override
     protected void applyMethod(AnnaClass annaClass) {
         List<String> lines = annaClass.getLines();
+        System.out.println(lines);
         String line = lines.remove(sourceLineIndex);
         lines.add(destinationLineIndex, line);
+        System.out.println(lines);
 
 
+    }
+    @Override
+    public String toString() {
+        return "MoveLineEdit{" +
+                "sourceLineIndex=" + sourceLineIndex +
+                ", destinationLineIndex=" + destinationLineIndex +
+                '}';
     }
 }

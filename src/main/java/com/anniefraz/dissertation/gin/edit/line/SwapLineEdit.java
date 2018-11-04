@@ -20,6 +20,24 @@ public class SwapLineEdit extends SingleClassEdit {
     @Override
     protected void applyMethod(AnnaClass annaClass) {
         List<String> lines = annaClass.getLines();
-        Collections.swap(lines, firstLineIndex, secondLineIndex);
+        System.out.println(lines);
+        //Collections.swap(lines, firstLineIndex, secondLineIndex);
+        String line1 = lines.remove(firstLineIndex);
+        System.out.println(line1);
+        String line2 = lines.remove(secondLineIndex);
+        System.out.println(line2);
+        System.out.println(lines);
+        lines.add(secondLineIndex-1, line1);
+        lines.add(firstLineIndex-1, line2);
+        //Collections.swap(lines, secondLineIndex, firstLineIndex);
+        System.out.println(lines);
+    }
+
+    @Override
+    public String toString() {
+        return "SwapLineEdit{" +
+                "firstLineIndex=" + firstLineIndex +
+                ", secondLineIndex=" + secondLineIndex +
+                '}';
     }
 }

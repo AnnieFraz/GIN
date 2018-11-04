@@ -19,4 +19,6 @@ public abstract class SingleClassEdit implements Edit {
     }
 
     protected abstract void applyMethod(AnnaClass annaClass);
+
+
 }
