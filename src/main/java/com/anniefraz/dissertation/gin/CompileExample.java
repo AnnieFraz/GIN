@@ -32,7 +32,8 @@ public class CompileExample {
 
 
             compiledClass = InMemoryJavaCompiler.newInstance().compile(className, source);
-            System.out.println(compiledClass.newInstance());
+        System.out.println(compiledClass);
+        System.out.println(compiledClass.newInstance());
 
         // compiledClass2 = InMemoryJavaCompiler.newInstance().compile("HelloWorld", "HelloWorld.java");
 

@@ -5,4 +5,6 @@ import com.anniefraz.dissertation.gin.source.AnnaClass;
 @FunctionalInterface
 public interface Edit {
     void apply(AnnaClass annaClass);
+
+
 }

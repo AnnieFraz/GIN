@@ -66,7 +66,7 @@ public class Patch {
 
 
     //TODO: This
-    public Edit random(List<Edit> EditTypes) {
+    public Edit randomEdit(List<Edit> EditTypes) {
 
         Edit edit = null;
 
