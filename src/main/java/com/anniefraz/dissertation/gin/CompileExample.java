@@ -28,16 +28,16 @@ public class CompileExample {
             URL classUrl = new File("~Documents/gin/AnnaGin/test/resources/testClasses/example/HelloWorld.java").toURI().toURL();
             URL[] urls = new URL[]{classUrl};
             ClassLoader classLoader = new URLClassLoader(urls, null);
-
-
-
             compiledClass = InMemoryJavaCompiler.newInstance().compile(className, source);
-        System.out.println(compiledClass);
-        System.out.println(compiledClass.newInstance());
+            System.out.println(compiledClass);
+            System.out.println(compiledClass.newInstance());
 
-        // compiledClass2 = InMemoryJavaCompiler.newInstance().compile("HelloWorld", "HelloWorld.java");
+            compiledClass2 = InMemoryJavaCompiler.newInstance().compile("HelloWorld", "HelloWorld.java");
 
-
+//File.readAllLines and pass into string buffer - for source code param
+        //Avoiding writing to disk
+        //Alternative: call to java C
+        //Its in opacitor, look at that
     }
 
 }
