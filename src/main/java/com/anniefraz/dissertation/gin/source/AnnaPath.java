@@ -1,5 +1,8 @@
 package com.anniefraz.dissertation.gin.source;
 
+import sun.tools.java.Imports;
+
+import javax.naming.NameClassPair;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -16,8 +19,9 @@ public class AnnaPath {
     }
 
     public AnnaPath(String className) {
-        this(new ArrayList<String>(), className);
+        this(new ArrayList<>(), className);
     }
+
 
     public Path toPath() {
 
@@ -52,5 +56,35 @@ public class AnnaPath {
     @Override
     public int hashCode() {
         return Objects.hash(packages, className);
+    }
+
+    public static AnnaPathBuilder getBuilder() {
+
+        return new AnnaPathBuilder(new ArrayList<>());
+    }
+
+    public static class AnnaPathBuilder {
+        private List<String> packages;
+        private String className;
+
+
+        private AnnaPathBuilder(List<String> packages) {
+
+            this.packages = packages;
+        }
+
+        public AnnaPathBuilder addPackage(String packageName) {
+            packages.add(packageName);
+            return this;
+        }
+
+        public AnnaPathBuilder setClassName(String className) {
+            this.className = className;
+            return this;
+        }
+
+        public AnnaPath build() {
+            return new AnnaPath(packages, className);
+        }
     }
 }

@@ -1,6 +1,7 @@
 package com.anniefraz.dissertation.gin;
 
 import com.anniefraz.dissertation.gin.source.AnnaClass;
+import com.anniefraz.dissertation.gin.source.AnnaPackage;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 
@@ -16,17 +17,7 @@ public class Main {
 
     private static final int REPS = 100;
 
-    public static void main(String[] args) {
-
-        if (args.length == 0 ){
-            LOG.info("No Source File is specified");
-        }
-        else{
-
-        }
-    }
-
-    public static void compile(AnnaClass annaClass) throws Exception{
+    public static void compile_output_code(AnnaClass annaClass) throws Exception{
 
         Class<?> compiledClass = null;
 
@@ -42,8 +33,45 @@ public class Main {
 
         }*/
 
-        compiledClass = InMemoryJavaCompiler.newInstance().compile("","");
+        String name = annaClass.getClassName();
+
+        compiledClass = InMemoryJavaCompiler.newInstance().compile(name,"");
 
 
     }
+
+    public static void compilePackage(AnnaPackage annaPackage) throws Exception{
+        Class<?> compiledClass = null;
+
+        CompilationUnit cu = new CompilationUnit();
+
+
+
+
+    }
+
+
+    public static void main(String[] args) {
+        /*
+        load class
+        make x edits that apply to class - edit factory to instandchate edits
+        use edits to make patch - patch factory
+        clone class
+        patch apply to class
+        compile_output_code class
+        see if class runs
+         */
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 }

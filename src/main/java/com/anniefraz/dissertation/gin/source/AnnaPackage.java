@@ -3,6 +3,7 @@ package com.anniefraz.dissertation.gin.source;
 import com.anniefraz.dissertation.gin.edit.Edit;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -32,5 +33,11 @@ public class AnnaPackage implements Source {
                 .map(Source::getAnnaClasses)
                 .flatMap(List::stream)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public Source clone() {
+
+        return new AnnaPackage(sources.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, entry -> entry.getValue().clone())));
     }
 }

@@ -5,6 +5,10 @@ import org.mdkt.compiler.InMemoryJavaCompiler;
 import java.io.File;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
 
 public class CompileExample {
 
@@ -32,7 +36,30 @@ public class CompileExample {
             System.out.println(compiledClass);
             System.out.println(compiledClass.newInstance());
 
-            compiledClass2 = InMemoryJavaCompiler.newInstance().compile("HelloWorld", "HelloWorld.java");
+            File file = new File("classes/HelloWorld.java");
+
+
+        ClassLoader classLoader1 = ClassLoader.getSystemClassLoader();
+
+        ClassLoader classLoader2 = String.class.getClassLoader();
+
+       String resource = classLoader1.getResource("classes/HelloWorld.java").getPath();
+
+        Path path = Paths.get(resource);
+
+
+
+        List<String> strings = Files.readAllLines(path);
+        String join = String.join(System.lineSeparator(), strings);
+
+        String testClass = file.toString();
+
+            StringBuffer sb = new StringBuffer();
+
+
+
+            compiledClass2 = InMemoryJavaCompiler.newInstance().compile("HelloWorld", join);
+
 
 //File.readAllLines and pass into string buffer - for source code param
         //Avoiding writing to disk

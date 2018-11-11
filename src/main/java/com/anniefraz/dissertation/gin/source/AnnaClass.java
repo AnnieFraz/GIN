@@ -3,6 +3,7 @@ package com.anniefraz.dissertation.gin.source;
 
 import com.anniefraz.dissertation.gin.edit.Edit;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -34,6 +35,11 @@ public class AnnaClass implements Source {
         return Collections.singletonList(getAnnaClass());
     }
 
+    @Override
+    public Source clone() {
+        return new AnnaClass(className, new ArrayList<>(lines));
+    }
+
     public AnnaPath getPath(){
         return className;
     }
@@ -42,5 +48,13 @@ public class AnnaClass implements Source {
         return this;
     }
 
+    public String getClassName(){return className.toString();}
 
+    @Override
+    public String toString() {
+        return "AnnaClass{" +
+                "className=" + className +
+                ", lines=" + lines +
+                '}';
+    }
 }

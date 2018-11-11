@@ -1,11 +1,5 @@
 package com.anniefraz.dissertation.gin;
 
-import com.anniefraz.dissertation.gin.edit.Edit;
-import com.anniefraz.dissertation.gin.patch.Patch;
-
-import java.util.Random;
-import java.util.logging.Logger;
-
 public class LocalSearch {
 
     /*

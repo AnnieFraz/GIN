@@ -8,52 +8,46 @@ import java.util.List;
 
 public class IfStatementEdit extends SingleClassEdit {
 
-    //TODO: Make this a test so you aren't testing it here
+    private static final String LESS_THAN = "<";
+    private static final String GREATER_THAN = ">";
 
-    int lineIndex = 11; // this is line: if (a > b) { in the Triangle.class
-    int operatorIndex = 0;
-    String operator = ""; // e.g. >
-    String firstCondition = "";
-    String secondCondition = "";
 
-    public IfStatementEdit(int lineIndex, String operator, String firstCondition, String secondCondition, AnnaPath annaPath) {
+    private final int lineIndex;
+
+    public IfStatementEdit(int lineIndex, AnnaPath annaPath) {
         super(annaPath);
         this.lineIndex = lineIndex;
-        this.operator = operator;
-        this.firstCondition = firstCondition;
-        this.secondCondition = secondCondition;
     }
 
-    public int getOperatorIndex() {
-        return operatorIndex;
-    }
 
-    public void setOperatorIndex(int operatorIndex) {
-        this.operatorIndex = operatorIndex;
-    }
-
-    public String getOperator(String line){
-
-        for (int i = 0; i < line.length(); i++) {
-            String a_letter = Character.toString(line.charAt(0));
-
-            if (a_letter.equals(">") || a_letter.equals("<") ){
-                operator = a_letter;
-                setOperatorIndex(i);
-                int operatorIndex = getOperatorIndex();
-            }
+    String getOperator(String line){
+        int lessThan = line.indexOf(LESS_THAN);
+        int greaterThan = line.indexOf(GREATER_THAN);
+        if (greaterThan==-1 && lessThan==-1){
+            System.out.println("oh no!");
         }
-        return operator;
+        if (lessThan==-1){
+            lessThan=Integer.MAX_VALUE;
+        }
+        if (greaterThan==-1){
+            greaterThan=Integer.MAX_VALUE;
+        }
+
+        return lessThan < greaterThan ? LESS_THAN : GREATER_THAN;
     }
 
 
-    public String changeOperator(String line, String operator){
+    String changeOperator(String line, String operator){
+        //get brackets
+        //get index
+        //
+        int operatorIndex = line.indexOf(operator);
         if (operator.equals(">")){
             operator.equals("<");
-            line = line.substring(0,operatorIndex-1)+'<'+line.substring(operatorIndex);
+            line = line.substring(0,operatorIndex)+'<'+line.substring(operatorIndex+1);
         } else if (operator.equals("<")){
             operator.equals(">");
-            line = line.substring(0,operatorIndex-1)+'>'+line.substring(operatorIndex);
+            line = line.substring(0,operatorIndex)+'>'+line.substring(operatorIndex+1);
         }
         return line;
     }

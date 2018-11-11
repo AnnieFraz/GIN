@@ -1,11 +1,9 @@
 package com.anniefraz.dissertation.gin.edit.operators;
 
 import com.anniefraz.dissertation.gin.edit.Edit;
-import com.anniefraz.dissertation.gin.edit.line.MoveLineEdit;
 import com.anniefraz.dissertation.gin.source.AnnaPath;
 import com.anniefraz.dissertation.gin.source.Source;
 import com.anniefraz.dissertation.gin.source.SourceFactory;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -21,43 +19,30 @@ class IfStatementEditTest {
     private AnnaPath annaPath;
     private Source sourceFromAnnaPath;
 
-    int lineIndex = 0; // this is line: if (a > b) { in the Triangle.class
-    int operatorIndex = 0;
-    String operator = ""; // e.g. >
-    String firstCondition = "";
+    int lineIndex = 10; // this is line: if (a > b) { in the Triangle.class
     String secondCondition = "";
 
     Edit edit;
 
     @BeforeEach
     void initialise(){
-
         String path = getClass().getResource("/testClasses/TestClass.java").getPath();
         Path folder = Paths.get(path).toAbsolutePath().getParent();
         SourceFactory sourceFactory = new SourceFactory(folder);
         annaPath = new AnnaPath(Collections.singletonList("example"), "Triangle");
         sourceFromAnnaPath = sourceFactory.getSourceFromAnnaPath(annaPath);
-        this.lineIndex = 11;
-        this.operator = "";
-        this.operatorIndex =6;
-
-
     }
 
-    @Test
-    void testGetOperatorIndex() {
-
-        assertEquals(6, operatorIndex);
-    }
 
     @Test
     void testGetOperator() {
 
-        Edit edit = new IfStatementEdit(lineIndex, operator, firstCondition, secondCondition,annaPath );
+        IfStatementEdit edit = new IfStatementEdit(lineIndex, annaPath );
         List<String> lines = sourceFromAnnaPath.getAnnaClasses().get(0).getLines();
         String line = lines.get(10);
+        System.out.println(line);
 
-        ((IfStatementEdit) edit).getOperator(line);
+        String operator = edit.getOperator(line);
 
         assertEquals(">", operator);
     }
@@ -68,11 +53,11 @@ class IfStatementEditTest {
         List<String> lines = sourceFromAnnaPath.getAnnaClasses().get(0).getLines();
         String line = lines.get(10);
 
-        Edit edit = new IfStatementEdit(lineIndex, operator, firstCondition, secondCondition,annaPath );
+        IfStatementEdit edit = new IfStatementEdit(lineIndex, annaPath );
 
-        operator = ((IfStatementEdit) edit).getOperator(line);
+        String operator = edit.getOperator(line);
 
-        String line2 = ((IfStatementEdit) edit).changeOperator(line, operator );
+        String line2 = edit.changeOperator(line, operator );
 
 
         assertEquals("        if (a < b) {", line2);
@@ -84,7 +69,7 @@ class IfStatementEditTest {
         List<String> lines = sourceFromAnnaPath.getAnnaClasses().get(0).getLines();
 
 
-        Edit edit = new IfStatementEdit(lineIndex, operator, firstCondition, secondCondition,annaPath );
+        Edit edit = new IfStatementEdit(lineIndex, annaPath );
 
         sourceFromAnnaPath.apply(edit);
 

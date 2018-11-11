@@ -1,35 +1,27 @@
 package com.anniefraz.dissertation.gin.edit;
 
 import com.anniefraz.dissertation.gin.source.AnnaClass;
-import com.anniefraz.dissertation.gin.source.AnnaPackage;
 import com.anniefraz.dissertation.gin.source.AnnaPath;
+import com.anniefraz.dissertation.gin.source.Source;
 
 import java.util.List;
 
 public abstract class MultipleClassEdit implements Edit {
-    protected final AnnaPath annaPath;
 
-    protected final AnnaPackage annaPackage;
+    private List<AnnaPath> annaPaths;
 
-    public MultipleClassEdit(AnnaPath annaPath, AnnaPackage annaPackage) {
-        this.annaPath = annaPath;
-        this.annaPackage = annaPackage;
+    public MultipleClassEdit(List<AnnaPath> annaPaths) {
+        this.annaPaths = annaPaths;
     }
 
     @Override
-    public void apply(AnnaClass annaClass) {
-
-        List<AnnaClass> annaClassList = annaPackage.getAnnaClasses();
-
-        for (int i = 0; i < annaClassList.size(); i++){
-            annaClass = annaClassList.get(i);
-            if (annaPath.equals(annaClass.getPath())) {
+    public void apply(Source source) {
+        List<AnnaClass> annaClasses = source.getAnnaClasses();
+        for (AnnaClass annaClass :
+                annaClasses) {
+            if (annaPaths.contains(annaClass.getPath())){
                 applyMethod(annaClass);
             }
-        }
-
-        if (annaPath.equals(annaClass.getPath())) {
-            applyMethod(annaClass);
         }
     }
 
