@@ -3,9 +3,7 @@ package com.anniefraz.dissertation.gin.edit.line;
 import com.anniefraz.dissertation.gin.edit.SingleClassEdit;
 import com.anniefraz.dissertation.gin.source.AnnaClass;
 import com.anniefraz.dissertation.gin.source.AnnaPath;
-//import org.apache.commons.collections4.ListUtils;
 
-import java.util.Collections;
 import java.util.List;
 
 public class MoveLineEdit extends SingleClassEdit {
