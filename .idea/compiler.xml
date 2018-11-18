@@ -9,6 +9,10 @@
         <module name="AnnaGin" />
         <module name="gin-examples" />
         <module name="gin-main" />
+<<<<<<< HEAD
+=======
+        <module name="InMemoryJavaCompiler" />
+>>>>>>> a9fe526170a33f0f8727cb0dcd1f6d900184a544
       </profile>
     </annotationProcessing>
   </component>

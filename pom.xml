@@ -6,7 +6,11 @@
     <groupId>com.anniefraz.dissertation</groupId>
     <artifactId>root</artifactId>
     <packaging>pom</packaging>
+<<<<<<< HEAD
     <name>Gin</name>
+=======
+    <name>Anna Gin</name>
+>>>>>>> a9fe526170a33f0f8727cb0dcd1f6d900184a544
     <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>
@@ -30,10 +34,23 @@
     </properties>
 
     <dependencies>
+<<<<<<< HEAD
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
             <version>5.1.0.RELEASE</version>
+=======
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>5.1.0.RELEASE</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.1.2.RELEASE</version>
+>>>>>>> a9fe526170a33f0f8727cb0dcd1f6d900184a544
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
@@ -56,10 +73,26 @@
             <version>1.3.0</version>
         </dependency>-->
         <dependency>
+<<<<<<< HEAD
+=======
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+
+        <!-- test scoped dependencies -->
+        <dependency>
+            <groupId>org.mdkt.compiler</groupId>
+            <artifactId>InMemoryJavaCompiler</artifactId>
+            <version>1.3.0</version>
+        </dependency>
+       <dependency>
+>>>>>>> a9fe526170a33f0f8727cb0dcd1f6d900184a544
             <groupId>org.hotswapagent</groupId>
             <artifactId>hotswap-agent-core</artifactId>
             <version>1.3.0</version>
             <scope>provided</scope>
+<<<<<<< HEAD
         </dependency>
         <dependency>
             <groupId>com.github.javaparser</groupId>
@@ -79,6 +112,55 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>5.1.0.RELEASE</version>
+=======
+        </dependency>
+        <dependency>
+            <groupId>com.github.javaparser</groupId>
+            <artifactId>javaparser-core</artifactId>
+            <version>3.6.24</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>27.0-jre</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.directory.studio</groupId>
+            <artifactId>org.apache.commons.io</artifactId>
+            <version>2.4</version>
+        </dependency>
+
+
+        <!-- test scoped dependencies -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.3.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.1.0.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit</groupId>
+            <artifactId>com.springsource.junit</artifactId>
+            <version>3.8.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.10.19</version>
+>>>>>>> a9fe526170a33f0f8727cb0dcd1f6d900184a544
             <scope>test</scope>
         </dependency>
     </dependencies>
