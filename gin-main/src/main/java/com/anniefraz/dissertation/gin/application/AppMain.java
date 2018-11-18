@@ -19,6 +19,7 @@ public class AppMain {
 
 
         String bSource = "import com.anniefraz.dissertation.example.application.A;\npublic class B{ public B(){System.out.println(\"In B!\");new A();}}";
+        String b2Source = "import com.anniefraz.dissertation.example.application.A;\npublic class B{ public B(){System.out.println(\"In B2!\");new A();}}";
         String aSource = "package com.anniefraz.dissertation.example.application;\n" +
                 "\n" +
                 "public class A {\n" +
@@ -41,14 +42,19 @@ public class AppMain {
 
         bClass.newInstance();
 
-        byte[] bytes = InMemoryJavaCompiler
-                .newInstance()
+        byte[] bytes = inMemoryJavaCompiler//InMemoryJavaCompiler.newInstance()
                 .compileToRawBytes("com.anniefraz.dissertation.example.application.A", aSource)
+                .getKey()
                 .getByteCode();
 
+        byte[] bBytes = inMemoryJavaCompiler//InMemoryJavaCompiler.newInstance()
+                .compileToRawBytes(bClass.getCanonicalName(), b2Source)
+                .getKey()
+                .getByteCode();
 
         Map<Class<?>, byte[]> reloadMap = new HashMap<>();
         reloadMap.put(A.class, bytes);
+        reloadMap.put(bClass, bBytes);
 
         PluginManager.getInstance().hotswap(reloadMap);
 

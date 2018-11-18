@@ -13,6 +13,7 @@ import com.github.javaparser.ast.stmt.Statement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static com.anniefraz.dissertation.gin.TestUtils.getSourceFactory;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class EditStatementTest {
@@ -22,9 +23,7 @@ public class EditStatementTest {
 
     @BeforeEach
     public void initialize(){
-        String path = getClass().getResource("/testClasses/TestClass.java").getPath();
-        Path folder = Paths.get(path).toAbsolutePath().getParent();
-        SourceFactory sourceFactory = new SourceFactory(folder);
+        SourceFactory sourceFactory = getSourceFactory(this);
         annaPath = new AnnaPath(Collections.singletonList("example"), "Triangle");
         sourceFromAnnaPath = sourceFactory.getSourceFromAnnaPath(annaPath);
     }

@@ -1,8 +1,7 @@
 package com.anniefraz.dissertation.gin.source;
 
-import sun.tools.java.Imports;
 
-import javax.naming.NameClassPair;
+
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -61,6 +60,10 @@ public class AnnaPath {
     public static AnnaPathBuilder getBuilder() {
 
         return new AnnaPathBuilder(new ArrayList<>());
+    }
+
+    public String getCanonicalName() {
+        return String.join(".", packages) + "." + className;
     }
 
     public static class AnnaPathBuilder {

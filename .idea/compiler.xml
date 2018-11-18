@@ -8,6 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="AnnaGin" />
         <module name="gin-examples" />
+        <module name="gin-main" />
+        <module name="InMemoryJavaCompiler" />
       </profile>
     </annotationProcessing>
   </component>

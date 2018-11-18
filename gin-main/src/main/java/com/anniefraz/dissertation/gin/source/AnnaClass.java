@@ -57,4 +57,8 @@ public class AnnaClass implements Source {
                 ", lines=" + lines +
                 '}';
     }
+
+    public String getJoinedLines() {
+        return String.join(System.lineSeparator(), lines);
+    }
 }

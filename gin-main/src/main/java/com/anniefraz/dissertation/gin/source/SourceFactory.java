@@ -1,6 +1,8 @@
 package com.anniefraz.dissertation.gin.source;
 
 
+import com.anniefraz.dissertation.gin.test.TestSource;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -36,5 +38,9 @@ public class SourceFactory {
                 .collect(Collectors.toMap(source -> source.getPaths().get(0), Function.identity()));
 
         return new AnnaPackage(sources);
+    }
+
+    public TestSource getTestSourceFromAnnaPath(AnnaPath annaPath) {
+        return TestSource.wrap(getSourceFromAnnaPath(annaPath));
     }
 }
