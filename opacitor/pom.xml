@@ -16,7 +16,7 @@
             <groupId>opacitor</groupId>
             <artifactId>opacitor</artifactId>
             <scope>system</scope>
-            <systemPath>${project.basedir}/libs/Opacitor_sb.jar</systemPath>
+            <systemPath>${project.basedir}/libs/Opacitor_sb_debug.jar</systemPath>
         </dependency>
     </dependencies>
 

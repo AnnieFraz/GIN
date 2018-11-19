@@ -15,9 +15,9 @@ import opacitor.enumerations.MeasurementType;
 public class TestOpacitor2 {
 
 	public static void main(String[] args) {
-		String testSrcDir = "/home/sbr/Dropbox/Research/Opacitor/test_external_dir/src";
-		String testBinDir = "/home/sbr/Dropbox/Research/Opacitor/test_external_dir/bin";
-		String testReplacementCode = "/home/sbr/Dropbox/Research/Opacitor/test_external_dir/src/test/TestClassReplacement.java";
+		String testSrcDir = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/src";
+		String testBinDir = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/bin";
+		String testReplacementCode = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/src/test/TestClassReplacement.java";
 
 		// length. simply measure the length of the code
 		System.out.println("CodeLength");

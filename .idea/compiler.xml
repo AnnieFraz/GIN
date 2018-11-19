@@ -10,6 +10,7 @@
         <module name="gin-main" />
         <module name="opacitor" />
         <module name="test-runner" />
+        <module name="test.runner" />
       </profile>
     </annotationProcessing>
   </component>
