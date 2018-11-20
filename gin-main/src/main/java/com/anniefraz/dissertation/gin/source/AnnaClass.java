@@ -50,15 +50,15 @@ public class AnnaClass implements Source {
 
     public String getClassName(){return className.toString();}
 
+    public String getJoinedLines(){
+        return String.join(System.lineSeparator(), lines);
+    }
+
     @Override
     public String toString() {
         return "AnnaClass{" +
                 "className=" + className +
                 ", lines=" + lines +
                 '}';
-    }
-
-    public String getJoinedLines() {
-        return String.join(System.lineSeparator(), lines);
     }
 }

@@ -36,14 +36,14 @@ public class CompileExample {
             System.out.println(compiledClass);
             System.out.println(compiledClass.newInstance());
 
-            File file = new File("classes/HelloWorld.java");
+            File file = new File("classes/example/HelloWorld.java");
 
 
         ClassLoader classLoader1 = ClassLoader.getSystemClassLoader();
 
         ClassLoader classLoader2 = String.class.getClassLoader();
 
-       String resource = classLoader1.getResource("classes/HelloWorld.java").getPath();
+       String resource = classLoader1.getResource("classes/example/HelloWorld.java").getPath();
 
         Path path = Paths.get(resource);
 

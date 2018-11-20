@@ -7,12 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="AnnaGin" />
-        <module name="gin-examples" />
         <module name="gin-main" />
-<<<<<<< HEAD
-=======
-        <module name="InMemoryJavaCompiler" />
->>>>>>> a9fe526170a33f0f8727cb0dcd1f6d900184a544
+        <module name="opacitor" />
+        <module name="test-runner" />
+        <module name="test.runner" />
       </profile>
     </annotationProcessing>
   </component>

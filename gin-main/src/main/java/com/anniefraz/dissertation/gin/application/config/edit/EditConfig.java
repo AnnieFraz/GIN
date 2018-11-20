@@ -30,7 +30,7 @@ public class EditConfig {
         return anAnnaClass ->{
             int size = anAnnaClass.getLines().size();
             int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
-            return new InsertLineEdit(whichLine,"Thread.sleep(100)" , anAnnaClass.getPath());
+            return new InsertLineEdit(whichLine,"//this is a comment" , anAnnaClass.getPath());
         };
     }
 

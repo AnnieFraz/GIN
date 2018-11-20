@@ -8,7 +8,9 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/InMemoryJavaCompiler/pom.xml" />
+        <option value="$PROJECT_DIR$/gin-main/pom.xml" />
+        <option value="$PROJECT_DIR$/opacitor/pom.xml" />
+        <option value="$PROJECT_DIR$/test-runner/pom.xml" />
       </list>
     </option>
   </component>

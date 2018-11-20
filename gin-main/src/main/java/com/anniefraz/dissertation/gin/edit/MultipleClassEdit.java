@@ -25,7 +25,7 @@ public abstract class MultipleClassEdit implements Edit {
         }
     }
 
-    protected abstract void applyMethod(AnnaClass annaClass);
+    protected abstract void applyMethod(AnnaClass annaClaszss);
 
 
 }

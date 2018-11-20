@@ -1,7 +1,6 @@
 package com.anniefraz.dissertation.gin.patch;
 
 import com.anniefraz.dissertation.gin.edit.Edit;
-import com.anniefraz.dissertation.gin.edit.EditFactory;
 import com.anniefraz.dissertation.gin.edit.RandomEditFactory;
 import com.anniefraz.dissertation.gin.source.AnnaPath;
 import com.anniefraz.dissertation.gin.source.Source;
@@ -15,7 +14,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-import static com.anniefraz.dissertation.gin.TestUtils.getSourceFactory;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.when;
@@ -34,8 +32,9 @@ public class PatchFactoryTest {
         MockitoAnnotations.initMocks(this);
         patchFactory = new SimplePatchFactory(editFactory, () -> 0.99999999);
 
-        sourceFactory = getSourceFactory(this);
-
+        String path = getClass().getResource("/testClasses/TestClass.java").getPath();
+        Path folder = Paths.get(path).toAbsolutePath().getParent();
+        sourceFactory = new SourceFactory(folder);
 
         when(editFactory.getRandomEdit(any())).thenReturn(mockEdit);
     }
