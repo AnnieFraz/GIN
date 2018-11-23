@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="AppMain" type="Application" factoryName="Application" nameIsGenerated="true">
-    <option name="MAIN_CLASS_NAME" value="com.anniefraz.dissertation.gin.application.AppMain" />
-    <module name="gin-main" />
+  <configuration default="false" name="HotSwapExample" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="com.anniefraz.dissertation.gin.application.HotSwapExample" />
+    <module name="gin" />
     <option name="VM_PARAMETERS" value="-XXaltjvm=dcevm -javaagent:D:\hotswap\hotswap-agent-1.3.0.jar" />
     <extension name="coverage">
       <pattern>

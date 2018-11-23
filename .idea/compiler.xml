@@ -7,10 +7,16 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="AnnaGin" />
+        <module name="example" />
+        <module name="gin" />
         <module name="gin-examples" />
         <module name="gin-main" />
         <module name="InMemoryJavaCompiler" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="gin-examples" target="8" />
+      <module name="gin-main" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

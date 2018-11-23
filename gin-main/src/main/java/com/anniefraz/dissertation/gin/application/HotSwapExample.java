@@ -10,7 +10,7 @@ import org.mdkt.compiler.*;
 
 import java.util.*;
 
-public class AppMain {
+public class HotSwapExample {
 
     public static void main(String[] args) throws Exception {
         System.out.println("In Main");

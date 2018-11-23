@@ -19,7 +19,7 @@
         <artifactId>InMemoryJavaCompiler</artifactId>
         <version>1.4.0</version>
         <scope>system</scope>
-        <systemPath>${project.basedir}/../InMemoryJavaCompiler/target/InMemoryJavaCompiler-1.4.0-SNAPSHOT.jar</systemPath>
+        <systemPath>${project.basedir}/../InMemoryJavaCompiler/target/InMemoryJavaCompiler-1.5.0-SNAPSHOT.jar</systemPath>
     </dependency>
     <dependency>
         <groupId>junit</groupId>
