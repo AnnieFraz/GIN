@@ -11,9 +11,11 @@ import static org.junit.Assert.*;
 
 public class IsolatedTestRunnerTest {
 
-    final String ROOT_DIR = "./tmp";
+    //final String ROOT_DIR = "./tmp";
 
     final String EXAMPLE_DIR = "examples" + File.separator + "unittests";
+
+  //  final String EXAMPLE_DIR = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\examples\\unittests";
 
     CacheClassLoader classLoader;
 
@@ -25,8 +27,11 @@ public class IsolatedTestRunnerTest {
     @Before
     public void setUp() throws Exception {
 
+        System.out.println(EXAMPLE_DIR);
+
         classLoader = new CacheClassLoader(EXAMPLE_DIR);
 
+        System.out.println(classLoader);
         Class<?> runnerClass = null;
         try {
             runnerClass = classLoader.loadClass(IsolatedTestRunner.class.getName());

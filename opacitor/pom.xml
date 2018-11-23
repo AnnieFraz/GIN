@@ -10,13 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>opacitor</artifactId>
-
     <dependencies>
         <dependency>
             <groupId>opacitor</groupId>
             <artifactId>opacitor</artifactId>
             <scope>system</scope>
-            <systemPath>${project.basedir}/libs/Opacitor_sb_debug.jar</systemPath>
+            <systemPath>${project.basedir}/libs/Opacitor_sb.jar</systemPath>
         </dependency>
     </dependencies>
 

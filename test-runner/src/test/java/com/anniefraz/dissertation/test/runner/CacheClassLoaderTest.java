@@ -36,7 +36,7 @@ public class CacheClassLoaderTest {
     @Test
     public void loadTestRunner() throws ClassNotFoundException {
         Class systemClassForTestRunner = TestRunner.class;
-        Class loadedTestRunner = loader.loadClass("gin.test.IsolatedTestRunner");
+        Class loadedTestRunner = loader.loadClass("com.anniefraz.dissertation.test.runner.IsolatedTestRunner");
         assertNotEquals(systemClassForTestRunner, loadedTestRunner);
     }
 

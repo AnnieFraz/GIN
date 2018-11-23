@@ -1,0 +1,9 @@
+package gin;
+
+public class Small {
+
+    public static void Dummy() {
+        int b = 2;
+        int c = a + b;
+    }
+}

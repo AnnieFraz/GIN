@@ -33,7 +33,7 @@ public class CacheClassLoader extends URLClassLoader {
     protected Class<?> findClass(String name) throws ClassNotFoundException {
 
         // I have to intervene here, to ensure IsolatedTestRunner uses me in the future.
-        if (name.equals("gin.test.IsolatedTestRunner")) {
+        if (name.equals("com.anniefraz.dissertation.test.runner.IsolatedTestRunner")) {
             return super.findClass(name);
         }
 

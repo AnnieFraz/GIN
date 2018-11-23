@@ -1,0 +1,153 @@
+"SourceFile","PatchIndex","TestIndex","UnitTest","Rep","PatchSize","Patch","PatchValid","PatchCompiled","TestPassed","TestExecutionTime","TestTimedOut","TestExceptionType","TestExceptionMessage","AssertionExpectedValue","AssertionActualValue"
+"examples/simple/Triangle.java","0","0","TriangleTest.testInvalidTriangles","0","1","| FilteredCopyStatement [10 -> 3:2] |","true","true","true","501022142","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","1","0","TriangleTest.testInvalidTriangles","0","1","| FilteredSwapStatement [6:{
+    return ISOCELES;
+} <-> 6:{
+    return ISOCELES;
+}] |","true","true","true","500965677","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","2","0","TriangleTest.testInvalidTriangles","0","1","| FilteredReplaceStatement [3:b = tmp; -> 15:b = c;] |","true","true","true","500954290","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","3","0","TriangleTest.testInvalidTriangles","0","1","| FilteredDeleteStatement [10:a = b;] |","true","true","false","301817762","false","java.lang.AssertionError","expected:<0> but was:<2>","0","2"
+"examples/simple/Triangle.java","4","0","TriangleTest.testInvalidTriangles","0","1","| FilteredReplaceStatement [4:int tmp = a; -> 8:delay();] |","true","false","false","0","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","5","0","TriangleTest.testInvalidTriangles","0","1","| FilteredSwapStatement [3:{
+    int tmp = b;
+    b = c;
+    c = tmp;
+} <-> 1:{
+    int tmp = a;
+    a = b;
+    b = tmp;
+}] |","true","true","true","501135726","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","6","0","TriangleTest.testInvalidTriangles","0","1","| FilteredDeleteStatement [0:{
+    delay();
+    // Sort the sides so that a <= b <= c
+    if (a > b) {
+        int tmp = a;
+        a = b;
+        b = tmp;
+    }
+    if (a > c) {
+        int tmp = a;
+        a = c;
+        c = tmp;
+    }
+    if (b > c) {
+        int tmp = b;
+        b = c;
+        c = tmp;
+    }
+    if (a + b <= c) {
+        return INVALID;
+    } else if (a == b && b == c) {
+        return EQUALATERAL;
+    } else if (a == b || b == c) {
+        return ISOCELES;
+    } else {
+        return SCALENE;
+    }
+}] |","true","false","false","0","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","7","0","TriangleTest.testInvalidTriangles","0","1","| FilteredReplaceStatement [1:return EQUALATERAL; -> 25:return SCALENE;] |","true","true","true","501449969","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","8","0","TriangleTest.testInvalidTriangles","0","1","| FilteredReplaceStatement [3:return SCALENE; -> 24:return ISOCELES;] |","true","true","true","501207476","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","9","0","TriangleTest.testInvalidTriangles","0","1","| FilteredReplaceStatement [2:{
+    int tmp = a;
+    a = c;
+    c = tmp;
+} -> 2:{
+    int tmp = a;
+    a = c;
+    c = tmp;
+}] |","true","true","true","501549974","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","10","0","TriangleTest.testInvalidTriangles","0","1","| FilteredCopyStatement [17 -> 0:0] |","true","true","true","501793548","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","11","0","TriangleTest.testInvalidTriangles","0","1","| FilteredSwapStatement [2:{
+    int tmp = a;
+    a = c;
+    c = tmp;
+} <-> 5:{
+    return EQUALATERAL;
+}] |","true","true","true","502500924","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","12","0","TriangleTest.testInvalidTriangles","0","1","| FilteredCopyStatement [21 -> 5:0] |","true","false","false","0","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","13","0","TriangleTest.testInvalidTriangles","0","1","| FilteredDeleteStatement [1:{
+    int tmp = a;
+    a = b;
+    b = tmp;
+}] |","true","true","true","502580181","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","14","0","TriangleTest.testInvalidTriangles","0","1","| FilteredSwapStatement [25:return SCALENE; <-> 3:return SCALENE;] |","true","true","true","501842589","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","15","0","TriangleTest.testInvalidTriangles","0","1","| FilteredDeleteStatement [8:delay();] |","true","true","true","1245719","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","16","0","TriangleTest.testInvalidTriangles","0","1","| FilteredCopyStatement [10 -> 2:2] |","true","true","false","402194951","false","java.lang.AssertionError","expected:<0> but was:<2>","0","2"
+"examples/simple/Triangle.java","17","0","TriangleTest.testInvalidTriangles","0","1","| FilteredReplaceStatement [3:{
+    int tmp = b;
+    b = c;
+    c = tmp;
+} -> 7:{
+    return SCALENE;
+}] |","true","false","false","0","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","18","0","TriangleTest.testInvalidTriangles","0","1","| FilteredReplaceStatement [5:if (a == b || b == c) {
+    return ISOCELES;
+} else {
+    return SCALENE;
+} -> 17:if (a > c) {
+    int tmp = a;
+    a = c;
+    c = tmp;
+}] |","true","false","false","0","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","19","0","TriangleTest.testInvalidTriangles","0","1","| FilteredSwapStatement [19:if (a + b <= c) {
+    return INVALID;
+} else if (a == b && b == c) {
+    return EQUALATERAL;
+} else if (a == b || b == c) {
+    return ISOCELES;
+} else {
+    return SCALENE;
+} <-> 1:if (a > c) {
+    int tmp = a;
+    a = c;
+    c = tmp;
+}] |","true","false","false","0","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","20","0","TriangleTest.testInvalidTriangles","0","1","| FilteredDeleteStatement [1:{
+    int tmp = a;
+    a = b;
+    b = tmp;
+}] |","true","true","true","501924379","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","21","0","TriangleTest.testInvalidTriangles","0","1","| FilteredCopyStatement [5 -> 3:2] |","true","false","false","0","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","22","0","TriangleTest.testInvalidTriangles","0","1","| FilteredCopyStatement [11 -> 2:1] |","true","true","true","501359919","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","23","0","TriangleTest.testInvalidTriangles","0","1","| FilteredReplaceStatement [5:{
+    return EQUALATERAL;
+} -> 1:{
+    int tmp = a;
+    a = b;
+    b = tmp;
+}] |","true","true","true","501455212","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","24","0","TriangleTest.testInvalidTriangles","0","1","| FilteredReplaceStatement [2:a = b; -> 9:int tmp = a;] |","true","false","false","0","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","25","0","TriangleTest.testInvalidTriangles","0","1","| FilteredDeleteStatement [1:{
+    int tmp = a;
+    a = b;
+    b = tmp;
+}] |","true","true","true","501671966","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","26","0","TriangleTest.testInvalidTriangles","0","1","| FilteredDeleteStatement [20:if (a == b && b == c) {
+    return EQUALATERAL;
+} else if (a == b || b == c) {
+    return ISOCELES;
+} else {
+    return SCALENE;
+}] |","true","false","false","0","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","27","0","TriangleTest.testInvalidTriangles","0","1","| FilteredSwapStatement [20:if (a == b && b == c) {
+    return EQUALATERAL;
+} else if (a == b || b == c) {
+    return ISOCELES;
+} else {
+    return SCALENE;
+} <-> 1:if (a > c) {
+    int tmp = a;
+    a = c;
+    c = tmp;
+}] |","true","false","false","0","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","28","0","TriangleTest.testInvalidTriangles","0","1","| FilteredSwapStatement [3:{
+    int tmp = b;
+    b = c;
+    c = tmp;
+} <-> 5:{
+    return EQUALATERAL;
+}] |","true","true","true","501565104","false","N/A","N/A","N/A","N/A"
+"examples/simple/Triangle.java","29","0","TriangleTest.testInvalidTriangles","0","1","| FilteredReplaceStatement [10:{
+} -> 6:{
+    return ISOCELES;
+}] |","true","true","true","501798372","false","N/A","N/A","N/A","N/A"

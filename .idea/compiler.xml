@@ -13,5 +13,9 @@
         <module name="test.runner" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="example" target="8" />
+      <module name="InMemoryJavaCompiler" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
