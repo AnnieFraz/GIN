@@ -1,6 +1,8 @@
 
 # Created by https://www.gitignore.io/api/java,maven,gradle,eclipse,intellij
 
+opacitor/simpleOpacitor/lib/*
+
 ### Eclipse ###
 
 .metadata
@@ -81,6 +83,11 @@ local.properties
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+
+.idea/workspace.xml
+.idea/compiler.xml
+.idea/encodings.xml
+.idea/runConfigurations/
 
 # Generated files
 .idea/**/contentModel.xml
@@ -164,7 +171,7 @@ modules.xml
 .mtj.tmp/
 
 # Package Files #
-*.jar
+#*.jar
 *.war
 *.nar
 *.ear
@@ -205,3 +212,7 @@ gradle-app.setting
 
 
 # End of https://www.gitignore.io/api/java,maven,gradle,eclipse,intellij
+
+
+
+gin-main/target
