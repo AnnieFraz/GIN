@@ -14,6 +14,7 @@ import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
 
+import static com.anniefraz.dissertation.gin.TestUtils.getSourceFactory;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PatchTest {
@@ -27,9 +28,8 @@ public class PatchTest {
     void setUp() {
         AnnaPath annaPath = AnnaPath.getBuilder().addPackage("additional").setClassName("Another").build();
 
-        String path = getClass().getResource("/testClasses/TestClass.java").getPath();
-        Path folder = Paths.get(path).toAbsolutePath().getParent();
-        sourceFactory = new SourceFactory(folder);
+        sourceFactory = getSourceFactory(this);
+
 
         source = sourceFactory.getSourceFromAnnaPath(annaPath);
         edits = Collections.singletonList(new RemoveLineEdit(0, annaPath));

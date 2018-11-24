@@ -7,13 +7,18 @@ import com.anniefraz.dissertation.gin.source.SourceFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
 
-//import static org.junit.Assert.assertEquals;
+import static com.anniefraz.dissertation.gin.TestUtils.getSourceFactory;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class EditLineTest {
 
@@ -22,9 +27,7 @@ public class EditLineTest {
 
     @BeforeEach
     public void initialize(){
-        String path = getClass().getResource("/testClasses/TestClass.java").getPath();
-        Path folder = Paths.get(path).toAbsolutePath().getParent();
-        SourceFactory sourceFactory = new SourceFactory(folder);
+        SourceFactory sourceFactory = getSourceFactory(this);
         annaPath = new AnnaPath(Collections.singletonList("example"), "Triangle");
         sourceFromAnnaPath = sourceFactory.getSourceFromAnnaPath(annaPath);
     }

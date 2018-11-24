@@ -12,6 +12,7 @@ import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
 
+import static com.anniefraz.dissertation.gin.TestUtils.getSourceFactory;
 import static org.junit.jupiter.api.Assertions.*;
 
 class IfStatementEditTest {
@@ -26,9 +27,9 @@ class IfStatementEditTest {
 
     @BeforeEach
     void initialise(){
-        String path = getClass().getResource("/testClasses/TestClass.java").getPath();
-        Path folder = Paths.get(path).toAbsolutePath().getParent();
-        SourceFactory sourceFactory = new SourceFactory(folder);
+
+        SourceFactory         sourceFactory = getSourceFactory(this);
+
         annaPath = new AnnaPath(Collections.singletonList("example"), "Triangle");
         sourceFromAnnaPath = sourceFactory.getSourceFromAnnaPath(annaPath);
     }

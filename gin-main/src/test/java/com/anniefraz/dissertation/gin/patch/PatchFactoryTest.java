@@ -14,6 +14,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
+import static com.anniefraz.dissertation.gin.TestUtils.getSourceFactory;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.when;
@@ -32,9 +33,8 @@ public class PatchFactoryTest {
         MockitoAnnotations.initMocks(this);
         patchFactory = new SimplePatchFactory(editFactory, () -> 0.99999999);
 
-        String path = getClass().getResource("/testClasses/TestClass.java").getPath();
-        Path folder = Paths.get(path).toAbsolutePath().getParent();
-        sourceFactory = new SourceFactory(folder);
+        sourceFactory = getSourceFactory(this);
+
 
         when(editFactory.getRandomEdit(any())).thenReturn(mockEdit);
     }
