@@ -21,8 +21,11 @@
         </plugins>
     </build>
     <modules>
-        <module>gin-examples</module>
+        <module>examples</module>
         <module>gin-main</module>
+        <module>opacitor</module>
+        <module>InMemoryJavaCompiler</module>
+        <module>test-runner</module>
     </modules>
 
     <properties>

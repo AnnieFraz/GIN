@@ -1,3 +1,9 @@
+This is a copy of trung's InMemoryJavaCompiler, the copy was taken on 24/11/2018. The code is included with this project instead of just imported as modifications had to be made in order to access certain parts of the compilation process.
+
+The original code can be found on [This GitHub](https://github.com/trung/InMemoryJavaCompiler) and the readme at the time of copy along with the licence is included below. 
+
+
+
 **Update 09/22/2017**: I've been silent for long time (I'm into Golang lately hence putting Java aside) despite the fact that there are lots of interests to make this mini tool better. I'll kick off my effort to improve this tool from now on by reviewing outstanding issues and PRs
 
 # InMemoryJavaCompiler [![Build Status](https://travis-ci.org/trung/InMemoryJavaCompiler.svg?branch=master)](https://travis-ci.org/trung/InMemoryJavaCompiler) [![codecov](https://codecov.io/gh/trung/InMemoryJavaCompiler/branch/master/graph/badge.svg)](https://codecov.io/gh/trung/InMemoryJavaCompiler) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ftrung%2FInMemoryJavaCompiler.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Ftrung%2FInMemoryJavaCompiler?ref=badge_shield)
