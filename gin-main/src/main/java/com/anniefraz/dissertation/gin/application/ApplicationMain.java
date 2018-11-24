@@ -92,12 +92,6 @@ public class ApplicationMain {
            System.out.println("Did not compile");
            i++;
        }
-
-
-
-
-
-
         }
 
     }

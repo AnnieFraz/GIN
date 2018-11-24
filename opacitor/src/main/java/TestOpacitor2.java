@@ -13,9 +13,9 @@ import opacitor.enumerations.MeasurementType;
 public class TestOpacitor2 {
 
     public static void main(String[] args) {
-        String testSrcDir = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/src";
-        String testBinDir = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/bin";
-        String testReplacementCode = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/src/test/TestClassReplacement.java";
+        String testSrcDir = "C:/Users/user/IdeaProjects/AnnaGin/Opacitor/test_external_dir/src";
+        String testBinDir = "C:/Users/user/IdeaProjects/AnnaGin/Opacitor/test_external_dir/bin";
+        String testReplacementCode = "C:/Users/user/IdeaProjects/AnnaGin/Opacitor/test_external_dir/src/test/TestClassReplacement.java";
 
         // length. simply measure the length of the code
         System.out.println("CodeLength");
@@ -27,7 +27,6 @@ public class TestOpacitor2 {
                     .measurementType(MeasurementType.CODE_LENGTH)
                     .performInitialCompilation(true)
                     .goalDirection(GoalDirection.MINIMISING)
-                    .compiler("/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk")
                     .build();
 
             // first we try running with different params
@@ -59,7 +58,6 @@ public class TestOpacitor2 {
                     .measurementType(MeasurementType.SUPER_SIMPLE_JALEN)
                     .performInitialCompilation(true)
                     .goalDirection(GoalDirection.MINIMISING)
-                    .compiler("/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk")
                     .build();
 
             // first we try running with different params
@@ -91,7 +89,6 @@ public class TestOpacitor2 {
                     .singleThreadedTargetJalen(true)
                     .performInitialCompilation(true)
                     .goalDirection(GoalDirection.MINIMISING)
-                    .compiler("/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk")
                     .build();
 
             // first we try running with different params
@@ -119,7 +116,7 @@ public class TestOpacitor2 {
         if (osNameProperty.contains("linux")) {
             pathToDebugJava = "/home/sbr/Opacitor";
         } else if (osNameProperty.contains("windows")) {
-            pathToDebugJava = "D:" + File.separator + "Opacitor" + File.separator + "java-windows-x64";
+            pathToDebugJava = "C:" + File.separator + "Opacitor" + File.separator + "java-windows-x64";
         } else {
             System.err.println("Testing on non-Windows/Linux isn't supported!");
             System.exit(1);
@@ -136,7 +133,6 @@ public class TestOpacitor2 {
                     .performInitialCompilation(true)
                     .pathToDebugJava(pathToDebugJava) // default is (./)java-[windows|linux]-[x64|x86]
                     .goalDirection(GoalDirection.MINIMISING)
-                    .compiler("/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk")
                     .build();
 
             // first we try running with different params

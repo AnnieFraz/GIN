@@ -7,7 +7,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Anna-Gin" />
-        <module name="AnnaGin" />
         <module name="gin-main" />
         <module name="opacitor" />
         <module name="test-runner" />
@@ -15,6 +14,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="GIN" target="8" />
+      <module name="test.runner" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
