@@ -1,12 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="371d421b-b163-4f1a-a1fa-478cc1cd2dfc" name="Default Changelist" comment="" />
+    <list default="true" id="371d421b-b163-4f1a-a1fa-478cc1cd2dfc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/ginmain.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/ginmain.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/Opacitor_sb.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/Opacitor_sb.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/CompileExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/CompileExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/LocalSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/LocalSearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/application/ApplicationMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/application/ApplicationMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/application/CodeToTestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/application/CodeToTestRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/application/config/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/application/config/ApplicationConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/application/config/edit/EditConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/application/config/edit/EditConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/edit/Edit.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/edit/Edit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/edit/ListBasedRandomEditFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/edit/ListBasedRandomEditFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/edit/MultipleClassEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/edit/MultipleClassEdit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/edit/RandomEditFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/edit/RandomEditFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/edit/SingleClassEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/edit/SingleClassEdit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/edit/block/MoveBlockEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/edit/block/MoveBlockEdit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/edit/block/RemoveBlockEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/edit/block/RemoveBlockEdit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/edit/block/SwapBlockEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/edit/block/SwapBlockEdit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/edit/line/InsertLineEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/edit/line/InsertLineEdit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/edit/line/MoveLineEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/edit/line/MoveLineEdit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/edit/line/RemoveLineEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/edit/line/RemoveLineEdit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/edit/line/SwapLineEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/edit/line/SwapLineEdit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/edit/operators/IfStatementEdit.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/edit/operators/IfStatementEdit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/patch/Patch.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/patch/Patch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/patch/PatchFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/patch/PatchFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/patch/SimplePatchFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/patch/SimplePatchFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/source/AnnaClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/source/AnnaClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/source/AnnaPackage.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/source/AnnaPackage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/source/AnnaPath.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/source/AnnaPath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/source/Source.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/source/Source.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/source/SourceFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/source/SourceFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/resources/AnnaGin.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/resources/AnnaGin.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/resources/classes/example/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/resources/classes/example/HelloWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/resources/classes/example/TestFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/resources/classes/example/TestFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/resources/classes/example/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/resources/classes/example/Triangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/main/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/main/resources/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/test/java/com/anniefraz/dissertation/gin/GardenGate.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/test/java/com/anniefraz/dissertation/gin/GardenGate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/test/java/com/anniefraz/dissertation/gin/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/test/java/com/anniefraz/dissertation/gin/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/test/java/com/anniefraz/dissertation/gin/edit/EditFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/test/java/com/anniefraz/dissertation/gin/edit/EditFactoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/test/java/com/anniefraz/dissertation/gin/edit/block/BlockTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/test/java/com/anniefraz/dissertation/gin/edit/block/BlockTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/test/java/com/anniefraz/dissertation/gin/edit/line/EditLineTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/test/java/com/anniefraz/dissertation/gin/edit/line/EditLineTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/test/java/com/anniefraz/dissertation/gin/edit/operators/IfStatementEditTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/test/java/com/anniefraz/dissertation/gin/edit/operators/IfStatementEditTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/test/java/com/anniefraz/dissertation/gin/edit/statement/EditStatementTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/test/java/com/anniefraz/dissertation/gin/edit/statement/EditStatementTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/test/java/com/anniefraz/dissertation/gin/patch/PatchFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/test/java/com/anniefraz/dissertation/gin/patch/PatchFactoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/test/java/com/anniefraz/dissertation/gin/patch/PatchTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/test/java/com/anniefraz/dissertation/gin/patch/PatchTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/test/java/com/anniefraz/dissertation/gin/source/SourceFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/test/java/com/anniefraz/dissertation/gin/source/SourceFactoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/test/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/test/resources/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/test/resources/testClasses/TestClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/test/resources/testClasses/TestClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/test/resources/testClasses/additional/Another.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/test/resources/testClasses/additional/Another.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/test/resources/testClasses/example/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/test/resources/testClasses/example/HelloWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/test/resources/testClasses/example/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/test/resources/testClasses/example/Triangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/test/resources/testClasses/examplePackage/GardenGateProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/test/resources/testClasses/examplePackage/GardenGateProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/src/test/resources/testClasses/examplePackage/Gate.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/src/test/resources/testClasses/examplePackage/Gate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/AnnaGin.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/AnnaGin.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/classes/example/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/classes/example/HelloWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/classes/example/TestFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/classes/example/TestFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/classes/example/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/classes/example/Triangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/CompileExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/CompileExample.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/LocalSearch.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/LocalSearch.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/application/ApplicationMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/application/ApplicationMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/application/CodeToTestRunner.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/application/CodeToTestRunner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/application/config/ApplicationConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/application/config/ApplicationConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/application/config/edit/EditConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/application/config/edit/EditConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/edit/Edit.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/edit/Edit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/edit/ListBasedRandomEditFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/edit/ListBasedRandomEditFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/edit/MultipleClassEdit.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/edit/MultipleClassEdit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/edit/RandomEditFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/edit/RandomEditFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/edit/SingleClassEdit.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/edit/SingleClassEdit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/edit/block/MoveBlockEdit.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/edit/block/MoveBlockEdit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/edit/block/RemoveBlockEdit.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/edit/block/RemoveBlockEdit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/edit/block/SwapBlockEdit.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/edit/block/SwapBlockEdit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/edit/line/InsertLineEdit.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/edit/line/InsertLineEdit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/edit/line/MoveLineEdit.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/edit/line/MoveLineEdit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/edit/line/RemoveLineEdit.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/edit/line/RemoveLineEdit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/edit/line/SwapLineEdit.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/edit/line/SwapLineEdit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/edit/operators/IfStatementEdit.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/edit/operators/IfStatementEdit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/patch/Patch.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/patch/Patch.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/patch/PatchFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/patch/PatchFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/patch/SimplePatchFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/patch/SimplePatchFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/source/AnnaClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/source/AnnaClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/source/AnnaPackage.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/source/AnnaPackage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/source/AnnaPath$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/source/AnnaPath$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/source/AnnaPath$AnnaPathBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/source/AnnaPath$AnnaPathBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/source/AnnaPath.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/source/AnnaPath.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/source/Source.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/source/Source.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/com/anniefraz/dissertation/gin/source/SourceFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/com/anniefraz/dissertation/gin/source/SourceFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/classes/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/classes/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/test-classes/com/anniefraz/dissertation/gin/GardenGate$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/test-classes/com/anniefraz/dissertation/gin/GardenGate$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/test-classes/com/anniefraz/dissertation/gin/GardenGate$AtomicFileNumberStore.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/test-classes/com/anniefraz/dissertation/gin/GardenGate$AtomicFileNumberStore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/test-classes/com/anniefraz/dissertation/gin/GardenGate.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/test-classes/com/anniefraz/dissertation/gin/GardenGate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/test-classes/com/anniefraz/dissertation/gin/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/test-classes/com/anniefraz/dissertation/gin/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/test-classes/com/anniefraz/dissertation/gin/edit/EditFactoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/test-classes/com/anniefraz/dissertation/gin/edit/EditFactoryTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/test-classes/com/anniefraz/dissertation/gin/edit/block/BlockTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/test-classes/com/anniefraz/dissertation/gin/edit/block/BlockTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/test-classes/com/anniefraz/dissertation/gin/edit/line/EditLineTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/test-classes/com/anniefraz/dissertation/gin/edit/line/EditLineTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/test-classes/com/anniefraz/dissertation/gin/edit/operators/IfStatementEditTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/test-classes/com/anniefraz/dissertation/gin/edit/operators/IfStatementEditTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/test-classes/com/anniefraz/dissertation/gin/edit/statement/EditStatementTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/test-classes/com/anniefraz/dissertation/gin/edit/statement/EditStatementTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/test-classes/com/anniefraz/dissertation/gin/patch/PatchFactoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/test-classes/com/anniefraz/dissertation/gin/patch/PatchFactoryTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/test-classes/com/anniefraz/dissertation/gin/patch/PatchTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/test-classes/com/anniefraz/dissertation/gin/patch/PatchTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/test-classes/com/anniefraz/dissertation/gin/source/SourceFactoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/test-classes/com/anniefraz/dissertation/gin/source/SourceFactoryTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/test-classes/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/test-classes/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/test-classes/testClasses/TestClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/test-classes/testClasses/TestClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/test-classes/testClasses/additional/Another.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/test-classes/testClasses/additional/Another.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/test-classes/testClasses/example/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/test-classes/testClasses/example/HelloWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/test-classes/testClasses/example/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/test-classes/testClasses/example/Triangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/test-classes/testClasses/examplePackage/GardenGateProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/test-classes/testClasses/examplePackage/GardenGateProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ginmain/target/test-classes/testClasses/examplePackage/Gate.java" beforeDir="false" afterPath="$PROJECT_DIR$/gin-main/target/test-classes/testClasses/examplePackage/Gate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opacitor/opacitor.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opacitor/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/opacitor/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-runner/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/test-runner/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-runner/test-runner.iml" beforeDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/ginmain/target/" />
     <ignored path="$PROJECT_DIR$/opacitor/target/" />
     <ignored path="$PROJECT_DIR$/test-runner/target/" />
+    <ignored path="$PROJECT_DIR$/gin-main/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,74 +170,70 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="2070075342">
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="gitignore" value="3" />
+          <entry key="xml" value="30" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="XML" value="30" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="class" value="1" />
+          <entry key="gitignore" value="1" />
+          <entry key="xml" value="7" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="1" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="XML" value="7" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test-runner/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1547">
+              <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test-runner/src/main/java/com/anniefraz/dissertation/test/runner/TestRunner.java">
+        <entry file="file://$PROJECT_DIR$/target/classes/iterativeBubbleSort.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/application/CodeToTestRunner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test-runner/src/main/java/com/anniefraz/dissertation/test/runner/ModifiableTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test-runner/src/main/java/com/anniefraz/dissertation/test/runner/CacheClassLoader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="170">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
               <folding>
-                <element signature="e#816#817#0" expanded="true" />
-                <element signature="e#864#865#0" expanded="true" />
+                <element signature="e#0#856#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test-runner/src/main/java/com/anniefraz/dissertation/test/runner/UnitTestResultSet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-814">
-              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test-runner/src/main/java/com/anniefraz/dissertation/test/runner/UnitTestResult.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1054">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/application/ApplicationMain.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -137,12 +250,12 @@
       <find>iter</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/opacitor/pom.xml" />
-        <option value="$PROJECT_DIR$/test-runner/pom.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/experiments/loops/bubbleSort/src/recursiveBubbleSort.java" />
         <option value="$PROJECT_DIR$/experiments/loops/bubbleSort/src/iterativeBubbleSort.java" />
         <option value="$PROJECT_DIR$/experiments/loops/bubbleSort/iterativeBubbleSort.txt" />
@@ -157,6 +270,11 @@
         <option value="$PROJECT_DIR$/test-runner/src/test/java/com/anniefraz/dissertation/test/runner/TestRunnerTest.java" />
         <option value="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/application/ApplicationMain.java" />
         <option value="$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/application/CodeToTestRunner.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/opacitor/pom.xml" />
+        <option value="$PROJECT_DIR$/gin-main/pom.xml" />
+        <option value="$PROJECT_DIR$/test-runner/pom.xml" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -174,222 +292,61 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="950" />
-    <option name="width" value="980" />
-    <option name="height" value="1040" />
+    <option name="x" value="-8" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
+      <autoscrollFromSource ProjectPane="true" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Anna-Gin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Anna-Gin" type="462c0819:PsiDirectoryNode" />
+              <item name="GIN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GIN" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Anna-Gin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Anna-Gin" type="462c0819:PsiDirectoryNode" />
-              <item name="experiments" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Anna-Gin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Anna-Gin" type="462c0819:PsiDirectoryNode" />
-              <item name="experiments" type="462c0819:PsiDirectoryNode" />
-              <item name="loops" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Anna-Gin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Anna-Gin" type="462c0819:PsiDirectoryNode" />
-              <item name="experiments" type="462c0819:PsiDirectoryNode" />
-              <item name="loops" type="462c0819:PsiDirectoryNode" />
-              <item name="bubbleSort" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Anna-Gin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Anna-Gin" type="462c0819:PsiDirectoryNode" />
-              <item name="experiments" type="462c0819:PsiDirectoryNode" />
-              <item name="loops" type="462c0819:PsiDirectoryNode" />
-              <item name="bubbleSort" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Anna-Gin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Anna-Gin" type="462c0819:PsiDirectoryNode" />
-              <item name="ginmain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Anna-Gin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Anna-Gin" type="462c0819:PsiDirectoryNode" />
-              <item name="ginmain" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Anna-Gin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Anna-Gin" type="462c0819:PsiDirectoryNode" />
-              <item name="ginmain" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Anna-Gin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Anna-Gin" type="462c0819:PsiDirectoryNode" />
-              <item name="ginmain" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Anna-Gin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Anna-Gin" type="462c0819:PsiDirectoryNode" />
-              <item name="ginmain" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="gin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Anna-Gin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Anna-Gin" type="462c0819:PsiDirectoryNode" />
-              <item name="ginmain" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="gin" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Anna-Gin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Anna-Gin" type="462c0819:PsiDirectoryNode" />
-              <item name="test-runner" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Anna-Gin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Anna-Gin" type="462c0819:PsiDirectoryNode" />
-              <item name="test-runner" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Anna-Gin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Anna-Gin" type="462c0819:PsiDirectoryNode" />
-              <item name="test-runner" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-              <item name="unittests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Anna-Gin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Anna-Gin" type="462c0819:PsiDirectoryNode" />
-              <item name="test-runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Anna-Gin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Anna-Gin" type="462c0819:PsiDirectoryNode" />
-              <item name="test-runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Anna-Gin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Anna-Gin" type="462c0819:PsiDirectoryNode" />
-              <item name="test-runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Anna-Gin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Anna-Gin" type="462c0819:PsiDirectoryNode" />
-              <item name="test-runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="runner" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Anna-Gin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Anna-Gin" type="462c0819:PsiDirectoryNode" />
-              <item name="test-runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Anna-Gin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Anna-Gin" type="462c0819:PsiDirectoryNode" />
-              <item name="test-runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Anna-Gin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Anna-Gin" type="462c0819:PsiDirectoryNode" />
-              <item name="test-runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="runner" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Anna-Gin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Anna-Gin" type="462c0819:PsiDirectoryNode" />
-              <item name="test-runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Anna-Gin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Anna-Gin" type="462c0819:PsiDirectoryNode" />
-              <item name="test-runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="unittest" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Anna-Gin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Anna-Gin" type="462c0819:PsiDirectoryNode" />
-              <item name="test-runner" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="unittest" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
+              <item name="GIN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GIN" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543001830340" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543077981236" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\user\IdeaProjects\Anna-Gin\test-runner\examples\example" />
-      <recent name="C:\Users\user\IdeaProjects\Anna-Gin\test-runner" />
-      <recent name="C:\Users\user\IdeaProjects\Anna-Gin\opacitor\test_external_dir\src\test" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\IdeaProjects\Anna-Gin\test-runner\examples\unittests" />
+      <recent name="C:\Users\user\IdeaProjects\Anna-Gin\opacitor" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\user\IdeaProjects\Anna-Gin\test-runner\examples\unittests" />
-      <recent name="C:\Users\user\IdeaProjects\Anna-Gin\opacitor" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\tglew\intelliProjects\other\GIN" />
+      <recent name="C:\Users\user\IdeaProjects\Anna-Gin\test-runner\examples\example" />
+      <recent name="C:\Users\user\IdeaProjects\Anna-Gin\test-runner" />
+      <recent name="C:\Users\user\IdeaProjects\Anna-Gin\opacitor\test_external_dir\src\test" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -456,6 +413,53 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.anniefraz.dissertation.test.runner" />
       <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <module name="Anna-Gin" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <module name="Anna-Gin" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -527,13 +531,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9527000" />
+    <option name="totallyTimeSpent" value="11249000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24630873" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15436241" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -542,12 +546,12 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.33049646" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3787234" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3787234" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Spring" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
@@ -620,30 +624,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/opacitor/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test-runner/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ginmain/pom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1751">
-          <caret line="103" column="21" selection-start-line="103" selection-start-column="21" selection-end-line="103" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/opacitor/srcMod/test/TestClass2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-40" />
@@ -751,20 +731,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test-runner/examples/unittests/Error.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-179">
-          <folding>
-            <element signature="e#0#502#0" expanded="true" />
-          </folding>
-        </state>
+        <state relative-caret-position="-179" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test-runner/examples/unittests/ErrorTest.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-366">
-          <folding>
-            <element signature="e#0#741#0" expanded="true" />
-          </folding>
-        </state>
+        <state relative-caret-position="-366" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test-runner/src/test/java/com/anniefraz/dissertation/test/runner/CacheClassLoaderTest.java">
@@ -809,23 +781,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/lang/System.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="333" selection-start-line="333" selection-end-line="333" />
-          <folding>
-            <element signature="e#11597#11598#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/lang/ClassLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="507" selection-start-line="507" selection-end-line="507" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/lang/System.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/lang/ClassLoader.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -844,10 +801,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="29" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="e#870#1063#0" expanded="true" />
-            <element signature="e#1062#1063#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -855,10 +808,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="e#816#817#0" expanded="true" />
-            <element signature="e#864#865#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -886,14 +835,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/application/ApplicationMain.java">
+    <entry file="file://$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/application/ApplicationMain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="118">
           <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ginmain/src/main/java/com/anniefraz/dissertation/gin/application/CodeToTestRunner.java">
+    <entry file="file://$PROJECT_DIR$/gin-main/src/main/java/com/anniefraz/dissertation/gin/application/CodeToTestRunner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
@@ -904,6 +853,54 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/opacitor/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gin-main/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-runner/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1547">
+          <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/classes/iterativeBubbleSort.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#0#856#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

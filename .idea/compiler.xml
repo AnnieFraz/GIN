@@ -7,7 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Anna-Gin" />
-        <module name="ginmain" />
+        <module name="gin-main" />
         <module name="opacitor" />
         <module name="test-runner" />
       </profile>
