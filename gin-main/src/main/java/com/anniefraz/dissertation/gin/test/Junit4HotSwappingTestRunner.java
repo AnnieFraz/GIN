@@ -6,6 +6,7 @@ import junit.framework.TestSuite;
 import org.hotswap.agent.config.PluginManager;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
+import org.mdkt.compiler.CompilationException;
 import org.mdkt.compiler.InMemoryJavaCompiler;
 
 import java.util.Map;
@@ -26,10 +27,17 @@ public class Junit4HotSwappingTestRunner implements TestRunner {
 
     @Override
     public boolean run(Source source) {
-        Map<Class<?>, byte[]> hotSwapMap = source.getAnnaClasses()
-                .stream()
-                .map(annaClass -> inMemoryJavaCompiler.compileToRawBytes(annaClass.getPath().getCanonicalName(), annaClass.getJoinedLines()))
-                .collect(Collectors.toMap(Pair::getValue, pair -> pair.getKey().getByteCode()));
+        Map<Class<?>, byte[]> hotSwapMap = null;
+        try {
+            hotSwapMap = source.getAnnaClasses()
+                    .stream()
+                    .map(annaClass -> inMemoryJavaCompiler.compileToRawBytes(annaClass.getPath().getCanonicalName(), annaClass.getJoinedLines()))
+                    .collect(Collectors.toMap(Pair::getValue, pair -> pair.getKey().getByteCode()));
+        } catch (CompilationException ignored){
+        }
+        if (hotSwapMap == null) {
+            return false;
+        }
         pluginManager.hotswap(hotSwapMap);
         Result result = junit.run(testSuite);
 

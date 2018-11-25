@@ -19,13 +19,10 @@ public class MoveLineEdit extends SingleClassEdit {
     @Override
     protected void applyMethod(AnnaClass annaClass) {
         List<String> lines = annaClass.getLines();
-        System.out.println(lines);
         String line = lines.remove(sourceLineIndex);
         lines.add(destinationLineIndex, line);
-        System.out.println(lines);
-
-
     }
+
     @Override
     public String toString() {
         return "MoveLineEdit{" +

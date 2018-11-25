@@ -12,11 +12,14 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import java.io.Closeable;
 import java.io.IOException;
+import java.nio.file.Paths;
 
 public class PatchExample {
 
 
     public static void main(String[] args) throws IOException {
+
+        System.out.println(Paths.get("").toAbsolutePath().toString());
 
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ApplicationConfig.class);
 

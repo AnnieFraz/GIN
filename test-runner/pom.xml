@@ -31,8 +31,7 @@
         <dependency>
             <groupId>org.mdkt.compiler</groupId>
             <artifactId>InMemoryJavaCompiler</artifactId>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/InMemoryJavaCompiler-1.4.0-SNAPSHOT-ginfork-20180801.jar</systemPath>
+            <version>2.0.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.anniefraz.dissertation</groupId>

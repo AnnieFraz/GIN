@@ -150,7 +150,7 @@ public class TestRunner {
         		compiler.useOptions("-classpath", this.classPath, "-Xlint:unchecked");
         	}
         	
-        	CompiledCode code = compiler.compileToRawBytes(className, source);
+        	CompiledCode code = compiler.compileToRawBytes(className, source).getKey();
 
         	classLoader.setCustomCompiledCode(className, code);
 
