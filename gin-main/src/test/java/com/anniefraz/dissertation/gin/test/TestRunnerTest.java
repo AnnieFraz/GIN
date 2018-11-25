@@ -11,6 +11,8 @@ import org.mdkt.compiler.InMemoryJavaCompiler;
 import static com.anniefraz.dissertation.gin.TestUtils.getSourceFactory;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+//needs to be run with:
+//-XXaltjvm=dcevm -javaagent:D:\hotswap\hotswap-agent-1.3.0.jar
 public class TestRunnerTest {
     private TestRunner testRunner;
     private Source source;
