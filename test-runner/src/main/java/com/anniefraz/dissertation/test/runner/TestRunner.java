@@ -147,10 +147,10 @@ public class TestRunner {
         	compiler = compiler.ignoreWarnings();
         	//compiler.useParentClassLoader(classLoader);
         	if (this.classPath != null) {
-        		compiler.useOptions("-classpath", this.classPath, "-Xlint:unchecked");
+        		//compiler.useOptions("-classpath", this.classPath, "-Xlint:unchecked");
         	}
         	
-        	CompiledCode code = compiler.compileToRawBytes(className, source).getKey();
+        	CompiledCode code = compiler.compileToRawBytes(className, source);
 
         	classLoader.setCustomCompiledCode(className, code);
 

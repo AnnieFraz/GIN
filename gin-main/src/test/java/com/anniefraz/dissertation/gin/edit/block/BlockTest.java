@@ -5,6 +5,7 @@ import com.anniefraz.dissertation.gin.source.AnnaPath;
 import com.anniefraz.dissertation.gin.source.Source;
 import com.anniefraz.dissertation.gin.source.SourceFactory;
 import com.github.javaparser.JavaParser;
+import com.github.javaparser.ast.stmt.BlockStmt;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

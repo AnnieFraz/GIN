@@ -5,8 +5,12 @@ import com.anniefraz.dissertation.gin.source.AnnaClass;
 import com.anniefraz.dissertation.gin.source.AnnaPath;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.stmt.BlockStmt;
+import com.github.javaparser.ast.stmt.Statement;
+import com.github.javaparser.ast.visitor.GenericVisitor;
+import com.github.javaparser.ast.visitor.VoidVisitor;
 import com.github.javaparser.utils.Log;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MoveBlockEdit extends SingleClassEdit {
@@ -31,23 +35,52 @@ public class MoveBlockEdit extends SingleClassEdit {
 
         List<String> lines = annaClass.getLines();
 
-            //System.out.println(i);
+        System.out.println(lines);
+
+        //System.out.println(i);
             //System.out.println(newLocation + i);
             //System.out.println(line);
-
 /*
+
             BlockStmt bs = new BlockStmt();
+            for (int i = startBlockInt; i < endBlockInt; i++) {
+
+                bs.getStatement(i);
+            }
+        System.out.println(bs);
+
+            }
             bs.setStatements(
                  for (int i = 0; i < endBlockInt; i++) {
                     String line = lines.remove(startBlockInt);
-            );*/
+            );
+            */
 
-            //lines.add(newLocation, bs);
+        List<String> block = new ArrayList<>();
 
+        int total = endBlockInt - startBlockInt;
 
+        //System.out.println(total);
 
-
+        for (int i = startBlockInt; i < endBlockInt; i++) {
+                block.add(i - startBlockInt, lines.get(i));
+                //System.out.println("i: "+i);
         }
+       // System.out.println(block);
+
+        //BlockStmt stmt = block.getBody();
+
+        for (int i = 0; i < total; i++) {
+            //lines.add(newLocation+i, block.get(i));
+            //lines.remove(startBlockInt+i);
+            String line = lines.remove(startBlockInt+i);
+            lines.add(newLocation+i, block.get(i));
+            //lines.add(newLocation+i, line);
+        }
+        System.out.println(lines);
+
+
+    }
 
 
 

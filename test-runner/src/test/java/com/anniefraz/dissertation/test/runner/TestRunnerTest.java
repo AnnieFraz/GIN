@@ -25,6 +25,7 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
+import java.util.Spliterators;
 
 import static org.junit.Assert.*;
 
@@ -33,6 +34,7 @@ public class TestRunnerTest {
     private final static File exampleDir = new File(TestConfiguration.TEST_RESOURCES_DIR);
 
     private final static String className = "Triangle";
+    private final static String testClassNameTriangle = "TriangleTest";
     private final static String testClassName = "ExampleTest";
     private final static String methodName = "aMethod";
 
@@ -79,11 +81,17 @@ public class TestRunnerTest {
      * Then delete statement to cause an assertion failure and check it fails
      */
     @Test
-    public void testModifiedClassIsRun() {
+    public void testModifiedClassIsRun() throws Exception {
 
-        UnitTest test = new UnitTest("ExampleTest", "testReturnTen");
+        UnitTest test = new UnitTest(testClassNameTriangle, "testInvalidTriangles");
+        UnitTest test1 = new UnitTest(testClassNameTriangle, "testEqualateralTriangles");
+        UnitTest test2 = new UnitTest(testClassNameTriangle, "testIsocelesTriangles");
+        UnitTest test3 = new UnitTest(testClassNameTriangle, "testScaleneTriangles");
         LinkedList<UnitTest> tests = new LinkedList<>();
         tests.add(test);
+        tests.add(test1);
+        tests.add(test2);
+        tests.add(test3);
 
         // Package name is null. TODO: why do we require the package name?
         // Surely a fully qualified classname makes more sense.
@@ -98,12 +106,22 @@ public class TestRunnerTest {
 
         Patch patch = new Patch(sourceFromAnnaPath, Collections.emptyList());
 
+        String joinedLines = patch.getOutputSource().getAnnaClasses().get(0).getJoinedLines();
+
+        CompiledCode triangle = InMemoryJavaCompiler.newInstance().compileToRawBytes("example.Triangle", joinedLines);
+        System.out.println(joinedLines);
+        System.out.println(triangle);
+
         UnitTestResultSet resultSet = testRunner.test(patch, 1);
         LinkedList<UnitTestResult> results = resultSet.getResults();
         UnitTestResult result = results.get(0);
+        for (UnitTestResult unitTestResult :
+                results) {
+            System.out.println(unitTestResult.getPassed());
+        }
         assertTrue(result.getPassed());
 
-        Edit edit = new RemoveLineEdit(10,annaPath); // deletes result=10 hence introducing a bug
+        Edit edit = new RemoveLineEdit(12 ,annaPath); // deletes result=10 hence introducing a bug
         Patch deletePatch = new Patch(sourceFromAnnaPath, Collections.singletonList(edit));
 
         UnitTestResultSet modifiedResultSet = testRunner.test(deletePatch, 1);

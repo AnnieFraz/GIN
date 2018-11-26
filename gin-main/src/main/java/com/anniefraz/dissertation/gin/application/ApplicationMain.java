@@ -104,4 +104,8 @@ public class ApplicationMain {
 
     }
 
+    private void sendToTestRunner(){
+        //Here I want when I have made a new patch for it to go to the test runner automatically
+    }
+
 }
