@@ -11,6 +11,8 @@ public class IfStatementEdit extends SingleClassEdit {
     private static final String LESS_THAN = "<";
     private static final String GREATER_THAN = ">";
 
+    private static final String FIRST_CONDITION = "";
+    private static final String SECOND_CONDITION = "";
 
     private final int lineIndex;
 
@@ -19,6 +21,26 @@ public class IfStatementEdit extends SingleClassEdit {
         this.lineIndex = lineIndex;
     }
 
+
+    public static String getFirstCondition() {
+        //FIRST_CONDITION =
+        return FIRST_CONDITION;
+    }
+
+    public static String getSecondCondition() {
+        return SECOND_CONDITION;
+    }
+
+    public  String swapConditions(){
+        String firstCondition = getFirstCondition();
+        String secondCondition = getSecondCondition();
+        firstCondition = secondCondition;
+
+
+        String line = "if ("+firstCondition +""+secondCondition+")";
+        return line;
+
+    }
 
     String getOperator(String line){
         int lessThan = line.indexOf(LESS_THAN);
@@ -52,6 +74,9 @@ public class IfStatementEdit extends SingleClassEdit {
         return line;
     }
 
+
+
+
     @Override
     public void applyMethod(AnnaClass annaClass){
 
@@ -60,13 +85,23 @@ public class IfStatementEdit extends SingleClassEdit {
         String line = "";
 
         for (int i = 0; i < lines.size(); i++){
-             line = lines.get(i);
-             lines.remove(line);
-             line = changeOperator(line, operatorApply);
-             lines.add(line);
-             operatorApply = getOperator(line);
+            if (line.contains("if (")) { //To verifiy that the line is actually an if statement
+                 lines.remove(line);
+                 line = changeOperator(line, operatorApply);
+            lines.add(line);
+                 operatorApply = getOperator(line);
+            }else{
+                continue;
+             }
 
         }
     }
 
+    @Override
+    public String toString() {
+        return "IfStatementEdit{" +
+                "lineIndex=" + lineIndex +
+                ", annaPath=" + annaPath +
+                '}';
+    }
 }

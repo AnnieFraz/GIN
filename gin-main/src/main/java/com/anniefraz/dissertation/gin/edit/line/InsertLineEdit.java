@@ -23,11 +23,6 @@ public class InsertLineEdit extends SingleClassEdit {
                 '}';
     }
 
-    /*
-      public String toString(){
-        return  ReflectionToStringBuilder.toString(this);
-    }
-     */
 
     @Override
     protected void applyMethod(AnnaClass annaClass) {

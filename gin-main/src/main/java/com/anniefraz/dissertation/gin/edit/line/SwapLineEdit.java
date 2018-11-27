@@ -20,12 +20,10 @@ public class SwapLineEdit extends SingleClassEdit {
     @Override
     protected void applyMethod(AnnaClass annaClass) {
         List<String> lines = annaClass.getLines();
-        //Collections.swap(lines, firstLineIndex, secondLineIndex);
         String line1 = lines.remove(firstLineIndex);
         String line2 = lines.remove(secondLineIndex);
         lines.add(secondLineIndex-1, line1);
         lines.add(firstLineIndex-1, line2);
-        //Collections.swap(lines, secondLineIndex, firstLineIndex);
     }
 
     @Override

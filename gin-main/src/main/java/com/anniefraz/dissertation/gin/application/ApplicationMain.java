@@ -30,7 +30,6 @@ public class ApplicationMain {
 
 
     public static void main(String[] args) throws IOException, Exception {
-        LOG.info("yeet");
         //ApplicationContext allows to spring to properly interject beans into the application
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ApplicationConfig.class);
 
@@ -61,12 +60,12 @@ public class ApplicationMain {
             Source outputSource = patch.getOutputSource();
             LOG.info("Output source: " + outputSource);
 
-
             ((Closeable) applicationContext).close();
 
             LOG.info("Which edits: "+patch.getEdits());
+            System.out.println("which edits: " + patch.getEdits());
 
-            //This needs to be in seperate method. will show to sandy tho - 12/11
+                //This needs to be in seperate method. will show to sandy tho - 12/11
             Class<?> compiledClass = null;
 
             List<AnnaClass> classList = outputSource.getAnnaClasses();
@@ -81,15 +80,17 @@ public class ApplicationMain {
             //Removing the commas so hopefully it can compile better
             //String str = outputfileString.replace(",", "\n");
 
-        System.out.println(outputfileString);
+            System.out.println(outputfileString);
 
        compiledClass = InMemoryJavaCompiler.newInstance().compile("Triangle", outputfileString) ;
 
        if (compiledClass != null){
-           System.out.println("Compiled successfully ");
+
+           System.out.println("Didn't compile");
            System.out.println("time:"+System.currentTimeMillis());
        }else{
-           System.out.println("Did not compile");
+           System.out.println("Compiled Successfully");
+           System.out.println("time:"+System.currentTimeMillis());
            i++;
        }
         }

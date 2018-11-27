@@ -28,7 +28,7 @@ class IfStatementEditTest {
     @BeforeEach
     void initialise(){
 
-        SourceFactory         sourceFactory = getSourceFactory(this);
+        SourceFactory sourceFactory = getSourceFactory(this);
 
         annaPath = new AnnaPath(Collections.singletonList("example"), "Triangle");
         sourceFromAnnaPath = sourceFactory.getSourceFromAnnaPath(annaPath);
@@ -41,7 +41,6 @@ class IfStatementEditTest {
         IfStatementEdit edit = new IfStatementEdit(lineIndex, annaPath );
         List<String> lines = sourceFromAnnaPath.getAnnaClasses().get(0).getLines();
         String line = lines.get(10);
-        System.out.println(line);
 
         String operator = edit.getOperator(line);
 
@@ -67,12 +66,11 @@ class IfStatementEditTest {
     @Test
     void testApplyMethod() {
 
-        List<String> lines = sourceFromAnnaPath.getAnnaClasses().get(0).getLines();
-
-
         Edit edit = new IfStatementEdit(lineIndex, annaPath );
 
         sourceFromAnnaPath.apply(edit);
+
+        List<String> lines = sourceFromAnnaPath.getAnnaClasses().get(0).getLines();
 
         assertEquals(43, lines.size());
     }

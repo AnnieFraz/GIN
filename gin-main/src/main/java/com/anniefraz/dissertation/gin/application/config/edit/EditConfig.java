@@ -1,6 +1,7 @@
 package com.anniefraz.dissertation.gin.application.config.edit;
 
 import com.anniefraz.dissertation.gin.edit.Edit;
+import com.anniefraz.dissertation.gin.edit.block.RemoveBlockEdit;
 import com.anniefraz.dissertation.gin.edit.line.InsertLineEdit;
 import com.anniefraz.dissertation.gin.edit.line.MoveLineEdit;
 import com.anniefraz.dissertation.gin.edit.line.RemoveLineEdit;
@@ -26,7 +27,7 @@ public class EditConfig {
 
     @Bean
     //TODO: Need to figure out what to be inserted
-    public Function<AnnaClass, Edit> insertLineedit(){
+    public Function<AnnaClass, Edit> insertLineEdit(){
         return anAnnaClass ->{
             int size = anAnnaClass.getLines().size();
             int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
@@ -54,14 +55,26 @@ public class EditConfig {
         };
     }
 
-    /*
+
     @Bean
+    //TODO: GET THIS EDIT TO SWAP CONDITIONS
     public Function<AnnaClass, Edit> operatorEdit(){
         return anAnnaClass -> {
             int size = anAnnaClass.getLines().size();
             int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
             return new IfStatementEdit(whichLine, anAnnaClass.getPath());
         };
-    }*/
+    }
+
+    @Bean
+    public Function<AnnaClass, Edit> removeBlockEdit(){
+        return anAnnaClass -> {
+            int size = anAnnaClass.getLines().size();
+            //int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            int startInt = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            int endInt = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            return new RemoveBlockEdit(startInt, endInt, anAnnaClass.getPath());
+        };
+    }
 
 }
