@@ -1,6 +1,7 @@
 package com.anniefraz.dissertation.gin.application.config.edit;
 
 import com.anniefraz.dissertation.gin.edit.Edit;
+import com.anniefraz.dissertation.gin.edit.block.MoveBlockEdit;
 import com.anniefraz.dissertation.gin.edit.block.RemoveBlockEdit;
 import com.anniefraz.dissertation.gin.edit.line.InsertLineEdit;
 import com.anniefraz.dissertation.gin.edit.line.MoveLineEdit;
@@ -67,13 +68,24 @@ public class EditConfig {
     }
 
     @Bean
+    //TODO: Double checks this works
     public Function<AnnaClass, Edit> removeBlockEdit(){
         return anAnnaClass -> {
             int size = anAnnaClass.getLines().size();
-            //int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
             int startInt = Double.valueOf(Math.floor(Math.random() * size)).intValue();
             int endInt = Double.valueOf(Math.floor(Math.random() * size)).intValue();
             return new RemoveBlockEdit(startInt, endInt, anAnnaClass.getPath());
+        };
+    }
+
+    @Bean
+    public Function<AnnaClass, Edit> moveBlockEdit(){
+        return anAnnaClass -> {
+            int size = anAnnaClass.getLines().size();
+            int startInt = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            int endInt = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            int newLocation = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            return new MoveBlockEdit(startInt, endInt, newLocation, anAnnaClass.getPath());
         };
     }
 

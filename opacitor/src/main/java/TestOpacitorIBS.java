@@ -12,20 +12,30 @@ import java.util.List;
 public class TestOpacitorIBS {
 
     public static void main(String[] args) {
+        /*
+        Windows - Paths
         String testSrcDir = "C:/Users/user/IdeaProjects/AnnaGin/Opacitor/test_external_dir/src";
         String testBinDir = "C:/Users/user/IdeaProjects/AnnaGin/Opacitor/test_external_dir/bin";
         String testReplacementCode = "C:/Users/user/IdeaProjects/AnnaGin/Opacitor/test_external_dir/src/test/TestClassReplacement.java";
+        */
+
+        //Mac Paths
+        String testSrcDir = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/src";
+        String testBinDir = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/bin";
+        String testReplacementCode = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/src/test/TestClassReplacement.java";
 
         // length. simply measure the length of the code
         System.out.println("CodeLength");
 
         try {
-            Opacitor opacitor = new Opacitor.OpacitorBuilder("test", "iterativeBubbleSort", new String[]{})
+            Opacitor opacitor = new Opacitor.OpacitorBuilder("test", "IterativeBubbleSort", new String[]{})
                     .srcDirectory(testSrcDir)
                     .binDirectory(testBinDir)
                     .measurementType(MeasurementType.CODE_LENGTH)
                     .performInitialCompilation(true)
+                    .debug(true)
                     .goalDirection(GoalDirection.MINIMISING)
+                    //.compiler("path to javac") //Set to be java 8 or later
                     .build();
 
             // first we try running with different params
@@ -51,7 +61,7 @@ public class TestOpacitorIBS {
 
         // supersimplejalen. run code, measure time in single thread. multiply to get joules
         try {
-            Opacitor opacitor = new Opacitor.OpacitorBuilder("test", "iterativeBubbleSort", new String[]{})
+            Opacitor opacitor = new Opacitor.OpacitorBuilder("test", "IterativeBubbleSort", new String[]{})
                     .srcDirectory(testSrcDir)
                     .binDirectory(testBinDir)
                     .measurementType(MeasurementType.SUPER_SIMPLE_JALEN)
@@ -69,7 +79,7 @@ public class TestOpacitorIBS {
             // now try running with different code
             List<String> replacementList = Files.readLines(new File(testReplacementCode), Charset.defaultCharset());
             String replacement = String.join(System.lineSeparator(), replacementList);
-            opacitor.updateCode(Collections.<Tuple3<String,String,String>>singletonList(new Tuple3<String,String,String>(replacement, "test", "iterativeBubbleSort")));
+            opacitor.updateCode(Collections.<Tuple3<String,String,String>>singletonList(new Tuple3<String,String,String>(replacement, "test", "IterativeBubbleSort")));
             measurement = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});
             System.out.println(measurement);
 
@@ -81,7 +91,7 @@ public class TestOpacitorIBS {
         System.out.println("SimpleJalen");
 
         try {
-            Opacitor opacitor = new Opacitor.OpacitorBuilder("test", "iterativeBubbleSort", new String[]{})
+            Opacitor opacitor = new Opacitor.OpacitorBuilder("test", "IterativeBubbleSort", new String[]{})
                     .srcDirectory(testSrcDir)
                     .binDirectory(testBinDir)
                     .measurementType(MeasurementType.SIMPLE_JALEN)
@@ -100,7 +110,7 @@ public class TestOpacitorIBS {
             // now try running with different code
             List<String> replacementList = Files.readLines(new File(testReplacementCode), Charset.defaultCharset());
             String replacement = String.join(System.lineSeparator(), replacementList);
-            opacitor.updateCode(Collections.<Tuple3<String,String,String>>singletonList(new Tuple3<String,String,String>(replacement, "test", "iterativeBubbleSort")));
+            opacitor.updateCode(Collections.<Tuple3<String,String,String>>singletonList(new Tuple3<String,String,String>(replacement, "test", "IterativeBubbleSort")));
             measurement = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});
             System.out.println(measurement);
 
@@ -123,7 +133,7 @@ public class TestOpacitorIBS {
 
 
         try {
-            Opacitor opacitor = new Opacitor.OpacitorBuilder("test", "iterativeBubbleSort", new String[]{})
+            Opacitor opacitor = new Opacitor.OpacitorBuilder("test", "IterativeBubbleSort", new String[]{})
                     .srcDirectory(testSrcDir)
                     .binDirectory(testBinDir)
                     .measurementType(MeasurementType.BYTECODE_HISTOGRAM)
@@ -144,7 +154,7 @@ public class TestOpacitorIBS {
             // now try running with different code
             List<String> replacementList = Files.readLines(new File(testReplacementCode), Charset.defaultCharset());
             String replacement = String.join(System.lineSeparator(), replacementList);
-            opacitor.updateCode(Collections.<Tuple3<String,String,String>>singletonList(new Tuple3<String,String,String>(replacement, "test", "iterativeBubbleSort")));
+            opacitor.updateCode(Collections.<Tuple3<String,String,String>>singletonList(new Tuple3<String,String,String>(replacement, "test", "IterativeBubbleSort")));
             measurement = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});
             System.out.println(measurement);
 

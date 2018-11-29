@@ -128,5 +128,22 @@
             <version>1.10.19</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>4.1</version>
+        </dependency>
+
+
+
+        <!--Opacitor -->
+        <dependency>
+            <groupId>opacitor</groupId>
+            <artifactId>opacitor</artifactId>
+            <version>any</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Opacitor/libs/Opacitor_sb.jar</systemPath>
+        </dependency>
     </dependencies>
 </project>

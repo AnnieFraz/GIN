@@ -35,7 +35,7 @@ public class MoveBlockEdit extends SingleClassEdit {
 
         List<String> lines = annaClass.getLines();
 
-        System.out.println(lines);
+        //System.out.println(lines);
 
         //System.out.println(i);
             //System.out.println(newLocation + i);
@@ -77,7 +77,7 @@ public class MoveBlockEdit extends SingleClassEdit {
             lines.add(newLocation+i, block.get(i));
             //lines.add(newLocation+i, line);
         }
-        System.out.println(lines);
+        //System.out.println(lines);
 
 
     }

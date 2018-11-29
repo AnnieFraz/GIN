@@ -34,22 +34,23 @@ public class SwapBlockEdit extends SingleClassEdit {
         List<String> lines = annaClass.getLines();
 
         // (blockOneEndNo > blockTwoEndNo){
-            for (int i = blockOneStartNo; i < blockOneEndNo; i++ ){
-
+            for (int i = blockOneStartNo; i < blockOneEndNo-1; i++ ){
+/*
                 System.out.println(blockOneStartNo+i);
                 System.out.println(blockTwoStartNo+i);
                 System.out.println(lines);
+                */
 
                 String line1 = lines.remove(i);
                 //System.out.println("yo"+lines.remove(i));
-                System.out.println("l1: "+line1);
-                String line2 = lines.remove(i + blockTwoStartNo);
-                System.out.println("l2: "+line1);
+                //System.out.println("l1: "+line1);
+                String line2 = lines.remove( blockTwoStartNo + i);
+                //System.out.println("l2: "+line1);
 
                 lines.add(blockTwoStartNo, line1);
                 lines.add(blockOneStartNo, line2);
 
-                System.out.println(lines);
+               // System.out.println(lines);
 
                 //Collections.swap(lines, blockOneStartNo1, blockTwoStartNo1);
             //}

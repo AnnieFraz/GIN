@@ -1,6 +1,8 @@
+package test;
+
 import java.util.Arrays;
 
-public class recursiveBubbleSort {
+public class IterativeBubbleSort {
 
     static void bubbleSort(int array[], int n){
         if (n==1){
@@ -14,7 +16,6 @@ public class recursiveBubbleSort {
                 array[i+1] = temp;
             }
         }
-    bubbleSort(array, array.length);
     }
 
     public static void main(String[] args) {

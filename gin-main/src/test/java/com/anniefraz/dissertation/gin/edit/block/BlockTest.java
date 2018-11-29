@@ -53,12 +53,14 @@ public class BlockTest {
 
         List<String> lines = sourceFromAnnaPath.getAnnaClasses().get(0).getLines();
         String sourceLine = lines.get(startBlockInt);
+        String sourceLine2 = lines.get(endBlockInt);
+
         //ACT
         sourceFromAnnaPath.apply(testEdit);
 
         //ASSERT
         assertEquals(43, sourceFromAnnaPath.getAnnaClasses().get(0).getLines().size());
-        assertEquals(newLocation, lines.indexOf(sourceLine));
+        assertEquals(lines.indexOf(newLocation), lines.indexOf(sourceLine));
     }
 
     @Test
