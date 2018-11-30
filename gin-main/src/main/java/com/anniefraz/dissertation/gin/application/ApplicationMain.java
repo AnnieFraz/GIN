@@ -24,7 +24,7 @@ import java.util.Random;
 
 public class ApplicationMain {
 
-    private static int REPS = 10;
+    private static int REPS = 100;
 
     private static int editNumberSeed = 4;
 
@@ -38,7 +38,7 @@ public class ApplicationMain {
 
     static Logger LOG = LoggerFactory.getLogger(ApplicationMain.class);
 
-    static String  outputfileString = "PatchExperiments.csv" ;
+    private static Results results;
 
 
     public static void main(String[] args) throws IOException, Exception {
@@ -61,15 +61,6 @@ public class ApplicationMain {
        // LOG.info("Number of Edits: " + noOfEdits);
 
         int noOfEdits = noofEditsNoRandom;
-
-        FileWriter outputfile = new FileWriter(outputfileString,true);
-
-        // create CSVWriter object filewriter object as parameter
-        CSVWriter writer = new CSVWriter(outputfile);
-
-        // adding header to csv
-        String[] header = { "Date", "Repatitions", "Patch", "Output", "Time" };
-        writer.writeNext(header);
 
         compile((Closeable) applicationContext, patchFactory, source, noOfEdits);
 
@@ -94,10 +85,9 @@ public class ApplicationMain {
             //This needs to be in seperate method. will show to sandy tho - 12/11
             Class<?> compiledClass = null;
 
-            List<AnnaClass> classList = outputSource.getAnnaClasses();
-
             //Getting the right class.
             //Maybe do as a loop for multiple classes
+            List<AnnaClass> classList = outputSource.getAnnaClasses();
             AnnaClass ac = classList.get(0);
 
             //Changing into a string so it can be put into in memory java compiler
@@ -111,7 +101,7 @@ public class ApplicationMain {
 
             long time = 0;
 
-            if (compiledClass != null) {
+            if (compiledClass == null) {
 
                 System.out.println("Didn't compile");
                 System.out.println("time:" + System.currentTimeMillis());
@@ -123,50 +113,19 @@ public class ApplicationMain {
                 i++;
             }
 
-            writeToFile(i, patch, outputfileString, time);
+            //System.out.println(outputfileString);
+            results.setCurrentRep(i);
+            results.setPatch(patch);
+            results.setOutputFileString(outputfileString);
+            results.setTime(time);
+            results.setCompiledClass(compiledClass);
+            results.writeToFile();
+
 
         }
     }
 
-    private static void writeToFile(int i, Patch patch, String outputfileString, long time) throws FileNotFoundException {
-        /*PrintWriter pw = new PrintWriter(new File("PatchExperiments.csv"));
-        StringBuilder fileData = new StringBuilder();
 
-
-        fileData.append(',');
-        fileData.append(',');
-        fileData.append(i);
-        fileData.append(outputfileString);
-        fileData.append(',');
-        fileData.append(patch.getEdits());
-        fileData.append(',');
-        fileData.append(patch.getEdits().toString());
-
-        fileData.append('\n');
-
-        pw.write(fileData.toString());
-        pw.close();*/
-
-        File file = new File("PatchExperiments.csv");
-
-        try {
-            // create FileWriter object with file as parameter
-            FileWriter outputfile = new FileWriter(outputfileString,true);
-
-            CSVWriter writer = new CSVWriter(outputfile);
-            // add data to csv
-            Date date = new Date();
-            String[] data = { date.toString(), Integer.toString(i), patch.getEdits().toString(), outputfileString, Long.toString(time)};
-
-            writer.writeNext(data);
-            // closing writer connection
-            writer.close();
-            outputfile.close();
-        }
-        catch (Exception e){
-
-        }
-    }
 
 
 
