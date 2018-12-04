@@ -1,7 +1,7 @@
-package com.anniefraz.dissertation.gin.application;
+package com.anniefraz.dissertation.test.runner.hotswap.application;
 
-import com.anniefraz.dissertation.example.application.A;
-import com.anniefraz.dissertation.example.application.A2;
+import com.anniefraz.dissertation.test.runner.hotswap.example.A;
+import com.anniefraz.dissertation.test.runner.hotswap.example.A2;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import org.hotswap.agent.config.PluginManager;
@@ -18,9 +18,9 @@ public class HotSwapExample {
         InMemoryJavaCompiler inMemoryJavaCompiler = InMemoryJavaCompiler.newInstance();
 
 
-        String bSource = "import com.anniefraz.dissertation.example.application.A;\npublic class B{ public B(){System.out.println(\"In B!\");new A();}}";
-        String b2Source = "import com.anniefraz.dissertation.example.application.A;\npublic class B{ public B(){System.out.println(\"In B2!\");new A();}}";
-        String aSource = "package com.anniefraz.dissertation.example.application;\n" +
+        String bSource = "import com.anniefraz.dissertation.test.runner.hotswap.example.A;\npublic class B{ public B(){System.out.println(\"In B!\");new A();}}";
+        String b2Source = "import com.anniefraz.dissertation.test.runner.hotswap.example.A;\npublic class B{ public B(){System.out.println(\"In B2!\");new A();}}";
+        String aSource = "package com.anniefraz.dissertation.test.runner.hotswap.example;\n" +
                 "\n" +
                 "public class A {\n" +
                 "\n" +
@@ -43,7 +43,7 @@ public class HotSwapExample {
         bClass.newInstance();
 
         byte[] bytes = inMemoryJavaCompiler//InMemoryJavaCompiler.newInstance()
-                .compileToRawBytes("com.anniefraz.dissertation.example.application.A", aSource)
+                .compileToRawBytes("com.anniefraz.dissertation.test.runner.hotswap.example.A", aSource)
                 .getKey()
                 .getByteCode();
 

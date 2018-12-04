@@ -1,4 +1,4 @@
-package com.anniefraz.dissertation.example.application;
+package com.anniefraz.dissertation.test.runner.hotswap.example;
 
 public class A {
 

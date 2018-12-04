@@ -1,34 +1,29 @@
-package com.anniefraz.dissertation.gin.application;
+package com.anniefraz.dissertation.test.runner.hotswap.application;
 
-import com.anniefraz.dissertation.gin.application.config.ApplicationConfig;
 import com.anniefraz.dissertation.gin.patch.Patch;
 import com.anniefraz.dissertation.gin.patch.PatchFactory;
 import com.anniefraz.dissertation.gin.source.AnnaPath;
 import com.anniefraz.dissertation.gin.source.Source;
-import com.anniefraz.dissertation.gin.source.SourceFactory;
-import com.anniefraz.dissertation.gin.test.HotSwappingTestRunnerFactory;
-import com.anniefraz.dissertation.gin.test.TestRunner;
-import com.anniefraz.dissertation.gin.test.TestRunnerFactory;
-import com.anniefraz.dissertation.gin.test.TestSource;
+import com.anniefraz.dissertation.test.runner.hotswap.application.config.HotswapTestRunnerApplicationConfig;
+import com.anniefraz.dissertation.test.runner.hotswap.test.*;
 import org.hotswap.agent.config.PluginManager;
 import org.mdkt.compiler.InMemoryJavaCompiler;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.util.List;
 import java.util.stream.Collectors;
 
 public class HotSwapTestRunnerExample {
 
-    public static final int ITERATIONS = 100;
+    public static final int ITERATIONS = 10;
     public static final int MAN_NO_OF_EDITS = 8;
 
     public static void main(String[] args) {
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(HotswapTestRunnerApplicationConfig.class);
 
         PatchFactory patchFactory = applicationContext.getBean(PatchFactory.class);
 
-        SourceFactory sourceFactory = applicationContext.getBean(SourceFactory.class);
+        TestSourceFactory sourceFactory = applicationContext.getBean(TestSourceFactory.class);
 
         AnnaPath annaPath = AnnaPath.getBuilder().addPackage("example").setClassName("Triangle").build();
 
@@ -59,7 +54,7 @@ public class HotSwapTestRunnerExample {
             Patch patch;
             try {
                 patch = patchFactory.getPatchForSourceWithEdits(source, MAN_NO_OF_EDITS);
-            } catch (IndexOutOfBoundsException e){
+            } catch (IndexOutOfBoundsException e) {
                 System.out.println(e.getMessage());
                 continue;
             }
@@ -67,7 +62,7 @@ public class HotSwapTestRunnerExample {
             Source outputSource = patch.getOutputSource();
 
             boolean run = testRunner.run(source);
-            if (run){
+            if (run) {
                 System.out.println("New source generated");// + outputSource.getAnnaClasses().get(0).getJoinedLines());
                 source = outputSource;
             } else {

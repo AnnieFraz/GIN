@@ -7,37 +7,27 @@ import com.anniefraz.dissertation.gin.source.AnnaClass;
 import com.anniefraz.dissertation.gin.source.AnnaPath;
 import com.anniefraz.dissertation.gin.source.Source;
 import com.anniefraz.dissertation.gin.source.SourceFactory;
-import com.anniefraz.dissertation.gin.test.TestRunner;
-import com.opencsv.CSVWriter;
 import org.mdkt.compiler.InMemoryJavaCompiler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.io.*;
-import java.util.Date;
+import java.io.Closeable;
+import java.io.IOException;
 import java.util.List;
-import java.util.Random;
 
 //import opacitor.Opacitor;
 
 public class ApplicationMain {
 
+    static Logger LOG = LoggerFactory.getLogger(ApplicationMain.class);
     private static int REPS = 100;
-
     private static int editNumberSeed = 4;
-
     private static boolean compileSuccess;
 
-    private static int noofEditsNoRandom = 1;
-
     //private Opacitor opacitor;
-
-    private TestRunner testRunner;
-
-    static Logger LOG = LoggerFactory.getLogger(ApplicationMain.class);
-
+    private static int noofEditsNoRandom = 1;
     private static Results results;
 
 
@@ -57,8 +47,8 @@ public class ApplicationMain {
 
         //random number of edits generator. Maximum is 4
         //Random random = new Random();
-       // int noOfEdits = random.nextInt(editNumberSeed) + 1;
-       // LOG.info("Number of Edits: " + noOfEdits);
+        // int noOfEdits = random.nextInt(editNumberSeed) + 1;
+        // LOG.info("Number of Edits: " + noOfEdits);
 
         int noOfEdits = noofEditsNoRandom;
 
@@ -66,7 +56,7 @@ public class ApplicationMain {
 
     }
 
-    private static void compile(Closeable applicationContext, PatchFactory patchFactory, Source source, int noOfEdits) throws IOException {
+    private static void compile(Closeable applicationContext, PatchFactory patchFactory, Source source, int noOfEdits) throws Exception {
         int i = 0;
         while (i < REPS) {
 
@@ -124,11 +114,6 @@ public class ApplicationMain {
 
         }
     }
-
-
-
-
-
 
 
     private void sendToTestRunner() {

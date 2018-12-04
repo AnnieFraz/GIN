@@ -1,4 +1,4 @@
-package com.anniefraz.dissertation.gin.test;
+package com.anniefraz.dissertation.test.runner.hotswap.test;
 
 import com.anniefraz.dissertation.gin.source.AnnaClass;
 import com.anniefraz.dissertation.gin.source.AnnaPath;

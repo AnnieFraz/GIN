@@ -1,14 +1,13 @@
-package com.anniefraz.dissertation.gin.test;
+package com.anniefraz.dissertation.test.runner.hotswap.test;
 
 import com.anniefraz.dissertation.gin.source.AnnaPath;
 import com.anniefraz.dissertation.gin.source.Source;
-import com.anniefraz.dissertation.gin.source.SourceFactory;
+import com.anniefraz.dissertation.test.runner.hotswap.TestUtils;
 import org.hotswap.agent.config.PluginManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mdkt.compiler.InMemoryJavaCompiler;
 
-import static com.anniefraz.dissertation.gin.TestUtils.getSourceFactory;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 //needs to be run with:
@@ -19,7 +18,7 @@ public class TestRunnerTest {
 
     @BeforeEach
     void setUp() {
-        SourceFactory sourceFactory = getSourceFactory(this);
+        TestSourceFactory sourceFactory = TestUtils.getTestSourceFactory(this);
 
         TestSource testSource = sourceFactory.getTestSourceFromAnnaPath(AnnaPath.getBuilder().addPackage("example").setClassName("TriangleTest").build());
         source = sourceFactory.getSourceFromAnnaPath(AnnaPath.getBuilder().addPackage("example").setClassName("Triangle").build());
