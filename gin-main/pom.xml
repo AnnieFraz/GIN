@@ -22,11 +22,19 @@
         <version>4.12</version>
         <scope>compile</scope>
     </dependency>
+        <!--
         <dependency>
             <groupId>test.runner</groupId>
             <artifactId>test.runner</artifactId>
             <scope>compile</scope>
             <systemPath>/Users/annarasburn/Documents/gin/AnnaGin/test-runner</systemPath>
+        </dependency>-->
+        <dependency>
+            <groupId>opacitor</groupId>
+            <artifactId>opacitor</artifactId>
+            <version>any</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/Opacitor_sb.jar</systemPath>
         </dependency>
 
 

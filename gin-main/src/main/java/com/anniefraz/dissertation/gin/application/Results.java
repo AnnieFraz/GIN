@@ -2,6 +2,7 @@ package com.anniefraz.dissertation.gin.application;
 
 
 import com.anniefraz.dissertation.gin.patch.Patch;
+import com.anniefraz.dissertation.gin.testRunner.UnitTestResult;
 import com.opencsv.CSVWriter;
 
 import java.io.File;
@@ -9,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Date;
+import java.util.LinkedList;
 
 public class Results {
 
@@ -22,10 +24,22 @@ public class Results {
     private File file = null;
     private boolean compileSuccess;
 
+    private boolean passed;
+
     //Add Test Runner Data
 
     //Add Opacitor Data
+    private String opacitorResults;
 
+    //The constructor that has everything
+    public Results(int currentRep, Patch patch, String outputFileString, long time, Class<?> compiledClass, boolean compileSuccess, boolean passed, String opacitorResults) {
+        this.currentRep = currentRep;
+        this.patch = patch;
+        this.outputFileString = outputFileString;
+        this.time = time;
+        this.compiledClass = compiledClass;
+        this.compileSuccess = compileSuccess;
+    }
 
     public Results(int currentRep, Patch patch, String outputFileString, long time, Class<?> compiledClass, boolean compileSuccess) {
         this.currentRep = currentRep;
@@ -36,7 +50,7 @@ public class Results {
         this.compileSuccess = compileSuccess;
     }
 
-    /*
+/*
 //Opacitor results
     public Results(String opacitorFitness, Results results) {
         //this(results.getCurrentRep(), results.getPatch(), results.getOutputFileString(), results.getTime(), results.getCompiledClass(), opacitorFitness);
@@ -45,9 +59,14 @@ public class Results {
 
     //Test Runner constructor
     public Results(String testRunnerResults) {
-       this();
-    }
-*/
+       //this();
+    }*/
+public Results(boolean passed, Results results){
+
+    this(results.currentRep, results.patch, results.outputFileString, results.time, results.compiledClass, results.compileSuccess, results.passed, results.opacitorResults);
+
+  }
+
 
 
     private File createFile() {
@@ -61,7 +80,7 @@ public class Results {
             CSVWriter writer = new CSVWriter(outputfile);
             // add data to csv
             Date date = new Date();
-            String[] header = {"Date", "Repetitions", "Patch", "Output", "Time", "Compiled"};
+            String[] header = {"Date", "Repetitions", "Patch", "Output", "Time", "Compiled", "Passed Unit Tests",};
 
             writer.writeNext(header);
             // closing writer connection
@@ -86,7 +105,7 @@ public class Results {
                 CSVWriter writer = new CSVWriter(outputFile);
                 // add data to csv
                 Date date = new Date();
-                String[] data = { date.toString(), Integer.toString(getCurrentRep()), getPatch().getEdits().toString(), getOutputFileString(), Long.toString(getTime()), String.valueOf(getCompileSuccess())}; //, compiledClass.toString() };
+                String[] data = { date.toString(), Integer.toString(getCurrentRep()), getPatch().getEdits().toString(), getOutputFileString(), Long.toString(getTime()), String.valueOf(getCompileSuccess()), String.valueOf(getPassed())}; //, compiledClass.toString() };
                 writer.writeNext(data);
                 // closing writer connection
                 System.out.println("File has been written to");
@@ -147,5 +166,13 @@ public class Results {
 
     public boolean getCompileSuccess() {
         return compileSuccess;
+    }
+
+    public void setPassedTests(Boolean passed) {
+    this.passed = passed;
+
+    }
+    public boolean getPassed(){
+    return passed;
     }
 }

@@ -7,9 +7,16 @@ import com.anniefraz.dissertation.gin.source.AnnaClass;
 import com.anniefraz.dissertation.gin.source.AnnaPath;
 import com.anniefraz.dissertation.gin.source.Source;
 import com.anniefraz.dissertation.gin.source.SourceFactory;
-//import com.anniefraz.dissertation.gin.test.TestRunner;
-//import com.anniefraz.dissertation.test.runner.*;
-//import org.mdkt.compiler.CompiledCode;
+import opacitor.Opacitor;
+import opacitor.enumerations.GoalDirection;
+import opacitor.enumerations.MeasurementType;
+import opacitor.exceptions.FailedToCompileException;
+import opacitor.exceptions.NoSuchMeasurementTypeException;
+import opacitor.exceptions.UnsupportedArchitectureException;
+import opacitor.exceptions.UnsupportedOSException;
+import org.mdkt.compiler.CompiledCode;
+import com.anniefraz.dissertation.gin.testRunner.*;
+import org.mdkt.compiler.CompiledCode;
 import org.mdkt.compiler.InMemoryJavaCompiler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +24,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.io.*;
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -31,7 +39,7 @@ public class ApplicationMain {
     private static int noofEditsNoRandom = 1;
     private static boolean compileSuccess;
     //private Opacitor opacitor;
-    //private TestRunner testRunner;
+    private static TestRunner testRunner;
     static Logger LOG = LoggerFactory.getLogger(ApplicationMain.class);
 
     public static void main(String[] args) throws IOException, Exception {
@@ -50,8 +58,8 @@ public class ApplicationMain {
 
         //random number of edits generator. Maximum is 4
         //Random random = new Random();
-       // int noOfEdits = random.nextInt(editNumberSeed) + 1;
-       // LOG.info("Number of Edits: " + noOfEdits);
+        // int noOfEdits = random.nextInt(editNumberSeed) + 1;
+        // LOG.info("Number of Edits: " + noOfEdits);
         int noOfEdits = noofEditsNoRandom;
 
         compile((Closeable) applicationContext, patchFactory, source, noOfEdits);
@@ -107,10 +115,13 @@ public class ApplicationMain {
                 i++;
             }
 
-            setResults(i,patch,outputFileString, time, compiledClass, compileSuccess);
+            Results results = new Results(i, patch, outputFileString, time, compiledClass, compileSuccess);
+            sendToTestRunner(outputFileString, patch, results);
+            setResults(i, patch, outputFileString, time, compiledClass, compileSuccess);
 
         }
     }
+
     private static void setResults(int i, Patch patch, String outputFileString, long time, Class<?> compiledClass, boolean compileSuccess) throws FileNotFoundException {
         Results results = new Results(i, patch, outputFileString, time, compiledClass, compileSuccess);
         results.setCurrentRep(i);
@@ -121,28 +132,48 @@ public class ApplicationMain {
         results.setCompileSuccess(compileSuccess);
         results.writeToFile();
     }
-/*
 
-    private void sendToTestRunner(String outputString) {
+    private static void sendToTestRunner(String outputString, Patch patch, Results results) {
+
+
+        String testClassNameTriangle = "TriangleTest";
+        String className = "Triangle";
+        String testClassName = "ExampleTest";
+        String methodName = "aMethod";
+
+        File exampleDir = new File(Configuration.TEST_RESOURCES_DIR);
+
+        UnitTest test = new UnitTest(testClassNameTriangle, "testInvalidTriangles");
+        UnitTest test1 = new UnitTest(testClassNameTriangle, "testEqualateralTriangles");
+        UnitTest test2 = new UnitTest(testClassNameTriangle, "testIsocelesTriangles");
+        UnitTest test3 = new UnitTest(testClassNameTriangle, "testScaleneTriangles");
+        LinkedList<UnitTest> tests = new LinkedList<>();
+        tests.add(test);
+        tests.add(test1);
+        tests.add(test2);
+        tests.add(test3);
         //Here I want when I have made a new patch for it to go to the test runner automatically
 
         CompiledCode triangle = InMemoryJavaCompiler.newInstance().compileToRawBytes("example.Triangle", outputString);
 
         UnitTestResultSet resultSet = testRunner.test(patch, 1);
-        LinkedList<UnitTestResult> results = resultSet.getResults();
-        UnitTestResult result = results.get(0);
+        LinkedList<UnitTestResult> unitTestResults = resultSet.getResults();
+        UnitTestResult result = unitTestResults.get(0);
         for (UnitTestResult unitTestResult :
-                results) {
+                unitTestResults) {
             System.out.println(unitTestResult.getPassed());
         }
 
-        //testRunner =  new TestRunner(exampleDir, className, TestConfiguration.TEST_RESOURCES_DIR, tests);
+        testRunner = new TestRunner(exampleDir, className, Configuration.TEST_RESOURCES_DIR, tests);
 
-    }*/
 
-    private void sendToOpacitor(String outputString) {
+        results.setPassedTests(result.getPassed());
 
-        /*
+    }
+
+    private void sendToOpacitor(String outputString) throws Exception {
+
+
         String testSrcDir = "C:/Users/user/IdeaProjects/AnnaGin/Opacitor/test_external_dir/src";
         String testBinDir = "C:/Users/user/IdeaProjects/AnnaGin/Opacitor/test_external_dir/bin";
         String testReplacementCode = outputString;
@@ -154,7 +185,8 @@ public class ApplicationMain {
                 .performInitialCompilation(true)
                 .goalDirection(GoalDirection.MINIMISING)
                 .build();
-                */
+
+
     }
 
 }
