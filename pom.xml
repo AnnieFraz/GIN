@@ -26,6 +26,7 @@
         <module>opacitor</module>
         <module>InMemoryJavaCompiler</module>
         <module>test-runner</module>
+        <module>hotswap-test-runner</module>
     </modules>
 
     <properties>
