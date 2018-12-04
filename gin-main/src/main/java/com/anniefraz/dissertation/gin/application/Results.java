@@ -20,18 +20,35 @@ public class Results {
     private Class<?> compiledClass;
 
     private File file = null;
+    private boolean compileSuccess;
 
     //Add Test Runner Data
 
     //Add Opacitor Data
 
-    public Results(int currentRep, Patch patch, String outputFileString, long time, Class<?> compiledClass) {
+
+    public Results(int currentRep, Patch patch, String outputFileString, long time, Class<?> compiledClass, boolean compileSuccess) {
         this.currentRep = currentRep;
         this.patch = patch;
         this.outputFileString = outputFileString;
         this.time = time;
         this.compiledClass = compiledClass;
+        this.compileSuccess = compileSuccess;
     }
+
+    /*
+//Opacitor results
+    public Results(String opacitorFitness, Results results) {
+        //this(results.getCurrentRep(), results.getPatch(), results.getOutputFileString(), results.getTime(), results.getCompiledClass(), opacitorFitness);
+        //this(getCurrentRep(),)
+    }
+
+    //Test Runner constructor
+    public Results(String testRunnerResults) {
+       this();
+    }
+*/
+
 
     private File createFile() {
         file = new File("PatchExperiments.csv");
@@ -44,7 +61,7 @@ public class Results {
             CSVWriter writer = new CSVWriter(outputfile);
             // add data to csv
             Date date = new Date();
-            String[] header = {"Date", "Repetitions", "Patch", "Output", "Time"};
+            String[] header = {"Date", "Repetitions", "Patch", "Output", "Time", "Compiled"};
 
             writer.writeNext(header);
             // closing writer connection
@@ -59,9 +76,9 @@ public class Results {
 
         public void writeToFile() throws FileNotFoundException {
 
-        //if (file == null){
+       // if (file == null){
            file = createFile();
-       // }else{
+        //}else{
             try {
                 // create FileWriter object with file as parameter
                 FileWriter outputFile = new FileWriter(file,true);
@@ -69,7 +86,7 @@ public class Results {
                 CSVWriter writer = new CSVWriter(outputFile);
                 // add data to csv
                 Date date = new Date();
-                String[] data = { date.toString(), Integer.toString(getCurrentRep()), getPatch().getEdits().toString(), getOutputFileString(), Long.toString(getTime())}; //, compiledClass.toString() };
+                String[] data = { date.toString(), Integer.toString(getCurrentRep()), getPatch().getEdits().toString(), getOutputFileString(), Long.toString(getTime()), String.valueOf(getCompileSuccess())}; //, compiledClass.toString() };
                 writer.writeNext(data);
                 // closing writer connection
                 System.out.println("File has been written to");
@@ -79,7 +96,7 @@ public class Results {
             catch (Exception e){
 
             }
-      //  }
+        //}
 
 
 
@@ -124,4 +141,11 @@ public class Results {
         this.compiledClass = compiledClass;
     }
 
+    public void setCompileSuccess(boolean compileSuccess) {
+        this.compileSuccess = compileSuccess;
+    }
+
+    public boolean getCompileSuccess() {
+        return compileSuccess;
+    }
 }

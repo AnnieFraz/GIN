@@ -112,6 +112,8 @@ public class TestRunnerTest {
         System.out.println(joinedLines);
         System.out.println(triangle);
 
+        //Can't find the classes
+
         UnitTestResultSet resultSet = testRunner.test(patch, 1);
         LinkedList<UnitTestResult> results = resultSet.getResults();
         UnitTestResult result = results.get(0);

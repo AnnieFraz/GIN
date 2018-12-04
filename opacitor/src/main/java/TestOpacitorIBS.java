@@ -11,19 +11,26 @@ import java.util.List;
 
 public class TestOpacitorIBS {
 
+    private static String testSrcDir = null;
+    private static String testBinDir = null;
+    private static String testReplacementCode= null;
+
+
     public static void main(String[] args) {
-        /*
-        Windows - Paths
-        String testSrcDir = "C:/Users/user/IdeaProjects/AnnaGin/Opacitor/test_external_dir/src";
-        String testBinDir = "C:/Users/user/IdeaProjects/AnnaGin/Opacitor/test_external_dir/bin";
-        String testReplacementCode = "C:/Users/user/IdeaProjects/AnnaGin/Opacitor/test_external_dir/src/test/TestClassReplacement.java";
-        */
+        final String osNameProperty = System.getProperty("os.name").toLowerCase();
+        if (osNameProperty.contains("windows")) {
 
-        //Mac Paths
-        String testSrcDir = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/src";
-        String testBinDir = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/bin";
-        String testReplacementCode = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/src/test/TestClassReplacement.java";
+            testSrcDir = "C:/Users/user/IdeaProjects/AnnaGin/Opacitor/test_external_dir/src";
+            testBinDir = "C:/Users/user/IdeaProjects/AnnaGin/Opacitor/test_external_dir/bin";
+            testReplacementCode = "C:/Users/user/IdeaProjects/AnnaGin/Opacitor/test_external_dir/src/test/TestClassReplacement.java";
+        }
+        else if (osNameProperty.contains("ios")) {
 
+            //Mac Paths
+             testSrcDir = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/src";
+             testBinDir = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/bin";
+             testReplacementCode = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/src/test/TestClassReplacement.java";
+        }
         // length. simply measure the length of the code
         System.out.println("CodeLength");
 
@@ -120,7 +127,7 @@ public class TestOpacitorIBS {
         // the full opacitor, counting bytecodes and measuring energy
         System.out.println("BytecodeTrace");
 
-        final String osNameProperty = System.getProperty("os.name").toLowerCase();
+        //final String osNameProperty = System.getProperty("os.name").toLowerCase();
         String pathToDebugJava = "";
         if (osNameProperty.contains("linux")) {
             pathToDebugJava = "/home/sbr/Opacitor";

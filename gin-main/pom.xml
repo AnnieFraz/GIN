@@ -22,6 +22,12 @@
         <version>4.12</version>
         <scope>compile</scope>
     </dependency>
+        <dependency>
+            <groupId>test.runner</groupId>
+            <artifactId>test.runner</artifactId>
+            <scope>compile</scope>
+            <systemPath>/Users/annarasburn/Documents/gin/AnnaGin/test-runner</systemPath>
+        </dependency>
 
 
 
