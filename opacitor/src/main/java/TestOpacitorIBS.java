@@ -42,7 +42,7 @@ public class TestOpacitorIBS {
                     .performInitialCompilation(true)
                     .debug(true)
                     .goalDirection(GoalDirection.MINIMISING)
-                    //.compiler("path to javac") //Set to be java 8 or later
+                    .compiler("C:\\Program Files\\Java\\jdk1.7.0_80") //Set to be java 8 or later
                     .build();
 
             // first we try running with different params
