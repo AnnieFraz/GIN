@@ -18,14 +18,13 @@ import org.junit.Test;
 import org.mdkt.compiler.CompiledCode;
 import org.mdkt.compiler.InMemoryJavaCompiler;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.Spliterators;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -93,10 +92,36 @@ public class TestRunnerTest {
         tests.add(test2);
         tests.add(test3);
 
+
         // Package name is null. TODO: why do we require the package name?
         // Surely a fully qualified classname makes more sense.
-        TestRunner testRunner = new TestRunner(new File(TestConfiguration.TEST_RESOURCES_DIR), "Example",
+        File file = new File("/Users/annarasburn/Documents/gin/AnnaGin/test-runner/examples/unittests/TriangleTest.class");
+        TestRunner testRunner = new TestRunner(new File(TestConfiguration.TEST_RESOURCES_DIR), "TriangleTest",
                 TestConfiguration.TEST_RESOURCES_DIR, tests);
+        System.out.println(file.getCanonicalPath());
+
+       // BufferedReader br = new BufferedReader(new FileReader("/Users/annarasburn/Documents/gin/AnnaGin/test-runner/examples/unittests/TriangleTest.class"));
+/*
+        BufferedReader br = new BufferedReader(new FileReader("/Users/annarasburn/Documents/gin/AnnaGin/test-runner/examples/unittests/TriangleTest.txt"));
+
+        String line = null;
+        while ((line = br.readLine()) != null) {
+           System.out.println(line);
+        }
+
+        Scanner input = new Scanner(file.getPath());
+
+        //Scanner input = new Scanner(new File("/Users/annarasburn/Documents/gin/AnnaGin/test-runner/examples/unittests/TriangleTest.class"));
+
+        System.out.println(input);
+        System.out.println(file);
+
+        while (input.hasNextLine())
+        {
+            System.out.println("yeet");
+            System.out.println(input.nextLine());
+        }*/
+
 
         LinkedList<String> methods = new LinkedList<>();
         methods.add("returnTen:7");
@@ -104,24 +129,29 @@ public class TestRunnerTest {
         AnnaPath annaPath = AnnaPath.getBuilder().addPackage("example").setClassName("Triangle").build();
         Source sourceFromAnnaPath = sourceFactory.getSourceFromAnnaPath(annaPath);
 
+
         Patch patch = new Patch(sourceFromAnnaPath, Collections.emptyList());
 
         String joinedLines = patch.getOutputSource().getAnnaClasses().get(0).getJoinedLines();
 
         CompiledCode triangle = InMemoryJavaCompiler.newInstance().compileToRawBytes("example.Triangle", joinedLines);
-        System.out.println(joinedLines);
-        System.out.println(triangle);
+        //System.out.println(joinedLines);
 
         //Can't find the classes
-
         UnitTestResultSet resultSet = testRunner.test(patch, 1);
         LinkedList<UnitTestResult> results = resultSet.getResults();
         UnitTestResult result = results.get(0);
         for (UnitTestResult unitTestResult :
                 results) {
-            System.out.println(unitTestResult.getPassed());
+            assertFalse(unitTestResult.getPassed());
+            System.out.println(unitTestResult);
         }
-        assertTrue(result.getPassed());
+
+
+        assertFalse(result.getPassed());
+        assertTrue(results.get(1).getPassed());
+        assertTrue(results.get(2).getPassed());
+        assertTrue(results.get(3).getPassed());
 
         Edit edit = new RemoveLineEdit(12 ,annaPath); // deletes result=10 hence introducing a bug
         Patch deletePatch = new Patch(sourceFromAnnaPath, Collections.singletonList(edit));
@@ -130,6 +160,7 @@ public class TestRunnerTest {
         assertTrue(modifiedResultSet.getValidPatch());
         assertTrue(modifiedResultSet.getCleanCompile());
         assertFalse(modifiedResultSet.allTestsSuccessful());
+
 
         UnitTestResult modifiedResult = modifiedResultSet.getResults().get(0);
         assertFalse(modifiedResult.getPassed());

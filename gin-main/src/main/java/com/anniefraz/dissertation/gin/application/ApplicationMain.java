@@ -7,6 +7,7 @@ import com.anniefraz.dissertation.gin.source.AnnaClass;
 import com.anniefraz.dissertation.gin.source.AnnaPath;
 import com.anniefraz.dissertation.gin.source.Source;
 import com.anniefraz.dissertation.gin.source.SourceFactory;
+import jeep.tuple.Tuple3;
 import opacitor.Opacitor;
 import opacitor.enumerations.GoalDirection;
 import opacitor.enumerations.MeasurementType;
@@ -15,7 +16,7 @@ import opacitor.exceptions.NoSuchMeasurementTypeException;
 import opacitor.exceptions.UnsupportedArchitectureException;
 import opacitor.exceptions.UnsupportedOSException;
 import org.mdkt.compiler.CompiledCode;
-import com.anniefraz.dissertation.gin.testRunner.*;
+//import com.anniefraz.dissertation.gin.testRunner.*;
 import org.mdkt.compiler.CompiledCode;
 import org.mdkt.compiler.InMemoryJavaCompiler;
 import org.slf4j.Logger;
@@ -25,10 +26,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import java.io.*;
 import java.security.NoSuchAlgorithmException;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 //import opacitor.Opacitor;
 
@@ -39,7 +37,7 @@ public class ApplicationMain {
     private static int noofEditsNoRandom = 1;
     private static boolean compileSuccess;
     //private Opacitor opacitor;
-    private static TestRunner testRunner;
+    //private static TestRunner testRunner;
     static Logger LOG = LoggerFactory.getLogger(ApplicationMain.class);
 
     public static void main(String[] args) throws IOException, Exception {
@@ -135,7 +133,7 @@ public class ApplicationMain {
 
     private static void sendToTestRunner(String outputString, Patch patch, Results results) {
 
-
+/*
         String testClassNameTriangle = "TriangleTest";
         String className = "Triangle";
         String testClassName = "ExampleTest";
@@ -154,7 +152,7 @@ public class ApplicationMain {
         tests.add(test3);
         //Here I want when I have made a new patch for it to go to the test runner automatically
 
-        CompiledCode triangle = InMemoryJavaCompiler.newInstance().compileToRawBytes("example.Triangle", outputString);
+        //CompiledCode triangle = InMemoryJavaCompiler.newInstance().compileToRawBytes("example.Triangle", outputString);
 
         UnitTestResultSet resultSet = testRunner.test(patch, 1);
         LinkedList<UnitTestResult> unitTestResults = resultSet.getResults();
@@ -168,23 +166,33 @@ public class ApplicationMain {
 
 
         results.setPassedTests(result.getPassed());
-
+*/
     }
 
-    private void sendToOpacitor(String outputString) throws Exception {
+    private void sendToOpacitor(String outputString, Results results) throws Exception {
 
 
         String testSrcDir = "C:/Users/user/IdeaProjects/AnnaGin/Opacitor/test_external_dir/src";
         String testBinDir = "C:/Users/user/IdeaProjects/AnnaGin/Opacitor/test_external_dir/bin";
         String testReplacementCode = outputString;
 
-        Opacitor opacitor = new Opacitor.OpacitorBuilder("test", "TestClass2", new String[]{})
+        Opacitor opacitor = new Opacitor.OpacitorBuilder("example", "Triangle", new String[]{})
                 .srcDirectory(testSrcDir)
                 .binDirectory(testBinDir)
                 .measurementType(MeasurementType.CODE_LENGTH)
                 .performInitialCompilation(true)
                 .goalDirection(GoalDirection.MINIMISING)
                 .build();
+
+        double measurement;
+        measurement = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});
+        System.out.println(measurement);
+        results.setOpacitorMeasurement1(measurement);
+        measurement = opacitor.fitness(new String[]{"test2.txt", "0", "20000"});
+        System.out.println(measurement);
+        results.setOpacitorMeasurement2(measurement);
+
+
 
 
     }

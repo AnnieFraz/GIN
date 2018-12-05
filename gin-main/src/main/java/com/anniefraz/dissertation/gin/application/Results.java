@@ -2,7 +2,7 @@ package com.anniefraz.dissertation.gin.application;
 
 
 import com.anniefraz.dissertation.gin.patch.Patch;
-import com.anniefraz.dissertation.gin.testRunner.UnitTestResult;
+//import com.anniefraz.dissertation.gin.testRunner.UnitTestResult;
 import com.opencsv.CSVWriter;
 
 import java.io.File;
@@ -23,16 +23,19 @@ public class Results {
 
     private File file = null;
     private boolean compileSuccess;
-
+    //Add Test Runner Data
     private boolean passed;
 
-    //Add Test Runner Data
+    private double opacitorMeasurement1;
+    private double opacitorMeasurement2;
+
+
 
     //Add Opacitor Data
     private String opacitorResults;
 
     //The constructor that has everything
-    public Results(int currentRep, Patch patch, String outputFileString, long time, Class<?> compiledClass, boolean compileSuccess, boolean passed, String opacitorResults) {
+    public Results(int currentRep, Patch patch, String outputFileString, long time, Class<?> compiledClass, boolean compileSuccess, boolean passed, double opacitorMeasurement1, double opacitorMeasurement2) {
         this.currentRep = currentRep;
         this.patch = patch;
         this.outputFileString = outputFileString;
@@ -41,6 +44,7 @@ public class Results {
         this.compileSuccess = compileSuccess;
     }
 
+    //The Patch file Constructor
     public Results(int currentRep, Patch patch, String outputFileString, long time, Class<?> compiledClass, boolean compileSuccess) {
         this.currentRep = currentRep;
         this.patch = patch;
@@ -50,23 +54,20 @@ public class Results {
         this.compileSuccess = compileSuccess;
     }
 
-/*
-//Opacitor results
-    public Results(String opacitorFitness, Results results) {
-        //this(results.getCurrentRep(), results.getPatch(), results.getOutputFileString(), results.getTime(), results.getCompiledClass(), opacitorFitness);
-        //this(getCurrentRep(),)
+    //The Test Runner Constructor
+    public Results(boolean passed, Results results){
+        this(results.currentRep, results.patch, results.outputFileString, results.time, results.compiledClass, results.compileSuccess, passed, results.getOpacitorMeasurement1(), results.getOpacitorMeasurement2());
+        this.passed = passed;
+
     }
 
-    //Test Runner constructor
-    public Results(String testRunnerResults) {
-       //this();
-    }*/
-public Results(boolean passed, Results results){
+    //The Opacitor Constructur
+    public Results(double opacitorMeasurement1, double opacitorMeasurement2, Results results) {
+        this(results.currentRep, results.patch, results.outputFileString, results.time, results.compiledClass, results.compileSuccess, results.getPassed(), opacitorMeasurement1, opacitorMeasurement2);
+        this.opacitorMeasurement1 = opacitorMeasurement1;
+        this.opacitorMeasurement2 = opacitorMeasurement2;
 
-    this(results.currentRep, results.patch, results.outputFileString, results.time, results.compiledClass, results.compileSuccess, results.passed, results.opacitorResults);
-
-  }
-
+    }
 
 
     private File createFile() {
@@ -80,7 +81,7 @@ public Results(boolean passed, Results results){
             CSVWriter writer = new CSVWriter(outputfile);
             // add data to csv
             Date date = new Date();
-            String[] header = {"Date", "Repetitions", "Patch", "Output", "Time", "Compiled", "Passed Unit Tests",};
+            String[] header = {"Date", "Repetitions", "Patch", "Output", "Time", "Compiled", "Passed Unit Tests?", "Opacitor measurement 1", "Opacitor measurement 2"};
 
             writer.writeNext(header);
             // closing writer connection
@@ -105,7 +106,7 @@ public Results(boolean passed, Results results){
                 CSVWriter writer = new CSVWriter(outputFile);
                 // add data to csv
                 Date date = new Date();
-                String[] data = { date.toString(), Integer.toString(getCurrentRep()), getPatch().getEdits().toString(), getOutputFileString(), Long.toString(getTime()), String.valueOf(getCompileSuccess()), String.valueOf(getPassed())}; //, compiledClass.toString() };
+                String[] data = { date.toString(), Integer.toString(getCurrentRep()), getPatch().getEdits().toString(), getOutputFileString(), Long.toString(getTime()), String.valueOf(getCompileSuccess()), String.valueOf(getPassed()), String.valueOf(getOpacitorMeasurement1()), String.valueOf(getOpacitorMeasurement2())}; //, compiledClass.toString() };
                 writer.writeNext(data);
                 // closing writer connection
                 System.out.println("File has been written to");
@@ -174,5 +175,21 @@ public Results(boolean passed, Results results){
     }
     public boolean getPassed(){
     return passed;
+    }
+
+    public double getOpacitorMeasurement1() {
+        return opacitorMeasurement1;
+    }
+
+    public void setOpacitorMeasurement1(double opacitorMeasurement1) {
+        this.opacitorMeasurement1 = opacitorMeasurement1;
+    }
+
+    public double getOpacitorMeasurement2() {
+        return opacitorMeasurement2;
+    }
+
+    public void setOpacitorMeasurement2(double opacitorMeasurement2) {
+        this.opacitorMeasurement2 = opacitorMeasurement2;
     }
 }

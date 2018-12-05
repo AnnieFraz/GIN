@@ -21,6 +21,6 @@ public class iterativeBubbleSort {
 
         bubbleSort(array, array.length);
 
-        System.out.println("Recursive - Sorted array: " + Arrays.toString(array));
+        System.out.println("Iterative - Sorted array: " + Arrays.toString(array));
     }
 }
