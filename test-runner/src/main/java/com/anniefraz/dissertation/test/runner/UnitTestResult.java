@@ -78,6 +78,7 @@ public class UnitTestResult {
 			this.passed = false;
 
 			Throwable rootCause = f.getException();
+			rootCause.printStackTrace();
 			while(rootCause.getCause() != null &&  rootCause.getCause() != rootCause) {
 			    rootCause = rootCause.getCause();
 			}

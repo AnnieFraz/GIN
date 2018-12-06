@@ -48,7 +48,7 @@ public class TestRunnerTest {
 
         loader = new CacheClassLoader(TestConfiguration.TEST_RESOURCES_DIR);
 
-        UnitTest test = new UnitTest(testClassName, methodName);
+        UnitTest test = new UnitTest(testClassNameTriangle, methodName);
         LinkedList<UnitTest> tests = new LinkedList<>();
         tests.add(test);
 
@@ -126,7 +126,7 @@ public class TestRunnerTest {
         LinkedList<String> methods = new LinkedList<>();
         methods.add("returnTen:7");
 
-        AnnaPath annaPath = AnnaPath.getBuilder().addPackage("example").setClassName("Triangle").build();
+        AnnaPath annaPath = AnnaPath.getBuilder().setClassName("Triangle").build();
         Source sourceFromAnnaPath = sourceFactory.getSourceFromAnnaPath(annaPath);
 
 
@@ -134,21 +134,17 @@ public class TestRunnerTest {
 
         String joinedLines = patch.getOutputSource().getAnnaClasses().get(0).getJoinedLines();
 
-        CompiledCode triangle = InMemoryJavaCompiler.newInstance().compileToRawBytes("example.Triangle", joinedLines);
+        CompiledCode triangle = InMemoryJavaCompiler.newInstance().compileToRawBytes("Triangle", joinedLines);
         //System.out.println(joinedLines);
 
         //Can't find the classes
         UnitTestResultSet resultSet = testRunner.test(patch, 1);
         LinkedList<UnitTestResult> results = resultSet.getResults();
         UnitTestResult result = results.get(0);
-        for (UnitTestResult unitTestResult :
-                results) {
-            assertFalse(unitTestResult.getPassed());
-            System.out.println(unitTestResult);
-        }
 
+        assertTrue(resultSet.allTestsSuccessful());
 
-        assertFalse(result.getPassed());
+        //assertFalse(result.getPassed());
         assertTrue(results.get(1).getPassed());
         assertTrue(results.get(2).getPassed());
         assertTrue(results.get(3).getPassed());

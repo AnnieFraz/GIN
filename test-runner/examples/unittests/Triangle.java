@@ -1,4 +1,3 @@
-package example;
 
 public class Triangle {
     static final int INVALID = 0;

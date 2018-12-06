@@ -63,7 +63,11 @@ public class AnnaPath {
     }
 
     public String getCanonicalName() {
-        return String.join(".", packages) + "." + className;
+        if (packages == null || packages.isEmpty()){
+            return className;
+        } else {
+            return String.join(".", packages) + "." + className;
+        }
     }
 
     public static class AnnaPathBuilder {

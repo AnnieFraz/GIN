@@ -94,9 +94,6 @@ public class ApplicationMain {
 
             compiledClass = InMemoryJavaCompiler.newInstance().compile("example.Triangle", outputFileString);
 
-            //Here I want to call the testRunner
-            //Here I want to call the opacitor
-
             long time = 0;
 
             if (compiledClass == null) {
@@ -114,7 +111,11 @@ public class ApplicationMain {
             }
 
             Results results = new Results(i, patch, outputFileString, time, compiledClass, compileSuccess);
+
+            //Here I want to call the testRunner
             sendToTestRunner(outputFileString, patch, results);
+            //Here I want to call the opacitor
+            sendToOpacitor(outputFileString, results);
             setResults(i, patch, outputFileString, time, compiledClass, compileSuccess);
 
         }
@@ -132,14 +133,13 @@ public class ApplicationMain {
     }
 
     private static void sendToTestRunner(String outputString, Patch patch, Results results) {
-
-/*
+        /*
         String testClassNameTriangle = "TriangleTest";
         String className = "Triangle";
         String testClassName = "ExampleTest";
         String methodName = "aMethod";
 
-        File exampleDir = new File(Configuration.TEST_RESOURCES_DIR);
+        File exampleDir = new File(TestConfiguration.TEST_RESOURCES_DIR);
 
         UnitTest test = new UnitTest(testClassNameTriangle, "testInvalidTriangles");
         UnitTest test1 = new UnitTest(testClassNameTriangle, "testEqualateralTriangles");
@@ -162,14 +162,14 @@ public class ApplicationMain {
             System.out.println(unitTestResult.getPassed());
         }
 
-        testRunner = new TestRunner(exampleDir, className, Configuration.TEST_RESOURCES_DIR, tests);
+        testRunner = new TestRunner(exampleDir, className, TestConfiguration.TEST_RESOURCES_DIR, tests);
 
 
         results.setPassedTests(result.getPassed());
 */
     }
 
-    private void sendToOpacitor(String outputString, Results results) throws Exception {
+    private static void sendToOpacitor(String outputString, Results results) throws Exception {
 
 
         String testSrcDir = "C:/Users/user/IdeaProjects/AnnaGin/Opacitor/test_external_dir/src";
