@@ -6,6 +6,8 @@ import com.anniefraz.dissertation.gin.edit.Edit;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class AnnaClass implements Source {
     private final AnnaPath className;
@@ -51,7 +53,10 @@ public class AnnaClass implements Source {
     public String getClassName(){return className.toString();}
 
     public String getJoinedLines(){
-        return String.join(System.lineSeparator(), lines);
+        return lines
+                .stream()
+                .filter(Objects::nonNull)
+                .collect(Collectors.joining(System.lineSeparator()));
     }
 
     @Override

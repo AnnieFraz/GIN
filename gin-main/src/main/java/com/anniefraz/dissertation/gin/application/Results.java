@@ -4,6 +4,8 @@ package com.anniefraz.dissertation.gin.application;
 import com.anniefraz.dissertation.gin.patch.Patch;
 //import com.anniefraz.dissertation.gin.testRunner.UnitTestResult;
 import com.opencsv.CSVWriter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,6 +15,8 @@ import java.util.Date;
 import java.util.LinkedList;
 
 public class Results {
+
+    static Logger LOG = LoggerFactory.getLogger(Results.class);
 
 
     private int currentRep;
