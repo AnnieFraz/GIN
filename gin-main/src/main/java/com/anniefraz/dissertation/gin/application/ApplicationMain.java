@@ -166,7 +166,8 @@ public class ApplicationMain {
 
 
         results.setPassedTests(result.getPassed());
-*/
+
+        */
     }
 
     private static void sendToOpacitor(String outputString, Results results) throws Exception {
