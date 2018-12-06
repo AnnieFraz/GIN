@@ -1,6 +1,8 @@
-package com.anniefraz.dissertation.test.runner;
+package com.anniefraz.dissertation.test.runner.runner;
 
 import com.anniefraz.dissertation.gin.patch.Patch;
+import com.anniefraz.dissertation.test.runner.runner.CacheClassLoader;
+import com.anniefraz.dissertation.test.runner.runner.TestRunner;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -36,7 +38,7 @@ public class CacheClassLoaderTest {
     @Test
     public void loadTestRunner() throws ClassNotFoundException {
         Class systemClassForTestRunner = TestRunner.class;
-        Class loadedTestRunner = loader.loadClass("com.anniefraz.dissertation.test.runner.IsolatedTestRunner");
+        Class loadedTestRunner = loader.loadClass("com.anniefraz.dissertation.test.runner.runner.IsolatedTestRunner");
         assertNotEquals(systemClassForTestRunner, loadedTestRunner);
     }
 

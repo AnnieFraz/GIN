@@ -1,4 +1,4 @@
-package com.anniefraz.dissertation.test.runner;
+package com.anniefraz.dissertation.test.runner.runner;
 
 public class TestConfiguration {
 

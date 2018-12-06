@@ -2456,3 +2456,261 @@ public class Triangle {
             Thread.sleep(100);
             // do nothing
     }","1544120445153","false","false","0.0","0.0"
+"Date","Repetitions","Patch","Output","Time","Compiled","Passed Unit Tests?","Opacitor measurement 1","Opacitor measurement 2"
+"Thu Dec 06 18:30:11 GMT 2018","1","[RemoveLineEdit{lineNumber=25}]","
+public class Triangle {
+    static final int INVALID = 0;
+    static final int SCALENE = 1;
+    static final int EQUALATERAL = 2;
+    static final int ISOCELES = 3;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+        // Sort the sides so that a <= b <= c
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            int tmp = a;
+            a = c;
+            c = tmp;
+        }
+        if (b > c) {
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+        if (a + b <= c) {
+null
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+        } else {
+            return SCALENE;
+        }
+    }
+    private static void delay() {
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            // do nothing
+        }
+    }
+}","1544121011023","false","false","0.0","0.0"
+"Date","Repetitions","Patch","Output","Time","Compiled","Passed Unit Tests?","Opacitor measurement 1","Opacitor measurement 2"
+"Thu Dec 06 18:30:13 GMT 2018","2","[IfStatementEdit{lineIndex=32, annaPath=AnnaPath{packages=[], className='Triangle'}}]","
+public class Triangle {
+    static final int INVALID = 0;
+    static final int SCALENE = 1;
+    static final int EQUALATERAL = 2;
+    static final int ISOCELES = 3;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+        // Sort the sides so that a <= b <= c
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            int tmp = a;
+            a = c;
+            c = tmp;
+        }
+        if (b > c) {
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+        if (a + b <= c) {
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+        } else {
+            return SCALENE;
+        }
+    }
+    private static void delay() {
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            // do nothing
+        }
+    }
+}","1544121011529","true","true","0.0","0.0"
+"Date","Repetitions","Patch","Output","Time","Compiled","Passed Unit Tests?","Opacitor measurement 1","Opacitor measurement 2"
+"Thu Dec 06 18:30:13 GMT 2018","3","[SwapLineEdit{firstLineIndex=4, secondLineIndex=39}]","
+public class Triangle {
+    static final int INVALID = 0;
+    }
+    static final int SCALENE = 1;
+    static final int ISOCELES = 3;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+        // Sort the sides so that a <= b <= c
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            int tmp = a;
+            a = c;
+            c = tmp;
+        }
+        if (b > c) {
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+        if (a + b <= c) {
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+        } else {
+            return SCALENE;
+        }
+    }
+    private static void delay() {
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            // do nothing
+    static final int EQUALATERAL = 2;
+        }
+}","1544121013346","false","false","0.0","0.0"
+"Date","Repetitions","Patch","Output","Time","Compiled","Passed Unit Tests?","Opacitor measurement 1","Opacitor measurement 2"
+"Thu Dec 06 18:30:15 GMT 2018","4","[com.anniefraz.dissertation.gin.edit.block.MoveBlockEdit@62452cc9]","
+public class Triangle {
+    static final int INVALID = 0;
+    static final int SCALENE = 1;
+    static final int EQUALATERAL = 2;
+    static final int ISOCELES = 3;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+        // Sort the sides so that a <= b <= c
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            int tmp = a;
+            a = c;
+            c = tmp;
+        }
+        if (b > c) {
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+        if (a + b <= c) {
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+        } else {
+            return SCALENE;
+        }
+    }
+    private static void delay() {
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            // do nothing
+        }
+    }
+}","1544121013388","true","true","0.0","0.0"
+"Date","Repetitions","Patch","Output","Time","Compiled","Passed Unit Tests?","Opacitor measurement 1","Opacitor measurement 2"
+"Thu Dec 06 18:30:15 GMT 2018","5","[SwapLineEdit{firstLineIndex=31, secondLineIndex=3}]","
+public class Triangle {
+            return SCALENE;
+    static final int INVALID = 0;
+    static final int EQUALATERAL = 2;
+    static final int ISOCELES = 3;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+        // Sort the sides so that a <= b <= c
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            int tmp = a;
+            a = c;
+            c = tmp;
+        }
+        if (b > c) {
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+        if (a + b <= c) {
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+    static final int SCALENE = 1;
+        } else {
+        }
+    }
+    private static void delay() {
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            // do nothing
+        }
+    }
+}","1544121015093","false","false","0.0","0.0"
+"Date","Repetitions","Patch","Output","Time","Compiled","Passed Unit Tests?","Opacitor measurement 1","Opacitor measurement 2"
+"Thu Dec 06 18:30:15 GMT 2018","6","[com.anniefraz.dissertation.gin.edit.block.MoveBlockEdit@285d851a]","
+public class Triangle {
+    static final int INVALID = 0;
+    static final int SCALENE = 1;
+    static final int EQUALATERAL = 2;
+    static final int ISOCELES = 3;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+        // Sort the sides so that a <= b <= c
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            int tmp = a;
+            a = c;
+            c = tmp;
+        }
+            return ISOCELES;
+        } else {
+            return SCALENE;
+        }
+    }
+    private static void delay() {
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            // do nothing
+        }
+        if (b > c) {
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+        if (a + b <= c) {
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+    }
+}","1544121015101","false","false","0.0","0.0"

@@ -1,4 +1,4 @@
-package com.anniefraz.dissertation.test.runner;
+package com.anniefraz.dissertation.test.runner.runner;
 
 /**
  * Represents a test that needs to be run by Gin.

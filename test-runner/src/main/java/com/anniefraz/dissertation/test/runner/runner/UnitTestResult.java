@@ -1,4 +1,4 @@
-package com.anniefraz.dissertation.test.runner;
+package com.anniefraz.dissertation.test.runner.runner;
 
 import org.junit.runner.Description;
 import org.junit.runner.notification.Failure;

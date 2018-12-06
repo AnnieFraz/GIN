@@ -1,5 +1,6 @@
-package com.anniefraz.dissertation.test.runner;
+package com.anniefraz.dissertation.test.runner.runner;
 
+import com.anniefraz.dissertation.test.runner.runner.*;
 import org.junit.Before;
 import org.junit.Test;
 

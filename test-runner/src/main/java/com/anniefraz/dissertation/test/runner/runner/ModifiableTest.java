@@ -1,4 +1,4 @@
-package com.anniefraz.dissertation.test.runner;
+package com.anniefraz.dissertation.test.runner.runner;
 
 
 //TODO: look at alternative https://stackoverflow.com/questions/27482585/how-to-define-junit-test-time-out-at-runtime-i-e-without-annotations

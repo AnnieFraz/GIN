@@ -1,26 +1,18 @@
-package com.anniefraz.dissertation.test.runner;
+package com.anniefraz.dissertation.test.runner.runner;
 
 
 import com.anniefraz.dissertation.gin.edit.Edit;
-import com.anniefraz.dissertation.gin.edit.ListBasedRandomEditFactory;
-import com.anniefraz.dissertation.gin.edit.RandomEditFactory;
 import com.anniefraz.dissertation.gin.edit.line.RemoveLineEdit;
 import com.anniefraz.dissertation.gin.patch.Patch;
-import com.anniefraz.dissertation.gin.patch.PatchFactory;
-import com.anniefraz.dissertation.gin.patch.SimplePatchFactory;
 import com.anniefraz.dissertation.gin.source.AnnaPath;
 import com.anniefraz.dissertation.gin.source.Source;
 import com.anniefraz.dissertation.gin.source.SourceFactory;
-import com.sun.org.apache.bcel.internal.classfile.SourceFile;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.mdkt.compiler.CompiledCode;
 import org.mdkt.compiler.InMemoryJavaCompiler;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.nio.file.Paths;
@@ -48,7 +40,7 @@ public class TestRunnerTest {
 
         loader = new CacheClassLoader(TestConfiguration.TEST_RESOURCES_DIR);
 
-        UnitTest test = new UnitTest(testClassNameTriangle, methodName);
+        UnitTest test = new UnitTest(testClassName, methodName);
         LinkedList<UnitTest> tests = new LinkedList<>();
         tests.add(test);
 

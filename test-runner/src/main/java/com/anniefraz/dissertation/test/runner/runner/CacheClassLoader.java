@@ -1,4 +1,4 @@
-package com.anniefraz.dissertation.test.runner;
+package com.anniefraz.dissertation.test.runner.runner;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.mdkt.compiler.CompiledCode;
@@ -33,7 +33,7 @@ public class CacheClassLoader extends URLClassLoader {
     protected Class<?> findClass(String name) throws ClassNotFoundException {
 
         // I have to intervene here, to ensure IsolatedTestRunner uses me in the future.
-        if (name.equals("com.anniefraz.dissertation.test.runner.IsolatedTestRunner")) {
+        if (name.equals("com.anniefraz.dissertation.test.runner.runner.IsolatedTestRunner")) {
             return super.findClass(name);
         }
 

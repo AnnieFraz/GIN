@@ -1,8 +1,7 @@
-package com.anniefraz.dissertation.test.runner;
+package com.anniefraz.dissertation.test.runner.runner;
 
 
 import com.anniefraz.dissertation.gin.patch.Patch;
-import com.anniefraz.dissertation.gin.source.AnnaClass;
 import com.anniefraz.dissertation.gin.source.Source;
 import org.junit.Test;
 import org.junit.runners.model.FrameworkMethod;

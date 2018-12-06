@@ -8,9 +8,12 @@ import com.anniefraz.dissertation.gin.source.AnnaClass;
 import com.anniefraz.dissertation.gin.source.AnnaPath;
 import com.anniefraz.dissertation.gin.source.Source;
 import com.anniefraz.dissertation.gin.source.SourceFactory;
-import com.anniefraz.dissertation.test.runner.TestRunner;
-import com.anniefraz.dissertation.test.runner.UnitTest;
-import com.anniefraz.dissertation.test.runner.UnitTestResultSet;
+import com.anniefraz.dissertation.test.runner.results.Result;
+import com.anniefraz.dissertation.test.runner.results.ResultFileWriter;
+import com.anniefraz.dissertation.test.runner.results.ResultWriter;
+import com.anniefraz.dissertation.test.runner.runner.TestRunner;
+import com.anniefraz.dissertation.test.runner.runner.UnitTest;
+import com.anniefraz.dissertation.test.runner.runner.UnitTestResultSet;
 import org.mdkt.compiler.CompilationException;
 import org.mdkt.compiler.InMemoryJavaCompiler;
 import org.slf4j.Logger;
@@ -46,6 +49,9 @@ public class Main {
         //Configures/gets the beans from the factories
         PatchFactory patchFactory = applicationContext.getBean(PatchFactory.class);
         SourceFactory sourceFactory = new SourceFactory(Paths.get(PATHNAME));
+        //SourceFactory sourceFactory = applicationContext.getBean(SourceFactory.class);
+
+
 
         //Gets the file we want to apply edits
         AnnaPath annaPath = AnnaPath.getBuilder().setClassName("Triangle").build();
@@ -63,6 +69,7 @@ public class Main {
 
     private static void compile(PatchFactory patchFactory, Source source, int noOfEdits) throws Exception {
         int i = 0;
+        ResultWriter resultWriter = new ResultFileWriter();
         while (i < REPS) {
 
             //Creation of a patch with many different edits
@@ -114,7 +121,18 @@ public class Main {
                 i++;
             }
 
-            setResults(i, patch, outputFileString, time, compiledClass, compileSuccess, unitTestResultSet);
+            Result result = Result.getBuilder()
+                    .setCurrentRep(i)
+                    .setPatch(patch)
+                    .setOutputFileString(outputFileString)
+                    .setTime(time)
+                    .setCompiledClass(compiledClass)
+                    .setCompileSuccess(compileSuccess)
+                    .setPassed(Optional.ofNullable(unitTestResultSet).map(UnitTestResultSet::allTestsSuccessful).orElse(false))
+                    .build();
+
+            resultWriter.writeResult(result);
+            //setResults(i, patch, outputFileString, time, compiledClass, compileSuccess, unitTestResultSet);
 
         }
     }
