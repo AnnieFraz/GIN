@@ -40,4 +40,8 @@ public class Triangle {
             // do nothing
         }
     }
+
+    public static void main(String[] args) {
+        classifyTriangle(1,1,1);
+    }
 }

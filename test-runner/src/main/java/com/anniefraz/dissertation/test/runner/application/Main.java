@@ -14,6 +14,11 @@ import com.anniefraz.dissertation.test.runner.results.ResultWriter;
 import com.anniefraz.dissertation.test.runner.runner.TestRunner;
 import com.anniefraz.dissertation.test.runner.runner.UnitTest;
 import com.anniefraz.dissertation.test.runner.runner.UnitTestResultSet;
+import com.google.common.io.Files;
+import jeep.tuple.Tuple3;
+import opacitor.Opacitor;
+import opacitor.enumerations.GoalDirection;
+import opacitor.enumerations.MeasurementType;
 import org.mdkt.compiler.CompilationException;
 import org.mdkt.compiler.InMemoryJavaCompiler;
 import org.slf4j.Logger;
@@ -25,7 +30,9 @@ import java.io.Closeable;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.nio.file.Paths;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -103,6 +110,7 @@ public class Main {
             long time;
 
             UnitTestResultSet unitTestResultSet = null;
+            double measurement = 0;
 
 
             if (compiledClass == null) {
@@ -120,6 +128,7 @@ public class Main {
                 LOG.info("😇");
                 //Here I want to call the testRunner
                 unitTestResultSet = sendToTestRunner(patch);
+                measurement = sendToOpacitor(outputFileString);
                 i++;
             }
 
@@ -131,6 +140,7 @@ public class Main {
                     .setCompiledClass(compiledClass)
                     .setCompileSuccess(compileSuccess)
                     .setPassed(Optional.ofNullable(unitTestResultSet).map(UnitTestResultSet::allTestsSuccessful).orElse(false))
+                    .setOpacitorMeasurement1(measurement)
                     .build();
 
             resultWriter.writeResult(result);
@@ -139,7 +149,7 @@ public class Main {
         }
     }
 
-    private static void setResults(int i, Patch patch, String outputFileString, long time, Class<?> compiledClass, boolean compileSuccess, UnitTestResultSet unitTestResultSet) throws FileNotFoundException {
+    private static void setResults(int i, Patch patch, String outputFileString, long time, Class<?> compiledClass, boolean compileSuccess, UnitTestResultSet unitTestResultSet, double opacitorMeasurement) throws FileNotFoundException {
         Results results = new Results(i, patch, outputFileString, time, compiledClass, compileSuccess);
         results.setCurrentRep(i);
         results.setPatch(patch);
@@ -148,6 +158,7 @@ public class Main {
         results.setCompiledClass(compiledClass);
         results.setCompileSuccess(compileSuccess);
         results.setPassedTests(Optional.ofNullable(unitTestResultSet).map(UnitTestResultSet::allTestsSuccessful).orElse(false));
+        results.setOpacitorMeasurement1(opacitorMeasurement);
         results.writeToFile();
     }
 
@@ -172,22 +183,42 @@ public class Main {
         //Here I want when I have made a new patch for it to go to the test runner automatically
 
         TestRunner testRunner = new TestRunner(exampleDir, "TriangleTest", PATHNAME, tests);
-
-        //CompiledCode triangle = InMemoryJavaCompiler.newInstance().compileToRawBytes("example.Triangle", outputString);
-
         return testRunner.test(patch, 1);
-        /*LinkedList<UnitTestResult> unitTestResults = resultSet.getResults();
-        UnitTestResult result = unitTestResults.get(0);
-        for (UnitTestResult unitTestResult :
-                unitTestResults) {
-            System.out.println(unitTestResult.getPassed());
-        }
+    }
+    private static double sendToOpacitor(String outputString) throws Exception {
 
-        testRunner = new TestRunner(exampleDir, className, PATHNAME, tests);
+        //String testSrcDir = "C:/Users/user/IdeaProjects/AnnaGin/Opacitor/test_external_dir/src";
+        //String testBinDir = "C:/Users/user/IdeaProjects/AnnaGin/Opacitor/test_external_dir/bin";
+
+        String testSrcDir = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/src";
+        String testBinDir = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/bin";
+
+        String testReplacementCode = outputString;
+
+        Opacitor opacitor = new Opacitor.OpacitorBuilder("", "Triangle", new String[]{})
+                .srcDirectory(testSrcDir)
+                .binDirectory(testBinDir)
+                .measurementType(MeasurementType.CODE_LENGTH)
+                .performInitialCompilation(true)
+                .goalDirection(GoalDirection.MINIMISING)
+                .compiler("/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/bin/java")
+                .build();
 
 
-        results.setPassedTests(result.getPassed());*/
+        //opacitor.updateCode();
+        double measurement;
+        measurement = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});
+        System.out.println(measurement);
+        measurement = opacitor.fitness(new String[]{"test2.txt", "0", "20000"});
+        System.out.println(measurement);
 
+        List<String> replacementList = Files.readLines(new File(testReplacementCode), Charset.defaultCharset());
+        String replacement = String.join(System.lineSeparator(), replacementList);
+        opacitor.updateCode(Collections.<Tuple3<String,String,String>>singletonList(new Tuple3<String,String,String>(replacement, "", "Triangle")));
+        measurement = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});
+        LOG.info("Measurement: {}", measurement);
+
+        return measurement;
 
     }
 }

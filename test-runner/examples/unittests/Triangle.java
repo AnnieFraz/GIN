@@ -41,6 +41,6 @@ public class Triangle {
     }
 
     public static void main(String[] args) {
-
+        classifyTriangle(1,1,1);
     }
 }

@@ -1,4 +1,4 @@
-package example;
+package com.anniefraz.dissertation.gin;
 
 public class Triangle {
     static final int INVALID = 0;
@@ -42,6 +42,6 @@ public class Triangle {
     }
 
     public static void main(String[] args) {
-        classifyTriangle(1,1,1)
+        classifyTriangle(1,1,1);
     }
 }

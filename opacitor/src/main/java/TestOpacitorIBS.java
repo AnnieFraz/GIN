@@ -42,7 +42,8 @@ public class TestOpacitorIBS {
                     .performInitialCompilation(true)
                     .debug(true)
                     .goalDirection(GoalDirection.MINIMISING)
-                    .compiler("C:\\Program Files\\Java\\jdk1.7.0_80\\bin\\javac.exe                    .build();
+                    .compiler("C:\\Program Files\\Java\\jdk1.7.0_80\\bin\\javac.exe")
+                    .build();
 
             // first we try running with different params
             double measurement;

@@ -7,6 +7,7 @@ import com.anniefraz.dissertation.gin.source.AnnaClass;
 import com.anniefraz.dissertation.gin.source.AnnaPath;
 import com.anniefraz.dissertation.gin.source.Source;
 import com.anniefraz.dissertation.gin.source.SourceFactory;
+import com.google.common.io.Files;
 import jeep.tuple.Tuple3;
 import opacitor.Opacitor;
 import opacitor.enumerations.GoalDirection;
@@ -25,6 +26,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.io.*;
+import java.nio.charset.Charset;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
 
@@ -189,11 +191,17 @@ public class ApplicationMain {
         //opacitor.updateCode();
         double measurement;
         measurement = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});
-        System.out.println(measurement);
+        LOG.info("Measurement: {}", measurement);
         results.setOpacitorMeasurement1(measurement);
         measurement = opacitor.fitness(new String[]{"test2.txt", "0", "20000"});
-        System.out.println(measurement);
+        LOG.info("Measurement: {}", measurement);
         results.setOpacitorMeasurement2(measurement);
+
+        List<String> replacementList = Files.readLines(new File(testReplacementCode), Charset.defaultCharset());
+        String replacement = String.join(System.lineSeparator(), replacementList);
+        opacitor.updateCode(Collections.<Tuple3<String,String,String>>singletonList(new Tuple3<String,String,String>(replacement, "example", "Triangle")));
+        measurement = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});
+        LOG.info("Measurement: {}", measurement);
 
 
 
