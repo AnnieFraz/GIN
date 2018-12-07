@@ -45,6 +45,7 @@ public class TestOpacitorIBS {
                     .compiler("C:\\Program Files\\Java\\jdk1.7.0_80\\bin\\javac.exe")
                     .build();
 
+
             // first we try running with different params
             double measurement;
             measurement = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});

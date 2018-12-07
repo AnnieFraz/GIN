@@ -58,14 +58,11 @@ public class Main {
         SourceFactory sourceFactory = new SourceFactory(Paths.get(PATHNAME));
         //SourceFactory sourceFactory = applicationContext.getBean(SourceFactory.class);
 
-
-
         //Gets the file we want to apply edits
         AnnaPath annaPath = AnnaPath.getBuilder().setClassName("Triangle").build();
 
         //Gets the source file from that anna path
         Source source = sourceFactory.getSourceFromAnnaPath(annaPath);
-
         //Applies a number of edits
         int noOfEdits = noofEditsNoRandom;
 
