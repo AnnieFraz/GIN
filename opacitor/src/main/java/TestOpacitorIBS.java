@@ -42,8 +42,7 @@ public class TestOpacitorIBS {
                     .performInitialCompilation(true)
                     .debug(true)
                     .goalDirection(GoalDirection.MINIMISING)
-                    .compiler("C:\\Program Files\\Java\\jdk1.7.0_80") //Set to be java 8 or later
-                    .build();
+                    .compiler("C:\\Program Files\\Java\\jdk1.7.0_80\\bin\\javac.exe                    .build();
 
             // first we try running with different params
             double measurement;
@@ -55,7 +54,7 @@ public class TestOpacitorIBS {
             // now try running with different code
             List<String> replacementList = Files.readLines(new File(testReplacementCode), Charset.defaultCharset());
             String replacement = String.join(System.lineSeparator(), replacementList);
-            opacitor.updateCode(Collections.<Tuple3<String,String,String>>singletonList(new Tuple3<String,String,String>(replacement, "test", "iterativeBubbleSort")));
+            opacitor.updateCode(Collections.<Tuple3<String,String,String>>singletonList(new Tuple3<String,String,String>(replacement, "test", "IterativeBubbleSort")));
             measurement = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});
             System.out.println(measurement);
 

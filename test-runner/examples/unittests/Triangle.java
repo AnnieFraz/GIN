@@ -39,4 +39,8 @@ public class Triangle {
             // do nothing
         }
     }
+
+    public static void main(String[] args) {
+
+    }
 }

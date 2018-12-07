@@ -185,6 +185,8 @@ public class ApplicationMain {
                 .goalDirection(GoalDirection.MINIMISING)
                 .build();
 
+
+        //opacitor.updateCode();
         double measurement;
         measurement = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});
         System.out.println(measurement);
