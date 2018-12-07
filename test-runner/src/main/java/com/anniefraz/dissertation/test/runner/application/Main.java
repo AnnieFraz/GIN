@@ -109,6 +109,7 @@ public class Main {
                 LOG.info("DID NOT COMPILE");
                 LOG.info("TIME:" + System.currentTimeMillis());
                 time = System.currentTimeMillis();
+                LOG.info("🤬");
                 compileSuccess = false;
                 i++;
             } else {
@@ -116,6 +117,7 @@ public class Main {
                 LOG.info("TIME:" + System.currentTimeMillis());
                 time = System.currentTimeMillis();
                 compileSuccess = true;
+                LOG.info("😇");
                 //Here I want to call the testRunner
                 unitTestResultSet = sendToTestRunner(patch);
                 i++;

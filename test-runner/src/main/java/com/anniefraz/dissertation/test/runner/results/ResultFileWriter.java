@@ -1,24 +1,23 @@
 package com.anniefraz.dissertation.test.runner.results;
 
-import com.anniefraz.dissertation.test.runner.application.Main;
 import com.opencsv.CSVWriter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Date;
 
 public class ResultFileWriter implements ResultWriter {
 
-    static Logger LOG = LoggerFactory.getLogger(ResultFileWriter.class);
-
-
+    private static final Logger LOG = LoggerFactory.getLogger(ResultFileWriter.class);
 
     @Override
     public void writeResult(Result result) {
         writeToFile(result);
+        System.out.println("🐶🐨🎇");
     }
 
     private File createFile() {
@@ -64,8 +63,10 @@ public class ResultFileWriter implements ResultWriter {
             writer.close();
             outputFile.close();
         }
-        catch (Exception e){
-
+        catch (FileNotFoundException e){
+            LOG.warn("Problem: {}", e);
+        } catch (IOException e) {
+            LOG.warn("Problem: {}", e);
         }
         //}
 
