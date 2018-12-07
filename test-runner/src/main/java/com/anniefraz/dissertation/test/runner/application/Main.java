@@ -14,7 +14,6 @@ import com.anniefraz.dissertation.test.runner.results.ResultWriter;
 import com.anniefraz.dissertation.test.runner.runner.TestRunner;
 import com.anniefraz.dissertation.test.runner.runner.UnitTest;
 import com.anniefraz.dissertation.test.runner.runner.UnitTestResultSet;
-import com.google.common.io.Files;
 import jeep.tuple.Tuple3;
 import opacitor.Opacitor;
 import opacitor.enumerations.GoalDirection;
@@ -31,6 +30,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -47,7 +47,8 @@ public class Main {
     static Logger LOG = LoggerFactory.getLogger(Main.class);
 
     static ApplicationContext applicationContext;
-    private static final String PATHNAME = "/Users/annarasburn/Documents/gin/AnnaGin/test-runner/examples/unittests/";
+    //private static final String PATHNAME = "/Users/annarasburn/Documents/gin/AnnaGin/test-runner/examples/unittests/";
+    private static final String PATHNAME = "D:\\Users\\tglew\\intelliProjects\\UpdatedGin\\GIN\\test-runner\\examples\\unittests";
 
     public static void main(String[] args) throws IOException, Exception {
         //ApplicationContext allows to spring to properly interject beans into the application
@@ -81,7 +82,7 @@ public class Main {
 
             //This gives the source with the edits applied so 'changed code'
             Source outputSource = patch.getOutputSource();
-            LOG.info("Output source: " + outputSource);
+            LOG.debug("Output source: " + outputSource);
 
 
             LOG.info("Which edits: " + patch.getEdits());
@@ -187,8 +188,12 @@ public class Main {
         //String testSrcDir = "C:/Users/user/IdeaProjects/AnnaGin/Opacitor/test_external_dir/src";
         //String testBinDir = "C:/Users/user/IdeaProjects/AnnaGin/Opacitor/test_external_dir/bin";
 
-        String testSrcDir = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/src";
-        String testBinDir = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/bin";
+        //String testSrcDir = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/src";
+        //String testBinDir = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/bin";
+
+        String testBinDir = "D:\\Users\\tglew\\intelliProjects\\UpdatedGin\\GIN\\opacitor\\test_external_dir\\bin\\test";
+        String testSrcDir = "D:\\Users\\tglew\\intelliProjects\\UpdatedGin\\GIN\\opacitor\\test_external_dir\\src\\test";
+
 
         String testReplacementCode = outputString;
 
@@ -198,20 +203,13 @@ public class Main {
                 .measurementType(MeasurementType.CODE_LENGTH)
                 .performInitialCompilation(true)
                 .goalDirection(GoalDirection.MINIMISING)
-                .compiler("/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/bin/java")
+                .compiler("D:\\Program Files\\Java\\jdk1.8.0_144\\bin\\javac.exe")
                 .build();
 
 
-        //opacitor.updateCode();
         double measurement;
-        measurement = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});
-        System.out.println(measurement);
-        measurement = opacitor.fitness(new String[]{"test2.txt", "0", "20000"});
-        System.out.println(measurement);
 
-        List<String> replacementList = Files.readLines(new File(testReplacementCode), Charset.defaultCharset());
-        String replacement = String.join(System.lineSeparator(), replacementList);
-        opacitor.updateCode(Collections.<Tuple3<String,String,String>>singletonList(new Tuple3<String,String,String>(replacement, "", "Triangle")));
+        opacitor.updateCode(Collections.singletonList(new Tuple3<>(testReplacementCode, "", "Triangle")));
         measurement = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});
         LOG.info("Measurement: {}", measurement);
 
