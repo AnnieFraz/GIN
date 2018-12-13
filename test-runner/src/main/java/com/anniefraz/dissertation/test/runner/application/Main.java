@@ -48,7 +48,8 @@ public class Main {
 
     static ApplicationContext applicationContext;
     //private static final String PATHNAME = "/Users/annarasburn/Documents/gin/AnnaGin/test-runner/examples/unittests/";
-    private static final String PATHNAME = "D:\\Users\\tglew\\intelliProjects\\UpdatedGin\\GIN\\test-runner\\examples\\unittests";
+
+    private static final String PATHNAME = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\examples\\unittests";
 
     public static void main(String[] args) throws IOException, Exception {
         //ApplicationContext allows to spring to properly interject beans into the application
@@ -129,6 +130,7 @@ public class Main {
                 measurement = sendToOpacitor(outputFileString);
                 i++;
             }
+            LOG.info("Current Repetition: {}", i);
 
             Result result = Result.getBuilder()
                     .setCurrentRep(i)
@@ -185,14 +187,14 @@ public class Main {
     }
     private static double sendToOpacitor(String outputString) throws Exception {
 
-        //String testSrcDir = "C:/Users/user/IdeaProjects/AnnaGin/Opacitor/test_external_dir/src";
-        //String testBinDir = "C:/Users/user/IdeaProjects/AnnaGin/Opacitor/test_external_dir/bin";
+        String testSrcDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\opacitor\\test_external_dir\\src\\test";
+        String testBinDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\Opacitor\\test_external_dir\\bin\\test";
 
         //String testSrcDir = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/src";
         //String testBinDir = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/bin";
 
-        String testBinDir = "D:\\Users\\tglew\\intelliProjects\\UpdatedGin\\GIN\\opacitor\\test_external_dir\\bin\\test";
-        String testSrcDir = "D:\\Users\\tglew\\intelliProjects\\UpdatedGin\\GIN\\opacitor\\test_external_dir\\src\\test";
+        //String testBinDir = "D:\\Users\\tglew\\intelliProjects\\UpdatedGin\\GIN\\opacitor\\test_external_dir\\bin\\test";
+        //String testSrcDir = "D:\\Users\\tglew\\intelliProjects\\UpdatedGin\\GIN\\opacitor\\test_external_dir\\src\\test";
 
 
         String testReplacementCode = outputString;
@@ -203,15 +205,17 @@ public class Main {
                 .measurementType(MeasurementType.CODE_LENGTH)
                 .performInitialCompilation(true)
                 .goalDirection(GoalDirection.MINIMISING)
-                .compiler("D:\\Program Files\\Java\\jdk1.8.0_144\\bin\\javac.exe")
+                .compiler(Paths.get("C:\\Program Files\\Java\\jdk1.8.0_191\\bin\\javac.exe").toAbsolutePath().toString())
                 .build();
-
 
         double measurement;
 
         opacitor.updateCode(Collections.singletonList(new Tuple3<>(testReplacementCode, "", "Triangle")));
         measurement = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});
         LOG.info("Measurement: {}", measurement);
+
+        double measurement2 = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});
+        LOG.info("Measurement: {}", measurement2);
 
         return measurement;
 
