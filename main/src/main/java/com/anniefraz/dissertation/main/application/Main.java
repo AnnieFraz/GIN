@@ -1,6 +1,5 @@
-package com.anniefraz.dissertation.test.runner.application;
+package com.anniefraz.dissertation.main.application;
 
-import com.anniefraz.dissertation.gin.application.Results;
 import com.anniefraz.dissertation.gin.application.config.ApplicationConfig;
 import com.anniefraz.dissertation.gin.patch.Patch;
 import com.anniefraz.dissertation.gin.patch.PatchFactory;
@@ -8,9 +7,10 @@ import com.anniefraz.dissertation.gin.source.AnnaClass;
 import com.anniefraz.dissertation.gin.source.AnnaPath;
 import com.anniefraz.dissertation.gin.source.Source;
 import com.anniefraz.dissertation.gin.source.SourceFactory;
-import com.anniefraz.dissertation.test.runner.results.Result;
-import com.anniefraz.dissertation.test.runner.results.ResultFileWriter;
-import com.anniefraz.dissertation.test.runner.results.ResultWriter;
+
+import com.anniefraz.dissertation.main.results.Result;
+import com.anniefraz.dissertation.main.results.ResultFileWriter;
+import com.anniefraz.dissertation.main.results.ResultWriter;
 import com.anniefraz.dissertation.test.runner.runner.TestRunner;
 import com.anniefraz.dissertation.test.runner.runner.UnitTest;
 import com.anniefraz.dissertation.test.runner.runner.UnitTestResultSet;
@@ -18,6 +18,7 @@ import jeep.tuple.Tuple3;
 import opacitor.Opacitor;
 import opacitor.enumerations.GoalDirection;
 import opacitor.enumerations.MeasurementType;
+
 import org.mdkt.compiler.CompilationException;
 import org.mdkt.compiler.InMemoryJavaCompiler;
 import org.slf4j.Logger;
@@ -29,8 +30,6 @@ import java.io.Closeable;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -52,7 +51,7 @@ public class Main {
     //private static final String PATHNAME = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\examples\\unittests";
 
     public static void main(String[] args) throws IOException, Exception {
-        //ApplicationContext allows to spring to properly interject beans into the application
+        //ApplicationContext allows to spring to properly interject beans into the com.anniefraz.dissertation.main.application
         applicationContext = new AnnotationConfigApplicationContext(ApplicationConfig.class);
 
         //Configures/gets the beans from the factories
@@ -132,7 +131,7 @@ public class Main {
             }
             LOG.info("Current Repetition: {}", i);
 
-            Result result = Result.getBuilder()
+           Result result = Result.getBuilder()
                     .setCurrentRep(i)
                     .setPatch(patch)
                     .setOutputFileString(outputFileString)
@@ -143,23 +142,10 @@ public class Main {
                     .setOpacitorMeasurement1(measurement)
                     .build();
 
-            resultWriter.writeResult(result);
+           resultWriter.writeResult(result);
             //setResults(i, patch, outputFileString, time, compiledClass, compileSuccess, unitTestResultSet);
 
         }
-    }
-
-    private static void setResults(int i, Patch patch, String outputFileString, long time, Class<?> compiledClass, boolean compileSuccess, UnitTestResultSet unitTestResultSet, double opacitorMeasurement) throws FileNotFoundException {
-        Results results = new Results(i, patch, outputFileString, time, compiledClass, compileSuccess);
-        results.setCurrentRep(i);
-        results.setPatch(patch);
-        results.setOutputFileString(outputFileString);
-        results.setTime(time);
-        results.setCompiledClass(compiledClass);
-        results.setCompileSuccess(compileSuccess);
-        results.setPassedTests(Optional.ofNullable(unitTestResultSet).map(UnitTestResultSet::allTestsSuccessful).orElse(false));
-        results.setOpacitorMeasurement1(opacitorMeasurement);
-        results.writeToFile();
     }
 
     private static UnitTestResultSet sendToTestRunner(Patch patch) throws Exception {

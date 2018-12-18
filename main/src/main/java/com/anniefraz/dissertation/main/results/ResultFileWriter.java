@@ -1,4 +1,4 @@
-package com.anniefraz.dissertation.test.runner.results;
+package com.anniefraz.dissertation.main.results;
 
 import com.opencsv.CSVWriter;
 import org.slf4j.Logger;

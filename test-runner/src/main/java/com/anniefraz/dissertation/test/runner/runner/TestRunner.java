@@ -116,7 +116,7 @@ public class TestRunner {
     }
 
     /**
-     * Helper method to return an empty results list when failed to compile.
+     * Helper method to return an empty com.anniefraz.dissertation.main.application.results list when failed to compile.
      * @return
      */
     private LinkedList<UnitTestResult> emptyResults(int reps) {

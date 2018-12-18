@@ -176,8 +176,8 @@ public class TestRunnerTest {
         Patch patch = new Patch(sourceFile);
 
         UnitTestResultSet resultSet = testRunner.test(patch, 1);
-        LinkedList<UnitTestResult> results = resultSet.getResults();
-        UnitTestResult result = results.get(0);
+        LinkedList<UnitTestResult> com.anniefraz.dissertation.main.application.results = resultSet.getResults();
+        UnitTestResult result = com.anniefraz.dissertation.main.application.results.get(0);
         assertTrue(result.getPassed());
 
     }
@@ -202,8 +202,8 @@ public class TestRunnerTest {
         Patch patch = new Patch(sourceFile);
 
         UnitTestResultSet resultSet = testRunner.test(patch, 1);
-        LinkedList<UnitTestResult> results = resultSet.getResults();
-        UnitTestResult result = results.get(0);
+        LinkedList<UnitTestResult> com.anniefraz.dissertation.main.application.results = resultSet.getResults();
+        UnitTestResult result = com.anniefraz.dissertation.main.application.results.get(0);
 
         assertTrue(result.getPassed());
 
@@ -230,8 +230,8 @@ public class TestRunnerTest {
         Patch patch = new Patch(sourceFile);
 
         UnitTestResultSet resultSet = testRunner.test(patch, 1);
-        LinkedList<UnitTestResult> results = resultSet.getResults();
-        UnitTestResult result = results.get(0);
+        LinkedList<UnitTestResult> com.anniefraz.dissertation.main.application.results = resultSet.getResults();
+        UnitTestResult result = com.anniefraz.dissertation.main.application.results.get(0);
 
         assertTrue(result.getPassed());
 

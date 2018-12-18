@@ -145,8 +145,8 @@ public class TestOpacitorIBS {
                     .srcDirectory(testSrcDir)
                     .binDirectory(testBinDir)
                     .measurementType(MeasurementType.BYTECODE_HISTOGRAM)
-                    .enableJIT(false) // for bytecode_histogram - makes results more predictable
-                    .enableGC(false) // for bytecode_histogram - makes results more predictable
+                    .enableJIT(false) // for bytecode_histogram - makes com.anniefraz.dissertation.main.application.results more predictable
+                    .enableGC(false) // for bytecode_histogram - makes com.anniefraz.dissertation.main.application.results more predictable
                     .performInitialCompilation(true)
                     .pathToDebugJava(pathToDebugJava) // default is (./)java-[windows|linux]-[x64|x86]
                     .goalDirection(GoalDirection.MINIMISING)

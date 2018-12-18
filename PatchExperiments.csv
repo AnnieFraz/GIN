@@ -18736,3 +18736,50 @@ public class Triangle {
         classifyTriangle(1,1,1);
     }
 }","1545160265651","false","false","0.0","0.0"
+"Date","Repetitions","Patch","Output","Time","Compiled","Passed Unit Tests?","Opacitor measurement 1","Opacitor measurement 2"
+"Tue Dec 18 20:43:34 GMT 2018","1","[MoveLineEdit{sourceLineIndex=5, destinationLineIndex=19}]","
+public class Triangle {
+    static final int INVALID = 0;
+    static final int SCALENE = 1;
+    static final int EQUALATERAL = 2;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+        // Sort the sides so that a <= b <= c
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            int tmp = a;
+            a = c;
+            c = tmp;
+        }
+        if (b > c) {
+    static final int ISOCELES = 3;
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+        if (a + b <= c) {
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+        } else {
+            return SCALENE;
+        }
+    }
+    private static void delay() {
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            // do nothing
+        }
+    }
+
+    public static void main(String[] args) {
+        classifyTriangle(1,1,1);
+    }
+}","1545165814635","false","false","0.0","0.0"

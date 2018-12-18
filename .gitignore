@@ -2,6 +2,7 @@
 # Created by https://www.gitignore.io/api/java,maven,gradle,eclipse,intellij
 
 opacitor/simpleOpacitor/lib/*
+opacitor/simpleOpacitor/*
 
 ### Eclipse ###
 
@@ -213,6 +214,10 @@ gradle-app.setting
 
 # End of https://www.gitignore.io/api/java,maven,gradle,eclipse,intellij
 
+# Ignore patch .csv file
+.csv
+
+opacitor/simpleOpacitor/
 
 
 gin-main/target
