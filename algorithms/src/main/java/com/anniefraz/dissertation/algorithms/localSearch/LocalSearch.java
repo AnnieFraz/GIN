@@ -1,4 +1,4 @@
-package com.anniefraz.dissertation.gin;
+package com.anniefraz.dissertation.algorithms.localSearch;
 
 public class LocalSearch {
 

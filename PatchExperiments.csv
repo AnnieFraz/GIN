@@ -18642,3 +18642,97 @@ public class Triangle {
         classifyTriangle(1,1,1);
     }
 }","1544546162313","false","false","0.0","0.0"
+"Date","Repetitions","Patch","Output","Time","Compiled","Passed Unit Tests?","Opacitor measurement 1","Opacitor measurement 2"
+"Tue Dec 18 19:09:22 GMT 2018","1","[SwapLineEdit{firstLineIndex=31, secondLineIndex=19}]","
+public class Triangle {
+    static final int INVALID = 0;
+    static final int SCALENE = 1;
+    static final int EQUALATERAL = 2;
+    static final int ISOCELES = 3;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+        // Sort the sides so that a <= b <= c
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            int tmp = a;
+            a = c;
+            c = tmp;
+            return SCALENE;
+        }
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+        if (a + b <= c) {
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+        if (b > c) {
+        } else {
+        }
+    }
+    private static void delay() {
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            // do nothing
+        }
+    }
+
+    public static void main(String[] args) {
+        classifyTriangle(1,1,1);
+    }
+}","1545160162425","false","false","0.0","0.0"
+"Date","Repetitions","Patch","Output","Time","Compiled","Passed Unit Tests?","Opacitor measurement 1","Opacitor measurement 2"
+"Tue Dec 18 19:11:05 GMT 2018","1","[SwapLineEdit{firstLineIndex=7, secondLineIndex=30}]","
+public class Triangle {
+    static final int INVALID = 0;
+    static final int SCALENE = 1;
+    static final int EQUALATERAL = 2;
+    static final int ISOCELES = 3;
+            return SCALENE;
+    public static int classifyTriangle(int a, int b, int c) {
+        // Sort the sides so that a <= b <= c
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            int tmp = a;
+            a = c;
+            c = tmp;
+        }
+        if (b > c) {
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+        if (a + b <= c) {
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+        delay();
+        } else {
+        }
+    }
+    private static void delay() {
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            // do nothing
+        }
+    }
+
+    public static void main(String[] args) {
+        classifyTriangle(1,1,1);
+    }
+}","1545160265651","false","false","0.0","0.0"

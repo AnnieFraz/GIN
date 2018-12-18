@@ -27,6 +27,8 @@
         <module>InMemoryJavaCompiler</module>
         <module>test-runner</module>
         <module>hotswap-test-runner</module>
+        <module>algorithms</module>
+        <module>main</module>
     </modules>
 
     <properties>
@@ -124,26 +126,11 @@
             <version>1.10.19</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>com.opencsv</groupId>
             <artifactId>opencsv</artifactId>
             <version>4.1</version>
         </dependency>
-
-        <!-- So test runner is avaliable everywhere
-        <dependency>
-            <groupId>test.runner</groupId>
-            <artifactId>test.runner</artifactId>
-            <scope>compile</scope>
-            <systemPath>${project.basedir}/test-runner</systemPath>
-            <systemPath>/Users/annarasburn/Documents/gin/AnnaGin/test-runner</systemPath>
-        </dependency>
- -->
-
-
-
-        <!--Opacitor -->
         <dependency>
             <groupId>opacitor</groupId>
             <artifactId>opacitor</artifactId>
