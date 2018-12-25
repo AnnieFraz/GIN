@@ -294,14 +294,14 @@ ssl.TrustManagerFactory.algorithm=PKIX
 # The Java-level namelookup cache policy for failed lookups:
 #
 # any negative value: cache forever
-# any positive value: the number of seconds to cache negative lookup com.anniefraz.dissertation.main.application.results
+# any positive value: the number of seconds to cache negative lookup results
 # zero: do not cache
 #
 # In some Microsoft Windows networking environments that employ
 # the WINS name service in addition to DNS, name service lookups
 # that fail may take a noticeably long time to return (approx. 5 seconds).
 # For this reason the default caching policy is to maintain these
-# com.anniefraz.dissertation.main.application.results for 10 seconds.
+# results for 10 seconds.
 #
 #
 networkaddress.cache.negative.ttl=10

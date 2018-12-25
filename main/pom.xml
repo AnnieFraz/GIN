@@ -13,11 +13,10 @@
 
 <dependencies>
     <dependency>
-        <groupId>opacitor</groupId>
+        <groupId>com.anniefraz.dissertation</groupId>
         <artifactId>opacitor</artifactId>
-        <version>any</version>
-        <scope>system</scope>
-        <systemPath>/Users/annarasburn/Documents/gin/AnnaGin/Opacitor/libs/Opacitor_sb.jar</systemPath>
+        <version>1.0 -snapshot</version>
+        <scope>compile</scope>
     </dependency>
     <dependency>
         <groupId>com.anniefraz.dissertation</groupId>

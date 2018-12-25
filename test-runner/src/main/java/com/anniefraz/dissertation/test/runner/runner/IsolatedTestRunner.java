@@ -24,7 +24,7 @@ public class IsolatedTestRunner {
 
         Request request = buildRequest(test);
 
-        // Run and write com.anniefraz.dissertation.main.application.results to unitTestResults
+        // Run and write results to unitTestResults
         JUnitCore jUnitCore = new JUnitCore();
         List<UnitTestResult> unitTestResults = new ArrayList<>();
         jUnitCore.addListener(new TestRunListener(unitTestResults));

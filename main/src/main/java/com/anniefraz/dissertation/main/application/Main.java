@@ -51,7 +51,7 @@ public class Main {
     //private static final String PATHNAME = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\examples\\unittests";
 
     public static void main(String[] args) throws IOException, Exception {
-        //ApplicationContext allows to spring to properly interject beans into the com.anniefraz.dissertation.main.application
+        //ApplicationContext allows to spring to properly interject beans into the application
         applicationContext = new AnnotationConfigApplicationContext(ApplicationConfig.class);
 
         //Configures/gets the beans from the factories
