@@ -43,7 +43,7 @@ public class ApplicationMain {
     static Logger LOG = LoggerFactory.getLogger(ApplicationMain.class);
 
     public static void main(String[] args) throws IOException, Exception {
-        //ApplicationContext allows to spring to properly interject beans into the com.anniefraz.dissertation.main.application
+        //ApplicationContext allows to spring to properly interject beans into the application
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ApplicationConfig.class);
 
         //Configures/gets the beans from the factories
@@ -167,7 +167,7 @@ public class ApplicationMain {
         testRunner = new TestRunner(exampleDir, className, TestConfiguration.TEST_RESOURCES_DIR, tests);
 
 
-        com.anniefraz.dissertation.main.application.results.setPassedTests(result.getPassed());
+        results.setPassedTests(result.getPassed());
 
         */
     }

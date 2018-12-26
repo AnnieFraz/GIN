@@ -55,7 +55,7 @@ public class CacheClassLoader extends URLClassLoader {
 
     }
 
-    // Store the com.anniefraz.dissertation.main.application.results of compilation from the InMemoryCompiler
+    // Store the results of compilation from the InMemoryCompiler
     public void setCustomCompiledCode(String className, CompiledCode compiledCode) {
         this.customCompiledCode.put(className, compiledCode);
     }
