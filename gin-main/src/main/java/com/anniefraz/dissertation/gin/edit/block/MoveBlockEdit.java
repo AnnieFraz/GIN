@@ -13,6 +13,7 @@ import com.github.javaparser.utils.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+//TODO: This needs to work
 public class MoveBlockEdit extends SingleClassEdit {
 
     private final int startBlockInt;
@@ -35,6 +36,26 @@ public class MoveBlockEdit extends SingleClassEdit {
 
         List<String> lines = annaClass.getLines();
 
+        int size = endBlockInt - startBlockInt;
+        System.out.println(size);
+
+        List<String> block = annaClass.getLines();
+
+        for (int i = 0; i < size; i++){
+            String line = lines.get(startBlockInt + i);
+            block.add(line);
+        }
+
+        System.out.println(block);
+
+        for (int i = 0; i < size; i++){
+            String line = lines.remove(startBlockInt + i);
+            lines.add(newLocation+i, line);
+        }
+
+        System.out.println(lines);
+
+
         //System.out.println(lines);
 
         //System.out.println(i);
@@ -54,7 +75,7 @@ public class MoveBlockEdit extends SingleClassEdit {
                  for (int i = 0; i < endBlockInt; i++) {
                     String line = lines.remove(startBlockInt);
             );
-            */
+
 
         List<String> block = new ArrayList<>();
 
@@ -78,10 +99,17 @@ public class MoveBlockEdit extends SingleClassEdit {
             //lines.add(newLocation+i, line);
         }
         //System.out.println(lines);
-
+*/
 
     }
 
 
-
+    @Override
+    public String toString() {
+        return "MoveBlockEdit{" +
+                "startBlockInt=" + startBlockInt +
+                ", endBlockInt=" + endBlockInt +
+                ", newLocation=" + newLocation +
+                '}';
+    }
 }

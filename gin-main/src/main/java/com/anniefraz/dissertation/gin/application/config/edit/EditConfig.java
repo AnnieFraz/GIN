@@ -3,11 +3,13 @@ package com.anniefraz.dissertation.gin.application.config.edit;
 import com.anniefraz.dissertation.gin.edit.Edit;
 import com.anniefraz.dissertation.gin.edit.block.MoveBlockEdit;
 import com.anniefraz.dissertation.gin.edit.block.RemoveBlockEdit;
+import com.anniefraz.dissertation.gin.edit.block.SwapBlockEdit;
 import com.anniefraz.dissertation.gin.edit.line.InsertLineEdit;
 import com.anniefraz.dissertation.gin.edit.line.MoveLineEdit;
 import com.anniefraz.dissertation.gin.edit.line.RemoveLineEdit;
 import com.anniefraz.dissertation.gin.edit.line.SwapLineEdit;
 import com.anniefraz.dissertation.gin.edit.operators.IfStatementEdit;
+import com.anniefraz.dissertation.gin.edit.statement.InsertBreakEdit;
 import com.anniefraz.dissertation.gin.source.AnnaClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +18,7 @@ import java.util.function.Function;
 
 @Configuration
 public class EditConfig {
+
 
     @Bean
     public Function<AnnaClass, Edit> removeLineEdit() {
@@ -33,6 +36,16 @@ public class EditConfig {
             int size = anAnnaClass.getLines().size();
             int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
             return new InsertLineEdit(whichLine,"//this is a comment" , anAnnaClass.getPath());
+        };
+    }
+
+    @Bean
+    public Function<AnnaClass, Edit> insertBreakEdit(){
+        return anAnnaClass -> {
+            int size = anAnnaClass.getLines().size();
+            int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            return new InsertBreakEdit(whichLine,"break;" , anAnnaClass.getPath());
+
         };
     }
 
@@ -78,6 +91,7 @@ public class EditConfig {
         };
     }
 
+
     @Bean
     public Function<AnnaClass, Edit> moveBlockEdit(){
         return anAnnaClass -> {
@@ -86,6 +100,14 @@ public class EditConfig {
             int endInt = Double.valueOf(Math.floor(Math.random() * size)).intValue();
             int newLocation = Double.valueOf(Math.floor(Math.random() * size)).intValue();
             return new MoveBlockEdit(startInt, endInt, newLocation, anAnnaClass.getPath());
+        };
+    }
+
+
+    @Bean
+    public Function<AnnaClass, Edit> swapBlockEdit(){
+        return anAnnaClass -> {
+            return new SwapBlockEdit(2,4,5,7, anAnnaClass.getPath());
         };
     }
 
