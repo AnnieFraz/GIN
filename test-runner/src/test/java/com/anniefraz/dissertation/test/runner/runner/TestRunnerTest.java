@@ -7,6 +7,7 @@ import com.anniefraz.dissertation.gin.patch.Patch;
 import com.anniefraz.dissertation.gin.source.AnnaPath;
 import com.anniefraz.dissertation.gin.source.Source;
 import com.anniefraz.dissertation.gin.source.SourceFactory;
+import com.sun.org.apache.bcel.internal.classfile.SourceFile;
 import org.junit.Before;
 import org.junit.Test;
 import org.mdkt.compiler.CompiledCode;
@@ -92,29 +93,6 @@ public class TestRunnerTest {
                 TestConfiguration.TEST_RESOURCES_DIR, tests);
         System.out.println(file.getCanonicalPath());
 
-       // BufferedReader br = new BufferedReader(new FileReader("/Users/annarasburn/Documents/gin/AnnaGin/test-runner/examples/unittests/TriangleTest.class"));
-/*
-        BufferedReader br = new BufferedReader(new FileReader("/Users/annarasburn/Documents/gin/AnnaGin/test-runner/examples/unittests/TriangleTest.txt"));
-
-        String line = null;
-        while ((line = br.readLine()) != null) {
-           System.out.println(line);
-        }
-
-        Scanner input = new Scanner(file.getPath());
-
-        //Scanner input = new Scanner(new File("/Users/annarasburn/Documents/gin/AnnaGin/test-runner/examples/unittests/TriangleTest.class"));
-
-        System.out.println(input);
-        System.out.println(file);
-
-        while (input.hasNextLine())
-        {
-            System.out.println("yeet");
-            System.out.println(input.nextLine());
-        }*/
-
-
         LinkedList<String> methods = new LinkedList<>();
         methods.add("returnTen:7");
 
@@ -155,7 +133,7 @@ public class TestRunnerTest {
 
     }
 
-    /*
+/*
     @Test
     public void testMultipleTestsProvided() {
 
@@ -172,12 +150,16 @@ public class TestRunnerTest {
 
         LinkedList<String> methods = new LinkedList<>();
         methods.add("returnTen:7");
+
+        SourceFile sourceFile = new SourceFile(sourceFactory + "Example.java", methods);
+
         SourceFile sourceFile = new SourceFile(TestConfiguration.TEST_RESOURCES_DIR + "Example.java", methods);
-        Patch patch = new Patch(sourceFile);
+
+        Patch patch = new Patch(sourceFactory);
 
         UnitTestResultSet resultSet = testRunner.test(patch, 1);
-        LinkedList<UnitTestResult> com.anniefraz.dissertation.main.application.results = resultSet.getResults();
-        UnitTestResult result = com.anniefraz.dissertation.main.application.results.get(0);
+        LinkedList<UnitTestResult> results = resultSet.getResults();
+        UnitTestResult result = results.get(0);
         assertTrue(result.getPassed());
 
     }
@@ -202,8 +184,8 @@ public class TestRunnerTest {
         Patch patch = new Patch(sourceFile);
 
         UnitTestResultSet resultSet = testRunner.test(patch, 1);
-        LinkedList<UnitTestResult> com.anniefraz.dissertation.main.application.results = resultSet.getResults();
-        UnitTestResult result = com.anniefraz.dissertation.main.application.results.get(0);
+        LinkedList<UnitTestResult> results = resultSet.getResults();
+        UnitTestResult result = results.get(0);
 
         assertTrue(result.getPassed());
 
@@ -230,13 +212,14 @@ public class TestRunnerTest {
         Patch patch = new Patch(sourceFile);
 
         UnitTestResultSet resultSet = testRunner.test(patch, 1);
-        LinkedList<UnitTestResult> com.anniefraz.dissertation.main.application.results = resultSet.getResults();
-        UnitTestResult result = com.anniefraz.dissertation.main.application.results.get(0);
+        LinkedList<UnitTestResult> results = resultSet.getResults();
+        UnitTestResult result = results.get(0);
 
         assertTrue(result.getPassed());
 
     }
     */
+
 
     /**
      * Test that compiling a class that implements an interface works, where the compiled class for that interface
