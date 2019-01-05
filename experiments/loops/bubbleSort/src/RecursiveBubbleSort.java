@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class recursiveBubbleSort {
+public class RecursiveBubbleSort {
 
     static void bubbleSort(int array[], int n){
         if (n==1){
@@ -20,12 +20,12 @@ public class recursiveBubbleSort {
 
             }
 
+            //System.out.println("Recursive - Sorted array: " + Arrays.toString(array));
         }
         if (n-1 >1){
             bubbleSort(array, n-1);
         }
-
-
+        System.out.println("time:" + System.currentTimeMillis());
     }
 
     public static void main(String[] args) {
@@ -33,6 +33,6 @@ public class recursiveBubbleSort {
 
         bubbleSort(array, array.length);
 
-        System.out.println("Recursive - Sorted array: " + Arrays.toString(array));
+
     }
 }

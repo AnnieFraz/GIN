@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class iterativeBubbleSort {
+public class IterativeBubbleSort {
 
     static void bubbleSort(int array[], int n){
         if (n==1){
@@ -18,6 +18,9 @@ public class iterativeBubbleSort {
             }
 
         }
+        System.out.println("Iterative - Sorted array: " + Arrays.toString(array));
+        System.out.println("time:" + System.currentTimeMillis());
+
     }
 
     public static void main(String[] args) {
@@ -25,6 +28,5 @@ public class iterativeBubbleSort {
 
         bubbleSort(array, array.length);
 
-        System.out.println("Iterative - Sorted array: " + Arrays.toString(array));
-    }
+      }
 }
