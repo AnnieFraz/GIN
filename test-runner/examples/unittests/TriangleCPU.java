@@ -1,5 +1,5 @@
 
-public class Triangle {
+public class TriangleCPU {
     static final int INVALID = 0;
     static final int SCALENE = 1;
     static final int EQUALATERAL = 2;
@@ -40,10 +40,32 @@ public class Triangle {
         }
     }
 
+    private static void wasteCPU(PrintStream out, final int startDelayMS, final int iterations) throws InterruptedException {
+        Random random = new Random(1); // seed 1
+
+        Thread.sleep(startDelayMS);
+
+        double d = 1;
+        for (int i = 0; i < iterations; ++i) {
+            out.print(i + ", ");
+            if (i % 100 == 0) {
+                out.println();
+            }
+            d *= random.nextDouble();
+            out.println("Result: " + d);
+        }
+
+        out.println("Finished");
+    }
 
     public static void main(String[] args) {
         classifyTriangle(1,1,1);
 
+        PrintStream out = new PrintStream(System.out);
+
+        wasteCPU(out, 500, 500);
+
+        out.close();
     }
 
 

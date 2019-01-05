@@ -60,7 +60,7 @@ public class Main {
         //SourceFactory sourceFactory = applicationContext.getBean(SourceFactory.class);
 
         //Gets the file we want to apply edits
-        AnnaPath annaPath = AnnaPath.getBuilder().setClassName("Triangle").build();
+        AnnaPath annaPath = AnnaPath.getBuilder().setClassName("TriangleCPU").build();
 
         //Gets the source file from that anna path
         Source source = sourceFactory.getSourceFromAnnaPath(annaPath);
@@ -100,7 +100,7 @@ public class Main {
             //System.out.println(outputFileString);
 
             try {
-                compiledClass = InMemoryJavaCompiler.newInstance().compile("Triangle", outputFileString);
+                compiledClass = InMemoryJavaCompiler.newInstance().compile("TriangleCPU", outputFileString);
             } catch (CompilationException e){
                 LOG.warn("Error in Main: {}", e);
             }
@@ -150,8 +150,8 @@ public class Main {
 
     private static UnitTestResultSet sendToTestRunner(Patch patch) throws Exception {
 
-        String testClassNameTriangle = "TriangleTest";
-        String className = "Triangle";
+        String testClassNameTriangle = "TriangleCPUTest";
+        String className = "TriangleCPU";
         String testClassName = "ExampleTest";
         String methodName = "aMethod";
 
@@ -168,7 +168,7 @@ public class Main {
         tests.add(test3);
         //Here I want when I have made a new patch for it to go to the test runner automatically
 
-        TestRunner testRunner = new TestRunner(exampleDir, "TriangleTest", PATHNAME, tests);
+        TestRunner testRunner = new TestRunner(exampleDir, "TriangleCPUTest", PATHNAME, tests);
         return testRunner.test(patch, 1);
     }
     private static double sendToOpacitor(String outputString) throws Exception {
@@ -185,7 +185,7 @@ public class Main {
 
         String testReplacementCode = outputString;
 
-        Opacitor opacitor = new Opacitor.OpacitorBuilder("", "Triangle", new String[]{})
+        Opacitor opacitor = new Opacitor.OpacitorBuilder("", "TriangleCPU", new String[]{})
                 .srcDirectory(testSrcDir)
                 .binDirectory(testBinDir)
                 .measurementType(MeasurementType.CODE_LENGTH)
@@ -196,7 +196,7 @@ public class Main {
 
         double measurement;
 
-        opacitor.updateCode(Collections.singletonList(new Tuple3<>(testReplacementCode, "", "Triangle")));
+        opacitor.updateCode(Collections.singletonList(new Tuple3<>(testReplacementCode, "", "TriangleCPU")));
         measurement = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});
         LOG.info("Measurement: {}", measurement);
 
