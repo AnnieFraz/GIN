@@ -20,11 +20,11 @@ public class RecursiveBubbleSort {
 
             }
 
-            //System.out.println("Recursive - Sorted array: " + Arrays.toString(array));
         }
         if (n-1 >1){
             bubbleSort(array, n-1);
         }
+        System.out.println("Recursive - Sorted array: " + Arrays.toString(array));
         System.out.println("time:" + System.currentTimeMillis());
     }
 
@@ -32,6 +32,7 @@ public class RecursiveBubbleSort {
         int array[] = {7, 69, 76, 102, 94, 53, 62 , 101};
 
         bubbleSort(array, array.length);
+
 
 
     }
