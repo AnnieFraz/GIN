@@ -36,7 +36,8 @@ public class IfStatementEdit extends SingleClassEdit {
         } else if(line.contains(GREATER_THAN)){
             operator = line.indexOf(GREATER_THAN);
         }
-        String firstCondition = line.substring(4, operator);
+        int firdt = line.indexOf("(");
+        String firstCondition = line.substring(firdt+1, operator);
         return firstCondition;
     }
 
@@ -48,7 +49,7 @@ public class IfStatementEdit extends SingleClassEdit {
             operator = line.indexOf(GREATER_THAN);
         }
         int end = line.indexOf(")");
-        String secondCondition = line.substring(operator, end);
+        String secondCondition = line.substring(operator+1, end);
         return secondCondition;
     }
 
@@ -59,8 +60,14 @@ public class IfStatementEdit extends SingleClassEdit {
     public  String swapConditions(String line, String operatorApply){
         String firstCondition = findFirstCondition(line);
         String secondCondition = findSecondCondition(line);
+        System.out.println(firstCondition);
+        System.out.println(secondCondition);
         //firstCondition = secondCondition;
-        String newLine = "if ("+secondCondition +""+ changeOperator(line, operatorApply)+ ""+firstCondition+")";
+
+        //String newLine = "if ("+secondCondition +""+ changeOperator(line, operatorApply)+ ""+firstCondition+")";
+        String newLine = ""+changeOperator(line, operatorApply)+"";
+       // String newLine = ""+secondCondition+">"+firstCondition+"";
+
         return newLine;
 
     }
@@ -81,11 +88,48 @@ public class IfStatementEdit extends SingleClassEdit {
     }
 
 
+    String changeLine(String line, String operator){
+        //get brackets
+        //get index
+        //
+        //String Line = swapConditions(line, operator);
+        operator = getOperator(line);
+        String first = findFirstCondition(line);
+        first = first.replaceAll("\\s+","");
+
+        String second = findSecondCondition(line);
+        second = second.replaceAll("\\s+","");
+
+
+        String operatorChar = "";
+        int operatorIndex =line.indexOf(operator);
+        if (operator.equals(">")){
+            operator.equals("<");
+            String line2 = line.substring(0,operatorIndex)+'<'+line.substring(operatorIndex+1);
+            operatorChar.equals("<");
+            operatorChar = "<";
+
+            line = "        if ("+second + ""+ operatorChar+ ""+ first+"){";
+        } else if (operator.equals("<")){
+            operator.equals(">");
+            operatorChar.equals(">");
+            String line2 = line.substring(0,operatorIndex)+'>'+line.substring(operatorIndex+1);
+
+            line = "        if ("+second + ""+ operatorChar+ ""+ first+"){";
+        }
+
+
+       line = "        if ("+second + " "+ operatorChar+ " "+ first+") {";
+
+        return line;
+    }
+
     String changeOperator(String line, String operator){
         //get brackets
         //get index
         //
-        int operatorIndex = line.indexOf(operator);
+        //String Line = swapConditions(line, operator);
+        int operatorIndex =line.indexOf(operator);
         if (operator.equals(">")){
             operator.equals("<");
             line = line.substring(0,operatorIndex)+'<'+line.substring(operatorIndex+1);
@@ -93,6 +137,7 @@ public class IfStatementEdit extends SingleClassEdit {
             operator.equals(">");
             line = line.substring(0,operatorIndex)+'>'+line.substring(operatorIndex+1);
         }
+
         return line;
     }
 
@@ -107,9 +152,14 @@ public class IfStatementEdit extends SingleClassEdit {
         for (int i = 0; i < lines.size(); i++){
             if (line.contains("if (")) { //To verifiy that the line is actually an if statement
                  lines.remove(line);
-                 line = swapConditions(line, operatorApply);
+                operatorApply = getOperator(line);
+                System.out.println(operatorApply);
+                changeOperator(line,operatorApply);
+                 String newline = changeLine(line, operatorApply);
             lines.add(line);
-                 operatorApply = getOperator(line);
+                System.out.println(newline);
+                System.out.println(lines);
+                //operatorApply = getOperator(line);
             }else{
                 continue;
              }

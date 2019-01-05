@@ -59,8 +59,22 @@ class IfStatementEditTest {
 
         String line2 = edit.changeOperator(line, operator );
 
+        //"        if (a < b) {"
 
         assertEquals("        if (a < b) {", line2);
+    }
+
+
+    @Test
+    void testChangeLine(){
+        List<String> lines = sourceFromAnnaPath.getAnnaClasses().get(0).getLines();
+        String line = lines.get(10);
+
+        IfStatementEdit edit = new IfStatementEdit(lineIndex, annaPath );
+
+        String newLine = edit.changeLine(line, "");
+
+        assertEquals("        if (b < a) {",newLine);
     }
 
     @Test
@@ -72,6 +86,8 @@ class IfStatementEditTest {
 
         List<String> lines = sourceFromAnnaPath.getAnnaClasses().get(0).getLines();
 
-        assertEquals(43, lines.size());
+        System.out.println(lines);
+
+        assertEquals(47, lines.size());
     }
 }
