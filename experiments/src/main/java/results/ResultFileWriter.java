@@ -21,7 +21,7 @@ public class ResultFileWriter implements ResultWriter {
     }
 
     private File createFile() {
-        File file = new File("IterativeBSResults.csv");
+        File file = new File("RecursiveBSResults.csv");
         LOG.info("File has been made");
 
         try {

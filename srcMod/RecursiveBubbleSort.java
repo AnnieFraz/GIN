@@ -4,6 +4,7 @@ public class RecursiveBubbleSort {
 
     static void bubbleSort(int array[], int n){
         if (n==1){
+//this is a comment
             return;
         }
 
