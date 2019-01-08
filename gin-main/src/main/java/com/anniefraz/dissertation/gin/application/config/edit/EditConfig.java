@@ -19,7 +19,7 @@ import java.util.function.Function;
 @Configuration
 public class EditConfig {
 
-
+/*
     @Bean
     public Function<AnnaClass, Edit> removeLineEdit() {
         return anAnnaClass -> {
@@ -28,17 +28,18 @@ public class EditConfig {
             return new RemoveLineEdit(whichLine, anAnnaClass.getPath());
         };
     }
-
+*/
     @Bean
     //TODO: Need to figure out what to be inserted
     public Function<AnnaClass, Edit> insertLineEdit(){
         return anAnnaClass ->{
             int size = anAnnaClass.getLines().size();
-            int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            //int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            int whichLine = 6;
             return new InsertLineEdit(whichLine,"//this is a comment" , anAnnaClass.getPath());
         };
     }
-
+/*
     @Bean
     public Function<AnnaClass, Edit> insertBreakEdit(){
         return anAnnaClass -> {
@@ -110,5 +111,5 @@ public class EditConfig {
             return new SwapBlockEdit(2,4,5,7, anAnnaClass.getPath());
         };
     }
-
+*/
 }

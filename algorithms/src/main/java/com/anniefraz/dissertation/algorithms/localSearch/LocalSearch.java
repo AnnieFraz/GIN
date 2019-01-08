@@ -46,11 +46,11 @@ public class LocalSearch {
     }
     */
 
-    public Patch createNeighbour(Patch patch){
+    //public Patch createNeighbour(Patch patch){
 
 
 
-    }
+    //}
 
 
 }
