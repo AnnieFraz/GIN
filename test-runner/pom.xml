@@ -20,26 +20,22 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>org.mdkt.compiler</groupId>
             <artifactId>InMemoryJavaCompiler</artifactId>
-           <version>1.4.0-SNAPSHOT</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/InMemoryJavaCompiler-1.4.0-SNAPSHOT-ginfork-20180801.jar</systemPath>
-        </dependency>
+           <version>2.0.0-SNAPSHOT</version>
+            <scope>compile</scope>
+          &lt;!&ndash;  <systemPath>${project.basedir}/libs/InMemoryJavaCompiler-1.4.0-SNAPSHOT-ginfork-20180801.jar</systemPath> &ndash;&gt;
+        </dependency>-->
+
         <dependency>
             <groupId>com.anniefraz.dissertation</groupId>
             <artifactId>gin</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>
