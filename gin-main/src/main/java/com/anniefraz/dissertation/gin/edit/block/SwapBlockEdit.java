@@ -1,6 +1,5 @@
 package com.anniefraz.dissertation.gin.edit.block;
 
-import com.anniefraz.dissertation.gin.edit.Edit;
 import com.anniefraz.dissertation.gin.edit.SingleClassEdit;
 import com.anniefraz.dissertation.gin.source.AnnaClass;
 import com.anniefraz.dissertation.gin.source.AnnaPath;
@@ -31,7 +30,6 @@ public class SwapBlockEdit extends SingleClassEdit {
             Log.error("The end block index is less than Start");
             //return;
         }
-
         List<String> lines = annaClass.getLines();
 
         List<String> block1 = new ArrayList<>();
@@ -47,9 +45,6 @@ public class SwapBlockEdit extends SingleClassEdit {
             }
         }
 
-        // System.out.println(block1);
-        //System.out.println(block1.size());
-
         if (blockTwoEndNo < blockTwoStartNo) {
             Log.error("The end block index is less than Start");
         } else {
@@ -60,11 +55,8 @@ public class SwapBlockEdit extends SingleClassEdit {
             }
         }
 
-        // System.out.println(block2);
-        //System.out.println(block2.size());
-
         if (block1.size() != block2.size()) {
-            Log.error("Error");
+            Log.error("Error, The Size of the Blocks are different");
         } else {
 
             for (int i = 0; i < block1.size() + 1; i++) {
@@ -75,42 +67,7 @@ public class SwapBlockEdit extends SingleClassEdit {
                 lines.add(blockOneStartNo + i, line2);
             }
         }
-/*
-
-        // (blockOneEndNo > blockTwoEndNo){
-            //for (int i = blockOneStartNo; i < blockOneEndNo-1; i++ ){
-
-                System.out.println(blockOneStartNo+i);
-                System.out.println(blockTwoStartNo+i);
-                System.out.println(lines);
-
-
-                String line1 = lines.remove(i);
-                //System.out.println("yo"+lines.remove(i));
-                //System.out.println("l1: "+line1);
-                String line2 = lines.remove( blockTwoStartNo + i);
-                //System.out.println("l2: "+line1);
-
-                lines.add(blockTwoStartNo, line1);
-                lines.add(blockOneStartNo, line2);
-
-               // System.out.println(lines);
-
-                //Collections.swap(lines, blockOneStartNo1, blockTwoStartNo1);
-            //}
-
-        } else if (blockTwoEndNo > blockOneEndNo){
-            for (int i = 0; i < blockTwoEndNo; i++ ){
-
-                System.out.println(blockOneStartNo+i);
-                System.out.println(blockTwoStartNo+i);
-                int blockOneStartNo1 = blockOneStartNo+i;
-                int blockTwoStartNo1 = blockTwoStartNo+i;
-
-                //Collections.swap(lines, blockOneStartNo1, blockTwoStartNo1);
-            }*/
     }
-
 
     @Override
     public String toString() {

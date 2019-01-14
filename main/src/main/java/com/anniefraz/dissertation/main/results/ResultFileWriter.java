@@ -1,5 +1,6 @@
 package com.anniefraz.dissertation.main.results;
 
+import com.anniefraz.dissertation.main.application.Main;
 import com.opencsv.CSVWriter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,10 +15,16 @@ public class ResultFileWriter implements ResultWriter {
 
     private static final Logger LOG = LoggerFactory.getLogger(ResultFileWriter.class);
 
+
+
     @Override
     public void writeResult(Result result) {
         writeToFile(result);
-        System.out.println("🐶🐨🎇");
+       // if (Main.REPS < REPS.size()) {
+            System.out.println("🎇🎇🎇🎇NEXT EDIT🎇🎇🎇🎇");
+        //}else{
+
+        //}
     }
 
     private File createFile() {
