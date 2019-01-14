@@ -37,7 +37,7 @@ public class MoveBlockEdit extends SingleClassEdit {
         List<String> lines = annaClass.getLines();
 
         int size = endBlockInt - startBlockInt;
-        System.out.println(size);
+      //  System.out.println(size);
 
         List<String> block = annaClass.getLines();
 
@@ -46,14 +46,14 @@ public class MoveBlockEdit extends SingleClassEdit {
             block.add(line);
         }
 
-        System.out.println(block);
+       // System.out.println(block);
 
         for (int i = 0; i < size; i++){
             String line = lines.remove(startBlockInt + i);
             lines.add(newLocation+i, line);
         }
 
-        System.out.println(lines);
+       // System.out.println(lines);
 
 
         //System.out.println(lines);

@@ -16,7 +16,7 @@ public class SwapBlockEdit extends SingleClassEdit {
     private final int blockTwoStartNo;
     private final int blockTwoEndNo;
 
-    public SwapBlockEdit(int blockOneStartNo, int blockOneEndNo, int blockTwoStartNo, int blockTwoEndNo,AnnaPath annaPath) {
+    public SwapBlockEdit(int blockOneStartNo, int blockOneEndNo, int blockTwoStartNo, int blockTwoEndNo, AnnaPath annaPath) {
         super(annaPath);
         this.blockOneStartNo = blockOneStartNo;
         this.blockOneEndNo = blockOneEndNo;
@@ -25,16 +25,15 @@ public class SwapBlockEdit extends SingleClassEdit {
     }
 
     @Override
-    protected void applyMethod(AnnaClass annaClass){
+    protected void applyMethod(AnnaClass annaClass) {
 
-        if ((blockTwoEndNo < blockTwoStartNo)|| (blockOneEndNo < blockOneStartNo)) {
+        if ((blockTwoEndNo < blockTwoStartNo) || (blockOneEndNo < blockOneStartNo)) {
             Log.error("The end block index is less than Start");
             //return;
         }
 
         List<String> lines = annaClass.getLines();
 
-        System.out.println(lines);
         List<String> block1 = new ArrayList<>();
         List<String> block2 = new ArrayList<>();
 
@@ -43,40 +42,39 @@ public class SwapBlockEdit extends SingleClassEdit {
         } else {
             int block1Size = blockOneEndNo - blockOneStartNo;
             for (int i = 0; i < block1Size; i++) {
-                String line = lines.get(blockOneStartNo+i);
-                 block1.add(line);
+                String line = lines.get(blockOneStartNo + i);
+                block1.add(line);
             }
         }
 
-        System.out.println(block1);
-        System.out.println(block1.size());
+        // System.out.println(block1);
+        //System.out.println(block1.size());
 
-        if (blockTwoEndNo  < blockTwoStartNo) {
+        if (blockTwoEndNo < blockTwoStartNo) {
             Log.error("The end block index is less than Start");
         } else {
             int block2Size = blockTwoEndNo - blockTwoStartNo;
             for (int i = 0; i < block2Size; i++) {
-                String line = lines.get(blockTwoStartNo+i);
+                String line = lines.get(blockTwoStartNo + i);
                 block2.add(line);
             }
         }
 
-        System.out.println(block2);
-        System.out.println(block2.size());
+        // System.out.println(block2);
+        //System.out.println(block2.size());
 
-        if (block1.size() != block2.size()){
-            System.err.println("Error");
-        }else {
+        if (block1.size() != block2.size()) {
+            Log.error("Error");
+        } else {
 
-            for (int i = 0; i < block1.size()+1; i++) {
+            for (int i = 0; i < block1.size() + 1; i++) {
 
-                String line1 = lines.remove(blockOneStartNo+i);
-                String line2 = lines.remove(blockTwoStartNo+i);
-                lines.add(blockTwoStartNo+i, line1);
-                lines.add(blockOneStartNo+i, line2);
+                String line1 = lines.remove(blockOneStartNo + i);
+                String line2 = lines.remove(blockTwoStartNo + i);
+                lines.add(blockTwoStartNo + i, line1);
+                lines.add(blockOneStartNo + i, line2);
             }
         }
-        System.out.println(lines);
 /*
 
         // (blockOneEndNo > blockTwoEndNo){
@@ -111,7 +109,7 @@ public class SwapBlockEdit extends SingleClassEdit {
 
                 //Collections.swap(lines, blockOneStartNo1, blockTwoStartNo1);
             }*/
-        }
+    }
 
 
     @Override

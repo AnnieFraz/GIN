@@ -39,7 +39,7 @@ import java.util.Optional;
 
 public class Main {
 
-    private static int REPS = 100;
+    private static int REPS = 2;
     private static int editNumberSeed = 4;
     private static int noofEditsNoRandom = 1;
     private static boolean compileSuccess;
@@ -50,6 +50,7 @@ public class Main {
     //private static final String PATHNAME = "/Users/annarasburn/Documents/gin/AnnaGin/test-runner/examples/unittests/";
 
     private static final String PATHNAME = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\examples\\unittests";
+
 
     public static void main(String[] args) throws IOException, Exception {
         //ApplicationContext allows to spring to properly interject beans into the application
@@ -169,7 +170,7 @@ public class Main {
         tests.add(test3);
         //Here I want when I have made a new patch for it to go to the test runner automatically
 
-        TestRunner testRunner = new TestRunner(exampleDir, "TriangleTest", PATHNAME, tests);
+        TestRunner testRunner = new TestRunner(exampleDir, "TriangleCPUTest", PATHNAME, tests);
         return testRunner.test(patch, 1);
     }
     private static double sendToOpacitor(String outputString) throws Exception {

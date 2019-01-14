@@ -8,6 +8,7 @@ import com.anniefraz.dissertation.gin.edit.line.InsertLineEdit;
 import com.anniefraz.dissertation.gin.edit.line.MoveLineEdit;
 import com.anniefraz.dissertation.gin.edit.line.RemoveLineEdit;
 import com.anniefraz.dissertation.gin.edit.line.SwapLineEdit;
+import com.anniefraz.dissertation.gin.edit.noEdit.NoEditEdit;
 import com.anniefraz.dissertation.gin.edit.operators.IfStatementEdit;
 import com.anniefraz.dissertation.gin.edit.statement.InsertBreakEdit;
 import com.anniefraz.dissertation.gin.source.AnnaClass;
@@ -19,6 +20,17 @@ import java.util.function.Function;
 @Configuration
 public class EditConfig {
 
+    @Bean
+    //TODO: Need to figure out what to be inserted
+    //USE THIS EDIT. If you want it to compile succesfully guarenteed everytime
+    public Function<AnnaClass, Edit> insertLineEdit(){
+        return anAnnaClass ->{
+            int size = anAnnaClass.getLines().size();
+            int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            //int whichLine = 6; //This was for the bubble sort tests
+            return new InsertLineEdit(whichLine,"//this is a comment" , anAnnaClass.getPath());
+        };
+    }
 
     @Bean
     public Function<AnnaClass, Edit> removeLineEdit() {
@@ -26,17 +38,6 @@ public class EditConfig {
             int size = anAnnaClass.getLines().size();
             int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
             return new RemoveLineEdit(whichLine, anAnnaClass.getPath());
-        };
-    }
-
-    @Bean
-    //TODO: Need to figure out what to be inserted
-    public Function<AnnaClass, Edit> insertLineEdit(){
-        return anAnnaClass ->{
-            int size = anAnnaClass.getLines().size();
-            int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
-            //int whichLine = 6; //This was for the bubble sort tests
-            return new InsertLineEdit(whichLine,"//this is a comment" , anAnnaClass.getPath());
         };
     }
 
@@ -114,6 +115,14 @@ public class EditConfig {
             int blockTwoStartNo = Double.valueOf(Math.floor(Math.random() * size)).intValue();
             int blockTwoEndNo = Double.valueOf(Math.floor(Math.random() * size)).intValue();
             return new SwapBlockEdit(blockOneStartNo,blockOneEndNo,blockTwoStartNo,blockTwoEndNo, anAnnaClass.getPath());
+        };
+    }
+
+
+    @Bean
+    public Function<AnnaClass,  Edit> noEditEdit(){
+        return anAnnaClass -> {
+            return new NoEditEdit(anAnnaClass.getPath());
         };
     }
 

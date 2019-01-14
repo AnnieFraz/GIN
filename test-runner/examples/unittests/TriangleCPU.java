@@ -1,4 +1,5 @@
-
+import java.io.PrintStream;
+import java.util.Random;
 public class TriangleCPU {
     static final int INVALID = 0;
     static final int SCALENE = 1;

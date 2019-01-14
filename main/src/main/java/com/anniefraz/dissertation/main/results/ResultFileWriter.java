@@ -46,9 +46,11 @@ public class ResultFileWriter implements ResultWriter {
 
     private void writeToFile(Result result) {
 
-        // if (file == null){
-        File file = createFile();
+        File file = new File("PatchExperiments.csv");
+         //if (file == null){
+         //file = createFile();
         //}else{
+
         try {
             // create FileWriter object with file as parameter
             FileWriter outputFile = new FileWriter(file,true);
