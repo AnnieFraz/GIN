@@ -17,7 +17,6 @@ import jeep.tuple.Tuple3;
 import opacitor.Opacitor;
 import opacitor.enumerations.GoalDirection;
 import opacitor.enumerations.MeasurementType;
-import org.mdkt.compiler.CompilationException;
 import org.mdkt.compiler.InMemoryJavaCompiler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,13 +39,22 @@ public class GA {
     private static int NOOFEDITS = 1; //Need to discuss with Sandy
     private static boolean COMPILATIONSUCCESFUL;
 
-    private static ResultWriter resultWriter = new ResultFileWriter();
+    private static ResultWriter RESULTWRITER = new ResultFileWriter();
 
-    static ApplicationContext applicationContext;
+    static ApplicationContext APPLICATIONCONTEXT;
 
     private static final String PATHNAME = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\examples\\unittests";
 
+    public static int getFITNESSSCORE() {
+        return FITNESSSCORE;
+    }
 
+    public static void setFITNESSSCORE(int FITNESSSCORE) {
+        GA.FITNESSSCORE = FITNESSSCORE;
+    }
+
+    private static int FITNESSSCORE = 0;
+    private static double CURRENTENERGY =0;
     /*
         PHASE 1
         Sets the size of the population
@@ -56,7 +64,8 @@ public class GA {
          */
     public static void  initializePopulation(PatchFactory patchFactory, Source source) throws Exception {
 
-        for (int i =0; i < ITERATIONS; i++){
+        for (int i =0; i < ITERATIONS; i++){ //Would the reps be in initialize poulation or main?
+            FITNESSSCORE = 0;
             Patch patch = patchFactory.getPatchForSourceWithEdits(source, NOOFEDITS);
             Source source1 = patch.getOutputSource();
             LOG.debug("Source:{]", source1);
@@ -98,11 +107,18 @@ public class GA {
             compileTime = System.currentTimeMillis();
             COMPILATIONSUCCESFUL = true;
             LOG.info("COMPILE");
+            fitnessWeight("COMPILE");
             LOG.info("TIME:{}", compileTime);
 
             unitTestResultSet = sendToTestRunner(patch);
+            fitnessWeight("UNITTEST");
             opacitorMeasurement = sendToOpacitor(output);
+            CURRENTENERGY = opacitorMeasurement;
+            lowestEnergy(opacitorMeasurement);
+            LOG.info("Fitness:{}",FITNESSSCORE);
         }
+
+
 
         Result result = Result.getBuilder()
                 .setCurrentRep(i)
@@ -114,7 +130,7 @@ public class GA {
                 .setPassed(Optional.ofNullable(unitTestResultSet).map(UnitTestResultSet::allTestsSuccessful).orElse(false))
                 .setOutputFileString(output)
                 .build();
-        resultWriter.writeResult(result);
+        RESULTWRITER.writeResult(result);
 
     }
     private static UnitTestResultSet sendToTestRunner(Patch patch) throws Exception {
@@ -176,6 +192,24 @@ public class GA {
 
     }
 
+    public static void fitnessWeight(String typeOfFitness){
+        if (typeOfFitness.equals("COMPILE")){
+            setFITNESSSCORE(FITNESSSCORE +3);
+        } else if (typeOfFitness.equals("UNITTEST")){
+            setFITNESSSCORE(FITNESSSCORE +2);
+
+        }
+    }
+
+    public static void lowestEnergy(double measurement){
+        //This method should calculate whether the latest measurement is the lowest
+        if (measurement < CURRENTENERGY) {
+            setFITNESSSCORE(FITNESSSCORE +1);
+        }else{
+            setFITNESSSCORE(FITNESSSCORE);
+        }
+    }
+
     /*
     PHASE 3
     Purpose: to select the best individual so they pass their genes on.
@@ -202,9 +236,9 @@ public class GA {
     }
 
     public static void main(String[] args) throws Exception{
-        applicationContext = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+        APPLICATIONCONTEXT = new AnnotationConfigApplicationContext(ApplicationConfig.class);
 
-        PatchFactory patchFactory = applicationContext.getBean(PatchFactory.class);
+        PatchFactory patchFactory = APPLICATIONCONTEXT.getBean(PatchFactory.class);
         SourceFactory sourceFactory = new SourceFactory(Paths.get(PATHNAME));
 
         AnnaPath annaPath = AnnaPath.getBuilder().setClassName("Triangle").build();
@@ -214,6 +248,7 @@ public class GA {
         //STARTING THE GA
         initializePopulation(patchFactory, source);
 
-        ((Closeable) applicationContext).close();
+
+        ((Closeable) APPLICATIONCONTEXT).close();
     }
 }

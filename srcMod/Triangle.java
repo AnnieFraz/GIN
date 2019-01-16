@@ -66,6 +66,7 @@ public class Triangle {
     public static void main(String[] args) throws Exception{
 
         classifyTriangle(1,1,1);
+//this is a comment
 
     }
 }
