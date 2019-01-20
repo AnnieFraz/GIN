@@ -38038,3 +38038,63 @@ public class RecursiveBubbleSort {
 
     }
 }","1546962260219","true","false","695.0","0.0"
+"Date","Repetitions","Patch","Output","Time","Compiled","Passed Unit Tests?","Opacitor measurement 1","Opacitor measurement 2"
+"Sun Jan 20 11:28:24 GMT 2019","1","[MoveBlockEdit{startBlockInt=3, endBlockInt=29, newLocation=13}]","import java.util.Arrays;
+
+public class IterativeBubbleSort {
+    static void bubbleSort(int array[], int n){
+            return;
+
+            for (int j =1; j < (n-i); j++){
+                int temp = array[j-1];
+
+        if (n==1){
+        }
+        for (int i=0; i < n; i++){
+            if (array[j-1] > array[j]) {
+                array[j-1] = array[j];
+                array[j] = temp;
+            }
+
+            }
+
+        }
+        System.out.println(""Iterative - Sorted array: "" + Arrays.toString(array));
+        System.out.println(""time:"" + System.currentTimeMillis());
+
+    }
+
+    public static void main(String[] args) {
+        //int array[] = {7, 69, 76, 102, 94, 53, 62 , 101};
+        int array[] = {102418, 391041, 979493, 765640, 899906, 832710, 806520, 699731, 63768, 68175, 521103, 122171, 776709, 890837, 644347, 974933, 34, 474389, 963630, 709592, 576313, 623896, 509591, 510928, 213};
+
+    static void bubbleSort(int array[], int n){
+        bubbleSort(array, array.length);
+        if (n==1){
+
+            return;
+      }
+        }
+}
+
+
+        for (int i=0; i < n; i++){
+            for (int j =1; j < (n-i); j++){
+            if (array[j-1] > array[j]) {
+                int temp = array[j-1];
+                array[j-1] = array[j];
+                array[j] = temp;
+            }
+
+            }
+
+        }
+        System.out.println(""Iterative - Sorted array: "" + Arrays.toString(array));
+        System.out.println(""time:"" + System.currentTimeMillis());
+
+    }
+
+    public static void main(String[] args) {
+        //int array[] = {7, 69, 76, 102, 94, 53, 62 , 101};
+        int array[] = {102418, 391041, 979493, 765640, 899906, 832710, 806520, 699731, 63768, 68175, 521103, 122171, 776709, 890837, 644347, 974933, 34, 474389, 963630, 709592, 576313, 623896, 509591, 510928, 213};
+","1547983704877","false","false","0.0","0.0"

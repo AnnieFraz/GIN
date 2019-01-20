@@ -15,6 +15,7 @@ import com.anniefraz.dissertation.test.runner.runner.UnitTest;
 import com.anniefraz.dissertation.test.runner.runner.UnitTestResultSet;
 import jeep.tuple.Tuple3;
 import opacitor.Opacitor;
+import opacitor.simpleJalenAgent.*;
 import opacitor.enumerations.GoalDirection;
 import opacitor.enumerations.MeasurementType;
 import org.mdkt.compiler.InMemoryJavaCompiler;
@@ -107,15 +108,13 @@ public class GA {
             compileTime = System.currentTimeMillis();
             COMPILATIONSUCCESFUL = true;
             LOG.info("COMPILE");
-            fitnessWeight("COMPILE");
             LOG.info("TIME:{}", compileTime);
 
             unitTestResultSet = sendToTestRunner(patch);
-            fitnessWeight("UNITTEST");
+            LOG.info("Unit test: {}", unitTestResultSet);
             opacitorMeasurement = sendToOpacitor(output);
             CURRENTENERGY = opacitorMeasurement;
-            lowestEnergy(opacitorMeasurement);
-            LOG.info("Fitness:{}",FITNESSSCORE);
+            LOG.info("FitnessMeasurement:{}",FITNESSSCORE);
         }
 
 
@@ -158,8 +157,12 @@ public class GA {
     }
     private static double sendToOpacitor(String outputString) throws Exception {
 
-        String testSrcDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\opacitor\\test_external_dir\\src\\test";
-        String testBinDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\Opacitor\\test_external_dir\\bin\\test";
+       // String testSrcDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\opacitor\\test_external_dir\\src\\test";
+        //String testBinDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\Opacitor\\test_external_dir\\bin\\test";
+        //String testBinDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\target\\test-classes\\unittest\\example\\Triangle.java";
+
+        String testSrcDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\src\\main\\java";
+        String testBinDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\target\\classes";
 
         // String testSrcDir = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/src";
         // String testBinDir = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/bin";
@@ -170,14 +173,19 @@ public class GA {
 
         String testReplacementCode = outputString;
 
-        Opacitor opacitor = new Opacitor.OpacitorBuilder("", "Triangle", new String[]{})
+        Opacitor opacitor = new Opacitor.OpacitorBuilder("example", "Triangle", new String[]{})
                 .srcDirectory(testSrcDir)
                 .binDirectory(testBinDir)
-                .measurementType(MeasurementType.CODE_LENGTH)
-                .performInitialCompilation(true)
+                .measurementType(MeasurementType.SUPER_SIMPLE_JALEN)
+                //.performInitialCompilation(true)
                 .goalDirection(GoalDirection.MINIMISING)
+               // .singleThreadedTargetJalen(true)
+                //.manuallyInjectJalen(false)
                 .compiler(Paths.get("C:\\Program Files\\Java\\jdk1.8.0_191\\bin\\javac.exe").toAbsolutePath().toString())
                 .build();
+
+        //SimpleJalenAgent simpleJalenAgent = new SimpleJalenAgent().;
+
 
         double measurement;
 
@@ -192,29 +200,23 @@ public class GA {
 
     }
 
-    public static void fitnessWeight(String typeOfFitness){
-        if (typeOfFitness.equals("COMPILE")){
-            setFITNESSSCORE(FITNESSSCORE +3);
-        } else if (typeOfFitness.equals("UNITTEST")){
-            setFITNESSSCORE(FITNESSSCORE +2);
-
-        }
+    public static int fitnessScore1(Patch patch) throws Exception{
+        sendToTestRunner(patch);
+        return 0;
     }
 
-    public static void lowestEnergy(double measurement){
-        //This method should calculate whether the latest measurement is the lowest
-        if (measurement < CURRENTENERGY) {
-            setFITNESSSCORE(FITNESSSCORE +1);
-        }else{
-            setFITNESSSCORE(FITNESSSCORE);
-        }
+    public static int fitnessScore2 (){
+
+        return 0;
     }
+
+
 
     /*
     PHASE 3
     Purpose: to select the best individual so they pass their genes on.
     Parents are selected on fitness scores
-    higher Fitness higher Chance of being chosen
+    higher FitnessMeasurement higher Chance of being chosen
      */
     public static void selection(){
 
@@ -247,7 +249,6 @@ public class GA {
 
         //STARTING THE GA
         initializePopulation(patchFactory, source);
-
 
         ((Closeable) APPLICATIONCONTEXT).close();
     }

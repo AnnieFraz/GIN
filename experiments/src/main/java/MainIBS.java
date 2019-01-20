@@ -24,7 +24,7 @@ import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
+//import java.util.Optional;
 
 public class MainIBS {
 
@@ -147,8 +147,8 @@ public class MainIBS {
         Opacitor opacitor = new Opacitor.OpacitorBuilder("", "IterativeBubbleSort", new String[]{})
                 .srcDirectory(testSrcDir)
                 .binDirectory(testBinDir)
-                .measurementType(MeasurementType.CODE_LENGTH)
-                .performInitialCompilation(true)
+                .measurementType(MeasurementType.SUPER_SIMPLE_JALEN)
+               // .performInitialCompilation(true)
                 .goalDirection(GoalDirection.MINIMISING)
                 .compiler(Paths.get("C:\\Program Files\\Java\\jdk1.8.0_191\\bin\\javac.exe").toAbsolutePath().toString())
                 .build();
