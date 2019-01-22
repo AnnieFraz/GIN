@@ -1,6 +1,5 @@
 package com.anniefraz.dissertation.main.results;
 
-import com.anniefraz.dissertation.main.application.Main;
 import com.opencsv.CSVWriter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

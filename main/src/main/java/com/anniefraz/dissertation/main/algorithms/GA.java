@@ -42,20 +42,11 @@ public class GA {
 
     private static ResultWriter RESULTWRITER = new ResultFileWriter();
 
-    static ApplicationContext APPLICATIONCONTEXT;
-
     private static final String PATHNAME = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\examples\\unittests";
 
-    public static int getFITNESSSCORE() {
-        return FITNESSSCORE;
-    }
 
-    public static void setFITNESSSCORE(int FITNESSSCORE) {
-        GA.FITNESSSCORE = FITNESSSCORE;
-    }
+    private static double CURRENTENERGY = 0;
 
-    private static int FITNESSSCORE = 0;
-    private static double CURRENTENERGY =0;
     /*
         PHASE 1
         Sets the size of the population
@@ -63,24 +54,23 @@ public class GA {
         A Binary string e.g. 0111010 is a Chromosone
         A collection of binary strings is a population.
          */
-    public static void  initializePopulation(PatchFactory patchFactory, Source source) throws Exception {
+    public void initializePopulation(PatchFactory patchFactory, Source source, int i) throws Exception {
 
-        for (int i =0; i < ITERATIONS; i++){ //Would the reps be in initialize poulation or main?
-            FITNESSSCORE = 0;
-            Patch patch = patchFactory.getPatchForSourceWithEdits(source, NOOFEDITS);
-            Source source1 = patch.getOutputSource();
-            LOG.debug("Source:{]", source1);
-            LOG.info("Edits:{}", patch.getEdits());
-            //Go to Stage 2
-            calculateFitness(source1, patch, i);
-            LOG.info("CURRENT ITERATION:{}",i);
-        }
+        Patch patch = patchFactory.getPatchForSourceWithEdits(source, NOOFEDITS);
+        Source source1 = patch.getOutputSource();
+        LOG.debug("Source:{]", source1);
+        LOG.info("Edits:{}", patch.getEdits());
+        //Go to Stage 2
+        calculateFitness(source1, patch, i);
+        LOG.info("CURRENT ITERATION:{}", i);
+
     }
+
     /*
         PHASE 2
         Finds out how fit an individual is
          */
-    public static void calculateFitness(Source source, Patch patch, int i) throws Exception {
+    public void calculateFitness(Source source, Patch patch, int i) throws Exception {
         Class<?> compileSource = null;
 
         List<AnnaClass> classList = source.getAnnaClasses();
@@ -98,26 +88,29 @@ public class GA {
         long compileTime;
         UnitTestResultSet unitTestResultSet = null;
         double opacitorMeasurement = 0;
+        double unitTestResult = 0.5;
 
-        if (compileSource == null){
+        if (compileSource == null) {
             compileTime = System.currentTimeMillis();
             COMPILATIONSUCCESFUL = false;
             LOG.info("DID NOT COMPILE");
             LOG.info("TIME:{}", compileTime);
-        }else{
+        } else {
             compileTime = System.currentTimeMillis();
             COMPILATIONSUCCESFUL = true;
             LOG.info("COMPILE");
             LOG.info("TIME:{}", compileTime);
 
-            unitTestResultSet = sendToTestRunner(patch);
-            LOG.info("Unit test: {}", unitTestResultSet);
-            opacitorMeasurement = sendToOpacitor(output);
-            CURRENTENERGY = opacitorMeasurement;
-            LOG.info("FitnessMeasurement:{}",FITNESSSCORE);
+             unitTestResult = getFitnessScore1(patch);
+
+            if (unitTestResult == 1.0) {
+                opacitorMeasurement = getFitnessScore2(output);
+            } else {
+                LOG.error("Unit tests did not pass");
+                opacitorMeasurement = 10000.00;
+            }
+
         }
-
-
 
         Result result = Result.getBuilder()
                 .setCurrentRep(i)
@@ -126,90 +119,27 @@ public class GA {
                 .setOpacitorMeasurement1(opacitorMeasurement)
                 .setCompileSuccess(COMPILATIONSUCCESFUL)
                 .setTime(compileTime)
-                .setPassed(Optional.ofNullable(unitTestResultSet).map(UnitTestResultSet::allTestsSuccessful).orElse(false))
+                .setUnitTestScore(unitTestResult)
+                //.setPassed(Optional.ofNullable(unitTestResultSet).map(UnitTestResultSet::allTestsSuccessful).orElse(false))
                 .setOutputFileString(output)
                 .build();
         RESULTWRITER.writeResult(result);
 
     }
-    private static UnitTestResultSet sendToTestRunner(Patch patch) throws Exception {
-
-        String testClassNameTriangle = "TriangleTest";
-        String className = "Triangle";
-        String testClassName = "ExampleTest";
-        String methodName = "aMethod";
-
-        File exampleDir = Paths.get(PATHNAME).toFile();
-
-        UnitTest test = new UnitTest(testClassNameTriangle, "testInvalidTriangles");
-        UnitTest test1 = new UnitTest(testClassNameTriangle, "testEqualateralTriangles");
-        UnitTest test2 = new UnitTest(testClassNameTriangle, "testIsocelesTriangles");
-        UnitTest test3 = new UnitTest(testClassNameTriangle, "testScaleneTriangles");
-        List<UnitTest> tests = new LinkedList<>();
-        tests.add(test);
-        tests.add(test1);
-        tests.add(test2);
-        tests.add(test3);
-        //Here I want when I have made a new patch for it to go to the test runner automatically
-
-        TestRunner testRunner = new TestRunner(exampleDir, "TriangleCPUTest", PATHNAME, tests);
-        return testRunner.test(patch, 1);
-    }
-    private static double sendToOpacitor(String outputString) throws Exception {
-
-       // String testSrcDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\opacitor\\test_external_dir\\src\\test";
-        //String testBinDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\Opacitor\\test_external_dir\\bin\\test";
-        //String testBinDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\target\\test-classes\\unittest\\example\\Triangle.java";
-
-        String testSrcDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\src\\main\\java";
-        String testBinDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\target\\classes";
-
-        // String testSrcDir = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/src";
-        // String testBinDir = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/bin";
-
-        //String testBinDir = "D:\\Users\\tglew\\intelliProjects\\UpdatedGin\\GIN\\opacitor\\test_external_dir\\bin\\test";
-        //String testSrcDir = "D:\\Users\\tglew\\intelliProjects\\UpdatedGin\\GIN\\opacitor\\test_external_dir\\src\\test";
 
 
-        String testReplacementCode = outputString;
-
-        Opacitor opacitor = new Opacitor.OpacitorBuilder("example", "Triangle", new String[]{})
-                .srcDirectory(testSrcDir)
-                .binDirectory(testBinDir)
-                .measurementType(MeasurementType.SUPER_SIMPLE_JALEN)
-                //.performInitialCompilation(true)
-                .goalDirection(GoalDirection.MINIMISING)
-               // .singleThreadedTargetJalen(true)
-                //.manuallyInjectJalen(false)
-                .compiler(Paths.get("C:\\Program Files\\Java\\jdk1.8.0_191\\bin\\javac.exe").toAbsolutePath().toString())
-                .build();
-
-        //SimpleJalenAgent simpleJalenAgent = new SimpleJalenAgent().;
-
-
-        double measurement;
-
-        opacitor.updateCode(Collections.singletonList(new Tuple3<>(testReplacementCode, "", "Triangle")));
-        measurement = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});
-        LOG.info("Measurement: {}", measurement);
-
-        double measurement2 = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});
-        LOG.info("Measurement: {}", measurement2);
-
-        return measurement;
-
+    public double getFitnessScore1(Patch patch) throws Exception {
+        FitnessMeasurement fitnessMeasurement = new FitnessUnitTests();
+        double result = fitnessMeasurement.measure(patch);
+        return result;
     }
 
-    public static int fitnessScore1(Patch patch) throws Exception{
-        sendToTestRunner(patch);
-        return 0;
+    public double getFitnessScore2(String output) {
+        FitnessMeasurement fitnessMeasurement = new FitnessEnergy();
+        double result = fitnessMeasurement.measure(output);
+        selection();
+        return result;
     }
-
-    public static int fitnessScore2 (){
-
-        return 0;
-    }
-
 
 
     /*
@@ -218,38 +148,26 @@ public class GA {
     Parents are selected on fitness scores
     higher FitnessMeasurement higher Chance of being chosen
      */
-    public static void selection(){
+    public void selection() {
 
     }
+
     /*
     PHASE 4
     Purpose: a random point of within the parents genes
     Children are made by exchanging parents genes until crossover point is reacher
      */
-    public static void crossover(){
+    public void crossover() {
 
     }
+
     /*
    PHASE 5
    Where the bits are flipped
     */
-    public static void mutation(){
+    public static void mutation() {
 
     }
 
-    public static void main(String[] args) throws Exception{
-        APPLICATIONCONTEXT = new AnnotationConfigApplicationContext(ApplicationConfig.class);
 
-        PatchFactory patchFactory = APPLICATIONCONTEXT.getBean(PatchFactory.class);
-        SourceFactory sourceFactory = new SourceFactory(Paths.get(PATHNAME));
-
-        AnnaPath annaPath = AnnaPath.getBuilder().setClassName("Triangle").build();
-
-        Source source = sourceFactory.getSourceFromAnnaPath(annaPath);
-
-        //STARTING THE GA
-        initializePopulation(patchFactory, source);
-
-        ((Closeable) APPLICATIONCONTEXT).close();
-    }
 }

@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class RecursiveBubbleSort {
+public class loops.RecursiveBubbleSort {
 
     static void bubbleSort(int array[], int n){
         if (n==1){

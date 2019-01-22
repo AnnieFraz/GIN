@@ -88,6 +88,7 @@ public class Result {
         private boolean passed;
         private double opacitorMeasurement1;
         private double opacitorMeasurement2;
+        private double unitTestScore;
 
         private ResultBuilder() {
         }
@@ -119,6 +120,11 @@ public class Result {
 
         public ResultBuilder setCompileSuccess(boolean compileSuccess) {
             this.compileSuccess = compileSuccess;
+            return this;
+        }
+
+        public ResultBuilder setUnitTestScore(double unitTestScore) {
+            this.unitTestScore = unitTestScore;
             return this;
         }
 

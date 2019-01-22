@@ -33,6 +33,16 @@ public class MainIBS {
 
     static ApplicationContext applicationContext;
 
+    public static double getOpacitorMeasurement2() {
+        return opacitorMeasurement2;
+    }
+
+    public static void setOpacitorMeasurement2(double opacitorMeasurement2) {
+        MainRBS.opacitorMeasurement2 = opacitorMeasurement2;
+    }
+
+    static double opacitorMeasurement2;
+
     private static final String PATHNAME = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\experiments\\loops\\bubbleSort\\java";
 
     public static void main(String[] args) throws IOException, Exception {
@@ -120,7 +130,7 @@ public class MainIBS {
                     .setTime(time)
                     .setCompiledClass(compiledClass)
                     .setCompileSuccess(compileSuccess)
-
+                    .setOpacitorMeasurement2(getOpacitorMeasurement2())
                     .setOpacitorMeasurement1(measurement)
                     .build();
 
@@ -132,8 +142,8 @@ public class MainIBS {
 
     private static double sendToOpacitor(String outputString) throws Exception {
 
-        String testSrcDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\opacitor\\test_external_dir\\src\\test";
-        String testBinDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\Opacitor\\test_external_dir\\bin\\test";
+       // String testSrcDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\opacitor\\test_external_dir\\src\\test";
+       // String testBinDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\Opacitor\\test_external_dir\\bin\\test";
 
         // String testSrcDir = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/src";
         // String testBinDir = "/Users/annarasburn/Documents/gin/AnnaGin/opacitor/test_external_dir/bin";
@@ -141,10 +151,13 @@ public class MainIBS {
         //String testBinDir = "D:\\Users\\tglew\\intelliProjects\\UpdatedGin\\GIN\\opacitor\\test_external_dir\\bin\\test";
         //String testSrcDir = "D:\\Users\\tglew\\intelliProjects\\UpdatedGin\\GIN\\opacitor\\test_external_dir\\src\\test";
 
+        String testSrcDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\experiments\\src\\main\\java";
+        String testBinDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\experiments\\target\\classes";
+
 
         String testReplacementCode = outputString;
 
-        Opacitor opacitor = new Opacitor.OpacitorBuilder("", "IterativeBubbleSort", new String[]{})
+        Opacitor opacitor = new Opacitor.OpacitorBuilder("loops", "IterativeBubbleSort", new String[]{})
                 .srcDirectory(testSrcDir)
                 .binDirectory(testBinDir)
                 .measurementType(MeasurementType.SUPER_SIMPLE_JALEN)
@@ -155,12 +168,14 @@ public class MainIBS {
 
         double measurement;
 
-        opacitor.updateCode(Collections.singletonList(new Tuple3<>(testReplacementCode, "", "IterativeBubbleSort")));
+        opacitor.updateCode(Collections.singletonList(new Tuple3<>(testReplacementCode, "", "loops.IterativeBubbleSort")));
         measurement = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});
         System.out.println("Measurement: {}" + measurement);
 
         double measurement2 = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});
         System.out.println("Measurement: {}" + measurement2);
+
+        setOpacitorMeasurement2(measurement2);
 
         return measurement;
 

@@ -21,7 +21,8 @@ public class ResultFileWriter implements ResultWriter {
     }
 
     private File createFile() {
-        File file = new File("RecursiveBSResults.csv");
+        File file = new File("IterativeBSSimpleJalen.csv");
+        //         File file = new File("RecursiveBSSimpleJalen.csv"); //
         LOG.info("File has been made");
 
         try {
@@ -31,9 +32,9 @@ public class ResultFileWriter implements ResultWriter {
             CSVWriter writer = new CSVWriter(outputfile);
             // add data to csv
             Date date = new Date();
-            String[] header = {"Date", "Repetitions", "Patch", "Output", "Time", "Compiled", "Passed Unit Tests?", "Opacitor measurement 1", "Opacitor measurement 2"};
+            //String[] header = {"Date", "Repetitions", "Patch", "Output", "Time", "Compiled", "Passed Unit Tests?", "Opacitor measurement 1", "Opacitor measurement 2"};
 
-            writer.writeNext(header);
+           //writer.writeNext(header);
             // closing writer connection
             writer.close();
             outputfile.close();
@@ -48,6 +49,10 @@ public class ResultFileWriter implements ResultWriter {
 
         // if (file == null){
         File file = createFile();
+       // File file = new File("IterativeBSSimpleJalen.csv");
+        //File file = new File("RecursiveBSSimpleJalen.csv"); //
+
+
         //}else{
         try {
             // create FileWriter object with file as parameter

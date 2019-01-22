@@ -19,7 +19,7 @@ import java.util.function.Function;
 
 @Configuration
 public class EditConfig {
-
+/*
     @Bean
     //TODO: Need to figure out what to be inserted
     //USE THIS EDIT. If you want it to compile succesfully guarenteed everytime
@@ -117,7 +117,7 @@ public class EditConfig {
             return new SwapBlockEdit(blockOneStartNo,blockOneEndNo,blockTwoStartNo,blockTwoEndNo, anAnnaClass.getPath());
         };
     }
-
+*/
 
     @Bean
     public Function<AnnaClass,  Edit> noEditEdit(){
