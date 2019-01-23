@@ -7,9 +7,6 @@ import com.anniefraz.dissertation.gin.source.Source;
 import com.anniefraz.dissertation.algorithms.GAs.main.fitness.FitnessEnergy;
 import com.anniefraz.dissertation.algorithms.GAs.main.fitness.FitnessMeasurement;
 import com.anniefraz.dissertation.algorithms.GAs.main.fitness.FitnessUnitTests;
-import com.anniefraz.dissertation.main.results.Result;
-import com.anniefraz.dissertation.main.results.ResultFileWriter;
-import com.anniefraz.dissertation.main.results.ResultWriter;
 import com.anniefraz.dissertation.test.runner.runner.UnitTestResultSet;
 import org.mdkt.compiler.InMemoryJavaCompiler;
 import org.slf4j.Logger;
@@ -26,14 +23,16 @@ public class GA {
     private static int NOOFEDITS = 1; //Need to discuss with Sandy
     private static boolean COMPILATIONSUCCESFUL;
 
-    private static ResultWriter RESULTWRITER = new ResultFileWriter();
-
     private static final String PATHNAME = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\examples\\unittests";
 
     private static double FITNESSSCORE = 0;
 
     public double firstFitness = 0;
     public double secondFitness = 0;
+
+    public Class<?> compileSource;
+
+    public String output;
 
     /*
         PHASE 1
@@ -46,7 +45,7 @@ public class GA {
         //First Patch
         LOG.info("CURRENT ITERATION:{} ", iteration);
         LinkedList<Patch> patches = generateABunchOfPatches(patchFactory, source, 2);
-        for (int i = 0; i < patches.size(); i++){
+        for (int i = 0; i < patches.size(); i++) {
             patchData(patches.get(i));
         }
         selection(patches.get(0), patches.get(1));
@@ -61,10 +60,10 @@ public class GA {
         calculateFitness(source1, patch);
     }
 
-    public LinkedList<Patch> generateABunchOfPatches(PatchFactory patchFactory, Source source, int numberOfPatches){
+    public LinkedList<Patch> generateABunchOfPatches(PatchFactory patchFactory, Source source, int numberOfPatches) {
         LinkedList<Patch> patches = new LinkedList<>();
 
-        for (int i = 0; i < numberOfPatches; i++){
+        for (int i = 0; i < numberOfPatches; i++) {
             Patch patch = generatePatch(patchFactory, source);
             patches.add(patch);
         }
@@ -72,7 +71,7 @@ public class GA {
     }
 
 
-    public Patch generatePatch (PatchFactory patchFactory, Source source){
+    public Patch generatePatch(PatchFactory patchFactory, Source source) {
         Patch patch = patchFactory.getPatchForSourceWithEdits(source, NOOFEDITS);
         return patch;
     }
@@ -86,7 +85,7 @@ public class GA {
 
         List<AnnaClass> classList = source.getAnnaClasses();
         AnnaClass annaClass = classList.get(0);
-        String output = String.join(System.lineSeparator(), annaClass.getLines());
+        output = String.join(System.lineSeparator(), annaClass.getLines());
 
         try {
             compileSource = InMemoryJavaCompiler.newInstance().compile("Triangle", output);
@@ -103,16 +102,20 @@ public class GA {
 
         if (compileSource == null) {
             compileTime = System.currentTimeMillis();
-            COMPILATIONSUCCESFUL = false;
+            patch.setTime(compileTime);
+            //COMPILATIONSUCCESFUL = false;
+            patch.setSuccess(COMPILATIONSUCCESFUL = false);
             LOG.info("DID NOT COMPILE");
             LOG.info("TIME:{}", compileTime);
         } else {
             compileTime = System.currentTimeMillis();
-            COMPILATIONSUCCESFUL = true;
+            patch.setTime(compileTime);
+            //COMPILATIONSUCCESFUL = true;
+            patch.setSuccess(COMPILATIONSUCCESFUL = true);
             LOG.info("COMPILE");
             LOG.info("TIME:{}", compileTime);
 
-             unitTestResult = unitTestFitnessScore(patch);
+            unitTestResult = unitTestFitnessScore(patch);
 
             if (unitTestResult == 1.0) {
                 opacitorMeasurement = energyFitnessScore(output);
@@ -120,31 +123,13 @@ public class GA {
                 LOG.error("Unit tests did not pass");
                 opacitorMeasurement = 10000.00;
             }
-
-            double score =unitTestResult + opacitorMeasurement ;
+            double score = unitTestResult + opacitorMeasurement;
             patch.setFitnessScore(score);
-
-          //  selection(patch);
-
 
         }
 
-        Result result = Result.getBuilder()
-                //.setCurrentRep(i)
-                .setPatch(patch)
-                .setCompiledClass(compileSource)
-                .setOpacitorMeasurement1(opacitorMeasurement)
-                .setCompileSuccess(COMPILATIONSUCCESFUL)
-                .setTime(compileTime)
-                .setUnitTestScore(unitTestResult)
-                //.setPassed(Optional.ofNullable(unitTestResultSet).map(UnitTestResultSet::allTestsSuccessful).orElse(false))
-                .setOutputFileString(output)
-                .build();
-        RESULTWRITER.writeResult(result);
-
     }
-
-
+    
     public double unitTestFitnessScore(Patch patch) throws Exception {
         FitnessMeasurement fitnessMeasurement = new FitnessUnitTests();
         double result = fitnessMeasurement.measure(patch);
@@ -154,10 +139,8 @@ public class GA {
     public double energyFitnessScore(String output) {
         FitnessMeasurement fitnessMeasurement = new FitnessEnergy();
         double result = fitnessMeasurement.measure(output);
-        //selection();
         return result;
     }
-
 
     /*
     PHASE 3
@@ -169,7 +152,7 @@ public class GA {
         firstFitness = patch1.getFitnessScore();
 
         //get second fitness
-        double secondFitness = patch2.getFitnessScore();
+        secondFitness = patch2.getFitnessScore();
     }
 
     /*

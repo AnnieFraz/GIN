@@ -10,6 +10,8 @@ public class Patch {
     private final List<Edit> edits;
     private final Source outputSource;
     private double fitnessScore;
+    private long compileTime;
+    private boolean success;
 
     public Patch(Source source, List<Edit> edits) {
         this.source = source;
@@ -33,5 +35,17 @@ public class Patch {
     public void setFitnessScore(double score){fitnessScore = score; }
 
     public double getFitnessScore() {return fitnessScore;}
+
+    public void setTime(long time){compileTime = time;}
+
+    public long getTime(){return compileTime;}
+
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
 
 }
