@@ -1,4 +1,4 @@
-package com.anniefraz.dissertation.main.algorithms;
+package com.anniefraz.dissertation.algorithms.GAs.main.fitness;
 
 import com.anniefraz.dissertation.gin.patch.Patch;
 import com.anniefraz.dissertation.test.runner.runner.TestRunner;

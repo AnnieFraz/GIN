@@ -1,4 +1,4 @@
-package com.anniefraz.dissertation.main.algorithms;
+package com.anniefraz.dissertation.algorithms.GAs.main.fitness;
 
 public interface FitnessMeasurement<T> {
 

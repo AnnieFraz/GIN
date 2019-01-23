@@ -1,4 +1,4 @@
-package com.anniefraz.dissertation.main.algorithms;
+package com.anniefraz.dissertation.algorithms.GAs.main.fitness;
 
 import jeep.tuple.Tuple3;
 import opacitor.Opacitor;

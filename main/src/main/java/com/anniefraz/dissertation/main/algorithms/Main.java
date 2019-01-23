@@ -1,31 +1,19 @@
 package com.anniefraz.dissertation.main.algorithms;
 
+import com.anniefraz.dissertation.algorithms.GAs.main.GA;
 import com.anniefraz.dissertation.gin.application.config.ApplicationConfig;
-import com.anniefraz.dissertation.gin.patch.Patch;
 import com.anniefraz.dissertation.gin.patch.PatchFactory;
-import com.anniefraz.dissertation.gin.source.AnnaClass;
 import com.anniefraz.dissertation.gin.source.AnnaPath;
 import com.anniefraz.dissertation.gin.source.Source;
 import com.anniefraz.dissertation.gin.source.SourceFactory;
 
-import com.anniefraz.dissertation.main.results.Result;
-import com.anniefraz.dissertation.main.results.ResultFileWriter;
-import com.anniefraz.dissertation.main.results.ResultWriter;
-
-import com.anniefraz.dissertation.test.runner.runner.UnitTestResultSet;
-
-import org.mdkt.compiler.CompilationException;
-import org.mdkt.compiler.InMemoryJavaCompiler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.io.Closeable;
-import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.List;
-import java.util.Optional;
 
 public class Main {
 

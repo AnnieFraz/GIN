@@ -9,6 +9,7 @@ public class Patch {
     private final Source source;
     private final List<Edit> edits;
     private final Source outputSource;
+    private double fitnessScore;
 
     public Patch(Source source, List<Edit> edits) {
         this.source = source;
@@ -28,4 +29,9 @@ public class Patch {
     public Source getOutputSource() {
         return outputSource;
     }
+
+    public void setFitnessScore(double score){fitnessScore = score; }
+
+    public double getFitnessScore() {return fitnessScore;}
+
 }

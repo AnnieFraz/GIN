@@ -1,36 +1,22 @@
-package com.anniefraz.dissertation.main.algorithms;
+package com.anniefraz.dissertation.algorithms.GAs.main;
 
-import com.anniefraz.dissertation.gin.application.config.ApplicationConfig;
 import com.anniefraz.dissertation.gin.patch.Patch;
 import com.anniefraz.dissertation.gin.patch.PatchFactory;
 import com.anniefraz.dissertation.gin.source.AnnaClass;
-import com.anniefraz.dissertation.gin.source.AnnaPath;
 import com.anniefraz.dissertation.gin.source.Source;
-import com.anniefraz.dissertation.gin.source.SourceFactory;
+import com.anniefraz.dissertation.algorithms.GAs.main.fitness.FitnessEnergy;
+import com.anniefraz.dissertation.algorithms.GAs.main.fitness.FitnessMeasurement;
+import com.anniefraz.dissertation.algorithms.GAs.main.fitness.FitnessUnitTests;
 import com.anniefraz.dissertation.main.results.Result;
 import com.anniefraz.dissertation.main.results.ResultFileWriter;
 import com.anniefraz.dissertation.main.results.ResultWriter;
-import com.anniefraz.dissertation.test.runner.runner.TestRunner;
-import com.anniefraz.dissertation.test.runner.runner.UnitTest;
 import com.anniefraz.dissertation.test.runner.runner.UnitTestResultSet;
-import jeep.tuple.Tuple3;
-import opacitor.Opacitor;
-import opacitor.simpleJalenAgent.*;
-import opacitor.enumerations.GoalDirection;
-import opacitor.enumerations.MeasurementType;
 import org.mdkt.compiler.InMemoryJavaCompiler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.io.Closeable;
-import java.io.File;
-import java.nio.file.Paths;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
 
 public class GA {
     //Logger - need to refactor so there is a logger at the top of every class
@@ -44,8 +30,10 @@ public class GA {
 
     private static final String PATHNAME = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\examples\\unittests";
 
+    private static double FITNESSSCORE = 0;
 
-    private static double CURRENTENERGY = 0;
+    public double firstFitness = 0;
+    public double secondFitness = 0;
 
     /*
         PHASE 1
@@ -54,23 +42,46 @@ public class GA {
         A Binary string e.g. 0111010 is a Chromosone
         A collection of binary strings is a population.
          */
-    public void initializePopulation(PatchFactory patchFactory, Source source, int i) throws Exception {
+    public void initializePopulation(PatchFactory patchFactory, Source source, int iteration) throws Exception {
+        //First Patch
+        LOG.info("CURRENT ITERATION:{} ", iteration);
+        LinkedList<Patch> patches = generateABunchOfPatches(patchFactory, source, 2);
+        for (int i = 0; i < patches.size(); i++){
+            patchData(patches.get(i));
+        }
+        selection(patches.get(0), patches.get(1));
 
-        Patch patch = patchFactory.getPatchForSourceWithEdits(source, NOOFEDITS);
+    }
+
+    public void patchData(Patch patch) throws Exception {
         Source source1 = patch.getOutputSource();
         LOG.debug("Source:{]", source1);
-        LOG.info("Edits:{}", patch.getEdits());
+        LOG.info("Edits:{} for Patch {}", patch.getEdits(), patch);
         //Go to Stage 2
-        calculateFitness(source1, patch, i);
-        LOG.info("CURRENT ITERATION:{}", i);
+        calculateFitness(source1, patch);
+    }
 
+    public LinkedList<Patch> generateABunchOfPatches(PatchFactory patchFactory, Source source, int numberOfPatches){
+        LinkedList<Patch> patches = new LinkedList<>();
+
+        for (int i = 0; i < numberOfPatches; i++){
+            Patch patch = generatePatch(patchFactory, source);
+            patches.add(patch);
+        }
+        return patches;
+    }
+
+
+    public Patch generatePatch (PatchFactory patchFactory, Source source){
+        Patch patch = patchFactory.getPatchForSourceWithEdits(source, NOOFEDITS);
+        return patch;
     }
 
     /*
         PHASE 2
         Finds out how fit an individual is
          */
-    public void calculateFitness(Source source, Patch patch, int i) throws Exception {
+    public void calculateFitness(Source source, Patch patch) throws Exception {
         Class<?> compileSource = null;
 
         List<AnnaClass> classList = source.getAnnaClasses();
@@ -101,19 +112,25 @@ public class GA {
             LOG.info("COMPILE");
             LOG.info("TIME:{}", compileTime);
 
-             unitTestResult = getFitnessScore1(patch);
+             unitTestResult = unitTestFitnessScore(patch);
 
             if (unitTestResult == 1.0) {
-                opacitorMeasurement = getFitnessScore2(output);
+                opacitorMeasurement = energyFitnessScore(output);
             } else {
                 LOG.error("Unit tests did not pass");
                 opacitorMeasurement = 10000.00;
             }
 
+            double score =unitTestResult + opacitorMeasurement ;
+            patch.setFitnessScore(score);
+
+          //  selection(patch);
+
+
         }
 
         Result result = Result.getBuilder()
-                .setCurrentRep(i)
+                //.setCurrentRep(i)
                 .setPatch(patch)
                 .setCompiledClass(compileSource)
                 .setOpacitorMeasurement1(opacitorMeasurement)
@@ -128,16 +145,16 @@ public class GA {
     }
 
 
-    public double getFitnessScore1(Patch patch) throws Exception {
+    public double unitTestFitnessScore(Patch patch) throws Exception {
         FitnessMeasurement fitnessMeasurement = new FitnessUnitTests();
         double result = fitnessMeasurement.measure(patch);
         return result;
     }
 
-    public double getFitnessScore2(String output) {
+    public double energyFitnessScore(String output) {
         FitnessMeasurement fitnessMeasurement = new FitnessEnergy();
         double result = fitnessMeasurement.measure(output);
-        selection();
+        //selection();
         return result;
     }
 
@@ -148,8 +165,11 @@ public class GA {
     Parents are selected on fitness scores
     higher FitnessMeasurement higher Chance of being chosen
      */
-    public void selection() {
+    public void selection(Patch patch1, Patch patch2) { //Have a second patch to be the second parent and work out the fitness of that patch too
+        firstFitness = patch1.getFitnessScore();
 
+        //get second fitness
+        double secondFitness = patch2.getFitnessScore();
     }
 
     /*
