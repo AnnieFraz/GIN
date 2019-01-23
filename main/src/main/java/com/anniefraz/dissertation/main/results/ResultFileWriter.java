@@ -20,7 +20,7 @@ public class ResultFileWriter implements ResultWriter {
     public void writeResult(Result result) {
         writeToFile(result);
        // if (Main.REPS < REPS.size()) {
-            System.out.println("🎇🎇🎇🎇NEXT EDIT🎇🎇🎇🎇");
+            System.out.println("🎇🎇🎇🎇NEXT REP🎇🎇🎇🎇");
         //}else{
 
         //}

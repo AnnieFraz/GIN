@@ -53,9 +53,11 @@ public class GA {
     }
 
     public void patchData(Patch patch) throws Exception {
+        LOG.info("🎇🎇🎇🎇PATCH🎇🎇🎇🎇");
         Source source1 = patch.getOutputSource();
         LOG.debug("Source:{]", source1);
-        LOG.info("Edits:{} for Patch {}", patch.getEdits(), patch);
+        LOG.info("Edits:{} ", patch.getEdits());
+        //LOG.info(patch.toString());
         //Go to Stage 2
         calculateFitness(source1, patch);
     }
@@ -69,7 +71,6 @@ public class GA {
         }
         return patches;
     }
-
 
     public Patch generatePatch(PatchFactory patchFactory, Source source) {
         Patch patch = patchFactory.getPatchForSourceWithEdits(source, NOOFEDITS);
@@ -107,6 +108,9 @@ public class GA {
             patch.setSuccess(COMPILATIONSUCCESFUL = false);
             LOG.info("DID NOT COMPILE");
             LOG.info("TIME:{}", compileTime);
+            unitTestResult = 12345.0; //obvious bogous fitness score
+            opacitorMeasurement = 12345.0;
+
         } else {
             compileTime = System.currentTimeMillis();
             patch.setTime(compileTime);
@@ -123,13 +127,14 @@ public class GA {
                 LOG.error("Unit tests did not pass");
                 opacitorMeasurement = 10000.00;
             }
-            double score = unitTestResult + opacitorMeasurement;
-            patch.setFitnessScore(score);
+
 
         }
+        double score = unitTestResult + opacitorMeasurement;
+        patch.setFitnessScore(score);
 
     }
-    
+
     public double unitTestFitnessScore(Patch patch) throws Exception {
         FitnessMeasurement fitnessMeasurement = new FitnessUnitTests();
         double result = fitnessMeasurement.measure(patch);
@@ -149,10 +154,11 @@ public class GA {
     higher FitnessMeasurement higher Chance of being chosen
      */
     public void selection(Patch patch1, Patch patch2) { //Have a second patch to be the second parent and work out the fitness of that patch too
-        firstFitness = patch1.getFitnessScore();
-
+        firstFitness = patch1.getFitnessScore(); //The fittness scores are a combination of unit test and energy.
+        LOG.info("Selection: First Fitness {}", firstFitness);
         //get second fitness
         secondFitness = patch2.getFitnessScore();
+        LOG.info("Selection: Second Fittness {}", secondFitness);
     }
 
     /*

@@ -13,6 +13,18 @@ public class Patch {
     private long compileTime;
     private boolean success;
 
+    @Override
+    public String toString() {
+        return "Patch{" +
+                "source=" + source +
+                ", edits=" + edits +
+                ", outputSource=" + outputSource +
+                ", fitnessScore=" + fitnessScore +
+                ", compileTime=" + compileTime +
+                ", success=" + success +
+                '}';
+    }
+
     public Patch(Source source, List<Edit> edits) {
         this.source = source;
         this.edits = edits;
