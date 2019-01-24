@@ -48,7 +48,14 @@ public class FitnessUnitTests implements FitnessMeasurement<Patch> {
         unitTestResultSet = testRunner.test(patch, 1);
         LOG.debug("Unit test: {}", unitTestResultSet);
         Boolean successful = unitTestResultSet.allTestsSuccessful();
-        double result = successful ? 1.0 :0.0;
+        LOG.info("yeet:", successful.toString());
+        double result; // = successful ? 1.0 :0.0;
+        if (successful.equals(true)){
+            result = 1.0;
+        } else{
+            result = 0.0;
+        }
+
         LOG.info("Unit test result: {}", result);
         return result;
 

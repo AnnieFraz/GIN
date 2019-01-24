@@ -127,8 +127,6 @@ public class GA {
                 LOG.error("Unit tests did not pass");
                 opacitorMeasurement = 10000.00;
             }
-
-
         }
         double score = unitTestResult + opacitorMeasurement;
         patch.setFitnessScore(score);
