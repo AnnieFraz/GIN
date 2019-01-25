@@ -32,6 +32,13 @@ public class Patch {
         edits.forEach(outputSource::apply);
     }
 
+    public Patch clone(Patch patch){
+        Patch clone = new Patch(patch.getSource(), patch.getEdits());
+
+        return clone;
+
+    }
+
     public Source getSource() {
         return source;
     }

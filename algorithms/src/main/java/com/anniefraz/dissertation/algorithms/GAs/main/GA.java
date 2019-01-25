@@ -33,6 +33,8 @@ public class GA {
 
     public String output;
 
+    public static int seed = 5678;
+
     /*
         PHASE 1
         Sets the size of the population
@@ -208,8 +210,18 @@ public class GA {
    PHASE 5
    Where the bits are flipped
     */
-    public static void mutation() {
+    public Patch mutation(Patch patch) {
 
+        Patch neighbour = patch.clone(patch);
+        Random random = new Random(seed);
+
+        if (neighbour.getEdits().size() > 0 && random.nextFloat() > 0.5 ){
+            neighbour.getEdits().remove(random.nextInt(neighbour.getEdits().size()));
+        }else{
+            neighbour.getEdits().add(random.nextInt(), patch.getEdits().get(random.nextInt(patch.getEdits().size())));
+        }
+
+        return neighbour;
     }
 
 
