@@ -12,8 +12,7 @@ import org.mdkt.compiler.InMemoryJavaCompiler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class GA {
     //Logger - need to refactor so there is a logger at the top of every class
@@ -48,7 +47,7 @@ public class GA {
         for (int i = 0; i < patches.size(); i++) {
             patchData(patches.get(i));
         }
-        selection(patches.get(0), patches.get(1));
+        Patch[] theBreedingPair = selection(patches);
 
     }
 
@@ -151,12 +150,49 @@ public class GA {
     Parents are selected on fitness scores
     higher FitnessMeasurement higher Chance of being chosen
      */
-    public void selection(Patch patch1, Patch patch2) { //Have a second patch to be the second parent and work out the fitness of that patch too
-        firstFitness = patch1.getFitnessScore(); //The fittness scores are a combination of unit test and energy.
-        LOG.info("Selection: First Fitness {}", firstFitness);
-        //get second fitness
-        secondFitness = patch2.getFitnessScore();
-        LOG.info("Selection: Second Fittness {}", secondFitness);
+    public Patch[] selection(LinkedList<Patch> patches) { //Have a second patch to be the second parent and work out the fitness of that patch too
+        Random random = new Random();
+        Patch[] returnPatch = new Patch[2];
+        ArrayList<Patch> returnedPatches = new ArrayList<Patch>();
+        LOG.info("Intial length of array:"+ returnPatch.length);
+        int i = 0;
+       // while (returnedPatches.size() < 2) {
+            Patch patch1 = patches.get(random.nextInt(patches.size()));
+            Patch patch2 = patches.get(random.nextInt(patches.size()));
+
+            if (patch1.getFitnessScore() < patch2.getFitnessScore()) {
+                returnPatch[0] = patch1;
+                //returnedPatches.add(patch1);
+                LOG.info("patch1 fitness:"+ patch1.getFitnessScore());
+            } else {
+               returnPatch[0] = patch2;
+               // returnedPatches.add(patch2);
+                LOG.info("patch2 fitness:"+ patch2.getFitnessScore());
+
+            }
+        Patch patch3 = patches.get(random.nextInt(patches.size()));
+        Patch patch4 = patches.get(random.nextInt(patches.size()));
+
+        if (patch3.getFitnessScore() < patch4.getFitnessScore()) {
+            returnPatch[1] = patch3;
+            //returnedPatches.add(patch1);
+            LOG.info("patch3 fitness:"+ patch3.getFitnessScore());
+        } else {
+            returnPatch[1] = patch4;
+            // returnedPatches.add(patch2);
+            LOG.info("patch4 fitness:"+ patch4.getFitnessScore());
+
+        }
+           // i++;
+           // LOG.info("Current length of array:"+ returnedPatches.size());
+            //LOG.info("patch 1:" + returnedPatches.get(0).getFitnessScore());
+            //LOG.info("patch 1:" + returnedPatches.get(1).getFitnessScore());
+
+            //LOG.info("Current length of array:"+ returnPatch[1]);
+        //}
+
+        return returnPatch;
+
     }
 
     /*

@@ -25,7 +25,6 @@ public class Main {
     private static int editNumberSeed = 4;
     private static int noofEditsNoRandom = 1;
     private static boolean compileSuccess;
-    //private Opacitor opacitor;
     static Logger LOG = LoggerFactory.getLogger(Main.class);
 
     static ApplicationContext APPLICATIONCONTEXT;
@@ -48,7 +47,7 @@ public class Main {
 
         //STARTING THE GA
         GA genetic = new GA();
-        for (int i =0; i < ITERATIONS; i++) { //Would the reps be in initialize poulation or main?
+        for (int i =0; i < ITERATIONS; i++) { //Would the reps be in initialize population or main?
             genetic.initializePopulation(patchFactory, source, i);
             Result result = Result.getBuilder()
                     .setCurrentRep(i)

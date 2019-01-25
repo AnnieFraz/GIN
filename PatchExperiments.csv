@@ -68707,3 +68707,1311 @@ break;
 
     }
 }","0","false","false","58.124464737500006","0.0"
+"Fri Jan 25 12:18:18 GMT 2019","0","[SwapLineEdit{firstLineIndex=59, secondLineIndex=47}]","import java.io.PrintStream;
+import java.util.Random;
+
+public class Triangle {
+    static final int INVALID = 0;
+    static final int SCALENE = 1;
+    static final int EQUALATERAL = 2;
+    static final int ISOCELES = 3;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+        if (a + b <= c) {
+        // Sort the sides so that a <= b <= c
+
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            int tmp = a;
+            a = c;
+            c = tmp;
+        }
+        if (b > c) {
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+        } else {
+            return SCALENE;
+        }
+    }
+    private static void delay() {
+        try {
+            Thread.sleep(100);
+
+            wasteCPU( 1000, 1000);
+
+        } catch (InterruptedException e) {
+            // do nothing
+        }
+    }
+    private static void wasteCPU( final int startDelayMS, final int iterations) throws InterruptedException {
+        Random random = new Random(1); // seed 1
+
+        Thread.sleep(startDelayMS);
+
+        double d = 1;
+        for (int i = 0; i < iterations; ++i) {
+            //System.out.print(i + "", "");
+            if (i % 100 == 0) {
+                //System.out.println();
+            }
+            d *= random.nextDouble();
+           // System.out.println(""Result: "" + d);
+        }
+
+       // System.out.println(""Finished"");
+    }
+
+    public static void main(String[] args) throws Exception{
+
+        classifyTriangle(1,1,1);
+
+    }
+}","0","false","false","-1.0","0.0"
+"Fri Jan 25 12:19:01 GMT 2019","1","[RemoveLineEdit{lineNumber=54}]","import java.io.PrintStream;
+import java.util.Random;
+
+public class Triangle {
+    static final int INVALID = 0;
+    static final int SCALENE = 1;
+    static final int EQUALATERAL = 2;
+    static final int ISOCELES = 3;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+        // Sort the sides so that a <= b <= c
+
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            int tmp = a;
+            a = c;
+            c = tmp;
+        }
+        if (b > c) {
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+        if (a + b <= c) {
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+        } else {
+            return SCALENE;
+        }
+    }
+    private static void delay() {
+        try {
+            Thread.sleep(100);
+
+            wasteCPU( 1000, 1000);
+
+        } catch (InterruptedException e) {
+            // do nothing
+        }
+    }
+    private static void wasteCPU( final int startDelayMS, final int iterations) throws InterruptedException {
+        Random random = new Random(1); // seed 1
+
+        Thread.sleep(startDelayMS);
+
+        double d = 1;
+        for (int i = 0; i < iterations; ++i) {
+            //System.out.print(i + "", "");
+            if (i % 100 == 0) {
+                //System.out.println();
+            }
+            d *= random.nextDouble();
+           // System.out.println(""Result: "" + d);
+        }
+
+       // System.out.println(""Finished"");
+    }
+
+    public static void main(String[] args) throws Exception{
+
+        classifyTriangle(1,1,1);
+
+    }
+}","0","false","false","-1.0","0.0"
+"Fri Jan 25 12:19:45 GMT 2019","0","[SwapBlockEdit{blockOneStartNo=45, blockOneEndNo=70, blockTwoStartNo=25, blockTwoEndNo=5}]","import java.io.PrintStream;
+import java.util.Random;
+
+public class Triangle {
+    static final int INVALID = 0;
+    static final int SCALENE = 1;
+    static final int EQUALATERAL = 2;
+    static final int ISOCELES = 3;
+break;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+        // Sort the sides so that a <= b <= c
+
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            int tmp = a;
+            a = c;
+            c = tmp;
+        }
+        if (b > c) {
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+        if (a + b <= c) {
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+        } else {
+            return SCALENE;
+        }
+    }
+    private static void delay() {
+        try {
+            Thread.sleep(100);
+
+            wasteCPU( 1000, 1000);
+
+        } catch (InterruptedException e) {
+            // do nothing
+        }
+    }
+    private static void wasteCPU( final int startDelayMS, final int iterations) throws InterruptedException {
+        Random random = new Random(1); // seed 1
+
+        Thread.sleep(startDelayMS);
+
+        double d = 1;
+        for (int i = 0; i < iterations; ++i) {
+            //System.out.print(i + "", "");
+            if (i % 100 == 0) {
+                //System.out.println();
+            }
+            d *= random.nextDouble();
+           // System.out.println(""Result: "" + d);
+        }
+
+       // System.out.println(""Finished"");
+    }
+
+    public static void main(String[] args) throws Exception{
+
+        classifyTriangle(1,1,1);
+
+    }
+}","0","false","false","-1.0","0.0"
+"Fri Jan 25 12:24:59 GMT 2019","0","[SwapBlockEdit{blockOneStartNo=62, blockOneEndNo=19, blockTwoStartNo=47, blockTwoEndNo=48}]","import java.io.PrintStream;
+import java.util.Random;
+
+public class Triangle {
+    static final int INVALID = 0;
+    static final int SCALENE = 1;
+    static final int EQUALATERAL = 2;
+    static final int ISOCELES = 3;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+        // Sort the sides so that a <= b <= c
+
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            int tmp = a;
+            a = c;
+            c = tmp;
+        }
+        if (b > c) {
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+        if (a + b <= c) {
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+        } else {
+            return SCALENE;
+        }
+    }
+    private static void delay() {
+        try {
+            Thread.sleep(100);
+
+            wasteCPU( 1000, 1000);
+
+        } catch (InterruptedException e) {
+            //System.out.print(i + "", "");
+            // do nothing
+    }
+    private static void wasteCPU( final int startDelayMS, final int iterations) throws InterruptedException {
+        Random random = new Random(1); // seed 1
+
+        Thread.sleep(startDelayMS);
+
+        double d = 1;
+        }
+        for (int i = 0; i < iterations; ++i) {
+            if (i % 100 == 0) {
+                //System.out.println();
+            }
+            d *= random.nextDouble();
+           // System.out.println(""Result: "" + d);
+        }
+
+       // System.out.println(""Finished"");
+    }
+
+    public static void main(String[] args) throws Exception{
+
+        classifyTriangle(1,1,1);
+
+    }
+}","0","false","false","-1.0","0.0"
+"Fri Jan 25 12:25:41 GMT 2019","1","[InsertLineEdit{lineNumber=23, lineContents='//this is a comment'}]","import java.io.PrintStream;
+import java.util.Random;
+
+public class Triangle {
+    static final int INVALID = 0;
+    static final int SCALENE = 1;
+    static final int EQUALATERAL = 2;
+    static final int ISOCELES = 3;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+        // Sort the sides so that a <= b <= c
+
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            int tmp = a;
+            a = c;
+            c = tmp;
+        }
+        if (b > c) {
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+        if (a + b <= c) {
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+        } else {
+            return SCALENE;
+        }
+    }
+    private static void delay() {
+        try {
+            Thread.sleep(100);
+
+            wasteCPU( 1000, 1000);
+
+        } catch (InterruptedException e) {
+            // do nothing
+        }
+    }
+    private static void wasteCPU( final int startDelayMS, final int iterations) throws InterruptedException {
+        Random random = new Random(1); // seed 1
+
+        Thread.sleep(startDelayMS);
+
+        double d = 1;
+        for (int i = 0; i < iterations; ++i) {
+            //System.out.print(i + "", "");
+            if (i % 100 == 0) {
+                //System.out.println();
+            }
+            d *= random.nextDouble();
+           // System.out.println(""Result: "" + d);
+        }
+
+       // System.out.println(""Finished"");
+    }
+
+    public static void main(String[] args) throws Exception{
+
+        classifyTriangle(1,1,1);
+
+    }
+}","0","false","false","-1.0","0.0"
+"Fri Jan 25 12:26:31 GMT 2019","0","[InsertBreakEdit{lineNumber=22, lineContents='break;'}]","import java.io.PrintStream;
+import java.util.Random;
+
+public class Triangle {
+    static final int INVALID = 0;
+    static final int SCALENE = 1;
+    static final int EQUALATERAL = 2;
+    static final int ISOCELES = 3;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+        // Sort the sides so that a <= b <= c
+
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+break;
+            int tmp = a;
+            a = c;
+            c = tmp;
+        }
+        if (b > c) {
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+        if (a + b <= c) {
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+        } else {
+            return SCALENE;
+        }
+    }
+    private static void delay() {
+        try {
+            Thread.sleep(100);
+
+            wasteCPU( 1000, 1000);
+
+        } catch (InterruptedException e) {
+            // do nothing
+        }
+    }
+    private static void wasteCPU( final int startDelayMS, final int iterations) throws InterruptedException {
+        Random random = new Random(1); // seed 1
+
+        Thread.sleep(startDelayMS);
+
+        double d = 1;
+        for (int i = 0; i < iterations; ++i) {
+            //System.out.print(i + "", "");
+            if (i % 100 == 0) {
+                //System.out.println();
+            }
+            d *= random.nextDouble();
+           // System.out.println(""Result: "" + d);
+        }
+
+       // System.out.println(""Finished"");
+    }
+
+    public static void main(String[] args) throws Exception{
+
+        classifyTriangle(1,1,1);
+
+    }
+}","0","false","false","-1.0","0.0"
+"Fri Jan 25 12:34:10 GMT 2019","0","[RemoveLineEdit{lineNumber=44}]","import java.io.PrintStream;
+import java.util.Random;
+
+public class Triangle {
+    static final int INVALID = 0;
+    static final int SCALENE = 1;
+    static final int EQUALATERAL = 2;
+    static final int ISOCELES = 3;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+        // Sort the sides so that a <= b <= c
+
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            a = c;
+        }
+            int tmp = b;
+            c = tmp;
+        if (a + b <= c) {
+        } else if (a == b && b == c) {
+        } else if (a == b || b == c) {
+        } else {
+        }
+    private static void delay() {
+            Thread.sleep(100);
+            wasteCPU( 1000, 1000);
+        } catch (InterruptedException e) {
+        }
+            int tmp = a;
+            c = tmp;
+        if (b > c) {
+            b = c;
+        }
+            return INVALID;
+            return EQUALATERAL;
+            return ISOCELES;
+            return SCALENE;
+    }
+        try {
+
+            d *= random.nextDouble();
+
+           // System.out.println(""Result: "" + d);
+            // do nothing
+        }
+    }
+
+    private static void wasteCPU( final int startDelayMS, final int iterations) throws InterruptedException {
+       // System.out.println(""Finished"");
+        Random random = new Random(1); // seed 1
+    }
+
+
+        Thread.sleep(startDelayMS);
+    public static void main(String[] args) throws Exception{
+
+
+        double d = 1;
+        classifyTriangle(1,1,1);
+        for (int i = 0; i < iterations; ++i) {
+
+            //System.out.print(i + "", "");
+    }
+            if (i % 100 == 0) {
+}
+                //System.out.println();
+            int tmp = a;
+            }
+            a = c;
+            c = tmp;
+        }
+        if (b > c) {
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+        if (a + b <= c) {
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+        } else {
+            return SCALENE;
+        }
+    }
+    private static void delay() {
+        try {
+            Thread.sleep(100);
+
+            wasteCPU( 1000, 1000);
+
+        } catch (InterruptedException e) {","0","false","false","-1.0","0.0"
+"Fri Jan 25 12:34:32 GMT 2019","1","[MoveLineEdit{sourceLineIndex=41, destinationLineIndex=32}]","import java.io.PrintStream;
+import java.util.Random;
+
+public class Triangle {
+    static final int INVALID = 0;
+    static final int SCALENE = 1;
+    static final int EQUALATERAL = 2;
+    static final int ISOCELES = 3;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+null
+
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            int tmp = a;
+            a = c;
+            c = tmp;
+        }
+        if (b > c) {
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+        if (a + b <= c) {
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+        } else {
+            return SCALENE;
+        }
+    }
+    private static void delay() {
+        try {
+            Thread.sleep(100);
+
+            wasteCPU( 1000, 1000);
+
+        } catch (InterruptedException e) {
+            // do nothing
+        }
+    }
+    private static void wasteCPU( final int startDelayMS, final int iterations) throws InterruptedException {
+        Random random = new Random(1); // seed 1
+
+        Thread.sleep(startDelayMS);
+
+        double d = 1;
+        for (int i = 0; i < iterations; ++i) {
+            //System.out.print(i + "", "");
+            if (i % 100 == 0) {
+                //System.out.println();
+            }
+            d *= random.nextDouble();
+           // System.out.println(""Result: "" + d);
+        }
+
+       // System.out.println(""Finished"");
+    }
+
+    public static void main(String[] args) throws Exception{
+
+        classifyTriangle(1,1,1);
+
+    }
+}","0","false","false","-1.0","0.0"
+"Fri Jan 25 12:34:54 GMT 2019","2","[MoveLineEdit{sourceLineIndex=49, destinationLineIndex=40}]","import java.io.PrintStream;
+import java.util.Random;
+
+public class Triangle {
+    static final int INVALID = 0;
+    static final int SCALENE = 1;
+    static final int EQUALATERAL = 2;
+    static final int ISOCELES = 3;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+        // Sort the sides so that a <= b <= c
+        if (b > c) {
+
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            int tmp = a;
+            a = c;
+            c = tmp;
+        }
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+        if (a + b <= c) {
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+        } else {
+            return SCALENE;
+        }
+    }
+    private static void delay() {
+        try {
+            Thread.sleep(100);
+
+            wasteCPU( 1000, 1000);
+
+        } catch (InterruptedException e) {
+            // do nothing
+        }
+    }
+    private static void wasteCPU( final int startDelayMS, final int iterations) throws InterruptedException {
+        Random random = new Random(1); // seed 1
+
+        Thread.sleep(startDelayMS);
+
+        double d = 1;
+        for (int i = 0; i < iterations; ++i) {
+            //System.out.print(i + "", "");
+            if (i % 100 == 0) {
+                //System.out.println();
+            }
+            d *= random.nextDouble();
+           // System.out.println(""Result: "" + d);
+        }
+
+       // System.out.println(""Finished"");
+    }
+
+    public static void main(String[] args) throws Exception{
+
+        classifyTriangle(1,1,1);
+
+    }
+}","0","false","false","-1.0","0.0"
+"Fri Jan 25 12:42:32 GMT 2019","0","[MoveLineEdit{sourceLineIndex=13, destinationLineIndex=58}]","import java.io.PrintStream;
+import java.util.Random;
+
+public class Triangle {
+    static final int INVALID = 0;
+    static final int SCALENE = 1;
+    static final int EQUALATERAL = 2;
+    static final int ISOCELES = 3;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+        // Sort the sides so that a <= b <= c
+
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            int tmp = a;
+            a = c;
+            c = tmp;
+        }
+        if (b > c) {
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+           // System.out.println(""Result: "" + d);
+        if (a + b <= c) {
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+        } else {
+            return SCALENE;
+        }
+    }
+    private static void delay() {
+        try {
+            Thread.sleep(100);
+
+            wasteCPU( 1000, 1000);
+
+        } catch (InterruptedException e) {
+            // do nothing
+        }
+    }
+    private static void wasteCPU( final int startDelayMS, final int iterations) throws InterruptedException {
+        Random random = new Random(1); // seed 1
+
+        Thread.sleep(startDelayMS);
+
+        double d = 1;
+        for (int i = 0; i < iterations; ++i) {
+            //System.out.print(i + "", "");
+            if (i % 100 == 0) {
+                //System.out.println();
+            }
+            d *= random.nextDouble();
+        }
+
+       // System.out.println(""Finished"");
+    }
+
+    public static void main(String[] args) throws Exception{
+
+        classifyTriangle(1,1,1);
+
+    }
+}","0","false","false","-1.0","0.0"
+"Fri Jan 25 12:43:29 GMT 2019","0","[IfStatementEdit{lineIndex=10, annaPath=AnnaPath{packages=[], className='Triangle'}}]","import java.io.PrintStream;
+import java.util.Random;
+
+public class Triangle {
+    static final int INVALID = 0;
+    static final int SCALENE = 1;
+    static final int EQUALATERAL = 2;
+    static final int ISOCELES = 3;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+        // Sort the sides so that a <= b <= c
+
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            int tmp = a;
+            a = c;
+            c = tmp;
+        }
+        if (b > c) {
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+        if (a + b <= c) {
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+        } else {
+            return SCALENE;
+        }
+
+    }
+        try {
+            Thread.sleep(100);
+
+    private static void delay() {
+            wasteCPU( 1000, 1000);
+        } catch (InterruptedException e) {
+            // do nothing
+        }
+    }
+    private static void wasteCPU( final int startDelayMS, final int iterations) throws InterruptedException {
+        Random random = new Random(1); // seed 1
+
+        Thread.sleep(startDelayMS);
+
+        double d = 1;
+        for (int i = 0; i < iterations; ++i) {
+            //System.out.print(i + "", "");
+            if (i % 100 == 0) {
+                //System.out.println();
+            }
+            d *= random.nextDouble();
+           // System.out.println(""Result: "" + d);
+        }
+
+       // System.out.println(""Finished"");
+    }
+
+    public static void main(String[] args) throws Exception{
+
+        classifyTriangle(1,1,1);
+
+    }
+}","0","false","false","-1.0","0.0"
+"Fri Jan 25 12:43:29 GMT 2019","1","[InsertLineEdit{lineNumber=1, lineContents='//this is a comment'}]","import java.io.PrintStream;
+import java.util.Random;
+
+public class Triangle {
+    static final int INVALID = 0;
+    static final int SCALENE = 1;
+    static final int EQUALATERAL = 2;
+    static final int ISOCELES = 3;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+        // Sort the sides so that a <= b <= c
+
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            int tmp = a;
+            a = c;
+            c = tmp;
+        }
+        if (b > c) {
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+        if (a + b <= c) {
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+        } else {
+            return SCALENE;
+        }
+    }
+    private static void delay() {
+        try {
+            Thread.sleep(100);
+
+            wasteCPU( 1000, 1000);
+
+        } catch (InterruptedException e) {
+            // do nothing
+        }
+    }
+            }
+    private static void wasteCPU( final int startDelayMS, final int iterations) throws InterruptedException {
+
+        Thread.sleep(startDelayMS);
+
+        double d = 1;
+        for (int i = 0; i < iterations; ++i) {
+            //System.out.print(i + "", "");
+            if (i % 100 == 0) {
+        Random random = new Random(1); // seed 1
+                //System.out.println();
+            d *= random.nextDouble();
+           // System.out.println(""Result: "" + d);
+        }
+
+       // System.out.println(""Finished"");
+    }
+
+    public static void main(String[] args) throws Exception{
+
+        classifyTriangle(1,1,1);
+
+    }
+}","0","false","false","-1.0","0.0"
+"Fri Jan 25 12:43:50 GMT 2019","2","[SwapLineEdit{firstLineIndex=16, secondLineIndex=13}]","import java.io.PrintStream;
+import java.util.Random;
+
+public class Triangle {
+    static final int INVALID = 0;
+    static final int SCALENE = 1;
+    static final int EQUALATERAL = 2;
+break;
+    static final int ISOCELES = 3;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+        // Sort the sides so that a <= b <= c
+
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            int tmp = a;
+            a = c;
+            c = tmp;
+        }
+        if (b > c) {
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+        if (a + b <= c) {
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+        } else {
+            return SCALENE;
+        }
+    }
+    private static void delay() {
+        try {
+            Thread.sleep(100);
+
+            wasteCPU( 1000, 1000);
+
+        } catch (InterruptedException e) {
+            // do nothing
+        }
+    }
+    private static void wasteCPU( final int startDelayMS, final int iterations) throws InterruptedException {
+        Random random = new Random(1); // seed 1
+
+        Thread.sleep(startDelayMS);
+
+        double d = 1;
+        for (int i = 0; i < iterations; ++i) {
+            //System.out.print(i + "", "");
+            if (i % 100 == 0) {
+                //System.out.println();
+            }
+            d *= random.nextDouble();
+           // System.out.println(""Result: "" + d);
+        }
+
+       // System.out.println(""Finished"");
+    }
+
+    public static void main(String[] args) throws Exception{
+
+        classifyTriangle(1,1,1);
+
+    }
+}","0","false","false","-1.0","0.0"
+"Fri Jan 25 12:45:13 GMT 2019","0","[IfStatementEdit{lineIndex=38, annaPath=AnnaPath{packages=[], className='Triangle'}}]","import java.io.PrintStream;
+import java.util.Random;
+
+public class Triangle {
+    static final int INVALID = 0;
+    static final int SCALENE = 1;
+    static final int EQUALATERAL = 2;
+    static final int ISOCELES = 3;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+        // Sort the sides so that a <= b <= c
+
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            int tmp = a;
+            a = c;
+            c = tmp;
+        }
+        if (b > c) {
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+        if (a + b <= c) {
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+        } else {
+            return SCALENE;
+        }
+    }
+    private static void delay() {
+        try {
+            Thread.sleep(100);
+
+            wasteCPU( 1000, 1000);
+
+            d *= random.nextDouble();
+            // do nothing
+        }
+    }
+    private static void wasteCPU( final int startDelayMS, final int iterations) throws InterruptedException {
+        Random random = new Random(1); // seed 1
+
+        Thread.sleep(startDelayMS);
+
+        double d = 1;
+        for (int i = 0; i < iterations; ++i) {
+            //System.out.print(i + "", "");
+            if (i % 100 == 0) {
+                //System.out.println();
+            }
+        } catch (InterruptedException e) {
+           // System.out.println(""Result: "" + d);
+        }
+
+       // System.out.println(""Finished"");
+    }
+
+    public static void main(String[] args) throws Exception{
+
+        classifyTriangle(1,1,1);
+
+    }
+}","0","false","false","-1.0","0.0"
+"Fri Jan 25 12:45:54 GMT 2019","1","[NoEditEdit{}]","import java.io.PrintStream;
+import java.util.Random;
+
+public class Triangle {
+    static final int INVALID = 0;
+    static final int SCALENE = 1;
+    static final int EQUALATERAL = 2;
+    static final int ISOCELES = 3;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+        // Sort the sides so that a <= b <= c
+
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            int tmp = a;
+            a = c;
+            c = tmp;
+        }
+        if (b > c) {
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+        }
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+        } else {
+            return SCALENE;
+        }
+    }
+    private static void delay() {
+        try {
+            Thread.sleep(100);
+
+            wasteCPU( 1000, 1000);
+
+        } catch (InterruptedException e) {
+            // do nothing
+        }
+    }
+    private static void wasteCPU( final int startDelayMS, final int iterations) throws InterruptedException {
+        Random random = new Random(1); // seed 1
+
+        Thread.sleep(startDelayMS);
+
+        double d = 1;
+        for (int i = 0; i < iterations; ++i) {
+            //System.out.print(i + "", "");
+            if (i % 100 == 0) {
+                //System.out.println();
+            }
+            d *= random.nextDouble();
+        if (a + b <= c) {
+           // System.out.println(""Result: "" + d);
+
+       // System.out.println(""Finished"");
+    }
+
+    public static void main(String[] args) throws Exception{
+
+        classifyTriangle(1,1,1);
+
+    }
+}","0","false","false","-1.0","0.0"
+"Fri Jan 25 12:46:32 GMT 2019","2","[SwapBlockEdit{blockOneStartNo=35, blockOneEndNo=6, blockTwoStartNo=30, blockTwoEndNo=53}]","import java.io.PrintStream;
+import java.util.Random;
+
+public class Triangle {
+    static final int INVALID = 0;
+    static final int SCALENE = 1;
+    static final int EQUALATERAL = 2;
+    static final int ISOCELES = 3;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+        // Sort the sides so that a <= b <= c
+
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            int tmp = a;
+            a = c;
+            c = tmp;
+        }
+        if (b > c) {
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+        if (a + b <= c) {
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+        } else {
+            return SCALENE;
+        }
+    }
+    private static void delay() {
+        try {
+            Thread.sleep(100);
+
+            wasteCPU( 1000, 1000);
+
+        } catch (InterruptedException e) {
+            // do nothing
+        }
+    }
+    private static void wasteCPU( final int startDelayMS, final int iterations) throws InterruptedException {
+        Random random = new Random(1); // seed 1
+
+        Thread.sleep(startDelayMS);
+
+        double d = 1;
+        for (int i = 0; i < iterations; ++i) {
+            //System.out.print(i + "", "");
+            if (i % 100 == 0) {
+                //System.out.println();
+            }
+            d *= random.nextDouble();
+           // System.out.println(""Result: "" + d);
+        }
+
+       // System.out.println(""Finished"");
+    }
+
+    public static void main(String[] args) throws Exception{
+
+        classifyTriangle(1,1,1);
+
+    }
+}","0","false","false","-1.0","0.0"
+"Fri Jan 25 12:46:33 GMT 2019","3","[MoveBlockEdit{startBlockInt=48, endBlockInt=58, newLocation=15}]","import java.io.PrintStream;
+import java.util.Random;
+
+public class Triangle {
+    static final int INVALID = 0;
+    static final int SCALENE = 1;
+    static final int EQUALATERAL = 2;
+    static final int ISOCELES = 3;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+        // Sort the sides so that a <= b <= c
+
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            int tmp = a;
+            a = c;
+            c = tmp;
+        }
+        if (b > c) {
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+        if (a + b <= c) {
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+        } else {
+            return SCALENE;
+        }
+    }
+    private static void delay() {
+        try {
+            Thread.sleep(100);
+
+            wasteCPU( 1000, 1000);
+
+        } catch (InterruptedException e) {
+            // do nothing
+        }
+    }
+    private static void wasteCPU( final int startDelayMS, final int iterations) throws InterruptedException {
+        Random random = new Random(1); // seed 1
+
+        Thread.sleep(startDelayMS);
+
+        double d = 1;
+        for (int i = 0; i < iterations; ++i) {
+            //System.out.print(i + "", "");
+            if (i % 100 == 0) {
+                //System.out.println();
+            }
+            d *= random.nextDouble();
+           // System.out.println(""Result: "" + d);
+        }
+
+       // System.out.println(""Finished"");
+    }
+
+break;
+    public static void main(String[] args) throws Exception{
+
+        classifyTriangle(1,1,1);
+
+    }
+}","0","false","false","-1.0","0.0"
+"Fri Jan 25 12:46:33 GMT 2019","4","[SwapLineEdit{firstLineIndex=54, secondLineIndex=18}]","import java.io.PrintStream;
+import java.util.Random;
+
+public class Triangle {
+    static final int INVALID = 0;
+    static final int SCALENE = 1;
+    static final int EQUALATERAL = 2;
+    static final int ISOCELES = 3;
+    public static int classifyTriangle(int a, int b, int c) {
+        delay();
+        // Sort the sides so that a <= b <= c
+
+        if (a > b) {
+            int tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            int tmp = a;
+            a = c;
+            c = tmp;
+        }
+        if (b > c) {
+            int tmp = b;
+            b = c;
+            c = tmp;
+        }
+        if (a + b <= c) {
+            return INVALID;
+        } else if (a == b && b == c) {
+            return EQUALATERAL;
+        } else if (a == b || b == c) {
+            return ISOCELES;
+        } else {
+            return SCALENE;
+        }
+    }
+        try {
+            Thread.sleep(100);
+
+            wasteCPU( 1000, 1000);
+
+        } catch (InterruptedException e) {
+            // do nothing
+        }
+    private static void delay() {
+    }
+    private static void wasteCPU( final int startDelayMS, final int iterations) throws InterruptedException {
+        Random random = new Random(1); // seed 1
+
+        Thread.sleep(startDelayMS);
+
+        double d = 1;
+        for (int i = 0; i < iterations; ++i) {
+            //System.out.print(i + "", "");
+            if (i % 100 == 0) {
+                //System.out.println();
+            }
+            d *= random.nextDouble();
+           // System.out.println(""Result: "" + d);
+        }
+
+       // System.out.println(""Finished"");
+    }
+
+    public static void main(String[] args) throws Exception{
+
+        classifyTriangle(1,1,1);
+
+    }
+}","0","false","false","-1.0","0.0"
