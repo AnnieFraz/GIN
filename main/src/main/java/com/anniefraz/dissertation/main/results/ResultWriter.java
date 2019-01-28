@@ -1,6 +1,8 @@
 package com.anniefraz.dissertation.main.results;
 
-public interface ResultWriter {
+import java.io.Closeable;
+
+public interface ResultWriter extends Closeable {
 
     void writeResult(Result result);
 }

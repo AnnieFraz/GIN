@@ -16,35 +16,34 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.io.Closeable;
+import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Optional;
 
 public class Main {
-
     private static int ITERATIONS = 100;
     private static int editNumberSeed = 4;
     private static int noofEditsNoRandom = 1;
     private static boolean compileSuccess;
     static Logger LOG = LoggerFactory.getLogger(Main.class);
-
     static ApplicationContext APPLICATIONCONTEXT;
     //private static final String PATHNAME = "/Users/annarasburn/Documents/gin/AnnaGin/test-runner/examples/unittests/";
-
     private static final String PATHNAME = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\examples\\unittests";
-
-    private static ResultWriter RESULTWRITER = new ResultFileWriter();
-
+    private static ResultWriter RESULTWRITER;
+    static {
+        try {
+            RESULTWRITER = new ResultFileWriter("Results");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void main(String[] args) throws Exception{
         APPLICATIONCONTEXT = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-
         PatchFactory patchFactory = APPLICATIONCONTEXT.getBean(PatchFactory.class);
         SourceFactory sourceFactory = new SourceFactory(Paths.get(PATHNAME));
-
         AnnaPath annaPath = AnnaPath.getBuilder().setClassName("Triangle").build();
-
         Source source = sourceFactory.getSourceFromAnnaPath(annaPath);
-
         //STARTING THE GA
         GA genetic = new GA();
         for (int i =0; i < ITERATIONS; i++) { //Would the reps be in initialize population or main?
@@ -62,9 +61,6 @@ public class Main {
                     .build();
             RESULTWRITER.writeResult(result);
         }
-
         ((Closeable) APPLICATIONCONTEXT).close();
-
-
     }
 }

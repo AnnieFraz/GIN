@@ -40,7 +40,7 @@ public class FitnessUnitTests implements FitnessMeasurement<Patch> {
         tests.add(test2);
         tests.add(test3);
 
-        //Getting results
+        //Getting com.anniefraz.dissertation.experiments.results
         UnitTestResultSet unitTestResultSet = null;
 
         //Sending to test runner

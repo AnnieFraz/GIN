@@ -167,7 +167,7 @@ public class ApplicationMain {
         testRunner = new TestRunner(exampleDir, className, TestConfiguration.TEST_RESOURCES_DIR, tests);
 
 
-        results.setPassedTests(result.getPassed());
+        com.anniefraz.dissertation.experiments.results.setPassedTests(result.getPassed());
         */
 
 

@@ -8,78 +8,50 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class ResultFileWriter implements ResultWriter {
 
     private static final Logger LOG = LoggerFactory.getLogger(ResultFileWriter.class);
 
+    private CSVWriter csvWriter;
 
+    public ResultFileWriter(String filename) throws IOException {
+        File file = new File(filename + ".csv");
+        boolean fileExists = !file.exists();
+
+        FileWriter fileWriter = new FileWriter(file, true);
+
+        csvWriter = new CSVWriter(fileWriter);
+        if (fileExists){
+            String[] header = {"Date", "Repetitions", "Patch", "Output", "Time", "Compiled", "Passed Unit Tests?", "Opacitor measurement 1", "Opacitor measurement 2"};
+            csvWriter.writeNext(header);
+        }
+    }
+
+    public void writeResult(Result result) {
+        System.out.println("🎇🎇🎇🎇NEXT REP🎇🎇🎇🎇");
+        LOG.info("Writing Result to file");
+        LocalDateTime date = LocalDateTime.now();
+        String[] data = {
+                date.toString(),
+                Integer.toString(result.getCurrentRep()),
+                result.getPatch().getEdits().toString(),
+                result.getOutputFileString(),
+                Long.toString(result.getTime()),
+                String.valueOf(result.isCompileSuccess()),
+                String.valueOf(result.isPassed()),
+                String.valueOf(result.getOpacitorMeasurement1()),
+                String.valueOf(result.getOpacitorMeasurement2())
+        }; //, compiledClass.toString() };
+        csvWriter.writeNext(data);
+    }
 
     @Override
-    public void writeResult(Result result) {
-        writeToFile(result);
-       // if (Main.REPS < REPS.size()) {
-            System.out.println("🎇🎇🎇🎇NEXT REP🎇🎇🎇🎇");
-        //}else{
-
-        //}
-    }
-
-    private File createFile() {
-        File file = new File("PatchExperiments.csv");
-        LOG.info("File has been made");
-
-        try {
-            // create FileWriter object with file as parameter
-            FileWriter outputfile = new FileWriter(file, true);
-
-            CSVWriter writer = new CSVWriter(outputfile);
-            // add data to csv
-            Date date = new Date();
-            String[] header = {"Date", "Repetitions", "Patch", "Output", "Time", "Compiled", "Passed Unit Tests?", "Opacitor measurement 1", "Opacitor measurement 2"};
-
-            writer.writeNext(header);
-            // closing writer connection
-            writer.close();
-            outputfile.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return file;
-    }
-
-    private void writeToFile(Result result) {
-
-        File file = new File("PatchExperiments.csv");
-         //if (file == null){
-         //file = createFile();
-        //}else{
-
-        try {
-            // create FileWriter object with file as parameter
-            FileWriter outputFile = new FileWriter(file,true);
-
-            CSVWriter writer = new CSVWriter(outputFile);
-            // add data to csv
-            Date date = new Date();
-            String[] data = { date.toString(), Integer.toString(result.getCurrentRep()), result.getPatch().getEdits().toString(), result.getOutputFileString(), Long.toString(result.getTime()), String.valueOf(result.isCompileSuccess()), String.valueOf(result.isPassed()), String.valueOf(result.getOpacitorMeasurement1()), String.valueOf(result.getOpacitorMeasurement2())}; //, compiledClass.toString() };
-            writer.writeNext(data);
-            // closing writer connection
-            LOG.info("File has been written to");
-            writer.close();
-            outputFile.close();
-        }
-        catch (FileNotFoundException e){
-            LOG.warn("Problem: {}", e);
-        } catch (IOException e) {
-            LOG.warn("Problem: {}", e);
-        }
-        //}
-
-
-
+    public void close() throws IOException {
+        csvWriter.flush();
+        csvWriter.close();
     }
 
 }

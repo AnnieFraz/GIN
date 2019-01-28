@@ -2,6 +2,7 @@ package com.anniefraz.dissertation.algorithms.GAs.main;
 
 import com.anniefraz.dissertation.gin.edit.Edit;
 import com.anniefraz.dissertation.gin.patch.Patch;
+import com.anniefraz.dissertation.gin.source.Source;
 import org.junit.Test;
 
 import java.util.LinkedList;
@@ -14,9 +15,9 @@ public class GATest {
     public GA genetic = new GA();
 
     private final static String exampleClass = "Triangle";
-    private final static String exampleSource = ""; //TODO: Fill this in.
+    private final static Source exampleSource = null; //TODO: Fill this in.
 
-    private final static LinkedList<Edit> exampleEdits = null;
+    private final static LinkedList<Edit> exampleEdits = new LinkedList<Edit>();
 
     private final static Patch examplePatch = new Patch(exampleSource, exampleEdits );
 
