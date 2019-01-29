@@ -1,5 +1,6 @@
 package com.anniefraz.dissertation.algorithms.GAs.main;
 
+import com.anniefraz.dissertation.gin.edit.Edit;
 import com.anniefraz.dissertation.gin.patch.Patch;
 import com.anniefraz.dissertation.gin.patch.PatchFactory;
 import com.anniefraz.dissertation.gin.source.AnnaClass;
@@ -8,32 +9,27 @@ import com.anniefraz.dissertation.algorithms.GAs.main.fitness.FitnessEnergy;
 import com.anniefraz.dissertation.algorithms.GAs.main.fitness.FitnessMeasurement;
 import com.anniefraz.dissertation.algorithms.GAs.main.fitness.FitnessUnitTests;
 import com.anniefraz.dissertation.test.runner.runner.UnitTestResultSet;
+import org.apache.commons.text.diff.EditScript;
 import org.mdkt.compiler.InMemoryJavaCompiler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.nio.file.Paths;
 import java.util.*;
 
 public class GA {
+    private static final String PATHNAME = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\examples\\unittests";
+    public static int seed = 5678;
     //Logger - need to refactor so there is a logger at the top of every class
     static Logger LOG = LoggerFactory.getLogger(GA.class);
-
     private static int ITERATIONS = 100;
-    private static int NOOFEDITS = 1; //Need to discuss with Sandy
+    //private static int NOOFEDITS = 4; //Need to discuss with Sandy
     private static boolean COMPILATIONSUCCESFUL;
-
-    private static final String PATHNAME = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\examples\\unittests";
-
     private static double FITNESSSCORE = 0;
-
     public double firstFitness = 0;
     public double secondFitness = 0;
-
     public Class<?> compileSource;
-
     public String output;
-
-    public static int seed = 5678;
 
     /*
         PHASE 1
@@ -45,11 +41,15 @@ public class GA {
     public void initializePopulation(PatchFactory patchFactory, Source source, int iteration) throws Exception {
         //First Patch
         LOG.info("CURRENT ITERATION:{} ", iteration);
-        LinkedList<Patch> patches = generateABunchOfPatches(patchFactory, source, 2);
+        LinkedList<Patch> patches = generateABunchOfPatches(patchFactory, source, 6);
         for (int i = 0; i < patches.size(); i++) {
             patchData(patches.get(i));
         }
         Patch[] theBreedingPair = selection(patches);
+
+        Patch[] offspring = crossover(theBreedingPair, source);
+
+        mutation(offspring[1]);
 
     }
 
@@ -74,7 +74,7 @@ public class GA {
     }
 
     public Patch generatePatch(PatchFactory patchFactory, Source source) {
-        Patch patch = patchFactory.getPatchForSourceWithEdits(source, NOOFEDITS);
+        Patch patch = patchFactory.getPatchForSourceWithEdits(source, 5);
         return patch;
     }
 
@@ -156,41 +156,41 @@ public class GA {
         Random random = new Random();
         Patch[] returnPatch = new Patch[2];
         ArrayList<Patch> returnedPatches = new ArrayList<Patch>();
-        LOG.info("Intial length of array:"+ returnPatch.length);
+        LOG.info("Intial length of array:" + returnPatch.length);
         int i = 0;
-       // while (returnedPatches.size() < 2) {
-            Patch patch1 = patches.get(random.nextInt(patches.size()));
-            Patch patch2 = patches.get(random.nextInt(patches.size()));
+        // while (returnedPatches.size() < 2) {
+        Patch patch1 = patches.get(random.nextInt(patches.size()));
+        Patch patch2 = patches.get(random.nextInt(patches.size()));
 
-            if (patch1.getFitnessScore() < patch2.getFitnessScore()) {
-                returnPatch[0] = patch1;
-                //returnedPatches.add(patch1);
-                LOG.info("patch1 fitness:"+ patch1.getFitnessScore());
-            } else {
-               returnPatch[0] = patch2;
-               // returnedPatches.add(patch2);
-                LOG.info("patch2 fitness:"+ patch2.getFitnessScore());
+        if (patch1.getFitnessScore() < patch2.getFitnessScore()) {
+            returnPatch[0] = patch1;
+            //returnedPatches.add(patch1);
+            LOG.info("patch1 fitness:" + patch1.getFitnessScore());
+        } else {
+            returnPatch[0] = patch2;
+            // returnedPatches.add(patch2);
+            LOG.info("patch2 fitness:" + patch2.getFitnessScore());
 
-            }
+        }
         Patch patch3 = patches.get(random.nextInt(patches.size()));
         Patch patch4 = patches.get(random.nextInt(patches.size()));
 
         if (patch3.getFitnessScore() < patch4.getFitnessScore()) {
             returnPatch[1] = patch3;
             //returnedPatches.add(patch1);
-            LOG.info("patch3 fitness:"+ patch3.getFitnessScore());
+            LOG.info("patch3 fitness:" + patch3.getFitnessScore());
         } else {
             returnPatch[1] = patch4;
             // returnedPatches.add(patch2);
-            LOG.info("patch4 fitness:"+ patch4.getFitnessScore());
+            LOG.info("patch4 fitness:" + patch4.getFitnessScore());
 
         }
-           // i++;
-           // LOG.info("Current length of array:"+ returnedPatches.size());
-            //LOG.info("patch 1:" + returnedPatches.get(0).getFitnessScore());
-            //LOG.info("patch 1:" + returnedPatches.get(1).getFitnessScore());
+        // i++;
+        // LOG.info("Current length of array:"+ returnedPatches.size());
+        //LOG.info("patch 1:" + returnedPatches.get(0).getFitnessScore());
+        //LOG.info("patch 1:" + returnedPatches.get(1).getFitnessScore());
 
-            //LOG.info("Current length of array:"+ returnPatch[1]);
+        //LOG.info("Current length of array:"+ returnPatch[1]);
         //}
 
         return returnPatch;
@@ -202,7 +202,68 @@ public class GA {
     Purpose: a random point of within the parents genes
     Children are made by exchanging parents genes until crossover point is reacher
      */
-    public void crossover() {
+    public Patch[] crossover(Patch[] parents, Source source) {
+        Patch parent1 = parents[0];
+        Patch parent2 = parents[1];
+        Patch[] offspring = new Patch[4];
+
+        int parent1ArraySize = parent1.getEdits().size();
+        int parent2ArraySize = parent2.getEdits().size();
+
+        System.out.println(parent1ArraySize);
+        System.out.println(parent2ArraySize);
+
+        List<Edit> offspringEdits1 = new LinkedList<Edit>() {
+        };
+
+        List<Edit> offspringEdits2 = new LinkedList<Edit>() {
+        };
+        List<Edit> offspringEdits3 = new LinkedList<Edit>() {
+        };
+
+
+        //if (parent1ArraySize < parent2ArraySize) {
+            for (int i = 0; i < parent1.getEdits().size(); i++) {
+                offspringEdits1.add(parent1.getEdits().get(i));
+            }
+            // for (int i = 0; i < parent2.getEdits().size(); i++){
+            offspringEdits2.add(parent2.getEdits().get(new Random().nextInt(parent2.getEdits().size())));
+
+            //}
+       // } else if (parent1ArraySize > parent2ArraySize) {
+            for (int i = 0; i < parent1.getEdits().size(); i++) {
+                offspringEdits2.add(parent1.getEdits().get(i));
+            }
+            // for (int i = 0; i < parent2.getEdits().size(); i++){
+            offspringEdits2.add(parent1.getEdits().get(new Random().nextInt(parent1.getEdits().size())));
+            //}
+     //   } else if (parent1ArraySize == parent2ArraySize){
+            for (int i = 0; i < parent1.getEdits().size(); i++) {
+                offspringEdits3.add(parent1.getEdits().get(i));
+            }
+            for (int i = 0; i < parent2.getEdits().size(); i++) {
+                offspringEdits3.add(parent2.getEdits().get(i));
+
+            }
+      //  }
+
+        Patch offspring1 = new Patch(source, offspringEdits1);
+        LOG.info("Offpring 1:Patch edit list: " + offspring1.getEdits().size());
+        LOG.info("Offpring 1:Edits list size: " + offspringEdits1.size());
+
+        Patch offspring2 = new Patch(source, offspringEdits2);
+        LOG.info("Offpring 2:Patch edit list: " + offspring2.getEdits().size());
+        LOG.info("Offpring 2:Edits list size: " + offspringEdits2.size());
+
+        Patch offspring3 = new Patch(source, offspringEdits3);
+        LOG.info("Offpring 3:Patch edit list: " + offspring3.getEdits().size());
+        LOG.info("Offpring 3:Edits list size: " + offspringEdits3.size());
+
+
+        offspring[0] = offspring1;
+        offspring[1] = offspring2;
+        offspring[2] = offspring3;
+        return offspring;
 
     }
 
@@ -215,11 +276,14 @@ public class GA {
         Patch neighbour = patch.clone(patch);
         Random random = new Random(seed);
 
-        if (neighbour.getEdits().size() > 0 && random.nextFloat() > 0.5 ){
+        if (neighbour.getEdits().size() > 0 && random.nextFloat() > 0.5) {
             neighbour.getEdits().remove(random.nextInt(neighbour.getEdits().size()));
-        }else{
+        } else {
             neighbour.getEdits().add(random.nextInt(), patch.getEdits().get(random.nextInt(patch.getEdits().size())));
         }
+
+        System.out.println(neighbour.getEdits().size());
+        System.out.println(neighbour);
 
         return neighbour;
     }

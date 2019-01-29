@@ -72,7 +72,7 @@ public class Random {
 
     private static void compile(PatchFactory patchFactory, Source source, int noOfEdits) throws Exception {
         int i = 0;
-        ResultWriter resultWriter = new ResultFileWriter();
+        ResultWriter resultWriter = new ResultFileWriter("Random");
         while (i < REPS) {
 
             //Creation of a patch with many different edits

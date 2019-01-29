@@ -40,12 +40,13 @@ public class Main {
 
         final int arraySize = Integer.parseInt(args[2]);
 
-        int seed = new Random().nextInt();
+        //int seed = new Random().nextInt();
 
         if (args.length > 4) {
-            seed = Integer.parseInt(args[3]);
+          //  seed = Integer.parseInt(args[3]);
         }
 
+        int seed = Integer.parseInt(args[3]);
         final int[] array = generateArray(arraySize, seed);
 
 
@@ -70,8 +71,8 @@ public class Main {
             Opacitor opacitor = new Opacitor.OpacitorBuilder(bsType.getPackageName(), bsType.getClassName(), newArgs)
                     .pathToDebugJava(pathToDebugJava) // default is (./)java-[windows|linux]-[x64|x86]
                     .build();
-        } catch (Exception e){
-            System.out.println("hi");
+        }catch (Exception e){
+            System.err.println("hi");
         }
 
         for (int i = 0; i < 30; i++) {
@@ -136,7 +137,7 @@ public class Main {
         int[] array = new int[arraySize];
 
         for (int i = 0; i < array.length; i++) {
-            array[i] = random.nextInt(10);
+            array[i] = random.nextInt(seed);
         }
 
         System.out.println(Arrays.toString(array));
