@@ -18,9 +18,12 @@ public class Result {
     //Opacitor Data
     private double opacitorMeasurement1;
     private double opacitorMeasurement2;
+    private double fitnessScore;
 
 
-    private Result(int currentRep, Patch patch, String outputFileString, long time, Class<?> compiledClass, boolean compileSuccess, boolean passed, double opacitorMeasurement1, double opacitorMeasurement2) {
+
+
+    private Result(int currentRep, Patch patch, String outputFileString, long time, Class<?> compiledClass, boolean compileSuccess, boolean passed, double opacitorMeasurement1, double opacitorMeasurement2, double fitnessScore) {
         this.currentRep = currentRep;
         this.patch = patch;
         this.outputFileString = outputFileString;
@@ -30,6 +33,8 @@ public class Result {
         this.passed = passed;
         this.opacitorMeasurement1 = opacitorMeasurement1;
         this.opacitorMeasurement2 = opacitorMeasurement2;
+        this.fitnessScore = fitnessScore;
+
     }
 
     public int getCurrentRep() {
@@ -72,9 +77,15 @@ public class Result {
         return opacitorMeasurement2;
     }
 
+    public double getFitnessScore() {
+        return fitnessScore;
+    }
+
     public static ResultBuilder getBuilder(){
         return new ResultBuilder();
     }
+
+
 
 
 
@@ -89,6 +100,7 @@ public class Result {
         private double opacitorMeasurement1;
         private double opacitorMeasurement2;
         private double unitTestScore;
+        private double fitnessScore;
 
         private ResultBuilder() {
         }
@@ -143,8 +155,13 @@ public class Result {
             return this;
         }
 
+        public double setFitnessScore(double fitnessScore) {
+            this.fitnessScore = fitnessScore;
+            return fitnessScore;
+        }
+
         public Result build() {
-            return new Result(currentRep, patch, outputFileString, time, compiledClass, compileSuccess, passed, opacitorMeasurement1, opacitorMeasurement2);
+            return new Result(currentRep, patch, outputFileString, time, compiledClass, compileSuccess, passed, opacitorMeasurement1, opacitorMeasurement2, fitnessScore);
         }
     }
 }

@@ -13,6 +13,7 @@ import org.apache.commons.text.diff.EditScript;
 import org.mdkt.compiler.InMemoryJavaCompiler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import sun.awt.image.ImageWatched;
 
 import java.nio.file.Paths;
 import java.util.*;
@@ -38,19 +39,27 @@ public class GA {
         A Binary string e.g. 0111010 is a Chromosone
         A collection of binary strings is a population.
          */
-    public void initializePopulation(PatchFactory patchFactory, Source source, int iteration) throws Exception {
+    public LinkedList<Patch> initializePopulation(PatchFactory patchFactory, Source source) throws Exception {
         //First Patch
-        LOG.info("CURRENT ITERATION:{} ", iteration);
-        LinkedList<Patch> patches = generateABunchOfPatches(patchFactory, source, 6);
+
+        int populationSize = new Random().nextInt(10);
+        LinkedList<Patch> patches = generateABunchOfPatches(patchFactory, source, populationSize);
         for (int i = 0; i < patches.size(); i++) {
             patchData(patches.get(i));
         }
-        Patch[] theBreedingPair = selection(patches);
+        //Patch[] theBreedingPair = selection(patches);
 
-        Patch[] offspring = crossover(theBreedingPair, source);
+       // Patch[] offspring = crossover(theBreedingPair, source);
 
-        mutation(offspring[1]);
+       // mutation(offspring[1]);
 
+        return patches;
+    }
+    public LinkedList<Patch> secondPopulation(LinkedList<Patch> population) throws Exception{
+        for (int i =0; i < population.size(); i++){
+            patchData(population.get(i));
+        }
+        return population;
     }
 
     public void patchData(Patch patch) throws Exception {
@@ -74,7 +83,7 @@ public class GA {
     }
 
     public Patch generatePatch(PatchFactory patchFactory, Source source) {
-        Patch patch = patchFactory.getPatchForSourceWithEdits(source, 5);
+        Patch patch = patchFactory.getPatchForSourceWithEdits(source, 1);
         return patch;
     }
 
@@ -93,8 +102,8 @@ public class GA {
             compileSource = InMemoryJavaCompiler.newInstance().compile("Triangle", output);
 
         } catch (Exception e) {
-            e.printStackTrace();
-            LOG.error("Error in calculate fitness method: {}", e);
+           // e.printStackTrace();
+            LOG.error("Error in calculate fitness method: {}", e.getMessage());
         }
 
         long compileTime;
@@ -131,6 +140,7 @@ public class GA {
         }
         double score = unitTestResult + opacitorMeasurement;
         patch.setFitnessScore(score);
+        LOG.info("Patch Fitness Score:{}", patch.getFitnessScore());
 
     }
 
@@ -152,47 +162,32 @@ public class GA {
     Parents are selected on fitness scores
     higher FitnessMeasurement higher Chance of being chosen
      */
-    public Patch[] selection(LinkedList<Patch> patches) { //Have a second patch to be the second parent and work out the fitness of that patch too
+    public LinkedList<Patch> selection(LinkedList<Patch> patches) { //Have a second patch to be the second parent and work out the fitness of that patch too
         Random random = new Random();
-        Patch[] returnPatch = new Patch[2];
-        ArrayList<Patch> returnedPatches = new ArrayList<Patch>();
-        LOG.info("Intial length of array:" + returnPatch.length);
-        int i = 0;
-        // while (returnedPatches.size() < 2) {
+        LinkedList<Patch> returnPatch = new LinkedList<>();
+        LOG.info("Intial length of array:" + returnPatch.size());
         Patch patch1 = patches.get(random.nextInt(patches.size()));
         Patch patch2 = patches.get(random.nextInt(patches.size()));
 
         if (patch1.getFitnessScore() < patch2.getFitnessScore()) {
-            returnPatch[0] = patch1;
-            //returnedPatches.add(patch1);
-            LOG.info("patch1 fitness:" + patch1.getFitnessScore());
+            returnPatch.add(0, patch1);
+            LOG.info("Patch 1 fitness: {}", patch1.getFitnessScore());
         } else {
-            returnPatch[0] = patch2;
-            // returnedPatches.add(patch2);
-            LOG.info("patch2 fitness:" + patch2.getFitnessScore());
+            returnPatch.add(0, patch2);
+            LOG.info("Patch 2 fitness:{}", patch2.getFitnessScore());
 
         }
         Patch patch3 = patches.get(random.nextInt(patches.size()));
         Patch patch4 = patches.get(random.nextInt(patches.size()));
 
         if (patch3.getFitnessScore() < patch4.getFitnessScore()) {
-            returnPatch[1] = patch3;
-            //returnedPatches.add(patch1);
-            LOG.info("patch3 fitness:" + patch3.getFitnessScore());
+            returnPatch.add(1,patch3);
+            LOG.info("Patch 3 fitness:", patch3.getFitnessScore());
         } else {
-            returnPatch[1] = patch4;
-            // returnedPatches.add(patch2);
-            LOG.info("patch4 fitness:" + patch4.getFitnessScore());
+            returnPatch.add(1,patch4);
+            LOG.info("Patch 4 fitness:",  patch4.getFitnessScore());
 
         }
-        // i++;
-        // LOG.info("Current length of array:"+ returnedPatches.size());
-        //LOG.info("patch 1:" + returnedPatches.get(0).getFitnessScore());
-        //LOG.info("patch 1:" + returnedPatches.get(1).getFitnessScore());
-
-        //LOG.info("Current length of array:"+ returnPatch[1]);
-        //}
-
         return returnPatch;
 
     }
@@ -202,10 +197,10 @@ public class GA {
     Purpose: a random point of within the parents genes
     Children are made by exchanging parents genes until crossover point is reacher
      */
-    public Patch[] crossover(Patch[] parents, Source source) {
-        Patch parent1 = parents[0];
-        Patch parent2 = parents[1];
-        Patch[] offspring = new Patch[4];
+    public LinkedList<Patch> crossover(LinkedList<Patch> parents, Source source) {
+        Patch parent1 = parents.get(0);
+        Patch parent2 = parents.get(1);
+        LinkedList<Patch>offspring = new LinkedList();
 
         int parent1ArraySize = parent1.getEdits().size();
         int parent2ArraySize = parent2.getEdits().size();
@@ -213,31 +208,20 @@ public class GA {
         System.out.println(parent1ArraySize);
         System.out.println(parent2ArraySize);
 
-        List<Edit> offspringEdits1 = new LinkedList<Edit>() {
-        };
+        LinkedList<Edit> offspringEdits1 = new LinkedList() ;
+        LinkedList<Edit> offspringEdits2 = new LinkedList();
+        LinkedList<Edit> offspringEdits3 = new LinkedList() ;
 
-        List<Edit> offspringEdits2 = new LinkedList<Edit>() {
-        };
-        List<Edit> offspringEdits3 = new LinkedList<Edit>() {
-        };
-
-
-        //if (parent1ArraySize < parent2ArraySize) {
             for (int i = 0; i < parent1.getEdits().size(); i++) {
                 offspringEdits1.add(parent1.getEdits().get(i));
             }
-            // for (int i = 0; i < parent2.getEdits().size(); i++){
             offspringEdits2.add(parent2.getEdits().get(new Random().nextInt(parent2.getEdits().size())));
 
-            //}
-       // } else if (parent1ArraySize > parent2ArraySize) {
             for (int i = 0; i < parent1.getEdits().size(); i++) {
                 offspringEdits2.add(parent1.getEdits().get(i));
             }
-            // for (int i = 0; i < parent2.getEdits().size(); i++){
             offspringEdits2.add(parent1.getEdits().get(new Random().nextInt(parent1.getEdits().size())));
-            //}
-     //   } else if (parent1ArraySize == parent2ArraySize){
+
             for (int i = 0; i < parent1.getEdits().size(); i++) {
                 offspringEdits3.add(parent1.getEdits().get(i));
             }
@@ -245,24 +229,23 @@ public class GA {
                 offspringEdits3.add(parent2.getEdits().get(i));
 
             }
-      //  }
 
         Patch offspring1 = new Patch(source, offspringEdits1);
         LOG.info("Offpring 1:Patch edit list: " + offspring1.getEdits().size());
-        LOG.info("Offpring 1:Edits list size: " + offspringEdits1.size());
+        LOG.debug("Offpring 1:Edits list size: " + offspringEdits1.size());
 
         Patch offspring2 = new Patch(source, offspringEdits2);
         LOG.info("Offpring 2:Patch edit list: " + offspring2.getEdits().size());
-        LOG.info("Offpring 2:Edits list size: " + offspringEdits2.size());
+        LOG.debug("Offpring 2:Edits list size: " + offspringEdits2.size());
 
         Patch offspring3 = new Patch(source, offspringEdits3);
         LOG.info("Offpring 3:Patch edit list: " + offspring3.getEdits().size());
-        LOG.info("Offpring 3:Edits list size: " + offspringEdits3.size());
+        LOG.debug("Offpring 3:Edits list size: " + offspringEdits3.size());
 
 
-        offspring[0] = offspring1;
-        offspring[1] = offspring2;
-        offspring[2] = offspring3;
+        offspring.add(0, offspring1);
+        offspring.add(1, offspring2);
+        offspring.add(2, offspring3);
         return offspring;
 
     }
@@ -282,8 +265,8 @@ public class GA {
             neighbour.getEdits().add(random.nextInt(), patch.getEdits().get(random.nextInt(patch.getEdits().size())));
         }
 
-        System.out.println(neighbour.getEdits().size());
-        System.out.println(neighbour);
+        LOG.info("Neighbour number of Edits:{}",neighbour.getEdits().size());
+        LOG.info("Neighbour details:{}",neighbour);
 
         return neighbour;
     }

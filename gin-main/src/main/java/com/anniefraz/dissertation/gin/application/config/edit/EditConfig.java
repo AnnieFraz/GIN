@@ -81,7 +81,7 @@ public class EditConfig {
             return new IfStatementEdit(whichLine, anAnnaClass.getPath());
         };
     }
-
+/*
     @Bean
     //TODO: Double checks this works
     public Function<AnnaClass, Edit> removeBlockEdit(){
@@ -118,7 +118,7 @@ public class EditConfig {
         };
     }
 
-
+*/
     @Bean
     public Function<AnnaClass,  Edit> noEditEdit(){
         return anAnnaClass -> {

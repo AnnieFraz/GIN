@@ -16,9 +16,9 @@ public class Patch {
     @Override
     public String toString() {
         return "Patch{" +
-                "source=" + source +
+               // "source=" + source +
                 ", edits=" + edits +
-                ", outputSource=" + outputSource +
+               // ", outputSource=" + outputSource +
                 ", fitnessScore=" + fitnessScore +
                 ", compileTime=" + compileTime +
                 ", success=" + success +

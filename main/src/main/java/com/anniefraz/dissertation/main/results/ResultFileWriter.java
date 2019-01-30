@@ -43,7 +43,8 @@ public class ResultFileWriter implements ResultWriter {
                 String.valueOf(result.isCompileSuccess()),
                 String.valueOf(result.isPassed()),
                 String.valueOf(result.getOpacitorMeasurement1()),
-                String.valueOf(result.getOpacitorMeasurement2())
+                String.valueOf(result.getOpacitorMeasurement2()),
+                String.valueOf(result.getFitnessScore()),
         }; //, compiledClass.toString() };
         csvWriter.writeNext(data);
     }
