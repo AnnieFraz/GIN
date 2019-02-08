@@ -8,6 +8,7 @@ import opacitor.enumerations.GoalDirection;
 import opacitor.enumerations.MeasurementType;
 import opacitor.exceptions.*;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.ArrayUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,10 +16,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.*;
 
 
@@ -62,55 +60,58 @@ public class Main {
         InputStream resource = Main.class.getClassLoader().getResourceAsStream(location);
         System.out.println(resource);
         FileUtils.copyInputStreamToFile(resource, source.resolve(Paths.get(location)).toFile());
-        System.out.println(source.toAbsolutePath().toString());
-        List<Callable<ResultBS>> callables = new ArrayList<>();
+        //System.out.println(source.toAbsolutePath().toString());
+        //List<Callable<ResultBS>> callables = new ArrayList<>();
 
 
         final String pathToDebugJava = Paths.get("Opacitor", "debugJVM").toAbsolutePath().toString();
-        try {
+        /*try {
             Opacitor opacitor = new Opacitor.OpacitorBuilder(bsType.getPackageName(), bsType.getClassName(), newArgs)
                     .pathToDebugJava(pathToDebugJava) // default is (./)java-[windows|linux]-[x64|x86]
                     .build();
         }catch (Exception e){
             System.err.println("hi");
-        }
+        }*/
 
         for (int i = 0; i < 30; i++) {
             final int finalSeed = seed;
             final int finalI = i;
-            callables.add(new Callable<ResultBS>() {
+            /*callables.add(new Callable<ResultBS>() {
                 @Override
                 public ResultBS call() {
-                    try {
-                        Opacitor opacitor = new Opacitor.OpacitorBuilder(bsType.getPackageName(), bsType.getClassName(), newArgs)
-                                .srcDirectory(source.toAbsolutePath().toString())
-                                .binDirectory(bin.toAbsolutePath().toString())
-                                .measurementType(MeasurementType.BYTECODE_HISTOGRAM)
-                                .goalDirection(GoalDirection.MINIMISING)
-                                .enableJIT(false) // default
-                                .enableGC(false) // default
-                                //.compiler(Paths.get("C:\\Program Files\\Java\\jdk1.8.0_191\\bin\\javac.exe").toAbsolutePath().toString())
-                                .pathToDebugJava(pathToDebugJava) // default is (./)java-[windows|linux]-[x64|x86]
-                                .build();
-                        double measurement = opacitor.fitness(newArgs);
+                    try {*/
+            Opacitor opacitor = new Opacitor.OpacitorBuilder(bsType.getPackageName(), bsType.getClassName(), newArgs)
+                    .srcDirectory(source.toAbsolutePath().toString())
+                    .binDirectory(bin.toAbsolutePath().toString())
+                    .measurementType(MeasurementType.BYTECODE_HISTOGRAM)
+                    .goalDirection(GoalDirection.MINIMISING)
+                    .enableJIT(false) // default
+                    .enableGC(false) // default
+                    //.compiler(Paths.get("C:\\Program Files\\Java\\jdk1.8.0_191\\bin\\javac.exe").toAbsolutePath().toString())
+                    .pathToDebugJava(pathToDebugJava) // default is (./)java-[windows|linux]-[x64|x86]
+                    .build();
+            double measurement = opacitor.fitness(newArgs);
 
-                        double measurement2 = opacitor.fitness(newArgs);
+            double measurement2 = opacitor.fitness(newArgs);
 
-                        return ResultBS.getBuilder()
-                                .setCurrentRep(finalI)
-                                .setBsType(bsType)
-                                .setOpacitorMeasurement1(measurement)
-                                .setOpacitorMeasurement2(measurement2)
-                                .setSeed(finalSeed)
-                                .setArraySize(arraySize)
-                                .setArray(array)
-                                .build();
-
+            ResultBS resultBS = ResultBS.getBuilder()
+                    .setCurrentRep(finalI)
+                    .setBsType(bsType)
+                    .setOpacitorMeasurement1(measurement)
+                    .setOpacitorMeasurement2(measurement2)
+                    .setSeed(finalSeed)
+                    .setArraySize(arraySize)
+                    .setArray(array)
+                    .build();
+            resultBSWriter.writeResult(resultBS);
+        }
+        resultBSWriter.close();
+/*
                     } catch (NoSuchMeasurementTypeException | NoSuchAlgorithmException | IOException | UnsupportedOSException | UnsupportedArchitectureException | InterruptedException | FailedToCompileException | FailedToRunException e) {
                         throw new RuntimeException(e);
                     }
-                }
-            });
+
+            };
         }
         //do the thread stuff
         ExecutorService executor = new ThreadPoolExecutor(30, 30, 1, TimeUnit.DAYS, new ArrayBlockingQueue<Runnable>(40));
@@ -121,6 +122,7 @@ public class Main {
         }
         executor.shutdown();
         resultBSWriter.close();
+        */
     }
 
     private static String[] toStringArray(int[] array) {
@@ -134,13 +136,18 @@ public class Main {
     public static int[] generateArray(int arraySize, int seed) {
 
         Random random = new Random(seed);
-        int[] array = new int[arraySize];
+        Integer[] array1 = new Integer[arraySize];
 
-        for (int i = 0; i < array.length; i++) {
-            array[i] = random.nextInt(seed);
+        for (int i = 0; i < array1.length; i++) {
+            array1[i] = random.nextInt(seed);
         }
+        Arrays.sort(array1, Collections.<Integer>reverseOrder());
+        System.out.println(Arrays.toString(array1));
 
-        System.out.println(Arrays.toString(array));
+        int[] array = ArrayUtils.toPrimitive(array1);
+
+        //Arrays.sort(array, Collections.reverse(array););
+
         return array;
     }
 }

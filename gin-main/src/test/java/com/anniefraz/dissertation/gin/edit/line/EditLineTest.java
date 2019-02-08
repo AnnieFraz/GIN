@@ -14,6 +14,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 import static com.anniefraz.dissertation.gin.TestUtils.getSourceFactory;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -32,6 +33,15 @@ public class EditLineTest {
         sourceFromAnnaPath = sourceFactory.getSourceFromAnnaPath(annaPath);
     }
 
+    @Test
+    public void random(){
+        //Want to get 10
+        Random random1 = new Random(11);
+        int result = random1.nextInt(43);
+        System.out.println(result);
+        assertEquals(10, result);
+
+    }
 
     @Test
     public void testRemoveLineEdit(){

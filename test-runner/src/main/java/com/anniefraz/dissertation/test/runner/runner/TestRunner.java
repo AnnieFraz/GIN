@@ -167,7 +167,7 @@ public class TestRunner {
         } catch (Exception e) {
             Logger.error("Unrecognised exception compiling class " + className);
             Logger.error(e.getMessage());
-            System.exit(-1);
+           // System.exit(-1);
         }
 
         return success;

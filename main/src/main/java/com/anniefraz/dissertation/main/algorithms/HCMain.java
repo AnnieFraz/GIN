@@ -35,6 +35,7 @@ public class HCMain {
 
         double[] listOfValues = new double[100];
 
+        /*
         for (int i = 0; i < 100 ; i++) {
 
             LinkedList<Patch> neighbours = hillClimbing.generateRandomSolution(patchFactory, source);
@@ -50,5 +51,6 @@ public class HCMain {
                 listOfValues[i] = totalInitialSolutionFitness;
             }
         }
+        */
         }
 }

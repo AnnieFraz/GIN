@@ -100,7 +100,7 @@ public class Random {
             try {
                 compiledClass = InMemoryJavaCompiler.newInstance().compile("Triangle", outputFileString);
             } catch (CompilationException e){
-                LOG.warn("Error in Main: {}", e);
+                LOG.warn("Error in GAMain: {}", e);
             }
 
             long time;

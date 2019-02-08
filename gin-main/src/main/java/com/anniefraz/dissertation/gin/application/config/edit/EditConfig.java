@@ -15,10 +15,13 @@ import com.anniefraz.dissertation.gin.source.AnnaClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.Random;
 import java.util.function.Function;
 
 @Configuration
 public class EditConfig {
+
+    Random random = new Random(11);
 
     @Bean
     //TODO: Need to figure out what to be inserted
@@ -26,7 +29,8 @@ public class EditConfig {
     public Function<AnnaClass, Edit> insertLineEdit(){
         return anAnnaClass ->{
             int size = anAnnaClass.getLines().size();
-            int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            //int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            int whichLine = random.nextInt(size);
             //int whichLine = 6; //This was for the bubble sort tests
             return new InsertLineEdit(whichLine,"//this is a comment" , anAnnaClass.getPath());
         };
@@ -36,7 +40,10 @@ public class EditConfig {
     public Function<AnnaClass, Edit> removeLineEdit() {
         return anAnnaClass -> {
             int size = anAnnaClass.getLines().size();
-            int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+           // int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+           //
+            int whichLine = 9;
+            //System.out.println(anAnnaClass.getLines().get(9));
             return new RemoveLineEdit(whichLine, anAnnaClass.getPath());
         };
     }
@@ -45,7 +52,8 @@ public class EditConfig {
     public Function<AnnaClass, Edit> insertBreakEdit(){
         return anAnnaClass -> {
             int size = anAnnaClass.getLines().size();
-            int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            //int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            int whichLine = random.nextInt(size);
             return new InsertBreakEdit(whichLine,"break;" , anAnnaClass.getPath());
 
         };
@@ -116,9 +124,9 @@ public class EditConfig {
             int blockTwoEndNo = Double.valueOf(Math.floor(Math.random() * size)).intValue();
             return new SwapBlockEdit(blockOneStartNo,blockOneEndNo,blockTwoStartNo,blockTwoEndNo, anAnnaClass.getPath());
         };
-    }
+    }*/
 
-*/
+
     @Bean
     public Function<AnnaClass,  Edit> noEditEdit(){
         return anAnnaClass -> {

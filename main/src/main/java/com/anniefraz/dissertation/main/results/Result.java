@@ -19,11 +19,12 @@ public class Result {
     private double opacitorMeasurement1;
     private double opacitorMeasurement2;
     private double fitnessScore;
+    private double unitTestScore;
 
 
 
 
-    private Result(int currentRep, Patch patch, String outputFileString, long time, Class<?> compiledClass, boolean compileSuccess, boolean passed, double opacitorMeasurement1, double opacitorMeasurement2, double fitnessScore) {
+    private Result(int currentRep, Patch patch, String outputFileString, long time, Class<?> compiledClass, boolean compileSuccess, boolean passed, double opacitorMeasurement1, double opacitorMeasurement2, double fitnessScore, double unitTestScore) {
         this.currentRep = currentRep;
         this.patch = patch;
         this.outputFileString = outputFileString;
@@ -34,8 +35,11 @@ public class Result {
         this.opacitorMeasurement1 = opacitorMeasurement1;
         this.opacitorMeasurement2 = opacitorMeasurement2;
         this.fitnessScore = fitnessScore;
+        this.unitTestScore = unitTestScore;
 
     }
+
+    public double getUnitTestScore(){return unitTestScore;}
 
     public int getCurrentRep() {
         return currentRep;
@@ -161,7 +165,7 @@ public class Result {
         }
 
         public Result build() {
-            return new Result(currentRep, patch, outputFileString, time, compiledClass, compileSuccess, passed, opacitorMeasurement1, opacitorMeasurement2, fitnessScore);
+            return new Result(currentRep, patch, outputFileString, time, compiledClass, compileSuccess, passed, opacitorMeasurement1, opacitorMeasurement2, fitnessScore, unitTestScore);
         }
     }
 }
