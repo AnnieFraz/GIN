@@ -40,7 +40,7 @@ public class GAMain {
 
     static {
         try {
-            RESULTWRITER = new CSVResultFileWriter("test");
+            RESULTWRITER = new CSVResultFileWriter("test2");
         } catch (IOException e) {
             e.printStackTrace();
         }

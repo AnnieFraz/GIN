@@ -35,7 +35,7 @@ public class EditConfig {
             return new InsertLineEdit(whichLine,"//this is a comment" , anAnnaClass.getPath());
         };
     }
-
+/*
     @Bean
     public Function<AnnaClass, Edit> removeLineEdit() {
         return anAnnaClass -> {
