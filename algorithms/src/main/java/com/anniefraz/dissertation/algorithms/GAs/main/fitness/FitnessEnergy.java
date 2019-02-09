@@ -31,7 +31,7 @@ public class FitnessEnergy implements FitnessMeasurement<String> {
         try {
            //result  = codeLengthOpacitor();
            result = bytecodeHistogramOpacitor();
-          //result = superSimpleJalenOpacitor();
+           //result = superSimpleJalenOpacitor();
         } catch (Exception e) {
             e.printStackTrace();
         }

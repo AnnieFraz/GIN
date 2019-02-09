@@ -7,7 +7,7 @@ public class Triangle {
     static final int EQUALATERAL = 2;
     static final int ISOCELES = 3;
     public static int classifyTriangle(int a, int b, int c) {
-        wasteCPU( 1000, 1000);//delay();
+        delay();
         // Sort the sides so that a <= b <= c
 
         if (a > b) {
@@ -45,7 +45,6 @@ public class Triangle {
             // do nothing
         }
     }
-
     private static void wasteCPU( final int startDelayMS, final int iterations) throws InterruptedException {
         Random random = new Random(1); // seed 1
 

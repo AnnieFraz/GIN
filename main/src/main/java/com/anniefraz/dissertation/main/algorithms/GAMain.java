@@ -40,7 +40,7 @@ public class GAMain {
 
     static {
         try {
-            RESULTWRITER = new CSVResultFileWriter("test2");
+            RESULTWRITER = new CSVResultFileWriter("test");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -54,24 +54,8 @@ public class GAMain {
         Source source = sourceFactory.getSourceFromAnnaPath(annaPath);
 
         for (int i =0; i < ITERATIONS; i++) { //Would the reps be in initialize population or main?
-           // genetic.initializePopulation(patchFactory, source);
             //STARTING THE GA
             GA ga = getGa(patchFactory, source,i);
-            /*Result result = Result.getBuilder()
-                    .setCurrentRep(i)
-                    .setPopulation(ga.generatePatch(patchFactory, source))
-                    .setCompiledClass(ga.compileSource)
-                    .setOpacitorMeasurement1((ga.firstFitness - 1.0))
-                    .setOpacitorMeasurement2((ga.secondFitness - 1.0))
-                    .setCompileSuccess(ga.generatePatch(patchFactory, source).isSuccess())
-                    .setTime(ga.generatePatch(patchFactory, source).getTime())
-                    .setUnitTestScore(ga.unitTestFitnessScore(ga.generatePatch(patchFactory,source)))
-                   // .setFitnessScore(ga.generatePatch(patchFactory, source).getFitnessScore())
-                   // .setPassed(Optional.ofNullable(unitTestResultSet).map(UnitTestResultSet::allTestsSuccessful).orElse(false))
-                    .setOutputFileString(ga.output)
-                    .build();
-            RESULTWRITER.writeResult(result); */
-
             System.out.println();
             LOG.info("CURRENT ITERATION:{} ", i + 1);
         }

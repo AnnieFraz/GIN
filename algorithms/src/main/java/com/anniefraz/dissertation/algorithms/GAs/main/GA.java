@@ -76,6 +76,7 @@ public class GA {
         Source source1 = patch.getOutputSource();
         LOG.debug("Source:{]", source1);
         LOG.info("Edits:{} ", patch.getEdits());
+        LOG.debug("Source {}", patch.getSource());
         //LOG.info(patch.toString());
         //Go to Stage 2
         calculateFitness(source1, patch);
@@ -106,6 +107,8 @@ public class GA {
         List<AnnaClass> classList = source.getAnnaClasses();
         AnnaClass annaClass = classList.get(0);
         output = String.join(System.lineSeparator(), annaClass.getLines());
+
+        //System.out.println(output);
 
         try {
             compileSource = InMemoryJavaCompiler.newInstance().compile("Triangle", output);
