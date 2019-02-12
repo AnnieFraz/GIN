@@ -22,12 +22,12 @@ public class FitnessUnitTests implements FitnessMeasurement<Patch> {
     public double measure(Patch patch) {
 
         //Files
-        String testClassNameTriangle = "TriangleTest";
-        //String className = "Triangle";
+       // String testClassNameTriangle = "TriangleTest";
+       // String className = "Triangle";
 
         //Reverse String
-        String testClassNameString = "ReverseStringTest";
-        String className = "ReverseString";
+        String testClassNameString = "foo.ReverseStringTest";
+        String className = "foo.ReverseString";
 
         String testClassName = "ExampleTest";
         String methodName = "aMethod";
@@ -35,7 +35,7 @@ public class FitnessUnitTests implements FitnessMeasurement<Patch> {
         File testFile = Paths.get(PATHNAME).toFile();
 
         //Tests SetUp
-        /*
+/*
         UnitTest test = new UnitTest(testClassNameTriangle, "testInvalidTriangles");
         UnitTest test1 = new UnitTest(testClassNameTriangle, "testEqualateralTriangles");
         UnitTest test2 = new UnitTest(testClassNameTriangle, "testIsocelesTriangles");
@@ -45,7 +45,6 @@ public class FitnessUnitTests implements FitnessMeasurement<Patch> {
         UnitTest test1 = new UnitTest(testClassNameString, "test2");
         UnitTest test2 = new UnitTest(testClassNameString, "canDealWithUpperCaseTest");
         UnitTest test3 = new UnitTest(testClassNameString, "failWithNumbers");
-        System.out.println(test3.toString());
         List<UnitTest> tests = new LinkedList<>();
         tests.add(test);
         tests.add(test1);
@@ -58,6 +57,7 @@ public class FitnessUnitTests implements FitnessMeasurement<Patch> {
 
         //Sending to test runner
         TestRunner testRunner = new TestRunner(testFile, "ReverseStringTest", PATHNAME, tests);
+       // TestRunner testRunner = new TestRunner(testFile, "Triangle", PATHNAME, tests);
         unitTestResultSet = testRunner.test(patch, 1);
         LOG.debug("Unit test: {}", unitTestResultSet);
         Boolean successful = unitTestResultSet.allTestsSuccessful();

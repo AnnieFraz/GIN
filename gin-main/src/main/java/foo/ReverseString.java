@@ -1,4 +1,4 @@
-package example;
+package foo;
 
 public class ReverseString{
 

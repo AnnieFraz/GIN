@@ -2,7 +2,9 @@ package com.anniefraz.dissertation.test.runner.runner;
 
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Request;
-import org.pmw.tinylog.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Executable;
@@ -15,6 +17,8 @@ import java.util.Map;
 // see https://stackoverflow.com/questions/24319697/java-lang-exception-no-runnable-methods-exception-in-running-junits/24319836
 
 public class IsolatedTestRunner {
+
+    private static final Logger LOG = LoggerFactory.getLogger(IsolatedTestRunner.class);
 
     /**
      * This method is called using reflection to ensure tests are run in an environment that employs a separate
@@ -51,9 +55,8 @@ public class IsolatedTestRunner {
             ClassLoader loader = this.getClass().getClassLoader();
             clazz = loader.loadClass(testClassname);
         } catch (ClassNotFoundException e) {
-            String msg = "Unable to find class file for test [" + test + "]. Ensure that test classes can be found" +
-                    "on the supplied classpath";
-            System.err.println(msg);
+            LOG.error("Unable to find class file for test [" + test + "]. Ensure that test classes can be found" +
+                    " on the supplied classpath", e);
             System.exit(-1);
         }
 
@@ -101,7 +104,7 @@ public class IsolatedTestRunner {
 
 
         } catch (Exception e) {
-            Logger.error("Exception when instrumenting tests with a timeout: " + e);
+            LOG.error("Exception when instrumenting tests with a timeout: " + e);
             System.exit(-1);
         }
 

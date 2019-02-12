@@ -111,11 +111,13 @@ public class GA {
         //System.out.println(output);
 
         try {
-            compileSource = InMemoryJavaCompiler.newInstance().compile("ReverseString", output);
+           compileSource = InMemoryJavaCompiler.newInstance().compile("foo.ReverseString", output);
+           // compileSource = InMemoryJavaCompiler.newInstance().compile("example.Triangle", output);
+
 
         } catch (Exception e) {
            // e.printStackTrace();
-            LOG.error("Error in calculate fitness method: {}", e.getMessage());
+            LOG.error("Error in calculate fitness method: {}", e.getStackTrace());
         }
 
         long compileTime;

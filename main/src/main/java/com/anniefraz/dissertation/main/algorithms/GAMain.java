@@ -50,7 +50,9 @@ public class GAMain {
         APPLICATIONCONTEXT = new AnnotationConfigApplicationContext(ApplicationConfig.class);
         PatchFactory patchFactory = APPLICATIONCONTEXT.getBean(PatchFactory.class);
         SourceFactory sourceFactory = new SourceFactory(Paths.get(PATHNAME));
-        AnnaPath annaPath = AnnaPath.getBuilder().setClassName("ReverseString").build();
+      AnnaPath annaPath = AnnaPath.getBuilder().addPackage("foo").setClassName("ReverseString").build();
+      //  AnnaPath annaPath = AnnaPath.getBuilder().addPackage("example").setClassName("Triangle").build();
+
         Source source = sourceFactory.getSourceFromAnnaPath(annaPath);
 
         for (int i =0; i < ITERATIONS; i++) { //Would the reps be in initialize population or main?

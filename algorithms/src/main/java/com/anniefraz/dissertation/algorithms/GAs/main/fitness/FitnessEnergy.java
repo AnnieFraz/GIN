@@ -14,7 +14,8 @@ public class FitnessEnergy implements FitnessMeasurement<String> {
 
     static Logger LOG = LoggerFactory.getLogger(FitnessEnergy.class);
 
-    private String testSrcDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\src\\main\\java";
+    //private String testSrcDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\src\\main\\java";
+    private String testSrcDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\examples\\unittests";
     private String testBinDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\target\\classes";
 
     //String testSrcDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\opacitor\\test_external_dir\\src\\test";
@@ -30,8 +31,8 @@ public class FitnessEnergy implements FitnessMeasurement<String> {
         setOutput(output);
         try {
            //result  = codeLengthOpacitor();
-           result = bytecodeHistogramOpacitor();
-           //result = superSimpleJalenOpacitor();
+         result = bytecodeHistogramOpacitor();
+          // result = superSimpleJalenOpacitor();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -75,7 +76,7 @@ public class FitnessEnergy implements FitnessMeasurement<String> {
         output = getOutput();
 
         double measurement;
-        opacitor.updateCode(Collections.singletonList(new Tuple3<>(output, "", "Triangle")));
+        opacitor.updateCode(Collections.singletonList(new Tuple3<>(output, "example", "Triangle")));
         measurement = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});
         LOG.info("Measurement:{}", measurement);
         double measurement2 = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});
@@ -85,7 +86,7 @@ public class FitnessEnergy implements FitnessMeasurement<String> {
     }
 
     public double bytecodeHistogramOpacitor() throws Exception{
-        Opacitor opacitor = new Opacitor.OpacitorBuilder("example", "Triangle", new String[]{})
+        Opacitor opacitor = new Opacitor.OpacitorBuilder("foo", "ReverseString", new String[]{})
                 .srcDirectory(testSrcDir)
                 .binDirectory(testBinDir)
                 .measurementType(MeasurementType.BYTECODE_HISTOGRAM)
@@ -98,7 +99,7 @@ public class FitnessEnergy implements FitnessMeasurement<String> {
         output = getOutput();
 
         double measurement;
-        opacitor.updateCode(Collections.singletonList(new Tuple3<>(output, "", "Triangle")));
+        opacitor.updateCode(Collections.singletonList(new Tuple3<>(output, "foo", "ReverseString")));
         measurement = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});
         LOG.info("Measurement: {}", measurement);
 

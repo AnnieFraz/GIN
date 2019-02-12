@@ -1,23 +1,24 @@
-package example;
+package foo;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Test;
 public class ReverseStringTest {
 
     @Test
-    void test1(){
+    public void test1(){
         new ReverseString("look");
 
     }
     @Test
-    void test2(){
+    public void test2(){
         new ReverseString("supercalifragilisticexpialidocious");
     }
     @Test
-    void canDealWithUpperCaseTest(){
+   public void canDealWithUpperCaseTest(){
         new ReverseString("ACDE");
     }
     @Test
-    void failWithNumbers(){
+    public void failWithNumbers(){
         new ReverseString(1234+"");
     }
 }
