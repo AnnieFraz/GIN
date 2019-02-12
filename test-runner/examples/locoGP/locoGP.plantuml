@@ -1,0 +1,335 @@
+@startuml
+
+title __LOCOGP's Class Diagram__\n
+
+  package  {
+    class SortBubble {
+        {static} + sort()
+    }
+  }
+  
+
+  package  {
+    class SortBubbleDouble {
+        {static} + sort()
+    }
+  }
+  
+
+  package  {
+    class SortBubbleDoubleTest {
+        ~ testArrSet : Integer[][]
+        ~ expectedArrSet : Integer[][]
+        - sortArrays()
+        # testSpecificSort()
+        - testSortAtIndex()
+        + checkSorting0()
+        + checkSorting1()
+        + checkSorting2()
+        + checkSorting3()
+        + checkSorting4()
+        + checkSorting5()
+        + checkSorting6()
+    }
+  }
+  
+
+  package  {
+    class SortBubbleLoops {
+        {static} + sort()
+    }
+  }
+  
+
+  package  {
+    class SortBubbleLoopsTest {
+        ~ testArrSet : Integer[][]
+        ~ expectedArrSet : Integer[][]
+        - sortArrays()
+        # testSpecificSort()
+        - testSortAtIndex()
+        + checkSorting0()
+        + checkSorting1()
+        + checkSorting2()
+        + checkSorting3()
+        + checkSorting4()
+        + checkSorting5()
+        + checkSorting6()
+    }
+  }
+  
+
+  package  {
+    class SortBubbleTest {
+        ~ testArrSet : Integer[][]
+        ~ expectedArrSet : Integer[][]
+        - sortArrays()
+        # testSpecificSort()
+        - testSortAtIndex()
+        + checkSorting0()
+        + checkSorting1()
+        + checkSorting2()
+        + checkSorting3()
+        + checkSorting4()
+        + checkSorting5()
+        + checkSorting6()
+    }
+  }
+  
+
+  package  {
+    class SortCocktail {
+        {static} + sort()
+    }
+  }
+  
+
+  package  {
+    class SortCocktailTest {
+        ~ testArrSet : Integer[][]
+        ~ expectedArrSet : Integer[][]
+        - sortArrays()
+        # testSpecificSort()
+        - testSortAtIndex()
+        + checkSorting0()
+        + checkSorting1()
+        + checkSorting2()
+        + checkSorting3()
+        + checkSorting4()
+        + checkSorting5()
+        + checkSorting6()
+    }
+  }
+  
+
+  package  {
+    class SortHeap {
+        {static} + sort()
+    }
+  }
+  
+
+  package  {
+    class SortHeapTest {
+        ~ testArrSet : Integer[][]
+        ~ expectedArrSet : Integer[][]
+        - sortArrays()
+        # testSpecificSort()
+        - testSortAtIndex()
+        + checkSorting0()
+        + checkSorting1()
+        + checkSorting2()
+        + checkSorting3()
+        + checkSorting4()
+        + checkSorting5()
+        + checkSorting6()
+    }
+  }
+  
+
+  package  {
+    class SortInsertion {
+        {static} + sort()
+    }
+  }
+  
+
+  package  {
+    class SortInsertionTest {
+        ~ testArrSet : Integer[][]
+        ~ expectedArrSet : Integer[][]
+        - sortArrays()
+        # testSpecificSort()
+        - testSortAtIndex()
+        + checkSorting0()
+        + checkSorting1()
+        + checkSorting2()
+        + checkSorting3()
+        + checkSorting4()
+        + checkSorting5()
+        + checkSorting6()
+    }
+  }
+  
+
+  package  {
+    class SortMerge {
+        {static} + sort()
+        {static} + merge()
+        {static} + mergesort_r()
+    }
+  }
+  
+
+  package  {
+    class SortMergeTest {
+        ~ testArrSet : Integer[][]
+        ~ expectedArrSet : Integer[][]
+        - sortArrays()
+        # testSpecificSort()
+        - testSortAtIndex()
+        + checkSorting0()
+        + checkSorting1()
+        + checkSorting2()
+        + checkSorting3()
+        + checkSorting4()
+        + checkSorting5()
+        + checkSorting6()
+    }
+  }
+  
+
+  package  {
+    class SortQuick {
+        {static} + sort()
+        {static} + sort()
+    }
+  }
+  
+
+  package  {
+    class SortQuickTest {
+        ~ testArrSet : Integer[][]
+        ~ expectedArrSet : Integer[][]
+        - sortArrays()
+        # testSpecificSort()
+        - testSortAtIndex()
+        + checkSorting0()
+        + checkSorting1()
+        + checkSorting2()
+        + checkSorting3()
+        + checkSorting4()
+        + checkSorting5()
+        + checkSorting6()
+    }
+  }
+  
+
+  package  {
+    class SortRadix {
+        {static} + sort()
+    }
+  }
+  
+
+  package  {
+    class SortRadixTest {
+        ~ testArrSet : Integer[][]
+        ~ expectedArrSet : Integer[][]
+        - sortArrays()
+        # testSpecificSort()
+        - testSortAtIndex()
+        + checkSorting0()
+        + checkSorting1()
+        + checkSorting2()
+        + checkSorting3()
+        + checkSorting4()
+        + checkSorting5()
+        + checkSorting6()
+    }
+  }
+  
+
+  package  {
+    class SortSelection {
+        {static} + sort()
+    }
+  }
+  
+
+  package  {
+    class SortSelection2 {
+        {static} + sort()
+    }
+  }
+  
+
+  package  {
+    class SortSelection2Test {
+        ~ testArrSet : Integer[][]
+        ~ expectedArrSet : Integer[][]
+        - sortArrays()
+        # testSpecificSort()
+        - testSortAtIndex()
+        + checkSorting0()
+        + checkSorting1()
+        + checkSorting2()
+        + checkSorting3()
+        + checkSorting4()
+        + checkSorting5()
+        + checkSorting6()
+    }
+  }
+  
+
+  package  {
+    class SortSelectionTest {
+        ~ testArrSet : Integer[][]
+        ~ expectedArrSet : Integer[][]
+        - sortArrays()
+        # testSpecificSort()
+        - testSortAtIndex()
+        + checkSorting0()
+        + checkSorting1()
+        + checkSorting2()
+        + checkSorting3()
+        + checkSorting4()
+        + checkSorting5()
+        + checkSorting6()
+    }
+  }
+  
+
+  package  {
+    class SortShell {
+        {static} + sort()
+    }
+  }
+  
+
+  package  {
+    class SortShellTest {
+        ~ testArrSet : Integer[][]
+        ~ expectedArrSet : Integer[][]
+        - sortArrays()
+        # testSpecificSort()
+        - testSortAtIndex()
+        + checkSorting0()
+        + checkSorting1()
+        + checkSorting2()
+        + checkSorting3()
+        + checkSorting4()
+        + checkSorting5()
+        + checkSorting6()
+    }
+  }
+  
+
+  package  {
+    abstract class SortTest {
+        ~ testArrSet : Integer[][]
+        ~ expectedArrSet : Integer[][]
+        - sortArrays()
+        {abstract} # testSpecificSort()
+        - testSortAtIndex()
+        + checkSorting0()
+        + checkSorting1()
+        + checkSorting2()
+        + checkSorting3()
+        + checkSorting4()
+        + checkSorting5()
+        + checkSorting6()
+    }
+  }
+  
+
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

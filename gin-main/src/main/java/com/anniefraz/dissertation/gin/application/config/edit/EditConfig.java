@@ -19,7 +19,7 @@ import java.util.function.Function;
 
 @Configuration
 public class EditConfig {
-
+/*
     @Bean
     //TODO: Need to figure out what to be inserted
     //USE THIS EDIT. If you want it to compile succesfully guarenteed everytime
@@ -28,7 +28,7 @@ public class EditConfig {
             int size = anAnnaClass.getLines().size();
             int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
            // int whichLine = 9; //This was for the bubble sort tests
-            System.out.println(anAnnaClass.getLines().get(9));
+            //System.out.println(anAnnaClass.getLines().get(9));
             return new InsertLineEdit(whichLine,"//this is a comment" , anAnnaClass.getPath());
         };
     }
@@ -95,7 +95,7 @@ public class EditConfig {
             return new RemoveBlockEdit(startInt, endInt, anAnnaClass.getPath());
         };
     }
-/*
+
 
     @Bean
     public Function<AnnaClass, Edit> moveBlockEdit(){

@@ -111,7 +111,7 @@ public class GA {
         //System.out.println(output);
 
         try {
-            compileSource = InMemoryJavaCompiler.newInstance().compile("Triangle", output);
+            compileSource = InMemoryJavaCompiler.newInstance().compile("ReverseString", output);
 
         } catch (Exception e) {
            // e.printStackTrace();

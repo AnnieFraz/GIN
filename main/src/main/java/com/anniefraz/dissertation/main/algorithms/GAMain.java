@@ -27,7 +27,7 @@ import java.nio.file.Paths;
 import java.util.LinkedList;
 
 public class GAMain {
-    private static int ITERATIONS = 10;
+    private static int ITERATIONS = 1;
     private static int editNumberSeed = 4;
     private static int noofEditsNoRandom = 1;
     private static boolean compileSuccess;
@@ -50,7 +50,7 @@ public class GAMain {
         APPLICATIONCONTEXT = new AnnotationConfigApplicationContext(ApplicationConfig.class);
         PatchFactory patchFactory = APPLICATIONCONTEXT.getBean(PatchFactory.class);
         SourceFactory sourceFactory = new SourceFactory(Paths.get(PATHNAME));
-        AnnaPath annaPath = AnnaPath.getBuilder().setClassName("Triangle").build();
+        AnnaPath annaPath = AnnaPath.getBuilder().setClassName("ReverseString").build();
         Source source = sourceFactory.getSourceFromAnnaPath(annaPath);
 
         for (int i =0; i < ITERATIONS; i++) { //Would the reps be in initialize population or main?
@@ -65,12 +65,7 @@ public class GAMain {
     private static GA getGa(PatchFactory patchFactory, Source source, int rep ) throws Exception {
 
         GA genetic = new GA();
-       // LinkedList<Patch> populatio
-       // if (i == 0) {
-          LinkedList<Patch> population = genetic.initializePopulation(patchFactory, source);
-        //} else {
-          //  population = (LinkedList<Patch>)secondPopulation.clone();
-        //}
+        LinkedList<Patch> population = genetic.initializePopulation(patchFactory, source);
         LinkedList<Patch> selectedPopulation = genetic.selection(population);
         LinkedList<Offspring> offspring = genetic.crossover(selectedPopulation, source);
         LinkedList<Neighbour> neighbours = new LinkedList();
@@ -83,12 +78,6 @@ public class GAMain {
         LOG.info("Number of neighbours:{}", neighbours.size());
         LOG.info("Neighbour 1 edits:{}", neighbours.get(1).getEdits());
         LOG.info("Offspring 1 edits {}", offspring.get(1).getEdits());
-
-        //LinkedList<Patch> secondPopulation = secondPopulation(offspring, neighbours);
-
-       // population = (LinkedList<Patch>)secondPopulation.clone();
-
-       //genetic.secondPopulation(secondPopulation);
 
         CSVResult csvResult = CSVResult.getCsvResultBuilder()
                 .setIteration(rep)

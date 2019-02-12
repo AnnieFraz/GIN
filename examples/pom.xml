@@ -11,5 +11,13 @@
     <artifactId>examples</artifactId>
     <packaging>jar</packaging>
     <name>gin-examples</name>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 </project>

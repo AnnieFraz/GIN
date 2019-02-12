@@ -1,4 +1,3 @@
-//this is a comment
 import java.io.PrintStream;
 import java.util.Random;
 
@@ -37,15 +36,17 @@ public class Triangle {
         }
     }
     private static void delay() {
+       // wasteCPU( 10, 10);
         try {
-            Thread.sleep(100);
+            //Thread.sleep(500);
 
-            wasteCPU( 1000, 1000);
+           wasteCPU( 1000, 1000);
 
         } catch (InterruptedException e) {
             // do nothing
         }
     }
+
     private static void wasteCPU( final int startDelayMS, final int iterations) throws InterruptedException {
         Random random = new Random(1); // seed 1
 
@@ -54,14 +55,15 @@ public class Triangle {
         double d = 1;
         for (int i = 0; i < iterations; ++i) {
             //System.out.print(i + ", ");
+//this is a comment
             if (i % 100 == 0) {
-                //System.out.println();
+            //    System.out.println();
             }
             d *= random.nextDouble();
-           // System.out.println("Result: " + d);
+          //  System.out.println("Result: " + d);
         }
 
-       // System.out.println("Finished");
+        //System.out.println("Finished");
     }
 
     public static void main(String[] args) throws Exception{
