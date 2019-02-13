@@ -13,9 +13,11 @@ import com.anniefraz.dissertation.gin.source.SourceFactory;
 import com.anniefraz.dissertation.main.csvResults.CSVResult;
 import com.anniefraz.dissertation.main.csvResults.CSVResultFileWriter;
 import com.anniefraz.dissertation.main.csvResults.CSVResultWriter;
-import com.anniefraz.dissertation.main.results.Result;
-import com.anniefraz.dissertation.main.results.ResultFileWriter;
-import com.anniefraz.dissertation.main.results.ResultWriter;
+
+//import com.anniefraz.dissertation.main.results.Result;
+//import com.anniefraz.dissertation.main.results.ResultFileWriter;
+//import com.anniefraz.dissertation.main.results.ResultWriter;
+import com.anniefraz.dissertation.main.input.UserInput;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -36,6 +38,7 @@ public class GAMain {
     //private static final String PATHNAME = "/Users/annarasburn/Documents/gin/AnnaGin/test-runner/examples/unittests/";
     private static final String PATHNAME = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\examples\\unittests";
     private static CSVResultWriter RESULTWRITER;
+    private static UserInput userInput = new UserInput();
    // private static GA genetic; // = new GA();
 
     static {
@@ -46,16 +49,35 @@ public class GAMain {
         }
     }
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
+
+
+        if (args.length < 4){
+            LOG.error("There are not enough Parameters");
+        }else {
+            userInput.setClassFileName(args[0]);
+            userInput.setTestFileName(args[1]);
+            userInput.setPackageName(args[2]);
+            userInput.setIterations(Integer.parseInt(args[3]));
+
+            System.out.println(args[0]);
+            System.out.println(args[1]);
+            System.out.println(args[2]);
+            System.out.println(args[3]);
+            initialise();
+        }
+    }
+
+    public static void initialise() throws Exception{
         APPLICATIONCONTEXT = new AnnotationConfigApplicationContext(ApplicationConfig.class);
         PatchFactory patchFactory = APPLICATIONCONTEXT.getBean(PatchFactory.class);
         SourceFactory sourceFactory = new SourceFactory(Paths.get(PATHNAME));
-      AnnaPath annaPath = AnnaPath.getBuilder().addPackage("foo").setClassName("ReverseString").build();
+      AnnaPath annaPath = AnnaPath.getBuilder().addPackage(userInput.getPackageName()).setClassName(userInput.getClassFileName()).build();
       //  AnnaPath annaPath = AnnaPath.getBuilder().addPackage("example").setClassName("Triangle").build();
 
         Source source = sourceFactory.getSourceFromAnnaPath(annaPath);
 
-        for (int i =0; i < ITERATIONS; i++) { //Would the reps be in initialize population or main?
+        for (int i =0; i < userInput.getIterations(); i++) { //Would the reps be in initialize population or main?
             //STARTING THE GA
             GA ga = getGa(patchFactory, source,i);
             System.out.println();
@@ -66,7 +88,7 @@ public class GAMain {
 
     private static GA getGa(PatchFactory patchFactory, Source source, int rep ) throws Exception {
 
-        GA genetic = new GA();
+        GA genetic = new GA(userInput);
         LinkedList<Patch> population = genetic.initializePopulation(patchFactory, source);
         LinkedList<Patch> selectedPopulation = genetic.selection(population);
         LinkedList<Offspring> offspring = genetic.crossover(selectedPopulation, source);

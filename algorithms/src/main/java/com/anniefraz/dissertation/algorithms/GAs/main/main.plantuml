@@ -1,5 +1,4 @@
 @startuml
-
 title __MAIN's Class Diagram__\n
 
   package com.anniefraz.dissertation.algorithms.GAs.main {
@@ -30,8 +29,6 @@ title __MAIN's Class Diagram__\n
     }
   }
   
-
-
 
 right footer
 

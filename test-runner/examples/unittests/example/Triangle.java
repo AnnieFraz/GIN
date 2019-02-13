@@ -1,3 +1,4 @@
+package example;
 import java.io.PrintStream;
 import java.util.Random;
 

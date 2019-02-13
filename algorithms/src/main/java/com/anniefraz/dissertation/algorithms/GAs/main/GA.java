@@ -10,6 +10,7 @@ import com.anniefraz.dissertation.gin.source.Source;
 import com.anniefraz.dissertation.algorithms.GAs.main.fitness.FitnessEnergy;
 import com.anniefraz.dissertation.algorithms.GAs.main.fitness.FitnessMeasurement;
 import com.anniefraz.dissertation.algorithms.GAs.main.fitness.FitnessUnitTests;
+import com.anniefraz.dissertation.main.input.UserInput;
 import com.anniefraz.dissertation.test.runner.runner.UnitTestResultSet;
 import org.apache.commons.text.diff.EditScript;
 import org.mdkt.compiler.InMemoryJavaCompiler;
@@ -33,10 +34,15 @@ public class GA {
     public double secondFitness = 0;
     public Class<?> compileSource;
     public String output;
+    private static UserInput userInput;
 
     public int populationSize;
 
     private Random random = new Random(seed);
+
+    public GA(UserInput userInput) {
+        this.userInput = userInput;
+    }
 
     /*
         PHASE 1
@@ -111,8 +117,8 @@ public class GA {
         //System.out.println(output);
 
         try {
-           compileSource = InMemoryJavaCompiler.newInstance().compile("foo.ReverseString", output);
-           // compileSource = InMemoryJavaCompiler.newInstance().compile("example.Triangle", output);
+          // compileSource = InMemoryJavaCompiler.newInstance().compile(userInput.getPackageName()+"."+userInput.getClassFileName(), output);
+            compileSource = InMemoryJavaCompiler.newInstance().compile("example.Triangle", output);
 
 
         } catch (Exception e) {

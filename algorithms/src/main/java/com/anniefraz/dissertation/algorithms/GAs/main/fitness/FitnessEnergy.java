@@ -86,7 +86,8 @@ public class FitnessEnergy implements FitnessMeasurement<String> {
     }
 
     public double bytecodeHistogramOpacitor() throws Exception{
-        Opacitor opacitor = new Opacitor.OpacitorBuilder("foo", "ReverseString", new String[]{})
+        //Opacitor opacitor = new Opacitor.OpacitorBuilder("foo", "ReverseString", new String[]{})
+        Opacitor opacitor = new Opacitor.OpacitorBuilder("example", "Triangle", new String[]{})
                 .srcDirectory(testSrcDir)
                 .binDirectory(testBinDir)
                 .measurementType(MeasurementType.BYTECODE_HISTOGRAM)
@@ -99,7 +100,7 @@ public class FitnessEnergy implements FitnessMeasurement<String> {
         output = getOutput();
 
         double measurement;
-        opacitor.updateCode(Collections.singletonList(new Tuple3<>(output, "foo", "ReverseString")));
+        opacitor.updateCode(Collections.singletonList(new Tuple3<>(output, "example", "Triangle")));
         measurement = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});
         LOG.info("Measurement: {}", measurement);
 

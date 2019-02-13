@@ -7,9 +7,9 @@ import com.anniefraz.dissertation.gin.source.AnnaClass;
 import com.anniefraz.dissertation.gin.source.AnnaPath;
 import com.anniefraz.dissertation.gin.source.Source;
 import com.anniefraz.dissertation.gin.source.SourceFactory;
-import com.anniefraz.dissertation.main.results.Result;
-import com.anniefraz.dissertation.main.results.ResultFileWriter;
-import com.anniefraz.dissertation.main.results.ResultWriter;
+//import com.anniefraz.dissertation.main.results.Result;
+//import com.anniefraz.dissertation.main.results.ResultFileWriter;
+//import com.anniefraz.dissertation.main.results.ResultWriter;
 import com.anniefraz.dissertation.test.runner.runner.TestRunner;
 import com.anniefraz.dissertation.test.runner.runner.UnitTest;
 import com.anniefraz.dissertation.test.runner.runner.UnitTestResultSet;
@@ -72,7 +72,7 @@ public class Random {
 
     private static void compile(PatchFactory patchFactory, Source source, int noOfEdits) throws Exception {
         int i = 0;
-        ResultWriter resultWriter = new ResultFileWriter("Random");
+       // ResultWriter resultWriter = new ResultFileWriter("Random");
         while (i < REPS) {
 
             //Creation of a patch with many different edits
@@ -128,7 +128,7 @@ public class Random {
                 i++;
             }
             LOG.info("Current Repetition: {}", i);
-
+/*
            Result result = Result.getBuilder()
                     .setCurrentRep(i)
                     .setPatch(patch)
@@ -140,7 +140,7 @@ public class Random {
                     .setOpacitorMeasurement1(measurement)
                     .build();
 
-           resultWriter.writeResult(result);
+           resultWriter.writeResult(result);*/
             //setResults(i, patch, outputFileString, time, compiledClass, compileSuccess, unitTestResultSet);
 
         }

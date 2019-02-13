@@ -11,7 +11,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GATest {
-
+/*
     public GA genetic = new GA();
 
     private final static String exampleClass = "Triangle";
@@ -24,7 +24,7 @@ public class GATest {
     @Test
     public void neighbourMethod(Patch examplePatch){
 
-/*
+
         Patch neighbourPatch = genetic.mutation(examplePatch);
 
         for (int i=0; i<10; i++) {
@@ -40,5 +40,5 @@ public class GATest {
             assertTrue(addedAnEdit || removedAnEdit);
 */
      //   }
-    }
+  //  }
 }
