@@ -1,5 +1,6 @@
 package com.anniefraz.dissertation.algorithms.GAs.main.fitness;
 
+import com.anniefraz.dissertation.main.input.UserInput;
 import jeep.tuple.Tuple3;
 import opacitor.Opacitor;
 import opacitor.enumerations.GoalDirection;
@@ -25,6 +26,11 @@ public class FitnessEnergy implements FitnessMeasurement<String> {
     private String output;
 
     private double result;
+    private static UserInput userInput;
+
+    public FitnessEnergy(UserInput userInput) {
+        this.userInput = userInput;
+    }
 
     @Override
     public double measure (String output)  {
@@ -40,7 +46,7 @@ public class FitnessEnergy implements FitnessMeasurement<String> {
     }
 
     public double codeLengthOpacitor() throws Exception{
-        Opacitor opacitor = new Opacitor.OpacitorBuilder("example", "Triangle", new String[]{})
+        Opacitor opacitor = new Opacitor.OpacitorBuilder(userInput.getPackageName(), userInput.getClassFileName(), new String[]{})
                 .srcDirectory(testSrcDir)
                 .binDirectory(testBinDir)
                 .measurementType(MeasurementType.CODE_LENGTH)
@@ -87,7 +93,8 @@ public class FitnessEnergy implements FitnessMeasurement<String> {
 
     public double bytecodeHistogramOpacitor() throws Exception{
         //Opacitor opacitor = new Opacitor.OpacitorBuilder("foo", "ReverseString", new String[]{})
-        Opacitor opacitor = new Opacitor.OpacitorBuilder("example", "Triangle", new String[]{})
+       // Opacitor opacitor = new Opacitor.OpacitorBuilder("example", "Triangle", new String[]{})
+        Opacitor opacitor = new Opacitor.OpacitorBuilder(userInput.getPackageName(), userInput.getClassFileName(), new String[]{})
                 .srcDirectory(testSrcDir)
                 .binDirectory(testBinDir)
                 .measurementType(MeasurementType.BYTECODE_HISTOGRAM)
@@ -100,7 +107,7 @@ public class FitnessEnergy implements FitnessMeasurement<String> {
         output = getOutput();
 
         double measurement;
-        opacitor.updateCode(Collections.singletonList(new Tuple3<>(output, "example", "Triangle")));
+        opacitor.updateCode(Collections.singletonList(new Tuple3<>(output, userInput.getPackageName(), userInput.getClassFileName())));
         measurement = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});
         LOG.info("Measurement: {}", measurement);
 

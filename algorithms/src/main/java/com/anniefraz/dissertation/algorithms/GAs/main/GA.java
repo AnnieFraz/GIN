@@ -115,10 +115,16 @@ public class GA {
         output = String.join(System.lineSeparator(), annaClass.getLines());
 
         //System.out.println(output);
+        String className = userInput.getPackageName()+"."+userInput.getClassFileName();
+        System.out.println(className);
 
         try {
-          // compileSource = InMemoryJavaCompiler.newInstance().compile(userInput.getPackageName()+"."+userInput.getClassFileName(), output);
-            compileSource = InMemoryJavaCompiler.newInstance().compile("example.Triangle", output);
+           compileSource = InMemoryJavaCompiler.newInstance().compile(userInput.getPackageName()+"."+userInput.getClassFileName(), output);
+        /* if (className.equals("example.Triangle")) {
+             compileSource = InMemoryJavaCompiler.newInstance().compile("example.Triangle", output);
+         }else if (className.equals("foo.ReverseString")) {
+                compileSource = InMemoryJavaCompiler.newInstance().compile("foo.ReverseString", output);
+         }*/
 
 
         } catch (Exception e) {
@@ -167,13 +173,13 @@ public class GA {
     }
 
     public double unitTestFitnessScore(Patch patch) throws Exception {
-        FitnessMeasurement fitnessMeasurement = new FitnessUnitTests();
+        FitnessMeasurement fitnessMeasurement = new FitnessUnitTests(userInput);
         double result = fitnessMeasurement.measure(patch);
         return result;
     }
 
     public double energyFitnessScore(String output) {
-        FitnessMeasurement fitnessMeasurement = new FitnessEnergy();
+        FitnessMeasurement fitnessMeasurement = new FitnessEnergy(userInput);
         double result = fitnessMeasurement.measure(output);
         return result;
     }
