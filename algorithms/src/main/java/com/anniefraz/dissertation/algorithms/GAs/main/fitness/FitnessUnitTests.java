@@ -17,7 +17,7 @@ public class FitnessUnitTests implements FitnessMeasurement<Patch> {
 
     static Logger LOG = LoggerFactory.getLogger(FitnessUnitTests.class);
     private static final String PATHNAME = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\examples\\unittests";
-    private static UserInput userInput;
+    private UserInput userInput;
 
     public FitnessUnitTests(UserInput userInput) {
         this.userInput = userInput;

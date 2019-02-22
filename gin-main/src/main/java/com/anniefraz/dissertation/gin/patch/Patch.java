@@ -3,6 +3,7 @@ package com.anniefraz.dissertation.gin.patch;
 import com.anniefraz.dissertation.gin.edit.Edit;
 import com.anniefraz.dissertation.gin.source.Source;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Patch {
@@ -21,6 +22,18 @@ public class Patch {
         this.edits = edits;
         outputSource = source.clone();
         edits.forEach(outputSource::apply);
+    }
+
+    public Patch(Patch patch){
+        this.source = patch.source;
+        this.edits = new LinkedList<>(patch.edits);
+        this.outputSource = patch.outputSource;
+        this.fitnessScore = patch.fitnessScore;
+        this.compileTime = patch.compileTime;
+        this.unitTestScore = patch.unitTestScore;
+        this.opacitorMeasurement1 = patch.opacitorMeasurement1;
+        this.opacitorMeasurement2 = patch.opacitorMeasurement2;
+        this.compiled = patch.compiled;
     }
 
     public Patch clone(Patch patch){

@@ -24,6 +24,7 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.LinkedList;
+import java.util.List;
 
 public class GAMain {
     private static int ITERATIONS = 1;
@@ -35,7 +36,6 @@ public class GAMain {
     //private static final String PATHNAME = "/Users/annarasburn/Documents/gin/AnnaGin/test-runner/examples/unittests/";
     private static final String PATHNAME = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\examples\\unittests";
     private static CSVResultWriter RESULTWRITER;
-    private static UserInput userInput = new UserInput();
     private static GA genetic; // = new GA();
 
     static {
@@ -50,37 +50,36 @@ public class GAMain {
         if (args.length < 4) {
             LOG.error("There are not enough Parameters");
         } else {
-            userInput.setClassFileName(args[0]);
-            userInput.setTestFileName(args[1]);
-            userInput.setPackageName(args[2]);
-            userInput.setIterations(Integer.parseInt(args[3]));
+            UserInput userInput = UserInput.getBuilder()
+                    .setClassFileName(args[0])
+                    .setTestFileName(args[1])
+                    .setPackageName(args[2])
+                    .setIterations(Integer.parseInt(args[3]))
+                    .build();
 
-            System.out.println(args[0]);
-            System.out.println(args[1]);
-            System.out.println(args[2]);
-            System.out.println(args[3]);
-            initialise();
+            LOG.info("Recieved User Input: {}", userInput);
+            initialise(userInput);
         }
     }
 
-    public static void initialise() throws Exception {
+    public static void initialise(UserInput userInput) throws Exception {
         APPLICATIONCONTEXT = new AnnotationConfigApplicationContext(ApplicationConfig.class);
         PatchFactory patchFactory = APPLICATIONCONTEXT.getBean(PatchFactory.class);
         SourceFactory sourceFactory = new SourceFactory(Paths.get(PATHNAME));
         AnnaPath annaPath = AnnaPath.getBuilder().addPackage(userInput.getPackageName()).setClassName(userInput.getClassFileName()).build();
         Source source = sourceFactory.getSourceFromAnnaPath(annaPath);
-        GA genetic = new GA(userInput);
-        LinkedList<Patch> startPopulation = genetic.initializePopulation(patchFactory, source);
-        GA ga = getGa(patchFactory, source, startPopulation);
+        genetic = new GA(userInput);
+        List<Patch> startPopulation = genetic.initializePopulation(patchFactory, source);
+        GA ga = getGa(patchFactory, source, startPopulation, userInput);
         ((Closeable) APPLICATIONCONTEXT).close();
     }
 
-    private static GA getGa(PatchFactory patchFactory, Source source, LinkedList<Patch> population) throws Exception {
+    private static GA getGa(PatchFactory patchFactory, Source source, List<Patch> population, UserInput userInput) throws Exception {
 
         for (int i = 0; i < userInput.getIterations(); i++) { //Would the reps be in initialize population or main?
-            LinkedList<Patch> selectedPopulation = genetic.selection(population);
-            LinkedList<Offspring> offspring = genetic.crossover(selectedPopulation, source);
-            LinkedList<Neighbour> neighbours = new LinkedList();
+            List<Patch> selectedPopulation = genetic.selection(population);
+            List<Offspring> offspring = genetic.crossover(selectedPopulation, source);
+            List<Neighbour> neighbours = new LinkedList<>();
             for (int child = 0; child < offspring.size(); child++) {
                 Neighbour neighbour = genetic.mutation(offspring.get(child));
                 neighbours.add(child, neighbour);
@@ -100,11 +99,9 @@ public class GAMain {
                     .build();
             RESULTWRITER.writeResult(csvResult);
 
-            LinkedList<Patch> newPopulation = secondPopulation(offspring, neighbours);
+            List<Patch> newPopulation = secondPopulation(offspring, neighbours);
             population.clear();
-            for (int j = 0; j < newPopulation.size(); j++) {
-                population.add(newPopulation.get(j));
-            }
+            population.addAll(newPopulation);
             //population = newPopulation;
             System.out.println();
             LOG.info("CURRENT ITERATION:{} ", i + 1);
@@ -113,16 +110,10 @@ public class GAMain {
         return genetic;
     }
 
-    private static LinkedList<Patch> secondPopulation(LinkedList<Offspring> offspring, LinkedList<Neighbour> neighbours) {
-        LinkedList<Patch> nextPopulation = new LinkedList<Patch>();
-        for (int i = 0; i < offspring.size(); i++) {
-
-            nextPopulation.add(offspring.get(i));
-        }
-        for (int i = 0; i < neighbours.size(); i++) {
-            nextPopulation.add(neighbours.get(i));
-        }
-
+    private static List<Patch> secondPopulation(List<Offspring> offspring, List<Neighbour> neighbours) {
+        LOG.info("Call to secondPopulation with args offspring [{}] and neighbours [{}]", offspring, neighbours);
+        LinkedList<Patch> nextPopulation = new LinkedList<>(offspring);
+        nextPopulation.addAll(neighbours);
         return nextPopulation;
     }
 

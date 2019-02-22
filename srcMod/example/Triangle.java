@@ -6,6 +6,47 @@ public class Triangle {
     static final int INVALID = 0;
     static final int SCALENE = 1;
     static final int EQUALATERAL = 2;
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
+//this is a comment
     static final int ISOCELES = 3;
     public static int classifyTriangle(int a, int b, int c) {
         delay();

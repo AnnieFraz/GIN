@@ -1,49 +1,86 @@
 package com.anniefraz.dissertation.main.input;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+
 public class UserInput {
 
-    private static String classFileName;
+    private final String classFileName;
+    private final String testFileName;
+    private final String packageName;
+    private final int iterations;
 
-    private static String testFileName;
 
-    private static String packageName;
-
-    public UserInput() {
-
+    private UserInput(UserInputBuilder builder) {
+        classFileName = builder.classFileName;
+        testFileName = builder.testFileName;
+        packageName = builder.packageName;
+        iterations = builder.iterations;
     }
 
-    public static String getClassFileName() {
+    public String getClassFileName() {
         return classFileName;
     }
 
-    public static void setClassFileName(String classFileName) {
-        UserInput.classFileName = classFileName;
-    }
-
-    public static String getTestFileName() {
+    public String getTestFileName() {
         return testFileName;
     }
 
-    public static void setTestFileName(String testFileName) {
-        UserInput.testFileName = testFileName;
-    }
-
-    public static String getPackageName() {
+    public String getPackageName() {
         return packageName;
     }
 
-    public static void setPackageName(String packageName) {
-        UserInput.packageName = packageName;
-    }
-
-    public static int getIterations() {
+    public int getIterations() {
         return iterations;
     }
 
-    public static void setIterations(int iterations) {
-        UserInput.iterations = iterations;
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("classFileName", classFileName)
+                .append("testFileName", testFileName)
+                .append("packageName", packageName)
+                .append("iterations", iterations)
+                .toString();
     }
 
-    private static int iterations;
+    public static UserInputBuilder getBuilder(){
+        return new UserInputBuilder();
+    }
 
+    public static class UserInputBuilder{
+
+        private String classFileName;
+        private String testFileName;
+        private String packageName;
+        private int iterations;
+
+        private UserInputBuilder() {
+        }
+
+        public UserInputBuilder setClassFileName(String classFileName) {
+            this.classFileName = classFileName;
+            return this;
+        }
+
+        public UserInputBuilder setTestFileName(String testFileName) {
+            this.testFileName = testFileName;
+            return this;
+        }
+
+        public UserInputBuilder setPackageName(String packageName) {
+            this.packageName = packageName;
+            return this;
+        }
+
+        public UserInputBuilder setIterations(int iterations) {
+            this.iterations = iterations;
+            return this;
+        }
+
+        public UserInput build(){
+            return new UserInput(this);
+        }
+
+
+    }
 }
