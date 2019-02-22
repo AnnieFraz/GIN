@@ -7,4 +7,6 @@ import java.util.List;
 public interface SelectionMethod {
 
     List<Patch> select (List<Patch> patches);
+
+
 }
