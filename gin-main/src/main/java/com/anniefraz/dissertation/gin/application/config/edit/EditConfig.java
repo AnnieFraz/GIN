@@ -96,7 +96,7 @@ public class EditConfig {
         };
     }
 
-/*
+
     @Bean
     public Function<AnnaClass, Edit> moveBlockEdit(){
         return anAnnaClass -> {
@@ -121,7 +121,7 @@ public class EditConfig {
         };
     }
 
-*/
+
     @Bean
     public Function<AnnaClass,  Edit> noEditEdit(){
         return anAnnaClass -> {

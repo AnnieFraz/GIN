@@ -16,7 +16,7 @@ public class SwapBlockEdit extends SingleClassEdit {
     private final int blockTwoEndNo;
 
     public SwapBlockEdit(int blockOneStartNo, int blockOneEndNo, int blockTwoStartNo, int blockTwoEndNo, AnnaPath annaPath) {
-        super(annaPath);
+            super(annaPath);
         this.blockOneStartNo = blockOneStartNo;
         this.blockOneEndNo = blockOneEndNo;
         this.blockTwoStartNo = blockTwoStartNo;
@@ -62,8 +62,8 @@ public class SwapBlockEdit extends SingleClassEdit {
             for (int i = 0; i < block1.size() + 1; i++) {
 
                 String line1 = lines.remove(blockOneStartNo + i);
-                String line2 = lines.remove(blockTwoStartNo + i);
-                lines.add(blockTwoStartNo + i, line1);
+                String line2 = lines.remove((blockTwoStartNo -1) + i);
+                lines.add((blockTwoStartNo -1)+ i, line1);
                 lines.add(blockOneStartNo + i, line2);
             }
         }

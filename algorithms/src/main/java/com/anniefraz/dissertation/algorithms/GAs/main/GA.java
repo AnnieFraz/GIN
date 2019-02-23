@@ -1,5 +1,9 @@
 package com.anniefraz.dissertation.algorithms.GAs.main;
 
+import com.anniefraz.dissertation.algorithms.GAs.main.crossover.CrossoverMethod;
+import com.anniefraz.dissertation.algorithms.GAs.main.crossover.CrossoverThreeOffspring;
+import com.anniefraz.dissertation.algorithms.GAs.main.selection.RandomSelection;
+import com.anniefraz.dissertation.algorithms.GAs.main.selection.SelectionMethod;
 import com.anniefraz.dissertation.gin.edit.Edit;
 import com.anniefraz.dissertation.gin.patch.Neighbour;
 import com.anniefraz.dissertation.gin.patch.Offspring;
@@ -16,19 +20,20 @@ import org.apache.commons.text.diff.EditScript;
 import org.mdkt.compiler.InMemoryJavaCompiler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.expression.spel.ast.Selection;
 import sun.awt.image.ImageWatched;
 
 import java.nio.file.Paths;
 import java.util.*;
 
+/**
+ *
+ */
 public class GA {
-
     private static final Logger LOG = LoggerFactory.getLogger(GA.class);
     private static final String PATHNAME = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\examples\\unittests";
 
-    public static int seed = 1000;
-    //Logger - need to refactor so there is a logger at the top of every class
-
+    private static int seed = 1000;
     private UserInput userInput;
     public int populationSize;
     private Random random = new Random(seed);
@@ -37,17 +42,16 @@ public class GA {
         this.userInput = userInput;
     }
 
-    /*
-        PHASE 1
-        Sets the size of the population
-        One character in a binary string is a gene
-        A Binary string e.g. 0111010 is a Chromosone
-        A collection of binary strings is a population.
-         */
+    /**
+     * Phase 1: Sets the size of the population
+     *         One character in a binary string is a gene
+     *         A Binary string e.g. 0111010 is a Chromosone
+     *         A collection of binary strings is a population.
+     * @param patchFactory
+     * @param source
+     * @return
+     */
     public List<Patch> initializePopulation(PatchFactory patchFactory, Source source) {
-        //First Patch
-
-       // int populationSize = new Random().nextInt(10)+1;
         this.populationSize = random.nextInt(10);
         LOG.info("Population Size: {}", populationSize);
         List<Patch> patches = generateABunchOfPatches(patchFactory, source, populationSize);
@@ -55,19 +59,7 @@ public class GA {
             LOG.info("Patch {} out of {}", i, populationSize);
             patchData(patches.get(i));
         }
-        //Patch[] theBreedingPair = selection(patches);
-
-       // Patch[] offspring = crossover(theBreedingPair, source);
-
-       // mutation(offspring[1]);
-
         return patches;
-    }
-    public LinkedList<Patch> secondPopulation(LinkedList<Patch> population){
-        for (int i =0; i < population.size(); i++){
-            patchData(population.get(i));
-        }
-        return population;
     }
 
     public void patchData(Patch patch) {
@@ -108,15 +100,7 @@ public class GA {
 
         try {
            compileSource = InMemoryJavaCompiler.newInstance().compile(userInput.getPackageName()+"."+userInput.getClassFileName(), output);
-        /* if (className.equals("example.Triangle")) {
-             compileSource = InMemoryJavaCompiler.newInstance().compile("example.Triangle", output);
-         }else if (className.equals("foo.ReverseString")) {
-                compileSource = InMemoryJavaCompiler.newInstance().compile("foo.ReverseString", output);
-         }*/
-
-
-        } catch (Exception e) {
-           // e.printStackTrace();
+               } catch (Exception e) {
             LOG.error("Error in calculate fitness method", e);
         }
 
@@ -125,13 +109,10 @@ public class GA {
         double opacitorMeasurement = 0;
         double unitTestResult = 0.5;
 
-        //private static int NOOFEDITS = 4; //Need to discuss with Sandy
-        boolean COMPILATIONSUCCESFUL;
         if (compileSource == null) {
             compileTime = System.currentTimeMillis();
             patch.setCompileTime(compileTime);
-            //COMPILATIONSUCCESFUL = false;
-            patch.setCompiled(COMPILATIONSUCCESFUL = false);//todo check if this sets it to false
+            patch.setCompiled(false);
             LOG.info("DID NOT COMPILE");
             LOG.info("TIME:{}", compileTime);
             unitTestResult = 12345.0; //obvious bogous fitness score
@@ -140,8 +121,7 @@ public class GA {
         } else {
             compileTime = System.currentTimeMillis();
             patch.setCompileTime(compileTime);
-            //COMPILATIONSUCCESFUL = true;
-            patch.setCompiled(COMPILATIONSUCCESFUL = true);
+            patch.setCompiled(true);
             LOG.info("COMPILE");
             LOG.info("TIME:{}", compileTime);
 
@@ -179,32 +159,9 @@ public class GA {
     higher FitnessMeasurement higher Chance of being chosen
      */
     public List<Patch> selection(List<Patch> patches) { //Have a second patch to be the second parent and work out the fitness of that patch too
-        List<Patch> returnPatch = new LinkedList<>();
-        LOG.info("Intial length of array:" + returnPatch.size());
-        Patch patch1 = patches.get(random.nextInt(patches.size()));
-        Patch patch2 = patches.get(random.nextInt(patches.size()));
 
-        if (patch1.getFitnessScore() < patch2.getFitnessScore()) {
-            returnPatch.add(0, patch1);
-            LOG.info("Patch 1 fitness: {}", patch1.getFitnessScore());
-        } else {
-            returnPatch.add(0, patch2);
-            LOG.info("Patch 2 fitness:{}", patch2.getFitnessScore());
-
-        }
-
-        Patch patch3 = patches.get(random.nextInt(patches.size()));
-        Patch patch4 = patches.get(random.nextInt(patches.size()));
-
-        if (patch3.getFitnessScore() < patch4.getFitnessScore()) {
-            returnPatch.add(1,patch3);
-            LOG.info("Patch 3 fitness: {}", patch3.getFitnessScore());
-        } else {
-            returnPatch.add(1,patch4);
-            LOG.info("Patch 4 fitness: {}",  patch4.getFitnessScore());
-
-        }
-        return returnPatch;
+        RandomSelection selectionMethod = new RandomSelection();
+        return selectionMethod.select(patches);
 
     }
 
@@ -214,44 +171,13 @@ public class GA {
     Children are made by exchanging parents genes until crossover point is reacher
      */
     public List<Offspring> crossover(List<Patch> parents, Source source) {
-        Patch parent1 = parents.get(0);
-        Patch parent2 = parents.get(1);
-        List<Offspring>offspring = new LinkedList<>();
+        CrossoverMethod crossoverMethod = new CrossoverThreeOffspring();
+        List<Offspring>offspring = crossoverMethod.crossover(parents, source);
 
+        for (int i = 0; i < offspring.size() ; i++) {
+            patchData(offspring.get(i));
+        }
 
-        List<Edit> offspringEdits1 = new LinkedList<>(parent1.getEdits());
-        offspringEdits1.add(parent2.getEdits().get(new Random().nextInt(parent2.getEdits().size())));
-
-        List<Edit> offspringEdits2 = new LinkedList<>(parent2.getEdits());
-        offspringEdits2.add(parent1.getEdits().get(new Random().nextInt(parent1.getEdits().size())));
-
-        List<Edit> offspringEdits3 = new LinkedList<>();
-        offspringEdits3.addAll(parent1.getEdits());
-        offspringEdits3.addAll(parent2.getEdits());
-
-        Offspring offspring1 = new Offspring(source, offspringEdits1);
-        LOG.info("Offpring 1:Patch edit list: " + offspring1.getEdits().size());
-        LOG.debug("Offpring 1:Edits list size: " + offspringEdits1.size());
-        offspring1.setOrigin("All of P2, bit of P1");
-        patchData(offspring1);
-
-        Offspring offspring2 = new Offspring(source, offspringEdits2);
-        LOG.info("Offpring 2:Patch edit list: " + offspring2.getEdits().size());
-        LOG.debug("Offpring 2:Edits list size: " + offspringEdits2.size());
-        offspring2.setOrigin("All of P1, bit of P2");
-        patchData(offspring2);
-
-
-        Offspring offspring3 = new Offspring(source, offspringEdits3);
-        LOG.info("Offpring 3:Patch edit list: " + offspring3.getEdits().size());
-        LOG.debug("Offpring 3:Edits list size: " + offspringEdits3.size());
-        offspring3.setOrigin("All of P2, All of P1");
-        patchData(offspring3);
-
-
-        offspring.add(0, offspring1);
-        offspring.add(1, offspring2);
-        offspring.add(2, offspring3);
         return offspring;
 
     }
@@ -262,14 +188,12 @@ public class GA {
     */
     public Neighbour mutation(Offspring patch) {
         Neighbour neighbour = new Neighbour(patch);
-
         List<Edit> edits = neighbour.getEdits();
         if (patch.getEdits().size() > 0 && patch.getFitnessScore() < 1.0 || patch.getFitnessScore() >= 24690.0) {
             edits.remove(random.nextInt(edits.size()));
         } else {
             edits.add(random.nextInt(edits.size()+1), patch.getEdits().get(random.nextInt(patch.getEdits().size())));
         }
-
         patchData(neighbour);
         LOG.info("new Neighbour generated: {}", neighbour);
         LOG.info("Neighbour number of Edits:{}", edits.size());

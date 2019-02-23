@@ -37,8 +37,8 @@ public class RemoveBlockEdit extends SingleClassEdit {
         }
 
         List<String> lines = annaClass.getLines();
-        for (int i = startBlockInt; i < endBlockInt; i++){
-            lines.remove(i);
+        for (int i = startBlockInt; i <= endBlockInt; i++){
+            lines.remove(startBlockInt);
         }
 
 

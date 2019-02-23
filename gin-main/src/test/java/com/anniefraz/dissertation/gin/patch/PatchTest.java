@@ -57,7 +57,7 @@ public class PatchTest {
         assertEquals(2, originalAnnaClass.getLines().size());
         Source source = patch.getOutputSource();
         AnnaClass annaClass = source.getAnnaClasses().get(0);
-        assertEquals(1, annaClass.getLines().size());
+        assertEquals(2, annaClass.getLines().size());
         assertEquals("line 2", annaClass.getLines().get(0));
     }
 }

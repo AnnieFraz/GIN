@@ -31,7 +31,7 @@ public class GAMain {
     private static int editNumberSeed = 4;
     private static int noofEditsNoRandom = 1;
     private static boolean compileSuccess;
-    static Logger LOG = LoggerFactory.getLogger(GAMain.class);
+    private static final Logger LOG = LoggerFactory.getLogger(GAMain.class);
     static ApplicationContext APPLICATIONCONTEXT;
     //private static final String PATHNAME = "/Users/annarasburn/Documents/gin/AnnaGin/test-runner/examples/unittests/";
     private static final String PATHNAME = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\examples\\unittests";
