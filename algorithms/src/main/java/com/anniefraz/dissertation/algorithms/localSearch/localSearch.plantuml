@@ -2,8 +2,10 @@
 
 title __LOCALSEARCH's Class Diagram__\n
 
-  package com.anniefraz.dissertation.algorithms.localSearch {
-    class LocalSearch {
+  package  {
+    package com.anniefraz.dissertation.algorithms.localSearch {
+      class LocalSearch {
+      }
     }
   }
   

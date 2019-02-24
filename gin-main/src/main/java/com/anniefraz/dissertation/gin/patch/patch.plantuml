@@ -8,7 +8,6 @@ title __PATCH's Class Diagram__\n
         class Neighbour {
             + Neighbour()
             + getParent()
-            + setParent()
             + toString()
         }
       }
@@ -23,7 +22,6 @@ title __PATCH's Class Diagram__\n
             - origin : String
             - edits : List<Edit>
             + Offspring()
-            + getOrigin()
             + setOrigin()
             + toString()
             + getPatch()
@@ -44,6 +42,7 @@ title __PATCH's Class Diagram__\n
             - opacitorMeasurement1 : double
             - opacitorMeasurement2 : double
             - compiled : boolean
+            + Patch()
             + Patch()
             + clone()
             + getSource()

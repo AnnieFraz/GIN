@@ -44,20 +44,8 @@ title __MAIN's Class Diagram__\n
   }
   
 
-  package com.anniefraz.dissertation.main.results {
-    class Result {
-    }
-  }
-  
-
-  package com.anniefraz.dissertation.main.results {
-    class ResultFileWriter {
-    }
-  }
-  
-
-  package com.anniefraz.dissertation.main.results {
-    interface ResultWriter {
+  package com.anniefraz.dissertation.main.input {
+    class TestUserInput {
     }
   }
   
@@ -65,8 +53,6 @@ title __MAIN's Class Diagram__\n
   CSVResult o-- Patch : offspringParent
   CSVResultBuilder o-- Patch : offspringParent
   CSVResultFileWriter -up-|> CSVResultWriter
-  Result o-- Patch : patch
-  ResultFileWriter -up-|> ResultWriter
 
 
 right footer

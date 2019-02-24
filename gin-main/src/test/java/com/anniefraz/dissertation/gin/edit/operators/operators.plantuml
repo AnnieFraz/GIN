@@ -7,12 +7,10 @@ title __OPERATORS's Class Diagram__\n
       package com.anniefraz.dissertation.gin.edit {
         package com.anniefraz.dissertation.gin.edit.operators {
           class IfStatementEditTest {
-              ~ lineIndex : int
-              ~ secondCondition : String
+              - testLines : List<String>
               ~ initialise()
               ~ testGetOperator()
               ~ testChangeOperator()
-              ~ testChangeLine()
               ~ testApplyMethod()
           }
         }
@@ -22,8 +20,8 @@ title __OPERATORS's Class Diagram__\n
   
 
   IfStatementEditTest o-- AnnaPath : annaPath
-  IfStatementEditTest o-- Source : sourceFromAnnaPath
-  IfStatementEditTest o-- Edit : edit
+  IfStatementEditTest o-- Source : source
+  IfStatementEditTest o-- AnnaClass : annaClass
 
 
 right footer

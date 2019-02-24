@@ -1,6 +1,16 @@
 @startuml
 
-title __EXAMPLE's Class Diagram__\n
+title __FOO's Class Diagram__\n
+
+  package  {
+    package foo {
+      class ReverseString {
+          + ReverseString()
+          {static} + main()
+      }
+    }
+  }
+  
 
 
 

@@ -14,7 +14,7 @@ title __GIN's Class Diagram__\n
   package  {
     package com.anniefraz.dissertation.gin {
       class Main {
-          {static} ~ LOG : Logger
+          {static} - LOG : Logger
           {static} - REPS : int
           {static} + compile_output_code()
           {static} + compilePackage()

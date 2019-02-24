@@ -1,6 +1,17 @@
 @startuml
 
-title __EXAMPLE's Class Diagram__\n
+title __BOOP's Class Diagram__\n
+
+  package  {
+    package boop {
+      class ExampleTest {
+          + testReturnTen()
+          + emptyTest()
+          + testReturnOneHundred()
+      }
+    }
+  }
+  
 
 
 

@@ -8,7 +8,7 @@ title __APPLICATION's Class Diagram__\n
         {static} - editNumberSeed : int
         {static} - noofEditsNoRandom : int
         {static} - compileSuccess : boolean
-        {static} ~ LOG : Logger
+        {static} - LOG : Logger
         {static} ~ applicationContext : ApplicationContext
         {static} - PATHNAME : String
         {static} + main()

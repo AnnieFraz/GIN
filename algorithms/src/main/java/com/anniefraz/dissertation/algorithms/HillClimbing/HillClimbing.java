@@ -1,9 +1,7 @@
 package com.anniefraz.dissertation.algorithms.HillClimbing;
 
-import com.anniefraz.dissertation.algorithms.GAs.main.GA;
 import com.anniefraz.dissertation.algorithms.GAs.main.fitness.FitnessEnergy;
 import com.anniefraz.dissertation.algorithms.GAs.main.fitness.FitnessUnitTests;
-import com.anniefraz.dissertation.algorithms.GAs.main.selection.RandomSelection;
 import com.anniefraz.dissertation.gin.patch.Patch;
 import com.anniefraz.dissertation.gin.patch.PatchFactory;
 import com.anniefraz.dissertation.gin.source.AnnaClass;
@@ -13,7 +11,6 @@ import org.mdkt.compiler.InMemoryJavaCompiler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -74,15 +71,15 @@ public class HillClimbing {
         return patchFactory.getPatchForSourceWithEdits(source, 1);
     }
 
-    public void evaluate(Patch patch){
+    public void evaluate(Patch patch) {
         score = fitnessScore(patch);
 
-        if (score < bestScore){
+        if (score < bestScore) {
             bestScore = score;
             bestPatch = patch;
             LOG.info("The best score is:{} with patch {}", bestScore, bestPatch);
         }
-        if (score > worstScore){
+        if (score > worstScore) {
             worstScore = score;
             worstPach = patch;
             LOG.info("The worst score is:{} with patch {}", worstScore, worstPach);
@@ -92,16 +89,17 @@ public class HillClimbing {
         optimize(patch);
     }
 
-    public void optimize(Patch patch){
+    public void optimize(Patch patch) {
         evaluate(patch);
 
-        while (!stop && currentIteration < userInput.getIterations()){
-            if (score < previousScore ){
+        while (!stop && currentIteration < userInput.getIterations()) {
+            if (score < previousScore) {
                 replacePrevious(score, patch);
             }
             patch = generatePatch(patchFactory, source);
             evaluate(patch);
         }
+        // currentIteration++;
     }
 
     private void replacePrevious(double score, Patch patch) {
@@ -109,7 +107,7 @@ public class HillClimbing {
         previousPatch = patch;
     }
 
-    public double fitnessScore( Patch patch){
+    public double fitnessScore(Patch patch) {
         Class<?> compileSource = null;
         List<AnnaClass> classList = source.getAnnaClasses();
         AnnaClass annaClass = classList.get(0);
@@ -159,5 +157,9 @@ public class HillClimbing {
 
     public PatchFactory getPatchFactory() {
         return patchFactory;
+    }
+
+    public void stop() {
+        stop = true;
     }
 }

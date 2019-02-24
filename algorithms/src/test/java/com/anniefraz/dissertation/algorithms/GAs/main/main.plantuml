@@ -2,18 +2,30 @@
 
 title __MAIN's Class Diagram__\n
 
-  package com.anniefraz.dissertation.algorithms.GAs.main {
-    class GATest {
-        {static} - exampleClass : String
-        {static} - exampleSource : Source
-        {static} - exampleEdits : LinkedList<Edit>
-        {static} - examplePatch : Patch
-        + neighbourMethod()
+  package  {
+    package com.anniefraz.dissertation.algorithms.GAs.main {
+      class GATest {
+          {static} - testSeed : int
+          - testRandom : Random
+          - patches : List<Patch>
+          - offsprings : List<Offspring>
+          - neighbours : List<Neighbour>
+          + initialize()
+          + testRandom()
+          + testInitialisePopulation()
+          + testCrossover()
+          + testMutation()
+      }
     }
   }
   
 
-  GATest o-- GA : genetic
+  GATest o-- PatchFactory : patchFactory
+  GATest o-- Source : source
+  GATest o-- AnnaPath : annaPath
+  GATest o-- AnnaClass : annaClass
+  GATest o-- UserInput : userInput
+  GATest o-- GA : ga
 
 
 right footer

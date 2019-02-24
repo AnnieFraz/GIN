@@ -11,6 +11,12 @@ title __EXPERIMENTS's Class Diagram__\n
   
 
   package  {
+    class IterativeBubbleSort {
+    }
+  }
+  
+
+  package  {
     package com.anniefraz.dissertation.experiments {
       package com.anniefraz.dissertation.experiments.loops {
         class IterativeBubbleSort {
@@ -29,14 +35,18 @@ title __EXPERIMENTS's Class Diagram__\n
   
 
   package  {
-    class IterativeBubbleSort {
+    package com.anniefraz.dissertation.experiments {
+      class Main {
+      }
     }
   }
   
 
   package  {
     package com.anniefraz.dissertation.experiments {
-      class Main {
+      package com.anniefraz.dissertation.experiments.loops {
+        class RecursiveBubbleSort {
+        }
       }
     }
   }
@@ -52,16 +62,6 @@ title __EXPERIMENTS's Class Diagram__\n
 
   package  {
     class RecursiveBubbleSort {
-    }
-  }
-  
-
-  package  {
-    package com.anniefraz.dissertation.experiments {
-      package com.anniefraz.dissertation.experiments.loops {
-        class RecursiveBubbleSort {
-        }
-      }
     }
   }
   

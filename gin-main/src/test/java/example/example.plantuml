@@ -3,8 +3,15 @@
 title __EXAMPLE's Class Diagram__\n
 
   package  {
-    class HelloWorld {
-        {static} + main()
+    package example {
+      class TriangleTest {
+          + TriangleTest()
+          - checkClassification()
+          + testInvalidTriangles()
+          + testEqualateralTriangles()
+          + testIsocelesTriangles()
+          + testScaleneTriangles()
+      }
     }
   }
   

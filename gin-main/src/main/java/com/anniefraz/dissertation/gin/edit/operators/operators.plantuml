@@ -13,10 +13,8 @@ title __OPERATORS's Class Diagram__\n
               {static} - SECOND_CONDITION : String
               - lineIndex : int
               + IfStatementEdit()
-              {static} + getFirstCondition()
               {static} + findFirstCondition()
               {static} + findSecondCondition()
-              {static} + getSecondCondition()
               + swapConditions()
               ~ getOperator()
               ~ changeLine()

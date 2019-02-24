@@ -56,16 +56,6 @@ title __GIN's Class Diagram__\n
 
   package  {
     package com.anniefraz.dissertation.gin {
-      package com.anniefraz.dissertation.gin.application {
-        class CodeToTestRunner {
-        }
-      }
-    }
-  }
-  
-
-  package  {
-    package com.anniefraz.dissertation.gin {
       class CompileExample {
       }
     }
@@ -101,6 +91,22 @@ title __GIN's Class Diagram__\n
             }
           }
         }
+      }
+    }
+  }
+  
+
+  package  {
+    package boop {
+      class Example {
+      }
+    }
+  }
+  
+
+  package  {
+    package boop {
+      class ExampleBase {
       }
     }
   }
@@ -307,6 +313,14 @@ title __GIN's Class Diagram__\n
   
 
   package  {
+    package foo {
+      class ReverseString {
+      }
+    }
+  }
+  
+
+  package  {
     package com.anniefraz.dissertation.gin {
       package com.anniefraz.dissertation.gin.patch {
         class SimplePatchFactory {
@@ -378,17 +392,10 @@ title __GIN's Class Diagram__\n
   }
   
 
-  package  {
-    package example {
-      class TriangleTest {
-      }
-    }
-  }
-  
-
   AnnaClass -up-|> Source
   AnnaClass o-- AnnaPath : className
   AnnaPackage -up-|> Source
+  Example -up-|> ExampleBase
   IfStatementEdit -up-|> SingleClassEdit
   InsertBreakEdit -up-|> SingleClassEdit
   InsertLineEdit -up-|> SingleClassEdit

@@ -1,10 +1,15 @@
 @startuml
 
-title __EXAMPLE's Class Diagram__\n
+title __FOO's Class Diagram__\n
 
   package  {
-    class HelloWorld {
-        {static} + main()
+    package foo {
+      class ReverseStringTest {
+          + test1()
+          + test2()
+          + canDealWithUpperCaseTest()
+          + failWithNumbers()
+      }
     }
   }
   

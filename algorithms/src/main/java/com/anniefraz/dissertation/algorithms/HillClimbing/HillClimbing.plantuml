@@ -2,15 +2,42 @@
 
 title __HILLCLIMBING's Class Diagram__\n
 
-  package com.anniefraz.dissertation.algorithms.HillClimbing {
-    class HillClimbing {
-        + generateRandomSolution()
-        + evaluate()
+  package  {
+    package com.anniefraz.dissertation.algorithms.HillClimbing {
+      class HillClimbing {
+          {static} - LOG : Logger
+          - bestScore : double
+          - worstScore : double
+          - score : double
+          - totalScore : double
+          - previousScore : double
+          {static} - seed : int
+          + populationSize : int
+          - random : Random
+          - stop : boolean
+          - currentIteration : int
+          + HillClimbing()
+          + patchData()
+          + generateABunchOfPatches()
+          + generatePatch()
+          + evaluate()
+          + optimize()
+          - replacePrevious()
+          + fitnessScore()
+          + getSource()
+          + getPatchFactory()
+          + stop()
+      }
     }
   }
   
 
-  HillClimbing o-- GA : ga
+  HillClimbing o-- UserInput : userInput
+  HillClimbing o-- Patch : bestPatch
+  HillClimbing o-- Patch : worstPach
+  HillClimbing o-- Patch : previousPatch
+  HillClimbing o-- PatchFactory : patchFactory
+  HillClimbing o-- Source : source
 
 
 right footer

@@ -7,6 +7,7 @@ title __BLOCK's Class Diagram__\n
       package com.anniefraz.dissertation.gin.edit {
         package com.anniefraz.dissertation.gin.edit.block {
           class MoveBlockEdit {
+              {static} - LOG : Logger
               - startBlockInt : int
               - endBlockInt : int
               - newLocation : int
@@ -25,6 +26,7 @@ title __BLOCK's Class Diagram__\n
       package com.anniefraz.dissertation.gin.edit {
         package com.anniefraz.dissertation.gin.edit.block {
           class RemoveBlockEdit {
+              {static} - LOG : Logger
               - startBlockInt : int
               - endBlockInt : int
               + RemoveBlockEdit()
@@ -42,6 +44,7 @@ title __BLOCK's Class Diagram__\n
       package com.anniefraz.dissertation.gin.edit {
         package com.anniefraz.dissertation.gin.edit.block {
           class SwapBlockEdit {
+              {static} - LOG : Logger
               - blockOneStartNo : int
               - blockOneEndNo : int
               - blockTwoStartNo : int

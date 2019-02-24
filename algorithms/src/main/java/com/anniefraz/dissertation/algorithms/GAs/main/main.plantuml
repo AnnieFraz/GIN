@@ -1,34 +1,31 @@
 @startuml
+
 title __MAIN's Class Diagram__\n
 
-  package com.anniefraz.dissertation.algorithms.GAs.main {
-    class GA {
-        {static} - PATHNAME : String
-        {static} + seed : int
-        {static} ~ LOG : Logger
-        {static} - ITERATIONS : int
-        {static} - COMPILATIONSUCCESFUL : boolean
-        {static} - FITNESSSCORE : double
-        + firstFitness : double
-        + secondFitness : double
-        + compileSource : Class<?>
-        + output : String
-        + populationSize : int
-        - random : Random
-        + initializePopulation()
-        + secondPopulation()
-        + patchData()
-        + generateABunchOfPatches()
-        + generatePatch()
-        + calculateFitness()
-        + unitTestFitnessScore()
-        + energyFitnessScore()
-        + selection()
-        + crossover()
-        + mutation()
+  package  {
+    package com.anniefraz.dissertation.algorithms.GAs.main {
+      class GA {
+          {static} - LOG : Logger
+          {static} - PATHNAME : String
+          {static} - seed : int
+          + populationSize : int
+          - random : Random
+          + GA()
+          + patchData()
+          + generateABunchOfPatches()
+          + generatePatch()
+          + initializePopulation()
+          + calculateFitness()
+          + selection()
+          + crossover()
+          + mutation()
+      }
     }
   }
   
+
+  GA o-- UserInput : userInput
+
 
 right footer
 

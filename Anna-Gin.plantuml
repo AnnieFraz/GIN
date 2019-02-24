@@ -21,7 +21,25 @@ title __ANNA-GIN's Class Diagram__\n
   
 
   package  {
-    class Triangle {
+    package foo {
+      class ReverseString {
+      }
+    }
+  }
+  
+
+  package  {
+    package foo {
+      class ReverseString {
+      }
+    }
+  }
+  
+
+  package  {
+    package example {
+      class Triangle {
+      }
     }
   }
   

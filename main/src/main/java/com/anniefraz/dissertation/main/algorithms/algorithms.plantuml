@@ -8,11 +8,13 @@ title __ALGORITHMS's Class Diagram__\n
         {static} - editNumberSeed : int
         {static} - noofEditsNoRandom : int
         {static} - compileSuccess : boolean
-        {static} ~ LOG : Logger
+        {static} - LOG : Logger
         {static} ~ APPLICATIONCONTEXT : ApplicationContext
         {static} - PATHNAME : String
         {static} - RESULTWRITER : CSVResultWriter
+        {static} - genetic : GA
         {static} + main()
+        {static} - initialise()
         {static} - getGa()
         {static} - secondPopulation()
     }
@@ -21,9 +23,18 @@ title __ALGORITHMS's Class Diagram__\n
 
   package com.anniefraz.dissertation.main.algorithms {
     class HCMain {
+        {static} - LOG : Logger
         {static} ~ APPLICATIONCONTEXT : ApplicationContext
         {static} - PATHNAME : String
+        {static} - ITERATIONS : int
+        {static} - editNumberSeed : int
+        {static} - noofEditsNoRandom : int
+        {static} - compileSuccess : boolean
+        {static} - RESULTWRITER : CSVResultWriter
+        {static} - genetic : GA
         {static} + main()
+        {static} - initialise()
+        {static} - getHillClimbing()
     }
   }
   

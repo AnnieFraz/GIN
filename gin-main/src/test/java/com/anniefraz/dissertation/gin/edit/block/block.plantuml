@@ -7,6 +7,7 @@ title __BLOCK's Class Diagram__\n
       package com.anniefraz.dissertation.gin.edit {
         package com.anniefraz.dissertation.gin.edit.block {
           class BlockTest {
+              - testLines : List<String>
               + initialize()
               + testRemoveBlockEdit()
               + testMoveBlockEdit()
@@ -19,7 +20,8 @@ title __BLOCK's Class Diagram__\n
   
 
   BlockTest o-- AnnaPath : annaPath
-  BlockTest o-- Source : sourceFromAnnaPath
+  BlockTest o-- Source : source
+  BlockTest o-- AnnaClass : annaClass
 
 
 right footer

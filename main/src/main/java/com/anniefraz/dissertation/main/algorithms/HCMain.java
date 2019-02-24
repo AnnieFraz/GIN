@@ -79,11 +79,11 @@ public class HCMain {
         PatchFactory patchFactory = hillClimbing.getPatchFactory();
         Source source = hillClimbing.getSource();
         for (int i = 0; i < userInput.getIterations() ; i++) {
-            hillClimbing.generateABunchOfPatches(patchFactory, source, 1);
             System.out.println();
             LOG.info("CURRENT ITERATION:{}", i);
-
+            hillClimbing.generateABunchOfPatches(patchFactory, source, 1);
         }
+        hillClimbing.stop();
 
         return hillClimbing;
 

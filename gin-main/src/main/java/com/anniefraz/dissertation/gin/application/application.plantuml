@@ -7,26 +7,14 @@ title __APPLICATION's Class Diagram__\n
       package com.anniefraz.dissertation.gin.application {
         class ApplicationMain {
             {static} - REPS : int
-            {static} - editNumberSeed : int
             {static} - noofEditsNoRandom : int
             {static} - compileSuccess : boolean
-            {static} ~ LOG : Logger
+            {static} - LOG : Logger
             {static} + main()
             {static} - compile()
             {static} - setResults()
             {static} - sendToTestRunner()
             {static} - sendToOpacitor()
-        }
-      }
-    }
-  }
-  
-
-  package  {
-    package com.anniefraz.dissertation.gin {
-      package com.anniefraz.dissertation.gin.application {
-        class CodeToTestRunner {
-            + convertToClass()
         }
       }
     }
@@ -65,7 +53,7 @@ title __APPLICATION's Class Diagram__\n
     package com.anniefraz.dissertation.gin {
       package com.anniefraz.dissertation.gin.application {
         class Results {
-            {static} ~ LOG : Logger
+            {static} - LOG : Logger
             - currentRep : int
             - outputFileString : String
             - time : long
