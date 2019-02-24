@@ -14,6 +14,7 @@ import java.util.Random;
 
 public class CrossoverThreeOffspring implements CrossoverMethod{
     private static final Logger LOG = LoggerFactory.getLogger(CrossoverThreeOffspring.class);
+
     @Override
     public List<Offspring> crossover(List<Patch> parents, Source source) {
         Patch parent1 = parents.get(0);

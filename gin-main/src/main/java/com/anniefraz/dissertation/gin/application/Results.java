@@ -16,7 +16,7 @@ import java.util.LinkedList;
 
 public class Results {
 
-    static Logger LOG = LoggerFactory.getLogger(Results.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Results.class);
 
 
     private int currentRep;

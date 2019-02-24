@@ -4,11 +4,14 @@ import com.anniefraz.dissertation.gin.edit.SingleClassEdit;
 import com.anniefraz.dissertation.gin.source.AnnaClass;
 import com.anniefraz.dissertation.gin.source.AnnaPath;
 import com.github.javaparser.utils.Log;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
-//TODO: This needs to work
 public class SwapBlockEdit extends SingleClassEdit {
+
+    private static final Logger LOG = LoggerFactory.getLogger(SwapBlockEdit.class);
 
     private final int blockOneStartNo;
     private final int blockOneEndNo;
@@ -16,7 +19,7 @@ public class SwapBlockEdit extends SingleClassEdit {
     private final int blockTwoEndNo;
 
     public SwapBlockEdit(int blockOneStartNo, int blockOneEndNo, int blockTwoStartNo, int blockTwoEndNo, AnnaPath annaPath) {
-            super(annaPath);
+        super(annaPath);
         this.blockOneStartNo = blockOneStartNo;
         this.blockOneEndNo = blockOneEndNo;
         this.blockTwoStartNo = blockTwoStartNo;
@@ -27,39 +30,18 @@ public class SwapBlockEdit extends SingleClassEdit {
     protected void applyMethod(AnnaClass annaClass) {
 
         if ((blockTwoEndNo < blockTwoStartNo) || (blockOneEndNo < blockOneStartNo)) {
-            Log.error("The end block index is less than Start");
-            //return;
+            LOG.error("The end block index is less than Start");
         }
         List<String> lines = annaClass.getLines();
 
         List<String> block1 = new ArrayList<>();
         List<String> block2 = new ArrayList<>();
 
-        if (blockOneEndNo < blockOneStartNo) {
-            Log.error("The end block index is less than Start");
-        } else {
-            int block1Size = blockOneEndNo - blockOneStartNo;
-            for (int i = 0; i < block1Size; i++) {
-                String line = lines.get(blockOneStartNo + i);
-                block1.add(line);
-            }
-        }
-
-        if (blockTwoEndNo < blockTwoStartNo) {
-            Log.error("The end block index is less than Start");
-        } else {
-            int block2Size = blockTwoEndNo - blockTwoStartNo;
-            for (int i = 0; i < block2Size; i++) {
-                String line = lines.get(blockTwoStartNo + i);
-                block2.add(line);
-            }
-        }
-
         if (block1.size() != block2.size()) {
             Log.error("Error, The Size of the Blocks are different");
         } else {
 
-            for (int i = 0; i < block1.size() + 1; i++) {
+            for (int i = 0; i <= (block1.size() + 2 ); i++) {
 
                 String line1 = lines.remove(blockOneStartNo + i);
                 String line2 = lines.remove((blockTwoStartNo -1) + i);

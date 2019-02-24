@@ -40,7 +40,7 @@ public class GAMain {
 
     static {
         try {
-            RESULTWRITER = new CSVResultFileWriter("test");
+            RESULTWRITER = new CSVResultFileWriter("new");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -62,7 +62,11 @@ public class GAMain {
         }
     }
 
-    public static void initialise(UserInput userInput) throws Exception {
+    /**
+     * @param userInput
+     * @throws Exception
+     */
+    private static void initialise(UserInput userInput) throws Exception {
         APPLICATIONCONTEXT = new AnnotationConfigApplicationContext(ApplicationConfig.class);
         PatchFactory patchFactory = APPLICATIONCONTEXT.getBean(PatchFactory.class);
         SourceFactory sourceFactory = new SourceFactory(Paths.get(PATHNAME));
@@ -74,6 +78,15 @@ public class GAMain {
         ((Closeable) APPLICATIONCONTEXT).close();
     }
 
+    /**
+     * Method to start the GA and add all data obtained to the CSV file
+     * @param patchFactory
+     * @param source
+     * @param population
+     * @param userInput
+     * @return
+     * @throws Exception
+     */
     private static GA getGa(PatchFactory patchFactory, Source source, List<Patch> population, UserInput userInput) throws Exception {
 
         for (int i = 0; i < userInput.getIterations(); i++) { //Would the reps be in initialize population or main?
@@ -102,7 +115,6 @@ public class GAMain {
             List<Patch> newPopulation = secondPopulation(offspring, neighbours);
             population.clear();
             population.addAll(newPopulation);
-            //population = newPopulation;
             System.out.println();
             LOG.info("CURRENT ITERATION:{} ", i + 1);
         }
@@ -110,6 +122,12 @@ public class GAMain {
         return genetic;
     }
 
+    /**
+     * This creates a new population
+     * @param offspring
+     * @param neighbours
+     * @return
+     */
     private static List<Patch> secondPopulation(List<Offspring> offspring, List<Neighbour> neighbours) {
         LOG.info("Call to secondPopulation with args offspring [{}] and neighbours [{}]", offspring, neighbours);
         LinkedList<Patch> nextPopulation = new LinkedList<>(offspring);

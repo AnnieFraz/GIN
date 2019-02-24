@@ -6,9 +6,6 @@ import com.anniefraz.dissertation.gin.source.AnnaPath;
 
 import java.util.List;
 
-//TODO: This needs to work better
-
-
 public class IfStatementEdit extends SingleClassEdit {
 
     private static final String LESS_THAN = "<";
@@ -24,11 +21,6 @@ public class IfStatementEdit extends SingleClassEdit {
         this.lineIndex = lineIndex;
     }
 
-
-    public static String getFirstCondition() {
-        //FIRST_CONDITION =
-        return FIRST_CONDITION;
-    }
     public static String findFirstCondition(String line){
         int operator = 5;
         if (line.contains(LESS_THAN)) {
@@ -53,22 +45,13 @@ public class IfStatementEdit extends SingleClassEdit {
         return secondCondition;
     }
 
-    public static String getSecondCondition() {
-        return SECOND_CONDITION;
-    }
-
     public  String swapConditions(String line, String operatorApply){
         String firstCondition = findFirstCondition(line);
         String secondCondition = findSecondCondition(line);
         System.out.println(firstCondition);
         System.out.println(secondCondition);
-        //firstCondition = secondCondition;
-
-        //String newLine = "if ("+secondCondition +""+ changeOperator(line, operatorApply)+ ""+firstCondition+")";
         String newLine = ""+changeOperator(line, operatorApply)+"";
-       // String newLine = ""+secondCondition+">"+firstCondition+"";
-
-        return newLine;
+         return newLine;
 
     }
 
@@ -89,10 +72,6 @@ public class IfStatementEdit extends SingleClassEdit {
 
 
     String changeLine(String line, String operator){
-        //get brackets
-        //get index
-        //
-        //String Line = swapConditions(line, operator);
         operator = getOperator(line);
         String first = findFirstCondition(line);
         first = first.replaceAll("\\s+","");
@@ -125,10 +104,6 @@ public class IfStatementEdit extends SingleClassEdit {
     }
 
     String changeOperator(String line, String operator){
-        //get brackets
-        //get index
-        //
-        //String Line = swapConditions(line, operator);
         int operatorIndex =line.indexOf(operator);
         if (operator.equals(">")){
             operator.equals("<");
@@ -137,7 +112,6 @@ public class IfStatementEdit extends SingleClassEdit {
             operator.equals(">");
             line = line.substring(0,operatorIndex)+'>'+line.substring(operatorIndex+1);
         }
-
         return line;
     }
 

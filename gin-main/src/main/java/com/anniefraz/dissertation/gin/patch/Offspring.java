@@ -18,10 +18,6 @@ public class Offspring extends Patch {
 
     }
 
-    public String getOrigin() {
-        return origin;
-    }
-
     public void setOrigin(String origin) {
         this.origin = origin;
     }

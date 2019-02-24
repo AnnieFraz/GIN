@@ -40,7 +40,7 @@ public class Random {
     private static int noofEditsNoRandom = 1;
     private static boolean compileSuccess;
     //private Opacitor opacitor;
-    static Logger LOG = LoggerFactory.getLogger(Random.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Random.class);
 
     static ApplicationContext applicationContext;
     //private static final String PATHNAME = "/Users/annarasburn/Documents/gin/AnnaGin/test-runner/examples/unittests/";

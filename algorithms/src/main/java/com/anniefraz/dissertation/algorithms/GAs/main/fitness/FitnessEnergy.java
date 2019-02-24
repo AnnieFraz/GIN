@@ -13,7 +13,7 @@ import java.util.Collections;
 
 public class FitnessEnergy implements FitnessMeasurement<String> {
 
-    static Logger LOG = LoggerFactory.getLogger(FitnessEnergy.class);
+    private static final Logger LOG = LoggerFactory.getLogger(FitnessEnergy.class);
 
     //private String testSrcDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\src\\main\\java";
     private String testSrcDir = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\examples\\unittests";

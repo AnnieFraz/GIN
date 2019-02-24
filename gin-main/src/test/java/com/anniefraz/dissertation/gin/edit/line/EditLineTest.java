@@ -45,7 +45,7 @@ public class EditLineTest {
         when(source.getAnnaClasses()).thenReturn(Collections.singletonList(annaClass));
         when(source.getPaths()).thenReturn(Collections.singletonList(annaPath));
         when(annaClass.getPath()).thenReturn(annaPath);
-        }
+    }
 
 
     @Test
@@ -53,15 +53,18 @@ public class EditLineTest {
         //ARRANGE
         int lineNumber = 1;
         Edit testEdit = new RemoveLineEdit(lineNumber, annaPath);
-        List<String> expectedOutput = Arrays.asList("A", "C", "D", "E", "F", "G", "H", "I", "J");
+        List<String> expectedOutput = Arrays.asList("A", "" ,"C", "D", "E", "F", "G", "H", "I", "J");
+
+        when(annaClass.getLines()).thenReturn(testLines);
 
         //ACT
         testEdit.apply(source);
+        System.out.println(testLines.size());
 
         //ASSERT
-        assertEquals(7, testLines.size());
+        assertEquals(10, testLines.size());
         assertEquals(expectedOutput, testLines);
-        }
+    }
 
     @Test
     public void testSwapLineEdit(){
@@ -69,7 +72,9 @@ public class EditLineTest {
         int firstLineIndex = 2;
         int secondLineIndex = 7;
         Edit testEdit = new SwapLineEdit(firstLineIndex, secondLineIndex, annaPath);
-        List<String> expectedOutput = Arrays.asList("A","B", "H", "D", "E", "F", "G",  "C", "I", "J");
+        List<String> expectedOutput = Arrays.asList("A", "I","B", "D", "E", "F", "G",  "C", "H", "J");
+        when(annaClass.getLines()).thenReturn(testLines);
+
         //ACT
         testEdit.apply(source);
         //ASSERT
@@ -81,15 +86,16 @@ public class EditLineTest {
     public void testInsertLineEdit(){
         //ARRANGE
         int lineNumber = 1;
-        String lineContents = "//Triangle Class";
+        String lineContents = "X";
         Edit testEdit = new InsertLineEdit(lineNumber, lineContents, annaPath);
-        List<String> expectedOutput = Arrays.asList("A", "C", "D", "E", "F", "G", "H", "I", "J");
+        List<String> expectedOutput = Arrays.asList("A", "X", "B","C", "D", "E", "F", "G", "H", "I", "J");
+        when(annaClass.getLines()).thenReturn(testLines);
 
         //ACT
         testEdit.apply(source);
 
         //ASSERT
-        assertEquals(7, testLines.size());
+        assertEquals(11, testLines.size());
         assertEquals(expectedOutput, testLines);
     }
 
@@ -99,13 +105,14 @@ public class EditLineTest {
         int sourceLineIndex = 4;
         int destinationLineIndex = 7;
         Edit testEdit = new MoveLineEdit(sourceLineIndex, destinationLineIndex, annaPath);
-        List<String> expectedOutput = Arrays.asList("A", "C", "D", "E", "F", "G", "H", "I", "J");
+        List<String> expectedOutput = Arrays.asList("A", "B", "C", "D",  "F", "G", "H", "E", "I", "J");
 
+        when(annaClass.getLines()).thenReturn(testLines);
         //ACT
         testEdit.apply(source);
 
         //ASSERT
-        assertEquals(7, testLines.size());
+        assertEquals(10, testLines.size());
         assertEquals(expectedOutput, testLines);
     }
 }

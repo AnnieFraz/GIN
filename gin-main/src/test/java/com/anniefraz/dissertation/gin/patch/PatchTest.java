@@ -58,6 +58,6 @@ public class PatchTest {
         Source source = patch.getOutputSource();
         AnnaClass annaClass = source.getAnnaClasses().get(0);
         assertEquals(2, annaClass.getLines().size());
-        assertEquals("line 2", annaClass.getLines().get(0));
+        assertEquals("", annaClass.getLines().get(0));
     }
 }

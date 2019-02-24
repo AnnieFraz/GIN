@@ -32,7 +32,6 @@ import java.util.*;
 public class GA {
     private static final Logger LOG = LoggerFactory.getLogger(GA.class);
     private static final String PATHNAME = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\examples\\unittests";
-
     private static int seed = 1000;
     private UserInput userInput;
     public int populationSize;
@@ -42,11 +41,35 @@ public class GA {
         this.userInput = userInput;
     }
 
+    //Methods for gaining patch data
+    public void patchData(Patch patch) {
+        LOG.info("🎇🎇🎇🎇PATCH🎇🎇🎇🎇");
+        Source source1 = patch.getOutputSource();
+        LOG.debug("Source:{]", source1);
+        LOG.info("Edits:{} ", patch.getEdits());
+        LOG.debug("Source {}", patch.getSource());
+        calculateFitness(source1, patch); //Go to Stage 2
+    }
+
+    public LinkedList<Patch> generateABunchOfPatches(PatchFactory patchFactory, Source source, int numberOfPatches) {
+        LinkedList<Patch> patches = new LinkedList<>();
+        for (int i = 0; i < numberOfPatches; i++) {
+            Patch patch = generatePatch(patchFactory, source);
+            patches.add(patch);
+        }
+        return patches;
+    }
+
+    public Patch generatePatch(PatchFactory patchFactory, Source source) {
+        return patchFactory.getPatchForSourceWithEdits(source, 1);
+    }
+
     /**
      * Phase 1: Sets the size of the population
-     *         One character in a binary string is a gene
-     *         A Binary string e.g. 0111010 is a Chromosone
-     *         A collection of binary strings is a population.
+     * One character in a binary string is a gene
+     * A Binary string e.g. 0111010 is a Chromosone
+     * A collection of binary strings is a population.
+     *
      * @param patchFactory
      * @param source
      * @return
@@ -62,53 +85,23 @@ public class GA {
         return patches;
     }
 
-    public void patchData(Patch patch) {
-        LOG.info("🎇🎇🎇🎇PATCH🎇🎇🎇🎇");
-        Source source1 = patch.getOutputSource();
-        LOG.debug("Source:{]", source1);
-        LOG.info("Edits:{} ", patch.getEdits());
-        LOG.debug("Source {}", patch.getSource());
-        //LOG.info(patch.toString());
-        //Go to Stage 2
-        calculateFitness(source1, patch);
-    }
-
-    public LinkedList<Patch> generateABunchOfPatches(PatchFactory patchFactory, Source source, int numberOfPatches) {
-        LinkedList<Patch> patches = new LinkedList<>();
-
-        for (int i = 0; i < numberOfPatches; i++) {
-            Patch patch = generatePatch(patchFactory, source);
-            patches.add(patch);
-        }
-        return patches;
-    }
-
-    public Patch generatePatch(PatchFactory patchFactory, Source source) {
-        return patchFactory.getPatchForSourceWithEdits(source, 1);
-    }
-
-    /*
-        PHASE 2
-        Finds out how fit an individual is
-         */
+    /** PHASE 2: Finds out how fit an individual is
+     * @param source
+     * @param patch
+     */
     public void calculateFitness(Source source, Patch patch) {
         Class<?> compileSource = null;
-
         List<AnnaClass> classList = source.getAnnaClasses();
         AnnaClass annaClass = classList.get(0);
         String output = String.join(System.lineSeparator(), annaClass.getLines());
-
         try {
-           compileSource = InMemoryJavaCompiler.newInstance().compile(userInput.getPackageName()+"."+userInput.getClassFileName(), output);
-               } catch (Exception e) {
+            compileSource = InMemoryJavaCompiler.newInstance().compile(userInput.getPackageName() + "." + userInput.getClassFileName(), output);
+        } catch (Exception e) {
             LOG.error("Error in calculate fitness method", e);
         }
-
         long compileTime;
-        UnitTestResultSet unitTestResultSet = null;
-        double opacitorMeasurement = 0;
-        double unitTestResult = 0.5;
-
+        double opacitorMeasurement;
+        double unitTestResult;
         if (compileSource == null) {
             compileTime = System.currentTimeMillis();
             patch.setCompileTime(compileTime);
@@ -117,18 +110,15 @@ public class GA {
             LOG.info("TIME:{}", compileTime);
             unitTestResult = 12345.0; //obvious bogous fitness score
             opacitorMeasurement = 12345.0;
-
         } else {
             compileTime = System.currentTimeMillis();
             patch.setCompileTime(compileTime);
             patch.setCompiled(true);
             LOG.info("COMPILE");
             LOG.info("TIME:{}", compileTime);
-
-            unitTestResult = unitTestFitnessScore(patch);
-
+            unitTestResult = new FitnessUnitTests(userInput).measure(patch);
             if (unitTestResult == 1.0) {
-                opacitorMeasurement = energyFitnessScore(output);
+                opacitorMeasurement = new FitnessEnergy(userInput).measure(output);
             } else {
                 LOG.error("Unit tests did not pass");
                 opacitorMeasurement = 10000.00;
@@ -139,68 +129,50 @@ public class GA {
         patch.setUnitTestScore(unitTestResult);
         patch.setOpacitorMeasurement1(opacitorMeasurement);
         LOG.info("Patch Fitness Score:{}", patch.getFitnessScore());
-
     }
 
-    public double unitTestFitnessScore(Patch patch) {
-        FitnessMeasurement<Patch> fitnessMeasurement = new FitnessUnitTests(userInput);
-        return fitnessMeasurement.measure(patch);
-    }
-
-    public double energyFitnessScore(String output) {
-        FitnessMeasurement<String> fitnessMeasurement = new FitnessEnergy(userInput);
-        return fitnessMeasurement.measure(output);
-    }
-
-    /*
-    PHASE 3
-    Purpose: to select the best individual so they pass their genes on.
-    Parents are selected on fitness scores
-    higher FitnessMeasurement higher Chance of being chosen
+    /**PHASE 3: Purpose: to select the best individual so they pass their genes on.
+     Parents are selected on fitness scores
+     higher FitnessMeasurement higher Chance of being chosen
+     * @param patches
+     * @return
      */
     public List<Patch> selection(List<Patch> patches) { //Have a second patch to be the second parent and work out the fitness of that patch too
-
         RandomSelection selectionMethod = new RandomSelection();
         return selectionMethod.select(patches);
-
     }
 
-    /*
-    PHASE 4
-    Purpose: a random point of within the parents genes
-    Children are made by exchanging parents genes until crossover point is reacher
+    /**PHASE 4: Purpose: a random point of within the parents genes.
+     * Children are made by exchanging parents genes until crossover point is reacher
+     * @param parents
+     * @param source
+     * @return
      */
     public List<Offspring> crossover(List<Patch> parents, Source source) {
         CrossoverMethod crossoverMethod = new CrossoverThreeOffspring();
-        List<Offspring>offspring = crossoverMethod.crossover(parents, source);
-
-        for (int i = 0; i < offspring.size() ; i++) {
+        List<Offspring> offspring = crossoverMethod.crossover(parents, source);
+        for (int i = 0; i < offspring.size(); i++) {
             patchData(offspring.get(i));
         }
-
         return offspring;
-
     }
 
-    /*
-   PHASE 5
-   Where the bits are flipped
-    */
+    /** PHASE 5: Where the bits are flipped
+     * @param patch
+     * @return
+     */
     public Neighbour mutation(Offspring patch) {
         Neighbour neighbour = new Neighbour(patch);
         List<Edit> edits = neighbour.getEdits();
         if (patch.getEdits().size() > 0 && patch.getFitnessScore() < 1.0 || patch.getFitnessScore() >= 24690.0) {
             edits.remove(random.nextInt(edits.size()));
         } else {
-            edits.add(random.nextInt(edits.size()+1), patch.getEdits().get(random.nextInt(patch.getEdits().size())));
+            edits.add(random.nextInt(edits.size() + 1), patch.getEdits().get(random.nextInt(patch.getEdits().size())));
         }
         patchData(neighbour);
         LOG.info("new Neighbour generated: {}", neighbour);
         LOG.info("Neighbour number of Edits:{}", edits.size());
-        LOG.info("Neighbour details:{}",neighbour);
-
+        LOG.info("Neighbour details:{}", neighbour);
         return neighbour;
     }
-
-
 }
