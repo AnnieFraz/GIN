@@ -35,14 +35,11 @@ import java.util.*;
 public class ApplicationMain {
 
     private static int REPS = 100;
-    private static int editNumberSeed = 4;
     private static int noofEditsNoRandom = 1;
     private static boolean compileSuccess;
-    //private Opacitor opacitor;
-    //private static TestRunner testRunner;
-    static Logger LOG = LoggerFactory.getLogger(ApplicationMain.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ApplicationMain.class);
 
-    public static void main(String[] args) throws IOException, Exception {
+    public static void main(String[] args) throws  Exception {
         //ApplicationContext allows to spring to properly interject beans into the application
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(ApplicationConfig.class);
 
@@ -56,10 +53,6 @@ public class ApplicationMain {
         //Gets the source file from that anna path
         Source source = sourceFactory.getSourceFromAnnaPath(annaPath);
 
-        //random number of edits generator. Maximum is 4
-        //Random random = new Random();
-        // int noOfEdits = random.nextInt(editNumberSeed) + 1;
-        // LOG.info("Number of Edits: " + noOfEdits);
         int noOfEdits = noofEditsNoRandom;
 
         compile((Closeable) applicationContext, patchFactory, source, noOfEdits);
@@ -167,9 +160,10 @@ public class ApplicationMain {
         testRunner = new TestRunner(exampleDir, className, TestConfiguration.TEST_RESOURCES_DIR, tests);
 
 
-        results.setPassedTests(result.getPassed());
-
+        com.anniefraz.dissertation.experiments.results.setPassedTests(result.getPassed());
         */
+
+
     }
 
     private static void sendToOpacitor(String outputString, Results results) throws Exception {

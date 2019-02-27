@@ -3,11 +3,14 @@ package com.anniefraz.dissertation.gin.application.config.edit;
 import com.anniefraz.dissertation.gin.edit.Edit;
 import com.anniefraz.dissertation.gin.edit.block.MoveBlockEdit;
 import com.anniefraz.dissertation.gin.edit.block.RemoveBlockEdit;
+import com.anniefraz.dissertation.gin.edit.block.SwapBlockEdit;
 import com.anniefraz.dissertation.gin.edit.line.InsertLineEdit;
 import com.anniefraz.dissertation.gin.edit.line.MoveLineEdit;
 import com.anniefraz.dissertation.gin.edit.line.RemoveLineEdit;
 import com.anniefraz.dissertation.gin.edit.line.SwapLineEdit;
+import com.anniefraz.dissertation.gin.edit.noEdit.NoEditEdit;
 import com.anniefraz.dissertation.gin.edit.operators.IfStatementEdit;
+import com.anniefraz.dissertation.gin.edit.statement.InsertBreakEdit;
 import com.anniefraz.dissertation.gin.source.AnnaClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,21 +21,36 @@ import java.util.function.Function;
 public class EditConfig {
 
     @Bean
+    //TODO: Need to figure out what to be inserted
+    //USE THIS EDIT. If you want it to compile succesfully guarenteed everytime
+    public Function<AnnaClass, Edit> insertLineEdit(){
+        return anAnnaClass ->{
+            int size = anAnnaClass.getLines().size();
+            int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+           // int whichLine = 9; //This was for the bubble sort tests
+            //System.out.println(anAnnaClass.getLines().get(9));
+            return new InsertLineEdit(whichLine,"//this is a comment" , anAnnaClass.getPath());
+        };
+    }
+
+    //TODO: need to check that the line is actually being removed
+    @Bean
     public Function<AnnaClass, Edit> removeLineEdit() {
         return anAnnaClass -> {
             int size = anAnnaClass.getLines().size();
-            int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+           // int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            int whichLine = 9;
             return new RemoveLineEdit(whichLine, anAnnaClass.getPath());
         };
     }
 
     @Bean
-    //TODO: Need to figure out what to be inserted
-    public Function<AnnaClass, Edit> insertLineEdit(){
-        return anAnnaClass ->{
+    public Function<AnnaClass, Edit> insertBreakEdit(){
+        return anAnnaClass -> {
             int size = anAnnaClass.getLines().size();
             int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
-            return new InsertLineEdit(whichLine,"//this is a comment" , anAnnaClass.getPath());
+            return new InsertBreakEdit(whichLine,"break;" , anAnnaClass.getPath());
+
         };
     }
 
@@ -78,6 +96,7 @@ public class EditConfig {
         };
     }
 
+
     @Bean
     public Function<AnnaClass, Edit> moveBlockEdit(){
         return anAnnaClass -> {
@@ -86,6 +105,27 @@ public class EditConfig {
             int endInt = Double.valueOf(Math.floor(Math.random() * size)).intValue();
             int newLocation = Double.valueOf(Math.floor(Math.random() * size)).intValue();
             return new MoveBlockEdit(startInt, endInt, newLocation, anAnnaClass.getPath());
+        };
+    }
+
+
+    @Bean
+    public Function<AnnaClass, Edit> swapBlockEdit(){
+        return anAnnaClass -> {
+            int size = anAnnaClass.getLines().size();
+            int blockOneStartNo = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            int blockOneEndNo = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            int blockTwoStartNo = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            int blockTwoEndNo = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            return new SwapBlockEdit(blockOneStartNo,blockOneEndNo,blockTwoStartNo,blockTwoEndNo, anAnnaClass.getPath());
+        };
+    }
+
+
+    @Bean
+    public Function<AnnaClass,  Edit> noEditEdit(){
+        return anAnnaClass -> {
+            return new NoEditEdit(anAnnaClass.getPath());
         };
     }
 

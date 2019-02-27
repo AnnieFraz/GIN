@@ -1,3 +1,5 @@
+import java.io.PrintStream;
+import java.util.Random;
 
 public class Triangle {
     static final int INVALID = 0;
@@ -7,6 +9,7 @@ public class Triangle {
     public static int classifyTriangle(int a, int b, int c) {
         delay();
         // Sort the sides so that a <= b <= c
+
         if (a > b) {
             int tmp = a;
             a = b;
@@ -33,14 +36,38 @@ public class Triangle {
         }
     }
     private static void delay() {
+       // wasteCPU( 10, 10);
         try {
-            Thread.sleep(100);
+            //Thread.sleep(500);
+
+           wasteCPU( 1000, 1000);
+
         } catch (InterruptedException e) {
             // do nothing
         }
     }
 
-    public static void main(String[] args) {
+    private static void wasteCPU( final int startDelayMS, final int iterations) throws InterruptedException {
+        Random random = new Random(1); // seed 1
+
+        Thread.sleep(startDelayMS);
+
+        double d = 1;
+        for (int i = 0; i < iterations; ++i) {
+            //System.out.print(i + ", ");
+            if (i % 100 == 0) {
+            //    System.out.println();
+            }
+            d *= random.nextDouble();
+          //  System.out.println("Result: " + d);
+        }
+
+        //System.out.println("Finished");
+    }
+
+    public static void main(String[] args) throws Exception{
+
         classifyTriangle(1,1,1);
+
     }
 }

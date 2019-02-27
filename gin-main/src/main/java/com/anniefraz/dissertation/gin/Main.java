@@ -13,7 +13,7 @@ import org.mdkt.compiler.InMemoryJavaCompiler;
 
 public class Main {
 
-    static  Logger LOG = Logger.getLogger(Main.class.getName());
+    private static final Logger LOG = Logger.getLogger(Main.class.getName());
 
     private static final int REPS = 100;
 

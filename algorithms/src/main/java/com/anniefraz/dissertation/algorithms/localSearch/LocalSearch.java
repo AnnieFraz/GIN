@@ -1,5 +1,7 @@
 package com.anniefraz.dissertation.algorithms.localSearch;
 
+import com.anniefraz.dissertation.gin.patch.Patch;
+
 public class LocalSearch {
 
     /*
@@ -43,6 +45,12 @@ public class LocalSearch {
 
     }
     */
+
+    //public Patch createNeighbour(Patch patch){
+
+
+
+    //}
 
 
 }

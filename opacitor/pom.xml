@@ -19,6 +19,13 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/libs/Opacitor_sb.jar</systemPath>
         </dependency>
+        <dependency>
+            <groupId>opacitor</groupId>
+            <artifactId>simpleJalenAgent</artifactId>
+            <scope>system</scope>
+            <version>any</version>
+            <systemPath>${project.basedir}/sb_test_project/lib3rd/simpleJalenAgent.jar</systemPath>
+        </dependency>
     </dependencies>
 
 </project>

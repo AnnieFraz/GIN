@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /*
-    Holds the results of running a set of tests.
+    Holds the com.anniefraz.dissertation.experiments.results of running a set of tests.
     This class holds commonalities between tests relating to patch compilation;
     the rest of the data is held in a list of UnitTestResult.
  */

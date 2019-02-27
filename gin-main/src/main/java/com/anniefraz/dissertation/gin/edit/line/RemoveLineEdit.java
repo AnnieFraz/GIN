@@ -17,7 +17,7 @@ public class RemoveLineEdit extends SingleClassEdit {
     @Override
     protected void applyMethod(AnnaClass annaClass) {
         List<String> lines = annaClass.getLines();
-        lines.set(lineNumber, null);
+        lines.set(lineNumber, "");
     }
 
     @Override

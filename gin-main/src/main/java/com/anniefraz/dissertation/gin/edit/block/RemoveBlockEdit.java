@@ -1,15 +1,16 @@
 package com.anniefraz.dissertation.gin.edit.block;
 
-import com.anniefraz.dissertation.gin.edit.Edit;
 import com.anniefraz.dissertation.gin.edit.SingleClassEdit;
 import com.anniefraz.dissertation.gin.source.AnnaClass;
 import com.anniefraz.dissertation.gin.source.AnnaPath;
-import com.github.javaparser.utils.Log;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
 public class RemoveBlockEdit extends SingleClassEdit {
 
+    private static final Logger LOG = LoggerFactory.getLogger(RemoveBlockEdit.class);
     private final int startBlockInt;
     private final int endBlockInt;
 
@@ -33,12 +34,12 @@ public class RemoveBlockEdit extends SingleClassEdit {
     protected void applyMethod(AnnaClass annaClass){
 
         if (endBlockInt > startBlockInt){
-            Log.error("The end block index is less than Start");
+            LOG.error("The end block index is less than Start");
         }
 
         List<String> lines = annaClass.getLines();
-        for (int i = startBlockInt; i < endBlockInt; i++){
-            lines.remove(i);
+        for (int i = startBlockInt; i <= endBlockInt; i++){
+            lines.remove(startBlockInt);
         }
 
 

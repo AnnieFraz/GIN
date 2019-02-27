@@ -214,7 +214,7 @@ gradle-app.setting
 
 # End of https://www.gitignore.io/api/java,maven,gradle,eclipse,intellij
 
-# Ignore patch .csv file
+# Ignore population .csv file
 .csv
 
 opacitor/simpleOpacitor/

@@ -29,4 +29,6 @@ public class SimplePatchFactory implements PatchFactory {
         }
         return new Patch(source, edits);
     }
+
+
 }

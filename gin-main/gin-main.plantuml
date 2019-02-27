@@ -1,0 +1,431 @@
+@startuml
+
+title __GIN's Class Diagram__\n
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.source {
+        class AnnaClass {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.source {
+        class AnnaPackage {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.source {
+        class AnnaPath {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.application {
+        package com.anniefraz.dissertation.gin.application.config {
+          class ApplicationConfig {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.application {
+        class ApplicationMain {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      class CompileExample {
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.application {
+        class CustomClassLoader {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.edit {
+        interface Edit {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.application {
+        package com.anniefraz.dissertation.gin.application.config {
+          package com.anniefraz.dissertation.gin.application.config.edit {
+            class EditConfig {
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package boop {
+      class Example {
+      }
+    }
+  }
+  
+
+  package  {
+    package boop {
+      class ExampleBase {
+      }
+    }
+  }
+  
+
+  package  {
+    class HelloWorld {
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.edit {
+        package com.anniefraz.dissertation.gin.edit.operators {
+          class IfStatementEdit {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.edit {
+        package com.anniefraz.dissertation.gin.edit.statement {
+          class InsertBreakEdit {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.edit {
+        package com.anniefraz.dissertation.gin.edit.line {
+          class InsertLineEdit {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.edit {
+        class ListBasedRandomEditFactory {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      class Main {
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.edit {
+        package com.anniefraz.dissertation.gin.edit.block {
+          class MoveBlockEdit {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.edit {
+        package com.anniefraz.dissertation.gin.edit.line {
+          class MoveLineEdit {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.edit {
+        abstract class MultipleClassEdit {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.patch {
+        class Neighbour {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.edit {
+        package com.anniefraz.dissertation.gin.edit.noEdit {
+          class NoEditEdit {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.patch {
+        class Offspring {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.patch {
+        class Patch {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.application {
+        class PatchExample {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.patch {
+        interface PatchFactory {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.edit {
+        interface RandomEditFactory {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.edit {
+        package com.anniefraz.dissertation.gin.edit.block {
+          class RemoveBlockEdit {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.edit {
+        package com.anniefraz.dissertation.gin.edit.line {
+          class RemoveLineEdit {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.application {
+        class Results {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package foo {
+      class ReverseString {
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.patch {
+        class SimplePatchFactory {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.edit {
+        abstract class SingleClassEdit {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.source {
+        interface Source {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.source {
+        class SourceFactory {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.edit {
+        package com.anniefraz.dissertation.gin.edit.block {
+          class SwapBlockEdit {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.anniefraz.dissertation.gin {
+      package com.anniefraz.dissertation.gin.edit {
+        package com.anniefraz.dissertation.gin.edit.line {
+          class SwapLineEdit {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package example {
+      class Triangle {
+      }
+    }
+  }
+  
+
+  AnnaClass -up-|> Source
+  AnnaClass o-- AnnaPath : className
+  AnnaPackage -up-|> Source
+  Example -up-|> ExampleBase
+  IfStatementEdit -up-|> SingleClassEdit
+  InsertBreakEdit -up-|> SingleClassEdit
+  InsertLineEdit -up-|> SingleClassEdit
+  ListBasedRandomEditFactory -up-|> RandomEditFactory
+  MoveBlockEdit -up-|> SingleClassEdit
+  MoveLineEdit -up-|> SingleClassEdit
+  MultipleClassEdit -up-|> Edit
+  Neighbour -up-|> Patch
+  Neighbour o-- Patch : parent
+  NoEditEdit -up-|> SingleClassEdit
+  Offspring -up-|> Patch
+  Offspring o-- Source : source
+  Patch o-- Source : source
+  Patch o-- Source : outputSource
+  RemoveBlockEdit -up-|> SingleClassEdit
+  RemoveLineEdit -up-|> SingleClassEdit
+  Results o-- Patch : patch
+  SimplePatchFactory -up-|> PatchFactory
+  SimplePatchFactory o-- RandomEditFactory : editFactory
+  SingleClassEdit -up-|> Edit
+  SingleClassEdit o-- AnnaPath : annaPath
+  SwapBlockEdit -up-|> SingleClassEdit
+  SwapLineEdit -up-|> SingleClassEdit
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

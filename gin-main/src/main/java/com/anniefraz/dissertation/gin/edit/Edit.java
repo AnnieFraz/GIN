@@ -7,7 +7,4 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 public interface Edit {
     void apply(Source source);
 
-
-
-
 }
