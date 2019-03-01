@@ -23,6 +23,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import java.io.Closeable;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -80,6 +81,7 @@ public class GAMain {
 
     /**
      * Method to start the GA and add all data obtained to the CSV file
+     *
      * @param patchFactory
      * @param source
      * @param population
@@ -88,42 +90,53 @@ public class GAMain {
      * @throws Exception
      */
     private static GA getGa(PatchFactory patchFactory, Source source, List<Patch> population, UserInput userInput) throws Exception {
+        List<Patch> currentPopulation = population;
+        CSVResult csvResult = CSVResult.getCsvResultBuilder()
+                .setIteration(0)
+                .setPopulationSize(currentPopulation.size())
+                .setPopulation(currentPopulation)
+                .build();
+        RESULTWRITER.writeResult(csvResult);
 
         for (int i = 0; i < userInput.getIterations(); i++) { //Would the reps be in initialize population or main?
-            List<Patch> selectedPopulation = genetic.selection(population);
-            List<Offspring> offspring = genetic.crossover(selectedPopulation, source);
-            List<Neighbour> neighbours = new LinkedList<>();
-            for (int child = 0; child < offspring.size(); child++) {
-                Neighbour neighbour = genetic.mutation(offspring.get(child));
-                neighbours.add(child, neighbour);
-            }
-            LOG.info("GA DATA");
-            LOG.info("Number of initial Population: {}", population.size());
-            LOG.info("Number of neighbours:{}", neighbours.size());
-            LOG.info("Neighbour 1 edits:{}", neighbours.get(1).getEdits());
-            LOG.info("Offspring 1 edits {}", offspring.get(1).getEdits());
+            List<Patch> nextPopulation = new ArrayList<>();
+            while (nextPopulation.size() < currentPopulation.size()) {
+                List<Patch> selectedPopulation = genetic.selection(currentPopulation);
+                List<Offspring> offspring = genetic.crossover(selectedPopulation, source);
+                List<Neighbour> neighbours = new LinkedList<>();
 
-            CSVResult csvResult = CSVResult.getCsvResultBuilder()
+                for (int child = 0; child < offspring.size(); child++) {
+                    Neighbour neighbour = genetic.mutation(offspring.get(child));
+                    neighbours.add(child, neighbour);
+                }
+                LOG.info("GA DATA");
+                LOG.info("Number of initial Population: {}", currentPopulation.size());
+                LOG.info("Number of neighbours:{}", neighbours.size());
+                LOG.info("Neighbour 1 edits:{}", neighbours.get(1).getEdits());
+                LOG.info("Offspring 1 edits {}", offspring.get(1).getEdits());
+
+
+                List<Patch> newPopulation = secondPopulation(offspring, neighbours);
+                nextPopulation.addAll(newPopulation);
+                LOG.info("New Population size:{}", nextPopulation.size());
+            }
+
+            csvResult = CSVResult.getCsvResultBuilder()
                     .setIteration(i)
-                    .setPopulationSize(genetic.populationSize)
-                    .setPopulation(selectedPopulation)
-                    .setOffspring(offspring)
-                    .setNeighbour(neighbours)
+                    .setPopulationSize(currentPopulation.size())
+                    .setPopulation(currentPopulation)
                     .build();
             RESULTWRITER.writeResult(csvResult);
-
-            List<Patch> newPopulation = secondPopulation(offspring, neighbours);
-            population.clear();
-            population.addAll(newPopulation);
+            currentPopulation = nextPopulation;
             System.out.println();
-            LOG.info("CURRENT ITERATION:{} ", i + 1);
+            LOG.info("CURRENT ITERATION:{} ", i );
         }
-
         return genetic;
     }
 
     /**
      * This creates a new population
+     *
      * @param offspring
      * @param neighbours
      * @return

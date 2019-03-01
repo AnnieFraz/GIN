@@ -11,6 +11,7 @@ import com.anniefraz.dissertation.gin.edit.line.SwapLineEdit;
 import com.anniefraz.dissertation.gin.edit.noEdit.NoEditEdit;
 import com.anniefraz.dissertation.gin.edit.operators.IfStatementEdit;
 import com.anniefraz.dissertation.gin.edit.statement.InsertBreakEdit;
+import com.anniefraz.dissertation.gin.edit.statement.InsertReturnEdit;
 import com.anniefraz.dissertation.gin.source.AnnaClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -50,6 +51,15 @@ public class EditConfig {
             int size = anAnnaClass.getLines().size();
             int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
             return new InsertBreakEdit(whichLine,"break;" , anAnnaClass.getPath());
+
+        };
+    }
+    @Bean
+    public Function<AnnaClass, Edit> insertReturnEdit(){
+        return anAnnaClass -> {
+            int size = anAnnaClass.getLines().size();
+            int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            return new InsertReturnEdit(whichLine,"return;" , anAnnaClass.getPath());
 
         };
     }

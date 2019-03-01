@@ -71,6 +71,11 @@ if (testClassName.equals("example.TriangleTest")) {
     tests.add(test);
     tests.add(test1);
     tests.add(test2);
+}else if (testClassName.equals("cscu9a2.ProductChartTest")){
+    UnitTest test = new UnitTest(testClassName, "testCreateGUI");
+    UnitTest  test1 = new UnitTest(testClassName, "testPaintScreen");
+    tests.add(test);
+    tests.add(test1);
 }
 
 

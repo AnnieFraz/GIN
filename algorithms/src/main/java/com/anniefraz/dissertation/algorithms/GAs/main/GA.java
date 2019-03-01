@@ -85,7 +85,9 @@ public class GA {
         return patches;
     }
 
-    /** PHASE 2: Finds out how fit an individual is
+    /**
+     * PHASE 2: Finds out how fit an individual is
+     *
      * @param source
      * @param patch
      */
@@ -131,9 +133,15 @@ public class GA {
         LOG.info("Patch Fitness Score:{}", patch.getFitnessScore());
     }
 
-    /**PHASE 3: Purpose: to select the best individual so they pass their genes on.
-     Parents are selected on fitness scores
-     higher FitnessMeasurement higher Chance of being chosen
+
+
+
+
+    /**
+     * PHASE 3: Purpose: to select the best individual so they pass their genes on.
+     * Parents are selected on fitness scores
+     * higher FitnessMeasurement higher Chance of being chosen
+     *
      * @param patches
      * @return
      */
@@ -142,8 +150,10 @@ public class GA {
         return selectionMethod.select(patches);
     }
 
-    /**PHASE 4: Purpose: a random point of within the parents genes.
+    /**
+     * PHASE 4: Purpose: a random point of within the parents genes.
      * Children are made by exchanging parents genes until crossover point is reacher
+     *
      * @param parents
      * @param source
      * @return
@@ -157,14 +167,16 @@ public class GA {
         return offspring;
     }
 
-    /** PHASE 5: Where the bits are flipped
+    /**
+     * PHASE 5: Where the bits are flipped
+     *
      * @param patch
      * @return
      */
     public Neighbour mutation(Offspring patch) {
         Neighbour neighbour = new Neighbour(patch);
         List<Edit> edits = neighbour.getEdits();
-        if (patch.getEdits().size() > 0 && patch.getFitnessScore() < 1.0 || patch.getFitnessScore() >= 24690.0) {
+        if (patch.getEdits().size() > 0 || patch.getFitnessScore() < 1.0 || patch.getFitnessScore() >= 24690.0) {
             edits.remove(random.nextInt(edits.size()));
         } else {
             edits.add(random.nextInt(edits.size() + 1), patch.getEdits().get(random.nextInt(patch.getEdits().size())));
@@ -175,4 +187,5 @@ public class GA {
         LOG.info("Neighbour details:{}", neighbour);
         return neighbour;
     }
+
 }

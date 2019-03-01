@@ -9,6 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+//This version of  selection is called Tournament Selection
 public class RandomSelection implements SelectionMethod{
 
     private static final Logger LOG = LoggerFactory.getLogger(RandomSelection.class);
@@ -28,9 +29,7 @@ public class RandomSelection implements SelectionMethod{
         } else {
             returnPatch.add(0, patch2);
             LOG.info("Patch 2 fitness:{}", patch2.getFitnessScore());
-
         }
-
         Patch patch3 = patches.get(random.nextInt(patches.size()));
         Patch patch4 = patches.get(random.nextInt(patches.size()));
 

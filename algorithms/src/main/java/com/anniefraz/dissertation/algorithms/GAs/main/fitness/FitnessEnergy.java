@@ -38,7 +38,7 @@ public class FitnessEnergy implements FitnessMeasurement<String> {
         try {
            //result  = codeLengthOpacitor();
          result = bytecodeHistogramOpacitor();
-          // result = superSimpleJalenOpacitor();
+        //   result = superSimpleJalenOpacitor();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -94,7 +94,8 @@ public class FitnessEnergy implements FitnessMeasurement<String> {
     public double bytecodeHistogramOpacitor() throws Exception{
         //Opacitor opacitor = new Opacitor.OpacitorBuilder("foo", "ReverseString", new String[]{})
        // Opacitor opacitor = new Opacitor.OpacitorBuilder("example", "Triangle", new String[]{})
-        Opacitor opacitor = new Opacitor.OpacitorBuilder(userInput.getPackageName(), userInput.getClassFileName(), new String[]{})
+       Opacitor opacitor = new Opacitor.OpacitorBuilder(userInput.getPackageName(), userInput.getClassFileName(), new String[]{})
+       // Opacitor opacitor = new Opacitor.OpacitorBuilder("cscu9a2", "ProductChart", new String[]{})
                 .srcDirectory(testSrcDir)
                 .binDirectory(testBinDir)
                 .measurementType(MeasurementType.BYTECODE_HISTOGRAM)
