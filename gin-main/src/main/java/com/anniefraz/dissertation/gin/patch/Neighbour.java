@@ -10,7 +10,6 @@ public class Neighbour extends Patch {
 
     private final Patch parent;
     private List<Edit> edits;
-    private long compileTime;
 
     public Neighbour(Offspring offspring) {
         super(offspring);
@@ -28,17 +27,11 @@ public class Neighbour extends Patch {
     }
 
     @Override
-    public void setCompileTime(long compileTime) {
-        this.compileTime = compileTime;
-    }
-
-    @Override
     public String toString() {
         return new ToStringBuilder(this)
+                .append("SUPER PATCH:", super.toString())
                 .append("PARENT: ", parent)
-                .append("NO.EDITS: ", edits.size())
                 .append("EDITS: ", edits)
-                .append("TIME: ", compileTime)
                 .toString();
     }
 }

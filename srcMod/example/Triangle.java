@@ -26,6 +26,7 @@ public class Triangle {
             b = c;
             c = tmp;
         }
+
         if (a + b <= c) {
             return INVALID;
         } else if (a == b && b == c) {
@@ -52,7 +53,6 @@ public class Triangle {
         Random random = new Random(1); // seed 1
 
         Thread.sleep(startDelayMS);
-
         double d = 1;
         for (int i = 0; i < iterations; ++i) {
             //System.out.print(i + ", ");

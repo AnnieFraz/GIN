@@ -132,7 +132,7 @@ public class GA {
             }
         }
         double score = unitTestResult + opacitorMeasurement;
-        patch.setFitnessScore(score);
+        patch.setFitnessScore(score); //<-
         patch.setUnitTestScore(unitTestResult);
         patch.setOpacitorMeasurement1(opacitorMeasurement);
         LOG.info("Patch Fitness Score:{}", patch.getFitnessScore());

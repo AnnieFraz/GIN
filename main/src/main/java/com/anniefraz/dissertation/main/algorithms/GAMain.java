@@ -43,7 +43,7 @@ public class GAMain {
         try {
             RESULTWRITER = new CSVResultFileWriter("ResultDLMLSLV1Pop100I10Complex");
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Failed to run CSV", e);
         }
     }
 
