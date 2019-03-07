@@ -41,14 +41,15 @@ public class GAMain {
 
     static {
         try {
-            RESULTWRITER = new CSVResultFileWriter("new");
+            RESULTWRITER = new CSVResultFileWriter("TriangleDLMLSL2Random");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public static void main(String[] args) throws Exception {
-        if (args.length < 4) {
+        LOG.info("Please enter: 1.Class file name  2.Test file name  3.Package name  4.No.iterations  5.Initial pop size");
+        if (args.length < 5) {
             LOG.error("There are not enough Parameters");
         } else {
             UserInput userInput = UserInput.getBuilder()
@@ -56,6 +57,7 @@ public class GAMain {
                     .setTestFileName(args[1])
                     .setPackageName(args[2])
                     .setIterations(Integer.parseInt(args[3]))
+                    .setPopulationSize(Integer.parseInt(args[4]))
                     .build();
 
             LOG.info("Recieved User Input: {}", userInput);
@@ -113,11 +115,14 @@ public class GAMain {
                 LOG.info("Number of initial Population: {}", currentPopulation.size());
                 LOG.info("Number of neighbours:{}", neighbours.size());
                 LOG.info("Neighbour 1 edits:{}", neighbours.get(1).getEdits());
+                LOG.info("Neighbour 1 no.edits: {}", neighbours.get(1).getEdits().size());
                 LOG.info("Offspring 1 edits {}", offspring.get(1).getEdits());
+                LOG.info("Offspring 1 no.edits: {}", offspring.get(1).getEdits().size());
 
-
+                List<Patch> randomPatches = genetic.generateABunchOfPatches(patchFactory, source,4);
                 List<Patch> newPopulation = secondPopulation(offspring, neighbours);
                 nextPopulation.addAll(newPopulation);
+                nextPopulation.addAll(randomPatches);
                 LOG.info("New Population size:{}", nextPopulation.size());
             }
 

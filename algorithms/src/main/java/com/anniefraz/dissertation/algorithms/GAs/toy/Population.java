@@ -1,5 +1,8 @@
 package com.anniefraz.dissertation.algorithms.GAs.toy;
 
+import com.anniefraz.dissertation.algorithms.GAs.toy.Individual;
+
+
 public class Population {
     int popSize = 10;
     Individual[] individuals = new Individual[10];

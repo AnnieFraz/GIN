@@ -1,7 +1,7 @@
 package com.anniefraz.dissertation.algorithms.GAs.toy;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.anniefraz.dissertation.algorithms.GAs.toy.Individual;
+import com.anniefraz.dissertation.algorithms.GAs.toy.Population;
 
 import java.util.Random;
 

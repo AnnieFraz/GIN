@@ -1,248 +1,327 @@
-"Date:2019-03-01T22:21:35.745","Iteration: 0","Population Size: 7"
-"Patch{, edits=[InsertLineEdit{lineNumber=33, lineContents='//this is a comment'}], fitnessScore=3.4141443543751406, compileTime=1551478836982, unitTestScore=1.0, opacitorMeasurement1=2.4141443543751406, opacitorMeasurement2=0.0, compiled=true}","Patch{, edits=[MoveLineEdit{sourceLineIndex=21, destinationLineIndex=19}], fitnessScore=24690.0, compileTime=1551478836772, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:21:36.275","Iteration: 0","Population Size: 7"
-"Patch{, edits=[InsertLineEdit{lineNumber=33, lineContents='//this is a comment'}], fitnessScore=3.4141443543751406, compileTime=1551478836982, unitTestScore=1.0, opacitorMeasurement1=2.4141443543751406, opacitorMeasurement2=0.0, compiled=true}","Patch{, edits=[MoveLineEdit{sourceLineIndex=21, destinationLineIndex=19}], fitnessScore=24690.0, compileTime=1551478836772, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:21:36.915","Iteration: 1","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:21:37.495","Iteration: 1","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:21:38.032","Iteration: 1","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:23:07.652","Iteration: 2","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:24:36.136","Iteration: 2","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:26:04.736","Iteration: 2","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:27:35.282","Iteration: 2","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:28:19.902","Iteration: 3","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, bit of P1'}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:29:05.105","Iteration: 3","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, bit of P1'}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:29:50.965","Iteration: 3","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, bit of P1'}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:30:36.352","Iteration: 3","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, bit of P1'}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:22.362","Iteration: 3","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, bit of P1'}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:22.821","Iteration: 4","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, bit of P1'}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:23.315","Iteration: 4","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, bit of P1'}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:23.802","Iteration: 4","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, bit of P1'}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:24.286","Iteration: 4","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, bit of P1'}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:24.756","Iteration: 4","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, bit of P1'}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:25.221","Iteration: 4","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, bit of P1'}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:25.822","Iteration: 5","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:26.252","Iteration: 5","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:26.685","Iteration: 5","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:27.082","Iteration: 5","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:27.452","Iteration: 5","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:27.965","Iteration: 5","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:28.425","Iteration: 5","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:28.820","Iteration: 6","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:29.265","Iteration: 6","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:29.881","Iteration: 6","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:30.611","Iteration: 6","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:31.022","Iteration: 6","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:31.425","Iteration: 6","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:31.885","Iteration: 6","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:32.335","Iteration: 6","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:32.826","Iteration: 7","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:33.276","Iteration: 7","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:33.632","Iteration: 7","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:33.952","Iteration: 7","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:34.325","Iteration: 7","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:34.705","Iteration: 7","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:35.161","Iteration: 7","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:35.512","Iteration: 7","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:35.911","Iteration: 7","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:36.301","Iteration: 8","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:36.674","Iteration: 8","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:37.012","Iteration: 8","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:37.392","Iteration: 8","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:37.945","Iteration: 8","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}"
-"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}"
-""
-"Date:2019-03-01T22:31:38.395","Iteration: 8","Population Size: 7"
-"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}"
-"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='A
+Date:2019-03-01T22:21:35.745,Iteration: 0,Population Size: 7,,,,,,,,,,,
+"Patch{, edits=[InsertLineEdit{lineNumber=33, lineContents='//this is a comment'}], fitnessScore=3.4141443543751406, compileTime=1551478836982, unitTestScore=1.0, opacitorMeasurement1=2.4141443543751406, opacitorMeasurement2=0.0, compiled=true}","Patch{, edits=[MoveLineEdit{sourceLineIndex=21, destinationLineIndex=19}], fitnessScore=24690.0, compileTime=1551478836772, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:21:36.275,Iteration: 0,Population Size: 7,,,,,,,,,,,
+"Patch{, edits=[InsertLineEdit{lineNumber=33, lineContents='//this is a comment'}], fitnessScore=3.4141443543751406, compileTime=1551478836982, unitTestScore=1.0, opacitorMeasurement1=2.4141443543751406, opacitorMeasurement2=0.0, compiled=true}","Patch{, edits=[MoveLineEdit{sourceLineIndex=21, destinationLineIndex=19}], fitnessScore=24690.0, compileTime=1551478836772, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:21:36.915,Iteration: 1,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:21:37.495,Iteration: 1,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:21:38.032,Iteration: 1,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:23:07.652,Iteration: 2,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:24:36.136,Iteration: 2,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:26:04.736,Iteration: 2,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:27:35.282,Iteration: 2,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:28:19.902,Iteration: 3,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, bit of P1'}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:29:05.105,Iteration: 3,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, bit of P1'}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:29:50.965,Iteration: 3,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, bit of P1'}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:30:36.352,Iteration: 3,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, bit of P1'}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:22.362,Iteration: 3,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, bit of P1'}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:22.821,Iteration: 4,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, bit of P1'}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:23.315,Iteration: 4,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, bit of P1'}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:23.802,Iteration: 4,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, bit of P1'}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:24.286,Iteration: 4,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, bit of P1'}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:24.756,Iteration: 4,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, bit of P1'}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:25.221,Iteration: 4,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, bit of P1'}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:25.822,Iteration: 5,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:26.252,Iteration: 5,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:26.685,Iteration: 5,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:27.082,Iteration: 5,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:27.452,Iteration: 5,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:27.965,Iteration: 5,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:28.425,Iteration: 5,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:28.820,Iteration: 6,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:29.265,Iteration: 6,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:29.881,Iteration: 6,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:30.611,Iteration: 6,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:31.022,Iteration: 6,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:31.425,Iteration: 6,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:31.885,Iteration: 6,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:32.335,Iteration: 6,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:32.826,Iteration: 7,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:33.276,Iteration: 7,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:33.632,Iteration: 7,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:33.952,Iteration: 7,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:34.325,Iteration: 7,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:34.705,Iteration: 7,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:35.161,Iteration: 7,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:35.512,Iteration: 7,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:35.911,Iteration: 7,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:36.301,Iteration: 8,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:36.674,Iteration: 8,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:37.012,Iteration: 8,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:37.392,Iteration: 8,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:37.945,Iteration: 8,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}",,,,,,,,,,,
+"Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,,,,,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T22:31:38.395,Iteration: 8,Population Size: 7,,,,,,,,,,,
+"Offspring{origin='All of P1, bit of P2'}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}",,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='ADate:2019-03-01T23:19:44.418""",Iteration: 0,Population Size: 7,,,,,,,,,,
+"Patch{, edits=[RemoveLineEdit{lineNumber=9}], fitnessScore=24690.0, compileTime=1551482320020, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}","Patch{, edits=[RemoveLineEdit{lineNumber=9}], fitnessScore=24690.0, compileTime=1551482320028, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}","Patch{, edits=[IfStatementEdit{lineIndex=13, annaPath=AnnaPath{packages=[example], className='Triangle'}}], fitnessScore=3.4141427105105424, compileTime=1551482320563, unitTestScore=1.0, opacitorMeasurement1=2.4141427105105424, opacitorMeasurement2=0.0, compiled=true}","Patch{, edits=[MoveLineEdit{sourceLineIndex=36, destinationLineIndex=43}], fitnessScore=24690.0, compileTime=1551482341798, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}","Patch{, edits=[MoveBlockEdit{startBlockInt=4, endBlockInt=40, newLocation=25}], fitnessScore=24690.0, compileTime=1551482341798, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}","Patch{, edits=[NoEditEdit{}], fitnessScore=3.41414435437514, compileTime=1551482341898, unitTestScore=1.0, opacitorMeasurement1=2.41414435437514, opacitorMeasurement2=0.0, compiled=true}","Patch{, edits=[IfStatementEdit{lineIndex=29, annaPath=AnnaPath{packages=[example], className='Triangle'}}], fitnessScore=3.414143748492738, compileTime=1551482363347, unitTestScore=1.0, opacitorMeasurement1=2.414143748492738, opacitorMeasurement2=0.0, compiled=true}",,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T23:19:44.587,Iteration: 0,Population Size: 7,,,,,,,,,,,
+"Patch{, edits=[RemoveLineEdit{lineNumber=9}], fitnessScore=24690.0, compileTime=1551482320020, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}","Patch{, edits=[RemoveLineEdit{lineNumber=9}], fitnessScore=24690.0, compileTime=1551482320028, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}","Patch{, edits=[IfStatementEdit{lineIndex=13, annaPath=AnnaPath{packages=[example], className='Triangle'}}], fitnessScore=3.4141427105105424, compileTime=1551482320563, unitTestScore=1.0, opacitorMeasurement1=2.4141427105105424, opacitorMeasurement2=0.0, compiled=true}","Patch{, edits=[MoveLineEdit{sourceLineIndex=36, destinationLineIndex=43}], fitnessScore=24690.0, compileTime=1551482341798, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}","Patch{, edits=[MoveBlockEdit{startBlockInt=4, endBlockInt=40, newLocation=25}], fitnessScore=24690.0, compileTime=1551482341798, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}","Patch{, edits=[NoEditEdit{}], fitnessScore=3.41414435437514, compileTime=1551482341898, unitTestScore=1.0, opacitorMeasurement1=2.41414435437514, opacitorMeasurement2=0.0, compiled=true}","Patch{, edits=[IfStatementEdit{lineIndex=29, annaPath=AnnaPath{packages=[example], className='Triangle'}}], fitnessScore=3.414143748492738, compileTime=1551482363347, unitTestScore=1.0, opacitorMeasurement1=2.414143748492738, opacitorMeasurement2=0.0, compiled=true}",,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T23:19:44.756,Iteration: 1,Population Size: 12,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}","Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,
+,,,,,,,,,,,,,
+Date:2019-03-01T23:19:44.919,Iteration: 2,Population Size: 12,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}","Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,
+,,,,,,,,,,,,,
+Date:2019-03-01T23:19:45.088,Iteration: 3,Population Size: 12,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}","Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,
+,,,,,,,,,,,,,
+Date:2019-03-01T23:19:45.257,Iteration: 4,Population Size: 12,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}","Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,
+,,,,,,,,,,,,,
+Date:2019-03-01T23:19:45.420,Iteration: 5,Population Size: 12,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}","Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,
+,,,,,,,,,,,,,
+Date:2019-03-01T23:19:45.605,Iteration: 6,Population Size: 12,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}","Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,
+,,,,,,,,,,,,,
+Date:2019-03-01T23:19:45.774,Iteration: 7,Population Size: 12,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}","Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,
+,,,,,,,,,,,,,
+Date:2019-03-01T23:19:45.937,Iteration: 8,"Population Size: 12""Date:2019-03-01T23:21:04.619",Iteration: 0,Population Size: 7,,,,,,,,,
+"Patch{, edits=[IfStatementEdit{lineIndex=72, annaPath=AnnaPath{packages=[example], className='Triangle'}}], fitnessScore=3.41414435437514, compileTime=1551482399665, unitTestScore=1.0, opacitorMeasurement1=2.41414435437514, opacitorMeasurement2=0.0, compiled=true}","Patch{, edits=[InsertReturnEdit{lineNumber=28, lineContents='return;'}], fitnessScore=24690.0, compileTime=1551482421233, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}","Patch{, edits=[SwapBlockEdit{blockOneStartNo=40, blockOneEndNo=5, blockTwoStartNo=23, blockTwoEndNo=50}], fitnessScore=24690.0, compileTime=1551482421248, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}","Patch{, edits=[NoEditEdit{}], fitnessScore=3.414142186874775, compileTime=1551482421364, unitTestScore=1.0, opacitorMeasurement1=2.414142186874775, opacitorMeasurement2=0.0, compiled=true}","Patch{, edits=[InsertReturnEdit{lineNumber=71, lineContents='return;'}], fitnessScore=3.4141443543751406, compileTime=1551482442775, unitTestScore=1.0, opacitorMeasurement1=2.4141443543751406, opacitorMeasurement2=0.0, compiled=true}","Patch{, edits=[InsertReturnEdit{lineNumber=17, lineContents='return;'}], fitnessScore=24690.0, compileTime=1551482464494, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}","Patch{, edits=[MoveLineEdit{sourceLineIndex=31, destinationLineIndex=65}], fitnessScore=24690.0, compileTime=1551482464603, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}",,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T23:21:06.103,Iteration: 0,Population Size: 7,,,,,,,,,,,
+"Patch{, edits=[IfStatementEdit{lineIndex=72, annaPath=AnnaPath{packages=[example], className='Triangle'}}], fitnessScore=3.41414435437514, compileTime=1551482399665, unitTestScore=1.0, opacitorMeasurement1=2.41414435437514, opacitorMeasurement2=0.0, compiled=true}","Patch{, edits=[InsertReturnEdit{lineNumber=28, lineContents='return;'}], fitnessScore=24690.0, compileTime=1551482421233, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}","Patch{, edits=[SwapBlockEdit{blockOneStartNo=40, blockOneEndNo=5, blockTwoStartNo=23, blockTwoEndNo=50}], fitnessScore=24690.0, compileTime=1551482421248, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}","Patch{, edits=[NoEditEdit{}], fitnessScore=3.414142186874775, compileTime=1551482421364, unitTestScore=1.0, opacitorMeasurement1=2.414142186874775, opacitorMeasurement2=0.0, compiled=true}","Patch{, edits=[InsertReturnEdit{lineNumber=71, lineContents='return;'}], fitnessScore=3.4141443543751406, compileTime=1551482442775, unitTestScore=1.0, opacitorMeasurement1=2.4141443543751406, opacitorMeasurement2=0.0, compiled=true}","Patch{, edits=[InsertReturnEdit{lineNumber=17, lineContents='return;'}], fitnessScore=24690.0, compileTime=1551482464494, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}","Patch{, edits=[MoveLineEdit{sourceLineIndex=31, destinationLineIndex=65}], fitnessScore=24690.0, compileTime=1551482464603, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}",,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-01T23:21:07.477,Iteration: 1,Population Size: 12,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}","Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,
+,,,,,,,,,,,,,
+Date:2019-03-01T23:21:08.477,Iteration: 2,Population Size: 12,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}","Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,
+,,,,,,,,,,,,,
+Date:2019-03-01T23:21:09.646,Iteration: 3,Population Size: 12,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}","Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,
+,,,,,,,,,,,,,
+Date:2019-03-01T23:21:10.571,Iteration: 4,Population Size: 12,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}","Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,
+,,,,,,,,,,,,,
+Date:2019-03-01T23:21:11.342,Iteration: 5,Population Size: 12,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}","Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,
+,,,,,,,,,,,,,
+Date:2019-03-01T23:21:55.511,Iteration: 6,Population Size: 12,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}","Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,
+,,,,,,,,,,,,,
+Date:2019-03-01T23:21:56.417,Iteration: 7,Population Size: 12,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}","Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All oDate:2019-03-02T11:19:21.858""",Iteration: 0,Population Size: 7
+"Patch{, edits=[MoveBlockEdit{startBlockInt=45, endBlockInt=43, newLocation=20}], fitnessScore=3.41414435437514, compileTime=1551525496763, unitTestScore=1.0, opacitorMeasurement1=2.41414435437514, opacitorMeasurement2=0.0, compiled=true}","Patch{, edits=[SwapLineEdit{firstLineIndex=47, secondLineIndex=12}], fitnessScore=24690.0, compileTime=1551525518503, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}","Patch{, edits=[RemoveBlockEdit{startBlockInt=20, endBlockInt=10}], fitnessScore=3.41414435437514, compileTime=1551525518597, unitTestScore=1.0, opacitorMeasurement1=2.41414435437514, opacitorMeasurement2=0.0, compiled=true}","Patch{, edits=[SwapBlockEdit{blockOneStartNo=1, blockOneEndNo=43, blockTwoStartNo=71, blockTwoEndNo=45}], fitnessScore=24690.0, compileTime=1551525540105, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}","Patch{, edits=[SwapLineEdit{firstLineIndex=63, secondLineIndex=62}], fitnessScore=3.330650173937812, compileTime=1551525540339, unitTestScore=1.0, opacitorMeasurement1=2.330650173937812, opacitorMeasurement2=0.0, compiled=true}","Patch{, edits=[RemoveBlockEdit{startBlockInt=14, endBlockInt=53}], fitnessScore=24690.0, compileTime=1551525561843, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}","Patch{, edits=[SwapLineEdit{firstLineIndex=37, secondLineIndex=69}], fitnessScore=24690.0, compileTime=1551525561858, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}",,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-02T11:19:22.030,Iteration: 0,Population Size: 7,,,,,,,,,,,
+"Patch{, edits=[MoveBlockEdit{startBlockInt=45, endBlockInt=43, newLocation=20}], fitnessScore=3.41414435437514, compileTime=1551525496763, unitTestScore=1.0, opacitorMeasurement1=2.41414435437514, opacitorMeasurement2=0.0, compiled=true}","Patch{, edits=[SwapLineEdit{firstLineIndex=47, secondLineIndex=12}], fitnessScore=24690.0, compileTime=1551525518503, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}","Patch{, edits=[RemoveBlockEdit{startBlockInt=20, endBlockInt=10}], fitnessScore=3.41414435437514, compileTime=1551525518597, unitTestScore=1.0, opacitorMeasurement1=2.41414435437514, opacitorMeasurement2=0.0, compiled=true}","Patch{, edits=[SwapBlockEdit{blockOneStartNo=1, blockOneEndNo=43, blockTwoStartNo=71, blockTwoEndNo=45}], fitnessScore=24690.0, compileTime=1551525540105, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}","Patch{, edits=[SwapLineEdit{firstLineIndex=63, secondLineIndex=62}], fitnessScore=3.330650173937812, compileTime=1551525540339, unitTestScore=1.0, opacitorMeasurement1=2.330650173937812, opacitorMeasurement2=0.0, compiled=true}","Patch{, edits=[RemoveBlockEdit{startBlockInt=14, endBlockInt=53}], fitnessScore=24690.0, compileTime=1551525561843, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}","Patch{, edits=[SwapLineEdit{firstLineIndex=37, secondLineIndex=69}], fitnessScore=24690.0, compileTime=1551525561858, unitTestScore=12345.0, opacitorMeasurement1=12345.0, opacitorMeasurement2=0.0, compiled=false}",,,,,,,
+,,,,,,,,,,,,,
+Date:2019-03-02T11:20:47.665,Iteration: 1,Population Size: 12,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}","Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,
+,,,,,,,,,,,,,
+Date:2019-03-02T11:25:03.545,Iteration: 2,Population Size: 12,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}","Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,
+,,,,,,,,,,,,,
+Date:2019-03-02T11:29:21.415,Iteration: 3,Population Size: 12,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}","Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,
+,,,,,,,,,,,,,
+Date:2019-03-02T11:33:34.486,Iteration: 4,Population Size: 12,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}","Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,
+,,,,,,,,,,,,,
+Date:2019-03-02T11:37:48.185,Iteration: 5,Population Size: 12,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}","Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,
+,,,,,,,,,,,,,
+Date:2019-03-02T11:43:49.103,Iteration: 6,Population Size: 12,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}","Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,
+,,,,,,,,,,,,,
+Date:2019-03-02T11:48:01.638,Iteration: 7,Population Size: 12,,,,,,,,,,,
+"Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}","Offspring{origin='All of P2, bit of P1'}","Offspring{origin='All of P1, bit of P2'}","Offspring{origin='All of P2, All of P1'}","Neighbour{parent=Offspring{origin='All of P2, bit of P1'}}","Neighbour{parent=Offspring{origin='All of P1, bit of P2'}}","Neighbour{parent=Offspring{origin='All of P2, All of P1'}}",,
+,,,,,,,,,,,,,
+Date,,,,,,,,,,,,,

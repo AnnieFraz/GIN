@@ -47,16 +47,18 @@ public class CSVResultFileWriter implements CSVResultWriter {
         for (int i = 0; i < patches.size(); i++) {
             patchData[i] = patches.get(i).toString();
         }
+        /*
         List <Offspring> offsprings = csvResult.getOffspring();
         String[] offspringData = new String[offsprings.size()];
         for (int i = 0; i < offsprings.size(); i++) {
             offspringData[i] = offsprings.get(i).toString();
+            csvWriter.append(offsprings.get(i).getFitnessScore);
         }
         List <Neighbour> neighbours = csvResult.getNeighbour();
         String[] neighbourData  = new String[neighbours.size()];
         for (int i = 0; i < neighbours.size(); i++) {
             neighbourData[i] = neighbours.get(i).toString();
-        }
+        }*/
 
         //String[] all = (String[]) ArrayUtils.addAll(data, patchData, offspringData, neighbourData);
        //csvWriter.writeNext(all);
@@ -64,8 +66,8 @@ public class CSVResultFileWriter implements CSVResultWriter {
         empty[0] = "";
         csvWriter.writeNext(data);
         csvWriter.writeNext(patchData);
-        csvWriter.writeNext(offspringData);
-        csvWriter.writeNext(neighbourData);
+       // csvWriter.writeNext(offspringData);
+        //csvWriter.writeNext(neighbourData);
         csvWriter.writeNext(empty);
     }
 

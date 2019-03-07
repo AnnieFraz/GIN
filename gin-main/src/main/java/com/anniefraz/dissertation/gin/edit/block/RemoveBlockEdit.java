@@ -33,7 +33,7 @@ public class RemoveBlockEdit extends SingleClassEdit {
     @Override
     protected void applyMethod(AnnaClass annaClass){
 
-        if (endBlockInt > startBlockInt){
+        if (endBlockInt < startBlockInt){
             LOG.error("The end block index is less than Start");
         }
 

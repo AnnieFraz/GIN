@@ -1,6 +1,8 @@
 package com.anniefraz.dissertation.algorithms.GAs.main;
 
+import com.anniefraz.dissertation.algorithms.GAs.main.crossover.CrossoverFiveOffspring;
 import com.anniefraz.dissertation.algorithms.GAs.main.crossover.CrossoverMethod;
+import com.anniefraz.dissertation.algorithms.GAs.main.crossover.CrossoverOneOffspring;
 import com.anniefraz.dissertation.algorithms.GAs.main.crossover.CrossoverThreeOffspring;
 import com.anniefraz.dissertation.algorithms.GAs.main.selection.RandomSelection;
 import com.anniefraz.dissertation.algorithms.GAs.main.selection.SelectionMethod;
@@ -32,7 +34,7 @@ import java.util.*;
 public class GA {
     private static final Logger LOG = LoggerFactory.getLogger(GA.class);
     private static final String PATHNAME = "C:\\Users\\user\\IdeaProjects\\Anna-Gin\\test-runner\\examples\\unittests";
-    private static int seed = 1000;
+    private static int seed = 5678;
     private UserInput userInput;
     public int populationSize;
     private Random random = new Random(seed);
@@ -47,6 +49,7 @@ public class GA {
         Source source1 = patch.getOutputSource();
         LOG.debug("Source:{]", source1);
         LOG.info("Edits:{} ", patch.getEdits());
+        LOG.info("Number of Edits:{}", patch.getEdits().size());
         LOG.debug("Source {}", patch.getSource());
         calculateFitness(source1, patch); //Go to Stage 2
     }
@@ -56,12 +59,13 @@ public class GA {
         for (int i = 0; i < numberOfPatches; i++) {
             Patch patch = generatePatch(patchFactory, source);
             patches.add(patch);
+            patchData(patch);
         }
         return patches;
     }
 
     public Patch generatePatch(PatchFactory patchFactory, Source source) {
-        return patchFactory.getPatchForSourceWithEdits(source, 1);
+        return patchFactory.getPatchForSourceWithEdits(source, 2);
     }
 
     /**
@@ -75,7 +79,8 @@ public class GA {
      * @return
      */
     public List<Patch> initializePopulation(PatchFactory patchFactory, Source source) {
-        this.populationSize = random.nextInt(10);
+        this.populationSize = userInput.getPopulationSize();
+        //this.populationSize = random.nextInt(10);
         LOG.info("Population Size: {}", populationSize);
         List<Patch> patches = generateABunchOfPatches(patchFactory, source, populationSize);
         for (int i = 0; i < patches.size(); i++) {
@@ -119,11 +124,11 @@ public class GA {
             LOG.info("COMPILE");
             LOG.info("TIME:{}", compileTime);
             unitTestResult = new FitnessUnitTests(userInput).measure(patch);
-            if (unitTestResult == 1.0) {
+            if (unitTestResult == 0.0) {
                 opacitorMeasurement = new FitnessEnergy(userInput).measure(output);
             } else {
                 LOG.error("Unit tests did not pass");
-                opacitorMeasurement = 10000.00;
+                opacitorMeasurement = 12345.0;
             }
         }
         double score = unitTestResult + opacitorMeasurement;
@@ -132,10 +137,6 @@ public class GA {
         patch.setOpacitorMeasurement1(opacitorMeasurement);
         LOG.info("Patch Fitness Score:{}", patch.getFitnessScore());
     }
-
-
-
-
 
     /**
      * PHASE 3: Purpose: to select the best individual so they pass their genes on.
@@ -159,6 +160,7 @@ public class GA {
      * @return
      */
     public List<Offspring> crossover(List<Patch> parents, Source source) {
+       // CrossoverMethod crossoverMethod = new CrossoverThreeOffspring();
         CrossoverMethod crossoverMethod = new CrossoverThreeOffspring();
         List<Offspring> offspring = crossoverMethod.crossover(parents, source);
         for (int i = 0; i < offspring.size(); i++) {
@@ -176,15 +178,19 @@ public class GA {
     public Neighbour mutation(Offspring patch) {
         Neighbour neighbour = new Neighbour(patch);
         List<Edit> edits = neighbour.getEdits();
-        if (patch.getEdits().size() > 0 || patch.getFitnessScore() < 1.0 || patch.getFitnessScore() >= 24690.0) {
+        //Random rng = new Random(1234);
+        if (patch.getEdits().size() > 0 && random.nextFloat() > 0.5){ // && patch.getFitnessScore() >= 24690.0){
+       // if (patch.getEdits().size() > 0 || patch.getFitnessScore() < 1.0 || patch.getFitnessScore() >= 24690.0) {
+           LOG.info("Removing edits");
             edits.remove(random.nextInt(edits.size()));
         } else {
             edits.add(random.nextInt(edits.size() + 1), patch.getEdits().get(random.nextInt(patch.getEdits().size())));
         }
+        neighbour = new Neighbour(edits, patch);
         patchData(neighbour);
-        LOG.info("new Neighbour generated: {}", neighbour);
+        LOG.debug("new Neighbour generated: {}", neighbour);
         LOG.info("Neighbour number of Edits:{}", edits.size());
-        LOG.info("Neighbour details:{}", neighbour);
+        LOG.debug("Neighbour details:{}", neighbour);
         return neighbour;
     }
 

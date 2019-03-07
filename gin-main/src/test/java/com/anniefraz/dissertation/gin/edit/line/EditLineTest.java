@@ -72,7 +72,7 @@ public class EditLineTest {
         int firstLineIndex = 2;
         int secondLineIndex = 7;
         Edit testEdit = new SwapLineEdit(firstLineIndex, secondLineIndex, annaPath);
-        List<String> expectedOutput = Arrays.asList("A", "I","B", "D", "E", "F", "G",  "C", "H", "J");
+        List<String> expectedOutput = Arrays.asList("A", "B", "H","D", "E", "F", "G", "C", "I", "J");
         when(annaClass.getLines()).thenReturn(testLines);
 
         //ACT
@@ -106,6 +106,70 @@ public class EditLineTest {
         int destinationLineIndex = 7;
         Edit testEdit = new MoveLineEdit(sourceLineIndex, destinationLineIndex, annaPath);
         List<String> expectedOutput = Arrays.asList("A", "B", "C", "D",  "F", "G", "H", "E", "I", "J");
+
+        when(annaClass.getLines()).thenReturn(testLines);
+        //ACT
+        testEdit.apply(source);
+
+        //ASSERT
+        assertEquals(10, testLines.size());
+        assertEquals(expectedOutput, testLines);
+    }
+    @Test
+    public void testMoveLineEdit2(){
+        //Arrange
+        int sourceLineIndex = 4;
+        int destinationLineIndex = 4;
+        Edit testEdit = new MoveLineEdit(sourceLineIndex, destinationLineIndex, annaPath);
+        List<String> expectedOutput = Arrays.asList("A", "B", "C", "D", "E", "F", "G", "H",  "I", "J");
+
+        when(annaClass.getLines()).thenReturn(testLines);
+        //ACT
+        testEdit.apply(source);
+
+        //ASSERT
+        assertEquals(10, testLines.size());
+        assertEquals(expectedOutput, testLines);
+    }
+    @Test
+    public void testMoveLineEdit3(){
+        //Arrange
+        int sourceLineIndex = 4;
+        int destinationLineIndex = 1;
+        Edit testEdit = new MoveLineEdit(sourceLineIndex, destinationLineIndex, annaPath);
+        List<String> expectedOutput = Arrays.asList("A", "E", "B", "C", "D", "F", "G", "H", "I", "J");
+
+        when(annaClass.getLines()).thenReturn(testLines);
+        //ACT
+        testEdit.apply(source);
+
+        //ASSERT
+        assertEquals(10, testLines.size());
+        assertEquals(expectedOutput, testLines);
+    }
+    @Test
+    public void testMoveLineEdit4(){
+        //Arrange
+        int sourceLineIndex = 4;
+        int destinationLineIndex = 0;
+        Edit testEdit = new MoveLineEdit(sourceLineIndex, destinationLineIndex, annaPath);
+        List<String> expectedOutput = Arrays.asList("E", "A", "B", "C", "D", "F", "G", "H", "I", "J");
+
+        when(annaClass.getLines()).thenReturn(testLines);
+        //ACT
+        testEdit.apply(source);
+
+        //ASSERT
+        assertEquals(10, testLines.size());
+        assertEquals(expectedOutput, testLines);
+    }
+    @Test
+    public void testMoveLineEdit5(){
+        //Arrange
+        int sourceLineIndex = 4;
+        int destinationLineIndex = 9;
+        Edit testEdit = new MoveLineEdit(sourceLineIndex, destinationLineIndex, annaPath);
+        List<String> expectedOutput = Arrays.asList("A", "B", "C", "D", "F", "G", "H", "I", "J", "E");
 
         when(annaClass.getLines()).thenReturn(testLines);
         //ACT

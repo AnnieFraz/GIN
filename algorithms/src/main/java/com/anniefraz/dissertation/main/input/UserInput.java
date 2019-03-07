@@ -8,6 +8,7 @@ public class UserInput {
     private final String testFileName;
     private final String packageName;
     private final int iterations;
+    private final int populationSize;
 
 
     private UserInput(UserInputBuilder builder) {
@@ -15,6 +16,7 @@ public class UserInput {
         testFileName = builder.testFileName;
         packageName = builder.packageName;
         iterations = builder.iterations;
+        populationSize = builder.populationSize;
     }
 
     public String getClassFileName() {
@@ -31,6 +33,10 @@ public class UserInput {
 
     public int getIterations() {
         return iterations;
+    }
+
+    public int getPopulationSize() {
+        return populationSize;
     }
 
     @Override
@@ -53,6 +59,7 @@ public class UserInput {
         private String testFileName;
         private String packageName;
         private int iterations;
+        private int populationSize;
 
         private UserInputBuilder() {
         }
@@ -74,6 +81,11 @@ public class UserInput {
 
         public UserInputBuilder setIterations(int iterations) {
             this.iterations = iterations;
+            return this;
+        }
+
+        public UserInputBuilder setPopulationSize(int populationSize) {
+            this.populationSize = populationSize;
             return this;
         }
 

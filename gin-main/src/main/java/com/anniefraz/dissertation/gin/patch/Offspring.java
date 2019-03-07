@@ -2,14 +2,17 @@ package com.anniefraz.dissertation.gin.patch;
 
 import com.anniefraz.dissertation.gin.edit.Edit;
 import com.anniefraz.dissertation.gin.source.Source;
+import org.apache.commons.lang.builder.ToStringBuilder;
 
 import java.util.List;
+
 
 public class Offspring extends Patch {
 
     private String origin;
     private Source source;
     private List<Edit> edits;
+    private long compileTime;
 
     public Offspring(Source source, List<Edit> edits) {
         super(source, edits);
@@ -22,14 +25,25 @@ public class Offspring extends Patch {
         this.origin = origin;
     }
 
-    @Override
-    public String toString() {
-        return "Offspring{" +
-                "origin='" + origin + '\'' +
-                '}';
-    }
+
 
     public Patch getPatch() {
         return new Patch(source, edits);
+    }
+
+    @Override
+    public void setCompileTime(long compileTime) {
+        this.compileTime = compileTime;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("ORIGIN: ", origin)
+                .append("NO.EDITS: ", edits.size())
+               // .append("source", source)
+                .append("EDITS: ", edits)
+                .append("TIME: ", compileTime)
+                .toString();
     }
 }

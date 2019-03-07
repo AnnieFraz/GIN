@@ -13,17 +13,26 @@ public class SwapLineEdit extends SingleClassEdit {
 
     public SwapLineEdit(int firstLineIndex, int secondLineIndex, AnnaPath annaPath) {
         super(annaPath);
-        this.firstLineIndex = firstLineIndex;
-        this.secondLineIndex = secondLineIndex;
+
+        if (firstLineIndex  > secondLineIndex){
+            this.firstLineIndex = secondLineIndex;
+            this.secondLineIndex = firstLineIndex;
+        } else{
+            this.firstLineIndex = firstLineIndex;
+            this.secondLineIndex = secondLineIndex;
+        }
     }
 
     @Override
     protected void applyMethod(AnnaClass annaClass) {
+        if (firstLineIndex == secondLineIndex){
+            return;
+        }
         List<String> lines = annaClass.getLines();
         String line1 = lines.remove(firstLineIndex);
-        String line2 = lines.remove(secondLineIndex);
-        lines.add(secondLineIndex-1, line1);
-        lines.add(firstLineIndex-1, line2);
+        String line2 = lines.remove(secondLineIndex-1);
+        lines.add(firstLineIndex, line2);
+        lines.add(secondLineIndex, line1);
     }
 
     @Override

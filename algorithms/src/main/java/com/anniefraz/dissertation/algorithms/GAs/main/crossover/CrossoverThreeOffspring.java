@@ -52,6 +52,8 @@ public class CrossoverThreeOffspring implements CrossoverMethod{
         //patchData(offspring3);
         offspring.add(2, offspring3);
 
+
+
         return offspring;
     }
 }

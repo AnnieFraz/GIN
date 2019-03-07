@@ -77,6 +77,10 @@ if (testClassName.equals("example.TriangleTest")) {
     tests.add(test);
     tests.add(test1);
 }
+else if (testClassName.equals("complex.ComplexTest")){
+    UnitTest test = new UnitTest(testClassName, "testReturn");
+    tests.add(test);
+}
 
 
         //Getting com.anniefraz.dissertation.experiments.results
@@ -92,9 +96,9 @@ if (testClassName.equals("example.TriangleTest")) {
         LOG.debug("Unit test a success?:", successful.toString());
         double result; // = successful ? 1.0 :0.0;
         if (successful.equals(true)){
-            result = 1.0;
-        } else{
             result = 0.0;
+        } else{
+            result = 1.0;
         }
 
         LOG.info("Unit test result: {}", result);

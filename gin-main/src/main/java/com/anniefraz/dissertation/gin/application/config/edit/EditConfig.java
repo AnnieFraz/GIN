@@ -20,7 +20,7 @@ import java.util.function.Function;
 
 @Configuration
 public class EditConfig {
-
+/*
     @Bean
     //TODO: Need to figure out what to be inserted
     //USE THIS EDIT. If you want it to compile succesfully guarenteed everytime
@@ -32,16 +32,47 @@ public class EditConfig {
             //System.out.println(anAnnaClass.getLines().get(9));
             return new InsertLineEdit(whichLine,"//this is a comment" , anAnnaClass.getPath());
         };
-    }
+    }*/
 
-    //TODO: need to check that the line is actually being removed
     @Bean
     public Function<AnnaClass, Edit> removeLineEdit() {
         return anAnnaClass -> {
             int size = anAnnaClass.getLines().size();
-           // int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
-            int whichLine = 9;
+            int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            //System.out.println(anAnnaClass.getLines().get(9));
+            //int whichLine = 9;
             return new RemoveLineEdit(whichLine, anAnnaClass.getPath());
+        };
+    }
+
+
+    @Bean
+    public Function<AnnaClass, Edit> swapLineEdit(){
+        return anAnnaClass -> {
+            int size = anAnnaClass.getLines().size();
+            int whichFirstLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            int whichSecondLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            return new SwapLineEdit(whichFirstLine, whichSecondLine, anAnnaClass.getPath());
+        };
+    }
+
+    @Bean
+    public Function<AnnaClass, Edit> moveLineEdit(){
+        return anAnnaClass -> {
+            int size = anAnnaClass.getLines().size();
+            int sourceLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            int destinationLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            return new MoveLineEdit(sourceLine, destinationLine, anAnnaClass.getPath());
+        };
+    }
+
+/*
+    @Bean
+    public Function<AnnaClass, Edit> operatorEdit(){
+        return anAnnaClass -> {
+            int size = anAnnaClass.getLines().size();
+            int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
+            return new IfStatementEdit(whichLine, anAnnaClass.getPath());
         };
     }
 
@@ -64,39 +95,8 @@ public class EditConfig {
         };
     }
 
-    @Bean
-    public Function<AnnaClass, Edit> swapLineEdit(){
-        return anAnnaClass -> {
-            int size = anAnnaClass.getLines().size();
-            int whichFirstLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
-            int whichSecondLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
-            return new SwapLineEdit(whichFirstLine, whichSecondLine, anAnnaClass.getPath());
-        };
-    }
 
     @Bean
-    public Function<AnnaClass, Edit> moveLineEdit(){
-        return anAnnaClass -> {
-            int size = anAnnaClass.getLines().size();
-            int sourceLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
-            int destinationLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
-            return new MoveLineEdit(sourceLine, destinationLine, anAnnaClass.getPath());
-        };
-    }
-
-
-    @Bean
-    //TODO: GET THIS EDIT TO SWAP CONDITIONS
-    public Function<AnnaClass, Edit> operatorEdit(){
-        return anAnnaClass -> {
-            int size = anAnnaClass.getLines().size();
-            int whichLine = Double.valueOf(Math.floor(Math.random() * size)).intValue();
-            return new IfStatementEdit(whichLine, anAnnaClass.getPath());
-        };
-    }
-
-    @Bean
-    //TODO: Double checks this works
     public Function<AnnaClass, Edit> removeBlockEdit(){
         return anAnnaClass -> {
             int size = anAnnaClass.getLines().size();
@@ -137,6 +137,6 @@ public class EditConfig {
         return anAnnaClass -> {
             return new NoEditEdit(anAnnaClass.getPath());
         };
-    }
+    }*/
 
 }

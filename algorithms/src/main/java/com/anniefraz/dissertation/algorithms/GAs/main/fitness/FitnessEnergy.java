@@ -36,9 +36,9 @@ public class FitnessEnergy implements FitnessMeasurement<String> {
     public double measure (String output)  {
         setOutput(output);
         try {
-           //result  = codeLengthOpacitor();
+        //   result  = codeLengthOpacitor();
          result = bytecodeHistogramOpacitor();
-        //   result = superSimpleJalenOpacitor();
+           //result = superSimpleJalenOpacitor();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -108,7 +108,9 @@ public class FitnessEnergy implements FitnessMeasurement<String> {
         output = getOutput();
 
         double measurement;
-        opacitor.updateCode(Collections.singletonList(new Tuple3<>(output, userInput.getPackageName(), userInput.getClassFileName())));
+       opacitor.updateCode(Collections.singletonList(new Tuple3<>(output, userInput.getPackageName(), userInput.getClassFileName())));
+       // opacitor.updateCode(Collections.singletonList(new Tuple3<>(output, "cscu9a2", "ProductChart")));
+
         measurement = opacitor.fitness(new String[]{"test1.txt", "1000", "10000"});
         LOG.info("Measurement: {}", measurement);
 

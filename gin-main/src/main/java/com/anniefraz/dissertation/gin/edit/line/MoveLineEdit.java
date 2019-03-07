@@ -14,10 +14,14 @@ public class MoveLineEdit extends SingleClassEdit {
         super(annaPath);
         this.sourceLineIndex = sourceLineIndex;
         this.destinationLineIndex = destinationLineIndex;
+
     }
 
     @Override
     protected void applyMethod(AnnaClass annaClass) {
+        if (sourceLineIndex == destinationLineIndex){
+            return;
+        }
         List<String> lines = annaClass.getLines();
         String line = lines.remove(sourceLineIndex);
         lines.add(destinationLineIndex, line);

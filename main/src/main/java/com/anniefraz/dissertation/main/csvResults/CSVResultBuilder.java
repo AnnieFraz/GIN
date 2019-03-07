@@ -35,7 +35,7 @@ public class CSVResultBuilder {
         this.population = population;
         return this;
     }
-
+/*
     public CSVResultBuilder setOffspring(List<Offspring> offspring) {
         this.offspring = offspring;
         return this;
@@ -50,7 +50,7 @@ public class CSVResultBuilder {
         this.neighbour = neighbour;
         return this;
     }
-
+*/
     public CSVResult build(){
         return new CSVResult(iteration, populationSize, population, offspring, neighbour);
     }
