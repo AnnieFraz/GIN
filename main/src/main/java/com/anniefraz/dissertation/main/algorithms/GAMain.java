@@ -41,7 +41,7 @@ public class GAMain {
 
     static {
         try {
-            RESULTWRITER = new CSVResultFileWriter("TriangleDLMLSL2Random");
+            RESULTWRITER = new CSVResultFileWriter("ResultDLMLSLV1Pop100I10Complex");
         } catch (IOException e) {
             e.printStackTrace();
         }

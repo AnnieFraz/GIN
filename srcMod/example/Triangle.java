@@ -16,7 +16,6 @@ public class Triangle {
             a = b;
             b = tmp;
         }
-
         if (a > c) {
             int tmp = a;
             a = c;
@@ -53,6 +52,7 @@ public class Triangle {
         Random random = new Random(1); // seed 1
 
         Thread.sleep(startDelayMS);
+
         double d = 1;
         for (int i = 0; i < iterations; ++i) {
             //System.out.print(i + ", ");

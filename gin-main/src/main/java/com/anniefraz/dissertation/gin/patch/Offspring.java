@@ -14,6 +14,18 @@ public class Offspring extends Patch {
     private List<Edit> edits;
     private long compileTime;
 
+    @Override
+    public double getFitnessScore() {
+        return fitnessScore;
+    }
+
+    @Override
+    public void setFitnessScore(double fitnessScore) {
+        this.fitnessScore = fitnessScore;
+    }
+
+    private double fitnessScore;
+
     public Offspring(Source source, List<Edit> edits) {
         super(source, edits);
         this.source = source;
@@ -44,6 +56,7 @@ public class Offspring extends Patch {
                // .append("source", source)
                 .append("EDITS: ", edits)
                 .append("TIME: ", compileTime)
+                .append("FITNESS SCORE: ", fitnessScore)
                 .toString();
     }
 }

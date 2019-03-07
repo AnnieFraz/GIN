@@ -216,6 +216,8 @@ gradle-app.setting
 
 # Ignore population .csv file
 .csv
+/*.csv
+*.csv
 
 opacitor/simpleOpacitor/
 

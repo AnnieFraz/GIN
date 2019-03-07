@@ -74,6 +74,7 @@ public class Complex {
     public double re() { return re; }
     public double im() { return im; }
 
+    // return a / b
     public Complex divides(Complex b) {
         Complex a = this;
         return a.times(b.reciprocal());
@@ -99,7 +100,7 @@ public class Complex {
         return sin().divides(cos());
     }
 
-
+    // a static version of plus
     public static Complex plus(Complex a, Complex b) {
         double real = a.re + b.re;
         double imag = a.im + b.im;
@@ -116,7 +117,6 @@ public class Complex {
     }
 
     // See Section 3.3.
-    // return a / b
     public int hashCode() {
         return Objects.hash(re, im);
     }
