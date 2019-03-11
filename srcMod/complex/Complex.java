@@ -12,7 +12,7 @@ public class Complex {
         im = imag;
     }
 
-    // return a string representation of the invoking Complex object
+    // return a new Complex object whose value is (this - b)
     public String toString() {
         if (im == 0) return re + "";
         if (re == 0) return im + "i";
@@ -38,7 +38,7 @@ public class Complex {
         return new Complex(real, imag);
     }
 
-    // return a new Complex object whose value is (this - b)
+    // return a string representation of the invoking Complex object
     public Complex minus(Complex b) {
         Complex a = this;
         double real = a.re - b.re;

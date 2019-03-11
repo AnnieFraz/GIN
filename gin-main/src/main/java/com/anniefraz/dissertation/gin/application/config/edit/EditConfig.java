@@ -85,6 +85,7 @@ public class EditConfig {
 
         };
     }
+
     @Bean
     public Function<AnnaClass, Edit> insertReturnEdit(){
         return anAnnaClass -> {
@@ -93,12 +94,13 @@ public class EditConfig {
             return new InsertReturnEdit(whichLine,"return;" , anAnnaClass.getPath());
 
         };
-    }
+    }*/
 
-
+/*
     @Bean
     public Function<AnnaClass, Edit> removeBlockEdit(){
         return anAnnaClass -> {
+        //Maybe try removing the whole delay function
             int size = anAnnaClass.getLines().size();
             int startInt = Double.valueOf(Math.floor(Math.random() * size)).intValue();
             int endInt = Double.valueOf(Math.floor(Math.random() * size)).intValue();
@@ -123,11 +125,14 @@ public class EditConfig {
     public Function<AnnaClass, Edit> swapBlockEdit(){
         return anAnnaClass -> {
             int size = anAnnaClass.getLines().size();
+
             int blockOneStartNo = Double.valueOf(Math.floor(Math.random() * size)).intValue();
             int blockOneEndNo = Double.valueOf(Math.floor(Math.random() * size)).intValue();
             int blockTwoStartNo = Double.valueOf(Math.floor(Math.random() * size)).intValue();
             int blockTwoEndNo = Double.valueOf(Math.floor(Math.random() * size)).intValue();
             return new SwapBlockEdit(blockOneStartNo,blockOneEndNo,blockTwoStartNo,blockTwoEndNo, anAnnaClass.getPath());
+
+           // return new SwapBlockEdit(14,18, 24, 28, anAnnaClass.getPath());
         };
     }
 
@@ -137,6 +142,7 @@ public class EditConfig {
         return anAnnaClass -> {
             return new NoEditEdit(anAnnaClass.getPath());
         };
-    }*/
+    }
+    */
 
 }

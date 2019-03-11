@@ -41,7 +41,7 @@ public class GAMain {
 
     static {
         try {
-            RESULTWRITER = new CSVResultFileWriter("ResultDLMLSLV1Pop100I10Complex");
+            RESULTWRITER = new CSVResultFileWriter("SwapBlockTraingle");
         } catch (IOException e) {
             throw new RuntimeException("Failed to run CSV", e);
         }
