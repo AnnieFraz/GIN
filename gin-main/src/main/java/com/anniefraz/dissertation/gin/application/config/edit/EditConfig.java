@@ -20,7 +20,7 @@ import java.util.function.Function;
 
 @Configuration
 public class EditConfig {
-/*
+
     @Bean
     //TODO: Need to figure out what to be inserted
     //USE THIS EDIT. If you want it to compile succesfully guarenteed everytime
@@ -32,7 +32,7 @@ public class EditConfig {
             //System.out.println(anAnnaClass.getLines().get(9));
             return new InsertLineEdit(whichLine,"//this is a comment" , anAnnaClass.getPath());
         };
-    }*/
+    }
 
     @Bean
     public Function<AnnaClass, Edit> removeLineEdit() {
@@ -66,7 +66,7 @@ public class EditConfig {
         };
     }
 
-/*
+
     @Bean
     public Function<AnnaClass, Edit> operatorEdit(){
         return anAnnaClass -> {
@@ -94,7 +94,7 @@ public class EditConfig {
             return new InsertReturnEdit(whichLine,"return;" , anAnnaClass.getPath());
 
         };
-    }*/
+    }
 
 /*
     @Bean
@@ -108,7 +108,7 @@ public class EditConfig {
         };
     }
 
-
+*/
     @Bean
     public Function<AnnaClass, Edit> moveBlockEdit(){
         return anAnnaClass -> {
@@ -120,7 +120,7 @@ public class EditConfig {
         };
     }
 
-
+/*
     @Bean
     public Function<AnnaClass, Edit> swapBlockEdit(){
         return anAnnaClass -> {
@@ -130,12 +130,10 @@ public class EditConfig {
             int blockOneEndNo = Double.valueOf(Math.floor(Math.random() * size)).intValue();
             int blockTwoStartNo = Double.valueOf(Math.floor(Math.random() * size)).intValue();
             int blockTwoEndNo = Double.valueOf(Math.floor(Math.random() * size)).intValue();
-            return new SwapBlockEdit(blockOneStartNo,blockOneEndNo,blockTwoStartNo,blockTwoEndNo, anAnnaClass.getPath());
-
-           // return new SwapBlockEdit(14,18, 24, 28, anAnnaClass.getPath());
+            return new SwapBlockEdit(14,18, 24, 28, anAnnaClass.getPath());
         };
     }
-
+*/
 
     @Bean
     public Function<AnnaClass,  Edit> noEditEdit(){
@@ -143,6 +141,6 @@ public class EditConfig {
             return new NoEditEdit(anAnnaClass.getPath());
         };
     }
-    */
+
 
 }

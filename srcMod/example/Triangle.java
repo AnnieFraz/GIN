@@ -57,6 +57,7 @@ public class Triangle {
         for (int i = 0; i < iterations; ++i) {
             //System.out.print(i + ", ");
             if (i % 100 == 0) {
+break;
             //    System.out.println();
             }
             d *= random.nextDouble();

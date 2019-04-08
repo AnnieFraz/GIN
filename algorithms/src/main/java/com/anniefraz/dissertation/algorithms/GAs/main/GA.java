@@ -179,7 +179,7 @@ public class GA {
         Neighbour neighbour = new Neighbour(patch);
         List<Edit> edits = neighbour.getEdits();
         //Random rng = new Random(1234);
-        if (patch.getEdits().size() > 0 && random.nextFloat() > 0.7){ // && patch.getFitnessScore() >= 24690.0){
+        if (patch.getEdits().size() > 0 && random.nextFloat() > 0.8){ // && patch.getFitnessScore() >= 24690.0){
        // if (patch.getEdits().size() > 0 || patch.getFitnessScore() < 1.0 || patch.getFitnessScore() >= 24690.0) {
            LOG.info("Removing edits");
             edits.remove(random.nextInt(edits.size()));

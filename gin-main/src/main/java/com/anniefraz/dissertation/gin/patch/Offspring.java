@@ -57,6 +57,7 @@ public class Offspring extends Patch {
                 .append("EDITS: ", edits)
                 .append("TIME: ", compileTime)
                 .append("FITNESS SCORE: ", fitnessScore)
+                .append("SUPER PATCH:", super.toString())
                 .toString();
     }
 }
